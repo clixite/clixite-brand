@@ -1,0 +1,282 @@
+[
+  {
+    "theme": "papier",
+    "fg": "text",
+    "bg": "bg",
+    "fgHex": "#0B2239",
+    "bgHex": "#F6F5F0",
+    "ratio": 14.77,
+    "min": 4.5,
+    "ok": true
+  },
+  {
+    "theme": "papier",
+    "fg": "text",
+    "bg": "bg-alt",
+    "fgHex": "#0B2239",
+    "bgHex": "#EDEBE3",
+    "ratio": 13.51,
+    "min": 4.5,
+    "ok": true
+  },
+  {
+    "theme": "papier",
+    "fg": "text",
+    "bg": "surface",
+    "fgHex": "#0B2239",
+    "bgHex": "#FFFFFF",
+    "ratio": 16.13,
+    "min": 4.5,
+    "ok": true
+  },
+  {
+    "theme": "papier",
+    "fg": "text-muted",
+    "bg": "bg",
+    "fgHex": "#4B5A6B",
+    "bgHex": "#F6F5F0",
+    "ratio": 6.47,
+    "min": 4.5,
+    "ok": true
+  },
+  {
+    "theme": "papier",
+    "fg": "text-muted",
+    "bg": "bg-alt",
+    "fgHex": "#4B5A6B",
+    "bgHex": "#EDEBE3",
+    "ratio": 5.92,
+    "min": 4.5,
+    "ok": true
+  },
+  {
+    "theme": "papier",
+    "fg": "text-muted",
+    "bg": "surface",
+    "fgHex": "#4B5A6B",
+    "bgHex": "#FFFFFF",
+    "ratio": 7.06,
+    "min": 4.5,
+    "ok": true
+  },
+  {
+    "theme": "papier",
+    "fg": "link",
+    "bg": "bg",
+    "fgHex": "#0C7893",
+    "bgHex": "#F6F5F0",
+    "ratio": 4.67,
+    "min": 4.5,
+    "ok": true
+  },
+  {
+    "theme": "papier",
+    "fg": "link",
+    "bg": "surface",
+    "fgHex": "#0C7893",
+    "bgHex": "#FFFFFF",
+    "ratio": 5.09,
+    "min": 4.5,
+    "ok": true
+  },
+  {
+    "theme": "papier",
+    "fg": "link-hover",
+    "bg": "bg",
+    "fgHex": "#095E73",
+    "bgHex": "#F6F5F0",
+    "ratio": 6.73,
+    "min": 4.5,
+    "ok": true
+  },
+  {
+    "theme": "papier",
+    "fg": "on-accent",
+    "bg": "accent",
+    "fgHex": "#0B2239",
+    "bgHex": "#19B3D9",
+    "ratio": 6.52,
+    "min": 4.5,
+    "ok": true
+  },
+  {
+    "theme": "papier",
+    "fg": "on-accent",
+    "bg": "accent-hover",
+    "fgHex": "#0B2239",
+    "bgHex": "#3FC3E3",
+    "ratio": 7.78,
+    "min": 4.5,
+    "ok": true
+  },
+  {
+    "theme": "papier",
+    "fg": "focus",
+    "bg": "bg",
+    "fgHex": "#0C7893",
+    "bgHex": "#F6F5F0",
+    "ratio": 4.67,
+    "min": 3,
+    "ok": true
+  },
+  {
+    "theme": "papier",
+    "fg": "border-strong",
+    "bg": "bg",
+    "fgHex": "#4B5A6B",
+    "bgHex": "#F6F5F0",
+    "ratio": 6.47,
+    "min": 3,
+    "ok": true
+  },
+  {
+    "theme": "papier",
+    "fg": "danger",
+    "bg": "bg",
+    "fgHex": "#D81B60",
+    "bgHex": "#F6F5F0",
+    "ratio": 4.53,
+    "min": 4.5,
+    "ok": true
+  },
+  {
+    "theme": "encre",
+    "fg": "text",
+    "bg": "bg",
+    "fgHex": "#F6F5F0",
+    "bgHex": "#0B2239",
+    "ratio": 14.77,
+    "min": 4.5,
+    "ok": true
+  },
+  {
+    "theme": "encre",
+    "fg": "text",
+    "bg": "bg-alt",
+    "fgHex": "#F6F5F0",
+    "bgHex": "#122D4A",
+    "ratio": 12.83,
+    "min": 4.5,
+    "ok": true
+  },
+  {
+    "theme": "encre",
+    "fg": "text",
+    "bg": "surface",
+    "fgHex": "#F6F5F0",
+    "bgHex": "#122D4A",
+    "ratio": 12.83,
+    "min": 4.5,
+    "ok": true
+  },
+  {
+    "theme": "encre",
+    "fg": "text-muted",
+    "bg": "bg",
+    "fgHex": "#CDD5DD",
+    "bgHex": "#0B2239",
+    "ratio": 10.87,
+    "min": 4.5,
+    "ok": true
+  },
+  {
+    "theme": "encre",
+    "fg": "text-muted",
+    "bg": "bg-alt",
+    "fgHex": "#CDD5DD",
+    "bgHex": "#122D4A",
+    "ratio": 9.44,
+    "min": 4.5,
+    "ok": true
+  },
+  {
+    "theme": "encre",
+    "fg": "text-muted",
+    "bg": "surface",
+    "fgHex": "#CDD5DD",
+    "bgHex": "#122D4A",
+    "ratio": 9.44,
+    "min": 4.5,
+    "ok": true
+  },
+  {
+    "theme": "encre",
+    "fg": "link",
+    "bg": "bg",
+    "fgHex": "#19B3D9",
+    "bgHex": "#0B2239",
+    "ratio": 6.52,
+    "min": 4.5,
+    "ok": true
+  },
+  {
+    "theme": "encre",
+    "fg": "link",
+    "bg": "surface",
+    "fgHex": "#19B3D9",
+    "bgHex": "#122D4A",
+    "ratio": 5.66,
+    "min": 4.5,
+    "ok": true
+  },
+  {
+    "theme": "encre",
+    "fg": "link-hover",
+    "bg": "bg",
+    "fgHex": "#3FC3E3",
+    "bgHex": "#0B2239",
+    "ratio": 7.78,
+    "min": 4.5,
+    "ok": true
+  },
+  {
+    "theme": "encre",
+    "fg": "on-accent",
+    "bg": "accent",
+    "fgHex": "#0B2239",
+    "bgHex": "#19B3D9",
+    "ratio": 6.52,
+    "min": 4.5,
+    "ok": true
+  },
+  {
+    "theme": "encre",
+    "fg": "on-accent",
+    "bg": "accent-hover",
+    "fgHex": "#0B2239",
+    "bgHex": "#3FC3E3",
+    "ratio": 7.78,
+    "min": 4.5,
+    "ok": true
+  },
+  {
+    "theme": "encre",
+    "fg": "focus",
+    "bg": "bg",
+    "fgHex": "#FFD233",
+    "bgHex": "#0B2239",
+    "ratio": 11.15,
+    "min": 3,
+    "ok": true
+  },
+  {
+    "theme": "encre",
+    "fg": "border-strong",
+    "bg": "bg",
+    "fgHex": "#8C99A8",
+    "bgHex": "#0B2239",
+    "ratio": 5.56,
+    "min": 3,
+    "ok": true
+  },
+  {
+    "theme": "encre",
+    "fg": "danger",
+    "bg": "bg",
+    "fgHex": "#FF4F8B",
+    "bgHex": "#0B2239",
+    "ratio": 5.18,
+    "min": 4.5,
+    "ok": true
+  }
+]
