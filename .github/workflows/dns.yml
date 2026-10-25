@@ -48,8 +48,17 @@ jobs:
       - name: Exécuter
         if: env.OVH_APP_KEY != ''
         run: |
+          mkdir -p dns
           case "${{ inputs.action }}" in
             list)   python3 scripts/ovh_dns.py list ;;
             upsert) python3 scripts/ovh_dns.py upsert "${{ inputs.subdomain }}" "${{ inputs.type }}" "${{ inputs.target }}" ;;
             delete) python3 scripts/ovh_dns.py delete "${{ inputs.subdomain }}" "${{ inputs.type }}" ;;
-          esac
+          esac | tee dns/derniere-action.txt
+          python3 scripts/ovh_dns.py list > dns/zone-clixite.be.txt
+      - name: Consigner l'état de la zone dans le dépôt
+        if: env.OVH_APP_KEY != ''
+        run: |
+          git config user.name "clixite-brand bot"
+          git config user.email "noreply@clixite.be"
+          git add dns/
+          git diff --cached --quiet && echo "Zone inchangée." || (git commit -q -m "DNS : ${{ inputs.action }} ${{ inputs.subdomain }} ${{ inputs.type }} [skip ci]" && git push)
