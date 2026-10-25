@@ -1,0 +1,94 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE, REVIEW, KNOWS_ABOUT } from "../data/site";
+
+interface Props {
+  title: string;
+  description: string;
+  path?: string;
+  schema?: Record<string, unknown>[];
+}
+const { title, description, path = "/", schema = [] } = Astro.props;
+const canonical = new URL(path, SITE.url).href;
+const og = new URL("/og-image.png", SITE.url).href;
+
+const org = {
+  "@type": ["Organization", "ProfessionalService"],
+  "@id": `${SITE.url}/#org`,
+  name: SITE.name,
+  legalName: SITE.legalName,
+  url: `${SITE.url}/`,
+  logo: `${SITE.url}/app-icon-512.png`,
+  image: og,
+  slogan: "Nous résolvons votre x.",
+  description: "Cabinet d'architecture d'entreprise et de solutions à Wavre (Belgique), fondé en 2005 : conception de l'architecture cible puis mise en production en Forward Deployed Engineer, pour les PME et les grands groupes.",
+  foundingDate: SITE.founded,
+  vatID: SITE.vatId,
+  email: SITE.email,
+  address: { "@type": "PostalAddress", streetAddress: SITE.address.street, postalCode: SITE.address.postalCode, addressLocality: SITE.address.city, addressRegion: SITE.address.region, addressCountry: SITE.address.country },
+  areaServed: [{ "@type": "Country", name: "Belgique" }, { "@type": "Country", name: "Luxembourg" }, { "@type": "Country", name: "Pays-Bas" }],
+  knowsLanguage: ["fr", "en", "nl"],
+  knowsAbout: KNOWS_ABOUT,
+  founder: { "@id": `${SITE.url}/#nicolas-simon` },
+  sameAs: [SITE.charte],
+};
+const person = {
+  "@type": "Person",
+  "@id": `${SITE.url}/#nicolas-simon`,
+  name: SITE.founder.name,
+  jobTitle: SITE.founder.jobTitle,
+  description: "Enterprise & Solution Architect et Forward Deployed Engineer, fondateur de Clixite (Wavre, Belgique). Architecte des systèmes d'information et des organisations, pas du bâtiment.",
+  worksFor: { "@id": `${SITE.url}/#org` },
+  url: `${SITE.url}/`,
+  sameAs: [SITE.linkedin],
+  knowsAbout: KNOWS_ABOUT,
+  knowsLanguage: ["fr", "en", "nl"],
+  hasCredential: SITE.founder.certifications.map((c) => ({ "@type": "EducationalOccupationalCredential", name: c, credentialCategory: "certification" })),
+  workLocation: { "@type": "Place", address: { "@type": "PostalAddress", addressLocality: SITE.address.city, addressCountry: SITE.address.country } },
+};
+const website = { "@type": "WebSite", "@id": `${SITE.url}/#website`, url: `${SITE.url}/`, name: SITE.name, inLanguage: SITE.locale, publisher: { "@id": `${SITE.url}/#org` } };
+const page = { "@type": "WebPage", "@id": `${canonical}#page`, url: canonical, name: title, description, inLanguage: SITE.locale, isPartOf: { "@id": `${SITE.url}/#website` }, about: { "@id": `${SITE.url}/#org` } };
+const graph = { "@context": "https://schema.org", "@graph": [org, person, website, page, ...schema] };
+---
+<!doctype html>
+<html lang="fr-BE" class={REVIEW ? "review" : undefined}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {REVIEW && <meta name="robots" content="noindex, nofollow" />}
+    <meta name="theme-color" content="#F6F5F0" />
+    <meta name="color-scheme" content="light" />
+    <link rel="preload" href="/fonts/space-grotesk-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/app-icon-180.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_BE" />
+    <meta property="og:site_name" content="Clixite" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={og} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Logo Clixite, Enterprise & Solution Architecture" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify(graph)} />
+  </head>
+  <body>
+    <a class="skip" href="#contenu">Aller au contenu</a>
+    <Header />
+    <main id="contenu" tabindex="-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

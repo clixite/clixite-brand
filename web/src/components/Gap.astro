@@ -1,0 +1,36 @@
+---
+const items = [
+  { t: "L'architecture reste dans les slides.", d: "La cible est validée en comité, puis personne ne la porte jusqu'en production. Le projet suivant repart de zéro." },
+  { t: "Les outils s'empilent, les données ne circulent pas.", d: "Chaque équipe a son logiciel, ses exports et son tableur. Les décisions se prennent sur des chiffres réconciliés à la main." },
+  { t: "La conformité arrive avant le plan.", d: "DORA, NIS2, l'AI Act et les exigences de vos clients tombent sur des systèmes qui n'ont pas été pensés pour elles." },
+];
+---
+<section class="section gap" aria-labelledby="gap-title">
+  <div class="wrap gap__in">
+    <div class="gap__head">
+      <h2 id="gap-title" class="h2">Entre la stratégie et la production, il y a un <span class="x">x</span>.</h2>
+      <p class="lead gap__lead">Nous refermons l'écart avec un seul interlocuteur, de la cible au déploiement. Ni intermédiaire, ni rapport qui dort.</p>
+    </div>
+    <dl class="gap__list">
+      {items.map((i) => (
+        <div class="gap__item">
+          <dt class="h3">{i.t}</dt>
+          <dd class="muted">{i.d}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>
+
+<style>
+  .gap__in { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--clx-space-9); align-items: start; }
+  .gap__head { position: sticky; top: 120px; }
+  .gap__lead { margin-top: var(--clx-space-5); }
+  .gap__list { display: grid; gap: var(--clx-space-8); padding-top: var(--clx-space-2); }
+  .gap__item dd { margin-top: var(--clx-space-3); max-width: 46ch; }
+  @media (max-width: 899px) {
+    .gap__in { grid-template-columns: 1fr; gap: var(--clx-space-7); }
+    .gap__head { position: static; }
+    .gap__list { gap: var(--clx-space-6); }
+  }
+</style>

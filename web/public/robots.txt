@@ -1,0 +1,5 @@
+# www.clixite.be : tout est public, assistants IA compris (visibilité GEO).
+User-agent: *
+Allow: /
+
+Sitemap: https://www.clixite.be/sitemap-index.xml

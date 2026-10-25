@@ -1,0 +1,261 @@
+{
+  "$description": "Clixite Design System 2.0, primitives (W3C DTCG). Source unique : ne pas éditer ds/dist à la main.",
+  "color": {
+    "encre": {
+      "$type": "color",
+      "$value": "#0B2239"
+    },
+    "encre-900": {
+      "$type": "color",
+      "$value": "#071827"
+    },
+    "encre-800": {
+      "$type": "color",
+      "$value": "#122D4A"
+    },
+    "encre-700": {
+      "$type": "color",
+      "$value": "#1F3A5A"
+    },
+    "encre-600": {
+      "$type": "color",
+      "$value": "#2A4A6E"
+    },
+    "papier": {
+      "$type": "color",
+      "$value": "#F6F5F0"
+    },
+    "papier-200": {
+      "$type": "color",
+      "$value": "#EDEBE3"
+    },
+    "blanc": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "brume": {
+      "$type": "color",
+      "$value": "#CDD5DD"
+    },
+    "ardoise": {
+      "$type": "color",
+      "$value": "#4B5A6B"
+    },
+    "ardoise-300": {
+      "$type": "color",
+      "$value": "#8C99A8"
+    },
+    "turquoise": {
+      "$type": "color",
+      "$value": "#19B3D9"
+    },
+    "turquoise-600": {
+      "$type": "color",
+      "$value": "#0C7893"
+    },
+    "turquoise-700": {
+      "$type": "color",
+      "$value": "#095E73"
+    },
+    "turquoise-100": {
+      "$type": "color",
+      "$value": "#D6F1F8"
+    },
+    "turquoise-300": {
+      "$type": "color",
+      "$value": "#3FC3E3"
+    },
+    "rose": {
+      "$type": "color",
+      "$value": "#FF4F8B"
+    },
+    "rose-600": {
+      "$type": "color",
+      "$value": "#D81B60"
+    },
+    "rose-100": {
+      "$type": "color",
+      "$value": "#FFE3EC"
+    },
+    "signal": {
+      "$type": "color",
+      "$value": "#FFD233"
+    },
+    "signal-100": {
+      "$type": "color",
+      "$value": "#FFF4CC"
+    },
+    "indigo": {
+      "$type": "color",
+      "$value": "#193776"
+    }
+  },
+  "font": {
+    "family": {
+      "display": {
+        "$type": "fontFamily",
+        "$value": [
+          "Space Grotesk",
+          "Space Grotesk Fallback",
+          "system-ui",
+          "sans-serif"
+        ]
+      },
+      "text": {
+        "$type": "fontFamily",
+        "$value": [
+          "Inter",
+          "Inter Fallback",
+          "system-ui",
+          "sans-serif"
+        ]
+      },
+      "voice": {
+        "$type": "fontFamily",
+        "$value": [
+          "Fraunces",
+          "Georgia",
+          "serif"
+        ]
+      },
+      "data": {
+        "$type": "fontFamily",
+        "$value": [
+          "JetBrains Mono",
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "monospace"
+        ]
+      }
+    },
+    "weight": {
+      "regular": {
+        "$type": "fontWeight",
+        "$value": 400
+      },
+      "medium": {
+        "$type": "fontWeight",
+        "$value": 500
+      },
+      "semibold": {
+        "$type": "fontWeight",
+        "$value": 600
+      },
+      "bold": {
+        "$type": "fontWeight",
+        "$value": 700
+      }
+    }
+  },
+  "space": {
+    "0": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "1": {
+      "$type": "dimension",
+      "$value": "4px"
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": "8px"
+    },
+    "3": {
+      "$type": "dimension",
+      "$value": "12px"
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "5": {
+      "$type": "dimension",
+      "$value": "24px"
+    },
+    "6": {
+      "$type": "dimension",
+      "$value": "32px"
+    },
+    "7": {
+      "$type": "dimension",
+      "$value": "48px"
+    },
+    "8": {
+      "$type": "dimension",
+      "$value": "64px"
+    },
+    "9": {
+      "$type": "dimension",
+      "$value": "96px"
+    },
+    "10": {
+      "$type": "dimension",
+      "$value": "128px"
+    },
+    "11": {
+      "$type": "dimension",
+      "$value": "192px"
+    }
+  },
+  "radius": {
+    "none": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "field": {
+      "$type": "dimension",
+      "$value": "2px"
+    },
+    "panel": {
+      "$type": "dimension",
+      "$value": "10px"
+    },
+    "pill": {
+      "$type": "dimension",
+      "$value": "999px"
+    }
+  },
+  "duration": {
+    "press": {
+      "$type": "duration",
+      "$value": "160ms"
+    },
+    "quick": {
+      "$type": "duration",
+      "$value": "240ms"
+    },
+    "element": {
+      "$type": "duration",
+      "$value": "450ms"
+    },
+    "block": {
+      "$type": "duration",
+      "$value": "600ms"
+    },
+    "signature": {
+      "$type": "duration",
+      "$value": "2400ms"
+    }
+  },
+  "easing": {
+    "out": {
+      "$type": "cubicBezier",
+      "$value": [
+        0.2,
+        0.8,
+        0.2,
+        1
+      ]
+    },
+    "in-out": {
+      "$type": "cubicBezier",
+      "$value": [
+        0.77,
+        0,
+        0.175,
+        1
+      ]
+    }
+  }
+}

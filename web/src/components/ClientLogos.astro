@@ -1,0 +1,65 @@
+---
+// Bandeau de références. Fichiers officiels (registre src/data/clients.registry.json), teintés par masque CSS :
+// la forme vient du client, la couleur vient du thème. Équilibrage optique : surface visuelle constante,
+// corrigée par la densité d'encre mesurée par scripts/build-clients.mjs.
+import clients from "../data/clients.json";
+import { REVIEW } from "../data/site";
+interface Logo { id: string; name: string; group: string; aspect: number; density: number }
+const BASE = 40;      // hauteur de référence d'un logo carré, en px
+const REF_DENSITY = 0.4;
+const size = (l: Logo) => {
+  let h = BASE / Math.sqrt(l.aspect) * 1.6;
+  h *= Math.pow(REF_DENSITY / l.density, 0.3);
+  h = Math.max(26, Math.min(64, h));
+  return { h: Math.round(h), w: Math.round(h * l.aspect) };
+};
+const groups = [
+  { key: "missions", label: "Missions Clixite" },
+  { key: "parcours", label: "Parcours du fondateur" },
+].map((g) => ({ ...g, logos: (clients as Logo[]).filter((c) => c.group === g.key) }));
+---
+<section id="references" class="refs section--tight" aria-labelledby="refs-title">
+  <div class="wrap">
+    <h2 id="refs-title" class="refs__title">Ils nous ont confié leur <span class="x">x</span>.</h2>
+    <div class="refs__groups">
+      {groups.map((g) => (
+        <div class="refs__group" data-group={g.key}>
+          <p class="refs__label small">{g.label}</p>
+          <ul role="list" class="refs__list">
+            {g.logos.map((l) => {
+              const s = size(l);
+              return (
+                <li>
+                  <span class="refs__logo av-logo" role="img" aria-label={l.name}
+                    style={`--src:url(/clients/${l.id}.svg); width:${s.w}px; height:${s.h}px;`} />
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      ))}
+    </div>
+    {REVIEW && <p class="refs__note small muted av">Logos reproduits avec l'accord des organisations citées.</p>}
+  </div>
+</section>
+
+<style>
+  .refs { border-block: 1px solid var(--clx-border); }
+  .refs__title { font-size: var(--clx-type-h3-font-size); line-height: 1.2; font-weight: 500; letter-spacing: -0.01em; }
+  .refs__groups { display: grid; grid-template-columns: auto auto; justify-content: start; gap: var(--clx-space-8); margin-top: var(--clx-space-6); align-items: end; }
+  .refs__label { color: var(--clx-text-muted); margin-bottom: var(--clx-space-4); }
+  .refs__list { display: flex; flex-wrap: wrap; align-items: center; gap: var(--clx-space-5) clamp(1.5rem, 0.5rem + 3vw, 3.5rem); min-height: 64px; }
+  .refs__logo {
+    display: block; background-color: var(--clx-text-muted);
+    -webkit-mask: var(--src) center / contain no-repeat; mask: var(--src) center / contain no-repeat;
+    transition: background-color var(--clx-duration-quick) var(--clx-easing-out);
+  }
+  .refs__list li:hover .refs__logo { background-color: var(--clx-text); }
+  .refs__group[data-group="parcours"] { padding-left: var(--clx-space-8); border-left: 1px solid var(--clx-border); }
+  .refs__note { margin-top: var(--clx-space-6); }
+  @media (forced-colors: active) { .refs__logo { background-color: CanvasText; forced-color-adjust: none; } }
+  @media (max-width: 899px) {
+    .refs__groups { grid-template-columns: 1fr; gap: var(--clx-space-6); }
+    .refs__group[data-group="parcours"] { padding-left: 0; border-left: 0; padding-top: var(--clx-space-5); border-top: 1px solid var(--clx-border); }
+  }
+</style>

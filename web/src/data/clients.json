@@ -1,0 +1,67 @@
+[
+  {
+    "id": "kbc",
+    "name": "KBC",
+    "file": "kbc.svg",
+    "group": "missions",
+    "source": "https://www.kbc.be (wcmassets.kbc.be/content/dam/kdl-assets/logos/k/logos-kbc.svg)",
+    "verified": true,
+    "autorisation": "à confirmer",
+    "aspect": 1.28,
+    "density": 0.506,
+    "sha256Source": "45db2e0ad6f5c4eb588140c29accd759c3f52c24cbb3820dab47099e08bbb552",
+    "bytes": 1148
+  },
+  {
+    "id": "pv-groupe",
+    "name": "Groupe P&V",
+    "file": "pv-groupe.svg",
+    "group": "missions",
+    "source": "https://pvgroup.coop (logo d'en-tête, SVG en ligne)",
+    "verified": true,
+    "autorisation": "à confirmer",
+    "aspect": 2.087,
+    "density": 0.44,
+    "sha256Source": "e0f392db838031e239a776d1c558b31ed41b7176fff5eb225f37dbb8f3c2c491",
+    "bytes": 5882
+  },
+  {
+    "id": "tero",
+    "name": "Tero",
+    "file": "tero.svg",
+    "group": "missions",
+    "source": "Kit de marque Tero Group, assets/logo/tero-logo-currentColor.svg (registre officiel du 15 octobre 2026)",
+    "verified": true,
+    "autorisation": "à confirmer",
+    "aspect": 2.529,
+    "density": 0.383,
+    "sha256Source": "d0a56832872d4e93aad4f6a4f73046a61971d33b0c2635fa629eeb7bc0973ace",
+    "bytes": 8069
+  },
+  {
+    "id": "design-plus",
+    "name": "Design Plus",
+    "file": "design-plus.svg",
+    "group": "missions",
+    "source": "Charte Design Plus, references/logos/logo-designplus-black.svg",
+    "verified": true,
+    "autorisation": "à confirmer",
+    "aspect": 1.817,
+    "density": 0.302,
+    "sha256Source": "f2eb249aabdd211d611d2e15bfca9d06e8571e07ed4e65bbaab5ec01a9cb086c",
+    "bytes": 2762
+  },
+  {
+    "id": "proximus",
+    "name": "Proximus",
+    "file": "proximus-group.svg",
+    "group": "parcours",
+    "source": "https://www.proximus.com (dam/jcr:e466a577-8e43-4a26-aa53-809b293efa24/proximus-logo-header.svg)",
+    "verified": true,
+    "autorisation": "non requise pour un parcours salarié, mention à valider",
+    "aspect": 3.254,
+    "density": 0.281,
+    "sha256Source": "7919981e1eeea7a087037b3023cdfd3c4a1c104ed418427eeb45c383a9c38789",
+    "bytes": 13201
+  }
+]

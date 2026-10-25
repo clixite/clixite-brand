@@ -1,0 +1,41 @@
+---
+const items = [
+  { t: "Architecture d'entreprise et de solutions", d: "Cartographie applicative, architecture cible, rationalisation des outils, intégrations et choix de solutions, du cloud au poste de travail.", k: "Cible, feuille de route, intégration" },
+  { t: "Transformation des achats", d: "Source-to-Pay de bout en bout, mise en place d'outils comme SAP Ariba, direction des achats à temps partagé ou par intérim.", k: "Source-to-Pay, Fractional CPO, intérim", href: "/expertises/transformation-achats/" },
+  { t: "Gouvernance, risque et conformité", d: "Mise en conformité DORA et NIS2, gestion des risques tiers, RGPD et AI Act, traduites en processus et en contrôles qui tiennent.", k: "DORA, NIS2, TPRM, RGPD, AI Act" },
+  { t: "Industrialisation de l'IA", d: "Des cas d'usage qui passent du prototype à la production : agents, recherche documentaire, automatisation, avec garde-fous et traçabilité.", k: "Agents, RAG, garde-fous, AI Act" },
+  { t: "Produits numériques et ingénierie", d: "Sites, applications métier et SaaS conçus pour durer : architecture propre, déploiement automatisé, coûts maîtrisés.", k: "Web, applications, SaaS, DevOps" },
+  { t: "Pilotage de programmes et changement", d: "Programmes multi-équipes pilotés avec méthode, et une conduite du changement qui embarque les utilisateurs dès le premier jour.", k: "PMP, PRINCE2, SAFe, ADKAR" },
+];
+---
+<section id="expertises" class="section expertises" aria-labelledby="exp-title">
+  <div class="wrap">
+    <div class="exp__head">
+      <h2 id="exp-title" class="h2">Six terrains, une seule architecture.</h2>
+      <p class="lead">Les mêmes principes s'appliquent à une banque et à une PME : savoir ce qu'on a, décider où on va, livrer ce qui compte.</p>
+    </div>
+    <ul role="list" class="exp__grid">
+      {items.map((i) => (
+        <li class="exp__item">
+          <h3 class="h3">{i.href ? <a href={i.href}>{i.t}</a> : i.t}</h3>
+          <p class="muted">{i.d}</p>
+          <p class="exp__k small">{i.k}</p>
+          {i.href && <a class="link-more small exp__more" href={i.href} aria-hidden="true" tabindex="-1">Découvrir l'expertise</a>}
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .exp__head { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--clx-space-7); align-items: end; }
+  .exp__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--clx-space-8) var(--clx-space-7); margin-top: var(--clx-space-9); }
+  .exp__item p.muted { margin-top: var(--clx-space-3); }
+  .exp__item h3 a { color: inherit; text-decoration: underline; text-decoration-color: var(--clx-accent); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+  .exp__item h3 a:hover { color: var(--clx-link); }
+  .exp__k { margin-top: var(--clx-space-4); color: var(--clx-text); font-weight: 500; }
+  .exp__more { display: inline-block; margin-top: var(--clx-space-3); }
+  @media (max-width: 1099px) { .exp__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 899px) { .exp__head { grid-template-columns: 1fr; gap: var(--clx-space-4); } }
+  @media (max-width: 599px) { .exp__grid { grid-template-columns: 1fr; gap: var(--clx-space-7); margin-top: var(--clx-space-7); } }
+</style>

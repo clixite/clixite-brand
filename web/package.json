@@ -1,0 +1,26 @@
+{
+  "name": "clixite-web",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "www.clixite.be, refonte 2030 (Astro, Design System 2.0)",
+  "scripts": {
+    "tokens": "node ../ds/build-tokens.mjs && cp ../ds/dist/tokens.css src/styles/tokens.css",
+    "clients": "node scripts/build-clients.mjs",
+    "x": "python3 scripts/gen_x.py",
+    "prebuild": "npm run tokens && npm run clients",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "astro": "7.4.2",
+    "@astrojs/sitemap": "3.7.4"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.12",
+    "typescript": "^5.9.3",
+    "lucide-static": "1.61.0"
+  }
+}

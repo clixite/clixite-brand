@@ -1,0 +1,48 @@
+---
+import e1 from "../assets/x/etape-1.svg?raw";
+import e2 from "../assets/x/etape-2.svg?raw";
+import e3 from "../assets/x/etape-3.svg?raw";
+import e4 from "../assets/x/etape-4.svg?raw";
+const steps = [
+  { svg: e1, t: "Relever", d: "Cartographie de vos systèmes, de vos flux, de vos contrats et de vos risques. On mesure avant de dessiner.", out: "Relevé et diagnostic", dur: "2 à 3 semaines" },
+  { svg: e2, t: "Épurer", d: "L'architecture cible et le chemin pour y aller, en options chiffrées. Ce qu'on garde, ce qu'on remplace, ce qu'on arrête.", out: "Cible et feuille de route", dur: "2 à 4 semaines" },
+  { svg: e3, t: "Construire", d: "Intégrations, données, automatisations et IA, livrées par incréments courts que vos équipes testent en conditions réelles.", out: "Incréments en production", dur: "Sprints de 2 semaines" },
+  { svg: e4, t: "Mettre en service", d: "Déploiement, adoption et transfert. Nous partons quand vos équipes n'ont plus besoin de nous, pas avant.", out: "Solution exploitée et documentée", dur: "Selon le périmètre" },
+];
+---
+<section id="methode" class="section method band-alt" aria-labelledby="method-title">
+  <div class="wrap">
+    <div class="method__head">
+      <h2 id="method-title" class="h2">Du relevé à la mise en service.</h2>
+      <p class="lead">Le X de Clixite se construit comme vos projets : des repères, un tracé, de la matière, puis le relief. Quatre états, un seul fil.</p>
+    </div>
+    <ol role="list" class="method__list">
+      {steps.map((s) => (
+        <li class="method__step">
+          <div class="method__art" set:html={s.svg} />
+          <h3 class="h3">{s.t}</h3>
+          <p class="muted">{s.d}</p>
+          <p class="method__meta small"><span>{s.out}</span> <span class="data av">{s.dur}</span></p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .method__head { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--clx-space-7); align-items: end; }
+  .method__list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--clx-space-6); margin-top: var(--clx-space-9); counter-reset: none; }
+  .method__art { color: var(--clx-text); width: min(100%, 220px); aspect-ratio: 1; margin-bottom: var(--clx-space-5); }
+  .method__art :global(svg) { width: 100%; height: 100%; }
+  .method__step { display: flex; flex-direction: column; }
+  .method__step p.muted { margin-top: var(--clx-space-3); margin-bottom: var(--clx-space-4); }
+  .method__meta { margin-top: auto !important; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; padding-top: var(--clx-space-3); border-top: 1px solid var(--clx-border); font-weight: 600; }
+  .method__meta .data { font-weight: 500; color: var(--clx-text-muted); }
+  @media (max-width: 1099px) { .method__list { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--clx-space-8); } }
+  @media (max-width: 899px) { .method__head { grid-template-columns: 1fr; gap: var(--clx-space-4); } }
+  @media (max-width: 599px) {
+    .method__list { grid-template-columns: 1fr; gap: var(--clx-space-7); margin-top: var(--clx-space-7); }
+    .method__step { display: grid; grid-template-columns: 96px minmax(0, 1fr); column-gap: var(--clx-space-5); align-items: start; }
+    .method__art { grid-row: span 3; width: 96px; margin: 0; }
+  }
+</style>

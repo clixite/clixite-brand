@@ -1,0 +1,170 @@
+---
+import Base from "../../layouts/Base.astro";
+import FinalCta from "../../components/FinalCta.astro";
+import { SITE, bookingHref } from "../../data/site";
+
+const scope = [
+  { t: "Source-to-Pay de bout en bout", d: "Du besoin au paiement : sourcing, appels d'offres, contrats, commandes, réception et factures. Des processus simples, outillés quand le volume le justifie, avec SAP Ariba ou l'outil qui convient à votre taille, et intégrés à votre ERP." },
+  { t: "Direction des achats à temps partagé", d: "Un Fractional CPO présent un à deux jours par semaine : feuille de route, pilotage des appels d'offres stratégiques, montée en compétence de l'équipe. Le niveau d'un grand groupe, au coût d'une PME.", av: true },
+  { t: "Direction des achats par intérim", d: "Une prise de poste rapide quand la fonction est vacante ou en transformation. On stabilise, on décide, on prépare l'arrivée du titulaire.", av: true },
+  { t: "Risques tiers et conformité", d: "Cartographie et suivi des fournisseurs critiques, registre d'information DORA, exigences NIS2 sur la chaîne d'approvisionnement, clauses contractuelles et plans de sortie." },
+];
+const faq = [
+  { q: "Qu'est-ce qu'un Fractional CPO ?", a: "Un directeur des achats expérimenté qui travaille pour votre entreprise à temps partagé, en général un à deux jours par semaine. Vous accédez à une expertise de grand groupe sans créer un poste à temps plein, et vous ajustez la présence selon la charge." },
+  { q: "Le Source-to-Pay est-il utile pour une PME ?", a: "Oui, à condition de commencer par les processus avant les outils. Une PME gagne surtout en visibilité sur ses dépenses, en conditions négociées et en temps de traitement des factures. L'outil vient ensuite, dimensionné à vos volumes." },
+  { q: "En quoi le règlement DORA concerne-t-il les achats ?", a: "Depuis le 17 janvier 2025, DORA impose aux entités financières de l'Union de tenir un registre d'information sur leurs prestataires de services TIC, d'évaluer leurs risques de concentration et d'inscrire des clauses précises dans les contrats. Les achats sont en première ligne pour collecter ces données et négocier ces clauses." },
+  { q: "Clixite travaille-t-elle aussi en néerlandais et en anglais ?", a: "Oui. Les missions se déroulent en français, en néerlandais ou en anglais, selon vos équipes et vos fournisseurs, partout en Belgique et au Luxembourg." },
+];
+const schema = [
+  {
+    "@type": "Service",
+    "@id": `${SITE.url}/expertises/transformation-achats/#service`,
+    name: "Transformation des achats",
+    serviceType: ["Source-to-Pay", "Fractional CPO", "Direction des achats par intérim", "Gestion des risques tiers", "Conformité DORA des achats"],
+    provider: { "@id": `${SITE.url}/#org` },
+    areaServed: [{ "@type": "Country", name: "Belgique" }, { "@type": "Country", name: "Luxembourg" }],
+    availableLanguage: ["fr", "nl", "en"],
+    url: `${SITE.url}/expertises/transformation-achats/`,
+  },
+  {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Accueil", item: `${SITE.url}/` },
+      { "@type": "ListItem", position: 2, name: "Expertises", item: `${SITE.url}/#expertises` },
+      { "@type": "ListItem", position: 3, name: "Transformation des achats", item: `${SITE.url}/expertises/transformation-achats/` },
+    ],
+  },
+  { "@type": "FAQPage", mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
+];
+---
+<Base
+  title="Transformation des achats, Source-to-Pay et Fractional CPO | Clixite"
+  description="Source-to-Pay, direction des achats à temps partagé ou par intérim, risques tiers et DORA : Clixite structure vos achats, de la PME au groupe régulé, en Belgique."
+  path="/expertises/transformation-achats/"
+  schema={schema}
+>
+  <nav class="wrap crumbs small" aria-label="Fil d'Ariane">
+    <ol role="list"><li><a href="/">Accueil</a></li><li><a href="/#expertises">Expertises</a></li><li aria-current="page">Transformation des achats</li></ol>
+  </nav>
+
+  <section class="ach-hero" aria-labelledby="ach-title">
+    <div class="wrap ach-hero__in">
+      <h1 id="ach-title" class="h-display">Des achats qui pèsent dans les décisions.</h1>
+      <div>
+        <p class="lead">
+          Processus Source-to-Pay outillés, risques fournisseurs maîtrisés, une direction des achats disponible à temps partagé ou par intérim.
+          Pour les PME qui structurent leurs achats comme pour les groupes régulés.
+        </p>
+        <div class="ach-hero__cta">
+          <a class="btn btn--primary" href={bookingHref()}>Parler de vos achats</a>
+          <a class="btn btn--secondary" href="#offres-achats">Voir les formules</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ach-scope band-alt" aria-labelledby="scope-title">
+    <div class="wrap">
+      <h2 id="scope-title" class="h2">Ce que nous prenons en charge.</h2>
+      <ul role="list" class="ach-scope__grid">
+        {scope.map((s) => (
+          <li>
+            <h3 class="h3">{s.t}</h3>
+            <p class={s.av ? "muted av" : "muted"}>{s.d}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section ach-proof" aria-labelledby="proof-title">
+    <div class="wrap ach-proof__in">
+      <h2 id="proof-title" class="h2">Le terrain avant la théorie.</h2>
+      <dl class="ach-proof__list">
+        <div>
+          <dt class="ach-proof__n">≈ 800 M€</dt>
+          <dd class="av">d'achats dans le périmètre couvert comme Procurement Lead chez Proximus, de 2022 à 2024. <span class="small ach-proof__src">Parcours du fondateur</span></dd>
+        </div>
+        <div>
+          <dt class="ach-proof__n">Intérim</dt>
+          <dd class="av">Direction des achats de P&amp;V Assurances et Vivium, en 2025. <span class="small ach-proof__src">Mission Clixite</span></dd>
+        </div>
+        <div>
+          <dt class="ach-proof__n">L1, L2, L3</dt>
+          <dd class="av">Politique achats à trois niveaux pour KBC. <span class="small ach-proof__src">Mission Clixite</span></dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="offres-achats" class="section ach-offers band-alt" aria-labelledby="ach-offers-title">
+    <div class="wrap">
+      <h2 id="ach-offers-title" class="h2">Trois formules, un même niveau d'exigence.</h2>
+      <ul role="list" class="ach-offers__grid">
+        <li class="panel">
+          <h3 class="h3">Diagnostic achats</h3>
+          <p class="data ach-dur av">10 jours</p>
+          <p class="muted">Cartographie des dépenses, maturité des processus, risques fournisseurs et gains rapides chiffrés.</p>
+        </li>
+        <li class="panel">
+          <h3 class="h3">Fractional CPO</h3>
+          <p class="data ach-dur av">1 à 2 jours par semaine</p>
+          <p class="muted">Une direction des achats présente, une feuille de route tenue, des appels d'offres pilotés.</p>
+        </li>
+        <li class="panel">
+          <h3 class="h3">Intérim de direction</h3>
+          <p class="data ach-dur av">Démarrage sous 2 semaines</p>
+          <p class="muted">La fonction tenue et transformée pendant la vacance du poste, puis transmise.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section ach-faq" aria-labelledby="faq-title">
+    <div class="wrap ach-faq__in">
+      <h2 id="faq-title" class="h2">Questions fréquentes.</h2>
+      <div class="ach-faq__list">
+        {faq.map((f) => (
+          <details>
+            <summary class="h3">{f.q}</summary>
+            <p class="muted">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FinalCta />
+</Base>
+
+<style>
+  .crumbs { padding-top: var(--clx-space-5); color: var(--clx-text-muted); }
+  .crumbs ol { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .crumbs li + li::before { content: "/"; margin-right: 0.5rem; color: var(--clx-border-strong); }
+  .crumbs a { color: var(--clx-text-muted); }
+  .ach-hero { padding-block: var(--clx-space-8) var(--clx-space-9); }
+  .ach-hero__in { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--clx-space-8); align-items: end; }
+  .ach-hero__cta { display: flex; flex-wrap: wrap; gap: var(--clx-space-3); margin-top: var(--clx-space-6); }
+  .ach-scope__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--clx-space-8) var(--clx-space-8); margin-top: var(--clx-space-8); }
+  .ach-scope__grid p { margin-top: var(--clx-space-3); max-width: 52ch; }
+  .ach-proof__in { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: var(--clx-space-8); }
+  .ach-proof__list { display: grid; gap: var(--clx-space-7); }
+  .ach-proof__n { font-family: var(--clx-font-family-voice); font-style: italic; font-weight: 500; font-size: clamp(2.25rem, 1.5rem + 2.4vw, 3.5rem); line-height: 1; color: var(--clx-link); }
+  .ach-proof__list dd { margin-top: var(--clx-space-3); color: var(--clx-text-muted); max-width: 52ch; }
+  .ach-proof__src { display: block; margin-top: var(--clx-space-2); color: var(--clx-text); font-weight: 500; }
+  .ach-offers__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--clx-space-5); margin-top: var(--clx-space-8); }
+  .ach-offers__grid .panel { display: grid; gap: var(--clx-space-3); align-content: start; padding: var(--clx-space-6); }
+  .ach-dur { color: var(--clx-link); }
+  .ach-faq__in { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: var(--clx-space-8); }
+  .ach-faq__list details { border-top: 1px solid var(--clx-border); padding-block: var(--clx-space-5); }
+  .ach-faq__list details:last-child { border-bottom: 1px solid var(--clx-border); }
+  .ach-faq__list summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: var(--clx-space-4); }
+  .ach-faq__list summary::-webkit-details-marker { display: none; }
+  .ach-faq__list summary::after { content: "+"; font-family: var(--clx-font-family-data); color: var(--clx-link); transition: transform var(--clx-duration-quick) var(--clx-easing-out); }
+  .ach-faq__list details[open] summary::after { transform: rotate(45deg); }
+  .ach-faq__list p { margin-top: var(--clx-space-3); max-width: 60ch; }
+  @media (max-width: 899px) {
+    .ach-hero__in, .ach-proof__in, .ach-faq__in { grid-template-columns: 1fr; gap: var(--clx-space-6); }
+    .ach-scope__grid, .ach-offers__grid { grid-template-columns: 1fr; gap: var(--clx-space-6); }
+  }
+</style>

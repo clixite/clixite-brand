@@ -18,3 +18,6 @@ Thumbs.db
 clixite-charte-site.zip
 frames3d/
 clixite-www.zip
+web/dist/
+web/dist-review/
+web/.astro/

@@ -1,0 +1,311 @@
+{
+  "$description": "Thèmes sémantiques. Chaque paire texte/fond est contrôlée par build-tokens.mjs (WCAG AA).",
+  "theme": {
+    "papier": {
+      "bg": {
+        "$type": "color",
+        "$value": "{color.papier}"
+      },
+      "bg-alt": {
+        "$type": "color",
+        "$value": "{color.papier-200}"
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "{color.blanc}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{color.encre}"
+      },
+      "text-muted": {
+        "$type": "color",
+        "$value": "{color.ardoise}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.brume}"
+      },
+      "border-strong": {
+        "$type": "color",
+        "$value": "{color.ardoise}"
+      },
+      "accent": {
+        "$type": "color",
+        "$value": "{color.turquoise}"
+      },
+      "on-accent": {
+        "$type": "color",
+        "$value": "{color.encre}"
+      },
+      "accent-hover": {
+        "$type": "color",
+        "$value": "{color.turquoise-300}"
+      },
+      "link": {
+        "$type": "color",
+        "$value": "{color.turquoise-600}"
+      },
+      "link-hover": {
+        "$type": "color",
+        "$value": "{color.turquoise-700}"
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "{color.turquoise-600}"
+      },
+      "selection": {
+        "$type": "color",
+        "$value": "{color.turquoise-100}"
+      },
+      "lens": {
+        "$type": "color",
+        "$value": "{color.signal}"
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{color.turquoise-700}"
+      },
+      "danger": {
+        "$type": "color",
+        "$value": "{color.rose-600}"
+      },
+      "warning-bg": {
+        "$type": "color",
+        "$value": "{color.signal-100}"
+      },
+      "info-bg": {
+        "$type": "color",
+        "$value": "{color.turquoise-100}"
+      },
+      "danger-bg": {
+        "$type": "color",
+        "$value": "{color.rose-100}"
+      }
+    },
+    "encre": {
+      "bg": {
+        "$type": "color",
+        "$value": "{color.encre}"
+      },
+      "bg-alt": {
+        "$type": "color",
+        "$value": "{color.encre-800}"
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "{color.encre-800}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{color.papier}"
+      },
+      "text-muted": {
+        "$type": "color",
+        "$value": "{color.brume}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.encre-600}"
+      },
+      "border-strong": {
+        "$type": "color",
+        "$value": "{color.ardoise-300}"
+      },
+      "accent": {
+        "$type": "color",
+        "$value": "{color.turquoise}"
+      },
+      "on-accent": {
+        "$type": "color",
+        "$value": "{color.encre}"
+      },
+      "accent-hover": {
+        "$type": "color",
+        "$value": "{color.turquoise-300}"
+      },
+      "link": {
+        "$type": "color",
+        "$value": "{color.turquoise}"
+      },
+      "link-hover": {
+        "$type": "color",
+        "$value": "{color.turquoise-300}"
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "{color.signal}"
+      },
+      "selection": {
+        "$type": "color",
+        "$value": "{color.encre-700}"
+      },
+      "lens": {
+        "$type": "color",
+        "$value": "{color.signal}"
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{color.turquoise-300}"
+      },
+      "danger": {
+        "$type": "color",
+        "$value": "{color.rose}"
+      },
+      "warning-bg": {
+        "$type": "color",
+        "$value": "{color.encre-700}"
+      },
+      "info-bg": {
+        "$type": "color",
+        "$value": "{color.encre-700}"
+      },
+      "danger-bg": {
+        "$type": "color",
+        "$value": "{color.encre-700}"
+      }
+    }
+  },
+  "dataviz": {
+    "series-1": {
+      "$type": "color",
+      "$value": "{color.turquoise}"
+    },
+    "series-2": {
+      "$type": "color",
+      "$value": "{color.rose}"
+    },
+    "series-3": {
+      "$type": "color",
+      "$value": "{color.signal}"
+    },
+    "series-4": {
+      "$type": "color",
+      "$value": "{color.ardoise}"
+    },
+    "series-5": {
+      "$type": "color",
+      "$value": "{color.indigo}"
+    }
+  },
+  "type": {
+    "display": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.display}",
+        "fontWeight": "{font.weight.bold}",
+        "fontSize": "clamp(3rem, 1.6rem + 6vw, 7rem)",
+        "lineHeight": 0.95,
+        "letterSpacing": "-0.035em"
+      }
+    },
+    "h1": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.display}",
+        "fontWeight": "{font.weight.bold}",
+        "fontSize": "clamp(2.5rem, 1.6rem + 3.6vw, 4.75rem)",
+        "lineHeight": 1.0,
+        "letterSpacing": "-0.03em"
+      }
+    },
+    "h2": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.display}",
+        "fontWeight": "{font.weight.bold}",
+        "fontSize": "clamp(2rem, 1.4rem + 2.2vw, 3.25rem)",
+        "lineHeight": 1.05,
+        "letterSpacing": "-0.025em"
+      }
+    },
+    "h3": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.display}",
+        "fontWeight": "{font.weight.medium}",
+        "fontSize": "clamp(1.25rem, 1.1rem + 0.6vw, 1.625rem)",
+        "lineHeight": 1.2,
+        "letterSpacing": "-0.01em"
+      }
+    },
+    "lead": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.text}",
+        "fontWeight": "{font.weight.regular}",
+        "fontSize": "clamp(1.125rem, 1.05rem + 0.4vw, 1.375rem)",
+        "lineHeight": 1.5,
+        "letterSpacing": "0em"
+      }
+    },
+    "body": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.text}",
+        "fontWeight": "{font.weight.regular}",
+        "fontSize": "1.0625rem",
+        "lineHeight": 1.6,
+        "letterSpacing": "0em"
+      }
+    },
+    "small": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.text}",
+        "fontWeight": "{font.weight.regular}",
+        "fontSize": "0.9375rem",
+        "lineHeight": 1.5,
+        "letterSpacing": "0em"
+      }
+    },
+    "quote": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.voice}",
+        "fontWeight": "{font.weight.medium}",
+        "fontSize": "clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem)",
+        "lineHeight": 1.25,
+        "letterSpacing": "-0.01em"
+      }
+    },
+    "data": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.data}",
+        "fontWeight": "{font.weight.medium}",
+        "fontSize": "0.875rem",
+        "lineHeight": 1.4,
+        "letterSpacing": "0em"
+      }
+    },
+    "figure": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.voice}",
+        "fontWeight": "{font.weight.medium}",
+        "fontSize": "clamp(2.75rem, 1.4rem + 3.4vw, 5rem)",
+        "lineHeight": 1.0,
+        "letterSpacing": "-0.02em"
+      }
+    }
+  },
+  "layout": {
+    "gutter": {
+      "$type": "dimension",
+      "$value": "clamp(1rem, 0.4rem + 2.6vw, 2.5rem)"
+    },
+    "max": {
+      "$type": "dimension",
+      "$value": "1360px"
+    },
+    "measure": {
+      "$type": "dimension",
+      "$value": "66ch"
+    },
+    "section": {
+      "$type": "dimension",
+      "$value": "clamp(4.5rem, 2.5rem + 6vw, 9rem)"
+    }
+  }
+}

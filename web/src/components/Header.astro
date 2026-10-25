@@ -1,0 +1,62 @@
+---
+import wordmark from "../assets/x/wordmark.svg?raw";
+import { bookingHref } from "../data/site";
+const links = [
+  { href: "/#expertises", label: "Expertises" },
+  { href: "/#methode", label: "Méthode" },
+  { href: "/#offres", label: "Offres" },
+  { href: "/#references", label: "Références" },
+];
+---
+<header class="hd">
+  <div class="wrap hd__in">
+    <a class="hd__logo" href="/" aria-label="Clixite, accueil">
+      <span class="hd__mark" set:html={wordmark} aria-hidden="true" />
+    </a>
+    <nav class="hd__nav" aria-label="Navigation principale">
+      <ul role="list">
+        {links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+      </ul>
+    </nav>
+    <a class="btn btn--primary btn--small hd__cta" href={bookingHref()}>Réserver un échange</a>
+    <details class="hd__menu">
+      <summary aria-label="Ouvrir le menu"><span>Menu</span></summary>
+      <nav aria-label="Navigation mobile">
+        <ul role="list">
+          {links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<style>
+  .hd { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--clx-bg) 96%, transparent); border-bottom: 1px solid transparent; }
+  @supports (animation-timeline: scroll()) {
+    .hd { animation: hd-line linear both; animation-timeline: scroll(root); animation-range: 0 120px; }
+    @keyframes hd-line { to { border-bottom-color: var(--clx-border); } }
+  }
+  @supports not (animation-timeline: scroll()) { .hd { border-bottom-color: var(--clx-border); } }
+  .hd__in { display: flex; align-items: center; gap: var(--clx-space-6); min-height: 72px; }
+  .hd__logo { display: inline-flex; color: var(--clx-text); flex: none; border-radius: 4px; }
+  .hd__mark :global(svg) { width: 132px; height: auto; }
+  .hd__nav { margin-left: auto; }
+  .hd__nav ul { display: flex; gap: var(--clx-space-6); }
+  .hd__nav a, .hd__menu a { color: var(--clx-text); text-decoration: none; font-weight: 500; font-size: 0.9375rem; padding: 0.5rem 0; }
+  .hd__nav a:hover { color: var(--clx-link); }
+  .hd__menu { display: none; }
+  @media (max-width: 899px) {
+    .hd__in { gap: var(--clx-space-3); min-height: 64px; }
+    .hd__mark :global(svg) { width: 112px; }
+    .hd__nav { display: none; }
+    .hd__cta { margin-left: auto; }
+    .hd__menu { display: block; position: static; }
+    .hd__menu summary { list-style: none; cursor: pointer; min-height: 44px; min-width: 44px; display: grid; place-items: center; border-radius: var(--clx-radius-pill); border: 1px solid var(--clx-border-strong); padding: 0 0.875rem; font-weight: 600; font-size: 0.9375rem; }
+    .hd__menu summary::-webkit-details-marker { display: none; }
+    .hd__menu[open] summary { border-color: var(--clx-text); }
+    .hd__menu nav { position: absolute; left: 0; right: 0; top: 100%; background: var(--clx-bg); border-bottom: 1px solid var(--clx-border); padding: var(--clx-space-3) var(--clx-layout-gutter) var(--clx-space-6); }
+    .hd__menu nav a { display: block; font-size: 1.25rem; font-family: var(--clx-font-family-display); font-weight: 500; padding: 0.75rem 0; }
+  }
+  @media (max-width: 379px) { .hd__cta { display: none; } .hd__menu { margin-left: auto; } }
+</style>
