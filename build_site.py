@@ -133,7 +133,7 @@ page = r'''<!doctype html>
 
 <!-- ===================================================== 01 PLATEFORME -->
 <section class="chapter" id="plateforme">
-  <header><span class="n">01</span><h2>Plateforme de marque</h2>
+  <header><h2><span class="n">01</span>Plateforme de marque</h2>
   <p class="lede">Clixite existe depuis 2005. Agence de communication pendant dix ans, le cabinet est devenu ce que son fondateur est devenu : un architecte de solutions et d'entreprise. Il relie la stratégie, les systèmes et la conformité, puis livre.</p></header>
 
   <h3>L'idée</h3>
@@ -170,7 +170,7 @@ page = r'''<!doctype html>
 
 <!-- ===================================================== 02 LOGO -->
 <section class="chapter" id="logo">
-  <header><span class="n">02</span><h2>Logo</h2>
+  <header><h2><span class="n">02</span>Logo</h2>
   <p class="lede">Le X est central dans CLIXITE depuis 2005 et il le reste. Il est redessiné au poids des lettres, puis reçoit une peau selon le support : le Relief, qui se dépose et s'imprime, ou l'Interférence, qui vit à l'écran.</p></header>
 
   <figure class="logo-hero">__LOGO_RELIEF__<figcaption class="cap">Mot-marque, peau Relief, version couleur. Le fichier de référence pour tout ce qui s'imprime et se dépose.</figcaption></figure>
@@ -243,7 +243,7 @@ page = r'''<!doctype html>
 
 <!-- ===================================================== 03 COULEURS -->
 <section class="chapter" id="couleurs">
-  <header><span class="n">03</span><h2>Couleurs</h2>
+  <header><h2><span class="n">03</span>Couleurs</h2>
   <p class="lede">Le trio turquoise bleu, rose et Signal est la signature de Clixite. Il vit ensemble dans le symbole et dans les moments de signature. Dans le corps d'un document, un seul accent à la fois, turquoise par défaut. Cliquez une teinte pour copier son code.</p></header>
 
   <h3>Palette principale</h3>
@@ -279,7 +279,7 @@ page = r'''<!doctype html>
 
 <!-- ===================================================== 04 TYPOGRAPHIE -->
 <section class="chapter" id="typographie">
-  <header><span class="n">04</span><h2>Typographie</h2>
+  <header><h2><span class="n">04</span>Typographie</h2>
   <p class="lede">Quatre familles, chacune avec un rôle, toutes libres (licence OFL). Space Grotesk donne le caractère, Inter fait le travail, Fraunces apporte la voix, JetBrains Mono tient les chiffres.</p></header>
 
   <div class="specimen">
@@ -317,7 +317,7 @@ page = r'''<!doctype html>
 
 <!-- ===================================================== 05 SYSTEME -->
 <section class="chapter" id="systeme">
-  <header><span class="n">05</span><h2>Système graphique</h2>
+  <header><h2><span class="n">05</span>Système graphique</h2>
   <p class="lede">Trois motifs sortent du logo et suffisent à habiller tous les supports. Ils s'emploient un à la fois, en grand, jamais en semis décoratif.</p></header>
   <div class="system">
     <div><div class="vis"><svg viewBox="0 0 160 120" width="160" height="120" aria-hidden="true"><rect width="160" height="120" fill="#F6F5F0"/><g transform="translate(80,60) rotate(45)"><rect x="-38" y="-38" width="76" height="76" fill="#FFD233"/></g></svg></div><h3>La lentille</h3><p>Le losange Signal du croisement. Un seul par support, posé sur un chiffre clé, un repère de carte, un point d'attention.</p></div>
@@ -349,7 +349,7 @@ page = r'''<!doctype html>
 
 <!-- ===================================================== 06 APPLICATIONS -->
 <section class="chapter" id="applications">
-  <header><span class="n">06</span><h2>Applications</h2>
+  <header><h2><span class="n">06</span>Applications</h2>
   <p class="lede">Les supports du quotidien, prêts à l'emploi. Chaque fichier se télécharge ici ; les modèles Office se trouvent au chapitre Téléchargements.</p></header>
   <div class="apps">
     <figure class="dark"><img src="downloads/reseaux/linkedin-banniere-1584x396.png" alt="Bannière LinkedIn" width="1584" height="396" loading="lazy"><figcaption>Bannière LinkedIn, 1584 × 396<a href="downloads/reseaux/linkedin-banniere-1584x396.png" download>PNG</a></figcaption></figure>
@@ -372,7 +372,7 @@ page = r'''<!doctype html>
 
 <!-- ===================================================== 07 ANIMATION -->
 <section class="chapter" id="animation">
-  <header><span class="n">07</span><h2>Animation</h2>
+  <header><h2><span class="n">07</span>Animation</h2>
   <p class="lede">L'ouverture dure trois secondes et raconte le logo : deux champs qui arrivent, un angle qui se résout, une lentille qui s'allume, un chant qui tombe, les lettres qui se posent. Puis le X respire.</p></header>
   <div class="anim-stage"><iframe id="anim-frame" src="animation/clixite-ouverture.html" title="Animation d'ouverture Clixite" loading="lazy"></iframe></div>
   <div class="anim-actions">
@@ -401,7 +401,7 @@ page = r'''<!doctype html>
 
 <!-- ===================================================== 08 VOIX -->
 <section class="chapter" id="voix">
-  <header><span class="n">08</span><h2>Voix et rédaction</h2>
+  <header><h2><span class="n">08</span>Voix et rédaction</h2>
   <p class="lede">Clixite écrit comme son fondateur parle : phrases courtes, verbes d'action, chiffres avant adjectifs. Une note d'humour sec quand elle détend sans décrédibiliser.</p></header>
   <ul class="rules">
     <li>Vouvoiement en externe. Français de Belgique, anglais et néerlandais sans traduction mot à mot : on écrit dans la langue du lecteur.</li>
@@ -421,7 +421,7 @@ page = r'''<!doctype html>
 
 <!-- ===================================================== 09 TELECHARGEMENTS -->
 <section class="chapter" id="telechargements">
-  <header><span class="n">09</span><h2>Téléchargements</h2>
+  <header><h2><span class="n">09</span>Téléchargements</h2>
   <p class="lede">Tout est ici, en vectoriel et en raster, prêt à l'emploi. Les archives regroupent chaque famille de fichiers ; le kit complet contient tout.</p></header>
   <div class="packs">
     <div class="pack main"><div><h3>Kit complet</h3><p>Logos, favicons, réseaux, Office, signature, animation, polices, tokens.</p></div><a class="btn" href="downloads/clixite-kit-complet.zip" download>Télécharger, __KIT_SIZE__</a></div>
@@ -440,7 +440,7 @@ page = r'''<!doctype html>
 
 <!-- ===================================================== 10 KIT DEV -->
 <section class="chapter" id="kit">
-  <header><span class="n">10</span><h2>Kit développeur</h2>
+  <header><h2><span class="n">10</span>Kit développeur</h2>
   <p class="lede">Pour un site, une application ou un produit « by Clixite » : les variables, les polices et les balises à copier.</p></header>
   <h3>Variables CSS</h3>
   <div class="codeblock"><pre><code>__CSS_VARS__</code></pre><button class="btn secondary copy" type="button">Copier</button></div>
@@ -470,7 +470,7 @@ page = r'''<!doctype html>
 
 <!-- ===================================================== 11 GOUVERNANCE -->
 <section class="chapter" id="gouvernance">
-  <header><span class="n">11</span><h2>Gouvernance</h2>
+  <header><h2><span class="n">11</span>Gouvernance</h2>
   <p class="lede">Une marque tient si une seule personne en répond. Pour Clixite, c'est Nicolas Simon.</p></header>
   <dl class="kv">
     <dt>Version</dt><dd>1.0, publiée le 25 octobre 2026. Les fichiers de cette page sont la référence ; un fichier qui ne vient pas d'ici n'est pas à jour.</dd>
