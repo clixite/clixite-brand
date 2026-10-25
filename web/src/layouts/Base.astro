@@ -9,8 +9,9 @@ interface Props {
   description: string;
   path?: string;
   schema?: Record<string, unknown>[];
+  audienceMode?: boolean;
 }
-const { title, description, path = "/", schema = [] } = Astro.props;
+const { title, description, path = "/", schema = [], audienceMode = false } = Astro.props;
 const canonical = new URL(path, SITE.url).href;
 const og = new URL("/og-image.png", SITE.url).href;
 
@@ -44,7 +45,7 @@ const person = {
   disambiguatingDescription: "Architecte des systèmes d'information et des organisations (architecture d'entreprise et de solutions), pas architecte du bâtiment.",
   alumniOf: { "@type": "CollegeOrUniversity", name: "EPHEC", address: { "@type": "PostalAddress", addressLocality: "Louvain-la-Neuve", addressCountry: "BE" } },
   worksFor: { "@id": `${SITE.url}/#org` },
-  url: `${SITE.url}/`,
+  url: `${SITE.url}/nicolas-simon/`,
   sameAs: [SITE.linkedin],
   knowsAbout: KNOWS_ABOUT,
   knowsLanguage: ["fr", "en", "nl"],
@@ -56,10 +57,15 @@ const page = { "@type": "WebPage", "@id": `${canonical}#page`, url: canonical, n
 const graph = { "@context": "https://schema.org", "@graph": [org, person, website, page, ...schema] };
 ---
 <!doctype html>
-<html lang="fr-BE" class={REVIEW ? "review" : undefined}>
+<html lang="fr-BE" class={REVIEW ? "review" : undefined} data-aud-mode={audienceMode ? "radio" : undefined}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      // audience mémorisée ou passée dans le lien (?pour=groupe|pme|cabinet), avant le premier affichage
+      (function () { try { var k = new URLSearchParams(location.search).get("pour") || localStorage.getItem("clx-aud");
+        if (k === "groupe" || k === "pme" || k === "cabinet") document.documentElement.dataset.audience = k; } catch (e) {} })();
+    </script>
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />

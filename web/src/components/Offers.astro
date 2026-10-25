@@ -1,33 +1,38 @@
 ---
 import { SITE, bookingHref } from "../data/site";
+import { AUDIENCES, OFFERS } from "../data/audiences";
 const ask = (o: string) => SITE.bookingsUrl || `mailto:${SITE.email}?subject=${encodeURIComponent(o + " : premier échange")}`;
-const offers = [
-  { t: "Diagnostic d'architecture", dur: "10 jours", d: "Une photographie honnête de vos systèmes, de vos flux et de vos risques, et trois options chiffrées pour la suite.", g: ["Cartographie applicative et des flux", "Risques et dette prioritaires", "Trois scénarios chiffrés, une recommandation"], cta: "Demander le diagnostic" },
-  { t: "Revue d'architecture", dur: "5 jours", d: "Un regard indépendant sur un projet en cours ou un choix de solution, avant qu'il ne coûte trop cher.", g: ["Lecture critique du dossier et entretiens", "Points de rupture et alternatives", "Avis écrit, présenté à votre comité"], cta: "Demander une revue" },
-  { t: "IA en production", dur: "4 semaines", d: "Un cas d'usage IA délimité, de l'idée au service en production, en Forward Deployed Engineer dans votre équipe.", g: ["Cadrage du cas et des données", "Mise en production avec garde-fous", "Mesure, documentation et transfert"], cta: "Cadrer un cas d'usage" },
-];
+const heads = {
+  groupe: { h: "Trois façons de travailler ensemble.", l: "Une mission longue sur un rôle clair, ou un livrable court qui éclaire une décision. En direct ou via votre cabinet référencé." },
+  pme: { h: "Trois façons de commencer, sans engagement long.", l: "Un périmètre court, un prix annoncé avant de commencer, un résultat que vous gardez même si nous nous arrêtons là." },
+  cabinet: { h: "Pour vos clients, un profil prêt à partir.", l: "Rôles, formats et dossier de candidature : tout ce qu'il faut pour proposer Nicolas Simon à un client cette semaine." },
+} as const;
 ---
 <section id="offres" class="section offers" aria-labelledby="offers-title">
   <div class="wrap">
-    <div class="offers__head">
-      <h2 id="offers-title" class="h2">Trois façons de commencer, sans engagement long.</h2>
-      <p class="lead">Un périmètre court, un prix fixe annoncé avant de commencer, un résultat que vous gardez même si nous nous arrêtons là. <span class="av">Prix communiqués après le premier échange.</span></p>
-    </div>
-    <ul role="list" class="offers__grid">
-      {offers.map((o) => (
-        <li class="panel offers__card">
-          <div class="offers__top">
-            <h3 class="h3">{o.t}</h3>
-            <p class="data offers__dur av">{o.dur}</p>
-          </div>
-          <p class="muted">{o.d}</p>
-          <ul class="offers__gets">
-            {o.g.map((x) => <li>{x}</li>)}
-          </ul>
-          <a class="link-more offers__ask" href={ask(o.t)}>{o.cta}</a>
-        </li>
-      ))}
-    </ul>
+    {AUDIENCES.map((a, i) => (
+      <div class="offers__head" data-aud={a.key}>
+        <h2 id={i === 0 ? "offers-title" : undefined} class="h2">{heads[a.key].h}</h2>
+        <p class="lead">{heads[a.key].l} <span class="av">Prix et durées confirmés après le premier échange.</span></p>
+      </div>
+    ))}
+    {AUDIENCES.map((a) => (
+      <ul role="list" class="offers__grid" data-aud={a.key}>
+        {OFFERS[a.key].map((o) => (
+          <li class="panel offers__card">
+            <div class="offers__top">
+              <h3 class="h3">{o.t}</h3>
+              <p class="data offers__dur av">{o.dur}</p>
+            </div>
+            <p class="muted">{o.d}</p>
+            <ul class="offers__gets">
+              {o.g.map((x) => <li>{x}</li>)}
+            </ul>
+            <a class="link-more offers__ask" href={ask(o.t)}>{o.cta}</a>
+          </li>
+        ))}
+      </ul>
+    ))}
     <div class="offers__foot">
       <p class="offers__cta"><a class="btn btn--primary" href={bookingHref()}>Choisir avec nous en 30 minutes</a></p>
       <dl class="offers__terms small av">

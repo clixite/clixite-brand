@@ -1,0 +1,44 @@
+---
+// La boîte à outils complète, en six familles. L'ordre suit l'acheteur choisi (grand groupe, PME, cabinet).
+interface Fam { t: string; d: string; tools: string[]; order: { groupe: number; pme: number; cabinet: number }; av?: boolean }
+const families: Fam[] = [
+  { t: "Achats et Source-to-Pay", d: "Politique achats en trois couches (politique, standards, playbooks), circuits d'achats tactiques, sourcing, contrats, direction des achats à temps partagé ou par intérim.", tools: ["SAP Ariba", "LegalFly", "World-Check", "DocuSign", "Fractional CPO"], order: { groupe: 1, pme: 4, cabinet: 1 } },
+  { t: "Risques, conformité et gouvernance", d: "Registre d'information et risques TIC tiers, sous-traitance, cybersécurité, protection des données et usage responsable de l'IA, traduits en processus et en contrôles.", tools: ["DORA", "EBA Outsourcing", "NIS2 et CyFun", "TPRM", "RGPD", "AI Act", "CSRD"], order: { groupe: 2, pme: 5, cabinet: 2 } },
+  { t: "Architecture d'entreprise et de solutions", d: "Cartographie applicative et des flux, architecture cible, rationalisation des outils, intégrations, choix de solutions et trajectoire chiffrée.", tools: ["Cartographie", "Architecture cible", "API et intégrations", "Cloud", "Données"], order: { groupe: 3, pme: 2, cabinet: 3 } },
+  { t: "IA et agents", d: "Cas d'usage passés en production, agents qui travaillent dans vos outils, orchestration de plusieurs agents, garde-fous et traçabilité.", tools: ["Claude et Claude Code", "MCP", "Agents multiples", "RAG", "Garde-fous"], order: { groupe: 5, pme: 3, cabinet: 5 }, av: true },
+  { t: "Ingénierie et produits numériques", d: "Sites, applications métier et SaaS construits et exploités : hébergement maîtrisé, déploiement automatisé, visibilité dans Google et les moteurs IA.", tools: ["Astro", "Python", "Node", "Docker", "Traefik", "HubSpot", "GEO"], order: { groupe: 6, pme: 1, cabinet: 6 }, av: true },
+  { t: "Programmes et changement", d: "Programmes multi-équipes pilotés avec méthode, adoption mesurée, comités qui décident.", tools: ["PMP", "PRINCE2", "AgilePM", "SAFe", "Scrum", "ITIL v3", "ADKAR"], order: { groupe: 4, pme: 6, cabinet: 4 } },
+];
+---
+<section id="competences" class="section skills band-alt" aria-labelledby="skills-title">
+  <div class="wrap">
+    <div class="skills__head">
+      <h2 id="skills-title" class="h2">Toute la boîte à outils, une seule personne.</h2>
+      <p class="lead">Six familles de compétences rarement réunies. L'ordre suit votre profil d'acheteur ; tout reste disponible.</p>
+    </div>
+    <ul role="list" class="skills__grid">
+      {families.map((f) => (
+        <li class="skill" style={`--o-groupe:${f.order.groupe}; --o-pme:${f.order.pme}; --o-cabinet:${f.order.cabinet};`}>
+          <h3 class="h3">{f.t}</h3>
+          <p class="muted">{f.d}</p>
+          <p class={f.av ? "skill__tools small av" : "skill__tools small"}>{f.tools.join(", ")}</p>
+        </li>
+      ))}
+    </ul>
+    <p class="skills__lang small">Langues : français (langue maternelle), anglais courant, néerlandais opérationnel.</p>
+  </div>
+</section>
+
+<style>
+  .skills__head { display: grid; gap: var(--clx-space-5); max-width: 52rem; }
+  .skills__head .lead { max-width: 52ch; }
+  .skills__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--clx-space-7) var(--clx-space-6); margin-top: var(--clx-space-8); }
+  .skill { order: var(--o-groupe); display: grid; gap: var(--clx-space-3); align-content: start; padding-top: var(--clx-space-4); border-top: 2px solid var(--clx-text); }
+  :global(html[data-audience="pme"]) .skill, :global(:root:has(#aud-pme:checked)) .skill { order: var(--o-pme); }
+  :global(html[data-audience="cabinet"]) .skill, :global(:root:has(#aud-cabinet:checked)) .skill { order: var(--o-cabinet); }
+  :global(:root:has(#aud-groupe:checked)) .skill { order: var(--o-groupe); }
+  .skill__tools { color: var(--clx-text); font-weight: 500; }
+  .skills__lang { margin-top: var(--clx-space-7); color: var(--clx-text-muted); }
+  @media (max-width: 1099px) { .skills__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 599px) { .skills__grid { grid-template-columns: 1fr; gap: var(--clx-space-6); } }
+</style>

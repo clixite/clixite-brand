@@ -81,3 +81,15 @@ a:hover { color: var(--clx-link-hover); }
 .review .av { background: var(--clx-warning-bg); outline: 2px solid var(--clx-warning-bg); border-radius: 2px; }
 .review .av::after { content: "à valider"; font: 500 0.6875rem/1 var(--clx-font-family-data); color: var(--clx-text-muted); margin-left: 0.4em; vertical-align: 0.15em; white-space: nowrap; }
 .review [data-theme="encre"] .av, .review .band-encre .av { background: var(--clx-color-encre-700); outline: 2px solid var(--clx-color-encre-700); }
+
+/* ---- Audience : le contenu [data-aud] s'adapte à l'acheteur (accueil : boutons radio ; autres pages : dernier choix) ---- */
+html:not([data-aud-mode]):not([data-audience]) [data-aud]:not([data-aud~="groupe"]),
+html:not([data-aud-mode])[data-audience="groupe"] [data-aud]:not([data-aud~="groupe"]),
+html:not([data-aud-mode])[data-audience="pme"] [data-aud]:not([data-aud~="pme"]),
+html:not([data-aud-mode])[data-audience="cabinet"] [data-aud]:not([data-aud~="cabinet"]),
+html[data-aud-mode][data-audience="groupe"] [data-aud]:not([data-aud~="groupe"]),
+html[data-aud-mode][data-audience="pme"] [data-aud]:not([data-aud~="pme"]),
+html[data-aud-mode][data-audience="cabinet"] [data-aud]:not([data-aud~="cabinet"]) { display: none !important; }
+:root:has(#aud-groupe:checked) [data-aud]:not([data-aud~="groupe"]),
+:root:has(#aud-pme:checked) [data-aud]:not([data-aud~="pme"]),
+:root:has(#aud-cabinet:checked) [data-aud]:not([data-aud~="cabinet"]) { display: none !important; }

@@ -1,14 +1,10 @@
 ---
+import { AUDIENCES, CASES } from "../data/audiences";
 const figures = [
   { n: "≈ 800 M€", d: "d'achats dans le périmètre couvert comme Procurement Lead chez Proximus, de 2022 à 2024.", src: "Parcours du fondateur", av: true },
-  { n: "2005", d: "Clixite est fondée. Plus de vingt ans de projets, de la communication à l'architecture.", src: "Clixite", av: true },
+  { n: "18 mois", d: "auprès du CPO de KBC : politique achats v2.0 et circuit d'achats tactiques en production.", src: "Mission Clixite", av: true },
+  { n: "2", d: "entreprises créées puis cédées, avant de conseiller celles des autres.", src: "Parcours du fondateur", av: true },
   { n: "7", d: "certifications professionnelles : PMP, PRINCE2, AgilePM, SAFe, Scrum, ITIL v3 et ADKAR.", src: "Nicolas Simon" },
-  { n: "3", d: "langues de travail : français, néerlandais et anglais, à l'écrit comme en réunion.", src: "Clixite" },
-];
-const cases = [
-  { c: "KBC", d: "Contribution à la politique achats de la direction des achats.", g: "Mission Clixite" },
-  { c: "Groupe P&V", d: "Direction des achats par intérim, P&V Assurances et Vivium, en 2025.", g: "Mission Clixite" },
-  { c: "Tero et Design Plus", d: "Architecture de croissance : sites, outils métier, données et visibilité dans les moteurs IA.", g: "Missions Clixite" },
 ];
 ---
 <section class="section proofs" aria-labelledby="proofs-title">
@@ -22,21 +18,23 @@ const cases = [
         </div>
       ))}
     </dl>
-    <ul role="list" class="proofs__cases">
-      {cases.map((k) => (
-        <li class="av">
-          <p class="proofs__client">{k.c}</p>
-          <p>{k.d}</p>
-          <p class="small muted">{k.g}</p>
-        </li>
-      ))}
-    </ul>
+    {AUDIENCES.map((a) => (
+      <ul role="list" class="proofs__cases" data-aud={a.key}>
+        {CASES[a.key].map((k) => (
+          <li class="av">
+            <p class="proofs__client">{k.c}</p>
+            <p>{k.d}</p>
+            <p class="small muted">{k.g}</p>
+          </li>
+        ))}
+      </ul>
+    ))}
   </div>
 </section>
 
 <style>
   .proofs__title { max-width: 18ch; }
-  .proofs__figs { display: grid; grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)); gap: var(--clx-space-7); margin-top: var(--clx-space-8); }
+  .proofs__figs { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr) repeat(2, minmax(0, 1fr)); gap: var(--clx-space-7); margin-top: var(--clx-space-8); }
   .proofs__n { font-family: var(--clx-font-family-voice); font-style: italic; font-weight: 500; font-size: var(--clx-type-figure-font-size); line-height: var(--clx-type-figure-line-height); letter-spacing: var(--clx-type-figure-letter-spacing); color: var(--clx-link); white-space: nowrap; font-variant-numeric: lining-nums; }
   .proofs__fig dd { margin-top: var(--clx-space-4); color: var(--clx-text-muted); max-width: 30ch; }
   .proofs__src { display: block; margin-top: var(--clx-space-3); color: var(--clx-text); font-weight: 500; }

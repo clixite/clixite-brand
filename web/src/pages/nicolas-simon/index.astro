@@ -1,0 +1,91 @@
+---
+import Base from "../../layouts/Base.astro";
+import Parcours from "../../components/Parcours.astro";
+import Skills from "../../components/Skills.astro";
+import FinalCta from "../../components/FinalCta.astro";
+import { SITE } from "../../data/site";
+import { AVAILABILITY, CASES } from "../../data/audiences";
+const cv = SITE.bookingsUrl || `mailto:${SITE.email}?subject=${encodeURIComponent("Demande de CV : Nicolas Simon")}&body=${encodeURIComponent("Bonjour Nicolas,\n\nRôle proposé :\nClient et secteur :\nDurée et rythme :\nDate de démarrage :\nLieu :\n")}`;
+const facts = [
+  { k: "Rôles", v: "Enterprise ou Solution Architect, Procurement Transformation Lead, TPRM et DORA Advisor, Program ou Change Manager, responsable de la mise en production IA" },
+  { k: "Secteurs", v: "Banque, assurance, télécoms, médias, secteur public, PME en croissance" },
+  { k: "Langues", v: "Français (langue maternelle), anglais courant, néerlandais opérationnel" },
+  { k: "Mobilité", v: "Bruxelles, Wallonie, Flandre et Luxembourg, sur site ou à distance", av: true },
+  { k: "Certifications", v: "PMP, PRINCE2, AgilePM, SAFe, Scrum, ITIL v3, ADKAR" },
+  { k: "Formation", v: "Marketing et communication, EPHEC Louvain-la-Neuve (2006)", av: true },
+  { k: "Statut", v: "Indépendant, facturation par Clixite SRL (BE 0871.430.776)" },
+];
+const schema = [
+  { "@type": "ProfilePage", "@id": `${SITE.url}/nicolas-simon/#page`, url: `${SITE.url}/nicolas-simon/`, mainEntity: { "@id": `${SITE.url}/#nicolas-simon` }, inLanguage: SITE.locale },
+  { "@type": "BreadcrumbList", itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Accueil", item: `${SITE.url}/` },
+    { "@type": "ListItem", position: 2, name: "Nicolas Simon", item: `${SITE.url}/nicolas-simon/` },
+  ] },
+];
+---
+<Base
+  title="Nicolas Simon, Enterprise & Solution Architect et Forward Deployed Engineer | Clixite"
+  description="Profil de Nicolas Simon (Clixite, Wavre) : architecture d'entreprise et de solutions, transformation des achats, DORA, NIS2, TPRM, IA en production. Disponibilité, rôles, certifications, parcours."
+  path="/nicolas-simon/"
+  schema={schema}
+>
+  <nav class="wrap crumbs small" aria-label="Fil d'Ariane">
+    <ol role="list"><li><a href="/">Accueil</a></li><li aria-current="page">Nicolas Simon</li></ol>
+  </nav>
+  <section class="section ns-hero" aria-labelledby="ns-title">
+    <div class="wrap ns-hero__in">
+      <div>
+        <h1 id="ns-title" class="h-display">Nicolas Simon.<span class="ns-sub">Enterprise &amp; Solution Architect, Forward Deployed Engineer. Architecte des systèmes d'information et des organisations, pas du bâtiment.</span></h1>
+        <p class={AVAILABILITY.av ? "ns-avail av" : "ns-avail"}>{AVAILABILITY.text}</p>
+        <div class="ns-cta">
+          <a class="btn btn--primary" href={cv}>Demander le CV</a>
+          <a class="btn btn--secondary" href={SITE.linkedin} rel="me noopener">Profil LinkedIn</a>
+        </div>
+      </div>
+      <dl class="ns-facts">
+        {facts.map((f) => <div><dt>{f.k}</dt><dd class={f.av ? "av" : undefined}>{f.v}</dd></div>)}
+      </dl>
+    </div>
+  </section>
+  <section class="section ns-parcours" aria-labelledby="ns-parcours-title">
+    <div class="wrap stack" style="--stack: 2rem">
+      <h2 id="ns-parcours-title" class="h2">Un parcours en X.</h2>
+      <Parcours />
+    </div>
+  </section>
+  <section class="section ns-cases band-alt" aria-labelledby="ns-cases-title">
+    <div class="wrap">
+      <h2 id="ns-cases-title" class="h2">Missions récentes.</h2>
+      <ul role="list" class="ns-cases__list">
+        {CASES.cabinet.map((k) => <li class="av"><p class="ns-client">{k.c}</p><p>{k.d}</p><p class="small muted">{k.g}</p></li>)}
+      </ul>
+    </div>
+  </section>
+  <Skills />
+  <FinalCta />
+</Base>
+
+<style>
+  .crumbs { padding-top: var(--clx-space-5); color: var(--clx-text-muted); }
+  .crumbs ol { display: flex; flex-wrap: wrap; gap: 0.25rem 0.5rem; }
+  .crumbs li { white-space: nowrap; }
+  .crumbs li + li::before { content: "/"; margin-right: 0.5rem; color: var(--clx-border-strong); }
+  .crumbs a { color: var(--clx-text-muted); }
+  .ns-hero { padding-top: var(--clx-space-7); }
+  .ns-hero__in { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: var(--clx-space-8); align-items: start; }
+  .ns-sub { display: block; margin-top: var(--clx-space-4); font-weight: 500; font-size: clamp(1.25rem, 1.05rem + 0.9vw, 1.75rem); line-height: 1.25; letter-spacing: -0.01em; max-width: 32ch; }
+  .ns-avail { margin-top: var(--clx-space-6); font-weight: 600; }
+  .ns-cta { display: flex; flex-wrap: wrap; gap: var(--clx-space-3); margin-top: var(--clx-space-5); }
+  .ns-facts { margin: 0; display: grid; border-top: 1px solid var(--clx-border); }
+  .ns-facts div { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: var(--clx-space-4); padding-block: var(--clx-space-4); border-bottom: 1px solid var(--clx-border); }
+  .ns-facts dt { font-weight: 600; }
+  .ns-facts dd { color: var(--clx-text-muted); }
+  .ns-cases__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--clx-space-6); margin-top: var(--clx-space-7); }
+  .ns-cases__list li { display: grid; gap: var(--clx-space-2); align-content: start; }
+  .ns-client { font-family: var(--clx-font-family-display); font-weight: 500; font-size: 1.25rem; }
+  @media (max-width: 899px) {
+    .ns-hero__in { grid-template-columns: 1fr; gap: var(--clx-space-7); }
+    .ns-cases__list { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 479px) { .ns-facts div { grid-template-columns: 1fr; gap: 2px; } }
+</style>

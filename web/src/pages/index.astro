@@ -2,26 +2,27 @@
 import Base from "../layouts/Base.astro";
 import Hero from "../components/Hero.astro";
 import ClientLogos from "../components/ClientLogos.astro";
-import Gap from "../components/Gap.astro";
-import Profile from "../components/Profile.astro";
-import Method from "../components/Method.astro";
-import Expertises from "../components/Expertises.astro";
+import Solver from "../components/Solver.astro";
 import Offers from "../components/Offers.astro";
 import Proofs from "../components/Proofs.astro";
+import Profile from "../components/Profile.astro";
+import Skills from "../components/Skills.astro";
+import Method from "../components/Method.astro";
 import FinalCta from "../components/FinalCta.astro";
 ---
 <Base
   title="Architecte d'entreprise et de solutions à Wavre | Clixite"
-  description="Clixite (Wavre, depuis 2005) conçoit votre architecture d'entreprise et de solutions, puis la met en production avec vos équipes. Pour les PME et les grands groupes."
+  description="Clixite (Wavre, depuis 2005) conçoit votre architecture d'entreprise et de solutions, puis la met en production avec vos équipes : achats, DORA, NIS2, IA. Pour les grands groupes et les PME."
   path="/"
+  audienceMode
 >
   <Hero />
   <ClientLogos />
-  <Gap />
-  <Profile />
-  <Method />
-  <Expertises />
+  <Solver />
   <Offers />
   <Proofs />
+  <Profile />
+  <Skills />
+  <Method />
   <FinalCta />
 </Base>
