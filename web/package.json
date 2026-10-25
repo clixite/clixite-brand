@@ -12,7 +12,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "postbuild": "node scripts/typo-fr.mjs dist",
+    "build:review": "PUBLIC_REVIEW=1 astro build --outDir dist-review && node scripts/typo-fr.mjs dist-review"
   },
   "dependencies": {
     "astro": "7.4.2",

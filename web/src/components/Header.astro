@@ -2,7 +2,7 @@
 import wordmark from "../assets/x/wordmark.svg?raw";
 import { bookingHref } from "../data/site";
 const links = [
-  { href: "/#expertises", label: "Expertises" },
+  { href: "/expertises/", label: "Expertises" },
   { href: "/#methode", label: "Méthode" },
   { href: "/#offres", label: "Offres" },
   { href: "/#references", label: "Références" },
@@ -18,7 +18,7 @@ const links = [
         {links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
       </ul>
     </nav>
-    <a class="btn btn--primary btn--small hd__cta" href={bookingHref()}>Réserver un échange</a>
+    <a class="btn btn--primary btn--small hd__cta" href={bookingHref()}><span class="hd__cta-l">Réserver un échange</span><span class="hd__cta-s">Rendez-vous</span></a>
     <details class="hd__menu">
       <summary aria-label="Ouvrir le menu"><span>Menu</span></summary>
       <nav aria-label="Navigation mobile">
@@ -58,5 +58,7 @@ const links = [
     .hd__menu nav { position: absolute; left: 0; right: 0; top: 100%; background: var(--clx-bg); border-bottom: 1px solid var(--clx-border); padding: var(--clx-space-3) var(--clx-layout-gutter) var(--clx-space-6); }
     .hd__menu nav a { display: block; font-size: 1.25rem; font-family: var(--clx-font-family-display); font-weight: 500; padding: 0.75rem 0; }
   }
-  @media (max-width: 379px) { .hd__cta { display: none; } .hd__menu { margin-left: auto; } }
+  .hd__cta-s { display: none; }
+  @media (max-width: 479px) { .hd__cta-l { display: none; } .hd__cta-s { display: inline; } .hd__cta { padding: 0 0.875rem; } }
+  @media (max-width: 339px) { .hd__mark :global(svg) { width: 96px; } }
 </style>

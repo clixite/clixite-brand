@@ -4,8 +4,8 @@ import e2 from "../assets/x/etape-2.svg?raw";
 import e3 from "../assets/x/etape-3.svg?raw";
 import e4 from "../assets/x/etape-4.svg?raw";
 const steps = [
-  { svg: e1, t: "Relever", d: "Cartographie de vos systèmes, de vos flux, de vos contrats et de vos risques. On mesure avant de dessiner.", out: "Relevé et diagnostic", dur: "2 à 3 semaines" },
-  { svg: e2, t: "Épurer", d: "L'architecture cible et le chemin pour y aller, en options chiffrées. Ce qu'on garde, ce qu'on remplace, ce qu'on arrête.", out: "Cible et feuille de route", dur: "2 à 4 semaines" },
+  { svg: e1, t: "Relever", d: "Cartographie de vos systèmes, de vos flux, de vos contrats et de vos risques. On mesure avant de dessiner.", out: "Diagnostic", dur: "10 jours" },
+  { svg: e2, t: "Concevoir", d: "L'architecture cible et le chemin pour y aller, en options chiffrées. Ce qu'on garde, ce qu'on remplace, ce qu'on arrête.", out: "Cible et feuille de route", dur: "2 à 4 semaines" },
   { svg: e3, t: "Construire", d: "Intégrations, données, automatisations et IA, livrées par incréments courts que vos équipes testent en conditions réelles.", out: "Incréments en production", dur: "Sprints de 2 semaines" },
   { svg: e4, t: "Mettre en service", d: "Déploiement, adoption et transfert. Nous partons quand vos équipes n'ont plus besoin de nous, pas avant.", out: "Solution exploitée et documentée", dur: "Selon le périmètre" },
 ];
@@ -14,7 +14,7 @@ const steps = [
   <div class="wrap">
     <div class="method__head">
       <h2 id="method-title" class="h2">Du relevé à la mise en service.</h2>
-      <p class="lead">Le X de Clixite se construit comme vos projets : des repères, un tracé, de la matière, puis le relief. Quatre états, un seul fil.</p>
+      <p class="lead">Quatre étapes, chacune avec un livrable que vous gardez, même si vous arrêtez là. Vous décidez de la suivante sur pièces.</p>
     </div>
     <ol role="list" class="method__list">
       {steps.map((s) => (

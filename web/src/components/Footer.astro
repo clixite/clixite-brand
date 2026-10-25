@@ -9,27 +9,30 @@ const year = new Date().getFullYear();
     </div>
     <div class="ft__cols">
       <div>
-        <p class="ft__label">Clixite SRL</p>
-        <p>{SITE.address.street}<br />{SITE.address.postalCode} {SITE.address.city}, Belgique</p>
-        <p class="data ft__vat">{SITE.vat}</p>
-      </div>
-      <div>
         <p class="ft__label">Contact</p>
         <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
         <p><a href={SITE.linkedin} rel="me noopener">Nicolas Simon sur LinkedIn</a></p>
+        <p>{SITE.address.street}<br />{SITE.address.postalCode} {SITE.address.city}, Belgique</p>
       </div>
       <div>
-        <p class="ft__label">Marque</p>
+        <p class="ft__label">Expertises</p>
+        <p><a href="/expertises/">Les six expertises</a></p>
+        <p><a href="/expertises/transformation-achats/">Transformation des achats</a></p>
+        <p><a href="/#offres">Offres de démarrage</a></p>
+      </div>
+      <div>
+        <p class="ft__label">Informations</p>
+        <p><a href="/mentions-legales/">Mentions légales et confidentialité</a></p>
         <p><a href={SITE.charte}>Charte graphique</a></p>
         <p><a href="/llms.txt">Résumé pour les assistants IA</a></p>
       </div>
     </div>
-    <p class="ft__legal small">© 2005 à {year} Clixite SRL. Depuis Wavre, en français, en anglais et en néerlandais.</p>
+    <p class="ft__legal small"><span class="av">{SITE.legalName}, société à responsabilité limitée. Siège : {SITE.address.street}, {SITE.address.postalCode} {SITE.address.city}. BCE et TVA {SITE.vat}, RPM Brabant wallon.</span> © 2005 à {year}.</p>
   </div>
 </footer>
 
 <style>
-  .ft { padding-block: var(--clx-space-9) var(--clx-space-7); }
+  .ft { padding-block: var(--clx-space-8) var(--clx-space-7); }
   .ft__in { display: grid; gap: var(--clx-space-8); }
   .ft__brand img { width: 240px; height: auto; }
   .ft__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--clx-space-6); }
@@ -37,7 +40,6 @@ const year = new Date().getFullYear();
   .ft__label { font-weight: 600; margin-bottom: 0.5rem; }
   .ft a { color: var(--clx-text); text-decoration-color: color-mix(in srgb, currentColor 40%, transparent); }
   .ft a:hover { color: var(--clx-link); }
-  .ft__vat { color: var(--clx-text-muted); margin-top: 0.5rem !important; }
   .ft__legal { color: var(--clx-text-muted); }
   @media (max-width: 767px) { .ft__cols { grid-template-columns: 1fr; } }
 </style>

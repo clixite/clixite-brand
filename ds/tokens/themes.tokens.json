@@ -305,7 +305,7 @@
     },
     "section": {
       "$type": "dimension",
-      "$value": "clamp(4.5rem, 2.5rem + 6vw, 9rem)"
+      "$value": "clamp(4rem, 2rem + 5vw, 7.5rem)"
     }
   }
 }

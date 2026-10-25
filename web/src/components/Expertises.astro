@@ -1,4 +1,8 @@
 ---
+interface Props { headingLevel?: "h1" | "h2" }
+const { headingLevel = "h2" } = Astro.props;
+const Heading = headingLevel;
+const Item = headingLevel === "h1" ? "h2" : "h3";
 const items = [
   { t: "Architecture d'entreprise et de solutions", d: "Cartographie applicative, architecture cible, rationalisation des outils, intégrations et choix de solutions, du cloud au poste de travail.", k: "Cible, feuille de route, intégration" },
   { t: "Transformation des achats", d: "Source-to-Pay, du sourcing au paiement, mise en place d'outils comme SAP Ariba, direction des achats à temps partagé ou par intérim.", k: "Source-to-Pay, Fractional CPO, intérim", href: "/expertises/transformation-achats/" },
@@ -8,19 +12,21 @@ const items = [
   { t: "Pilotage de programmes et changement", d: "Programmes multi-équipes pilotés avec méthode, et une conduite du changement qui embarque les utilisateurs dès le premier jour.", k: "PMP, PRINCE2, SAFe, ADKAR" },
 ];
 ---
-<section id="expertises" class="section expertises" aria-labelledby="exp-title">
+<section id="expertises" class:list={["section", "expertises", headingLevel === "h1" && "expertises--page"]} aria-labelledby="exp-title">
   <div class="wrap">
     <div class="exp__head">
-      <h2 id="exp-title" class="h2">Six terrains, une seule architecture.</h2>
+      <Heading id="exp-title" class={headingLevel === "h1" ? "h-display" : "h2"}>Six terrains, une seule architecture.</Heading>
       <p class="lead">Les mêmes principes s'appliquent à une banque et à une PME : savoir ce qu'on a, décider où on va, livrer ce qui compte.</p>
     </div>
-    <ul role="list" class="exp__grid">
+    <ul role="list" class="exp__list">
       {items.map((i) => (
-        <li class="exp__item">
-          <h3 class="h3">{i.href ? <a href={i.href}>{i.t}</a> : i.t}</h3>
-          <p class="muted">{i.d}</p>
-          <p class="exp__k small">{i.k}</p>
-          {i.href && <a class="link-more small exp__more" href={i.href} aria-hidden="true" tabindex="-1">Découvrir l'expertise</a>}
+        <li class="exp__row">
+          <Item class="h3">{i.href ? <a href={i.href}>{i.t}</a> : i.t}</Item>
+          <div class="exp__body">
+            <p class="muted">{i.d}</p>
+            <p class="exp__k small">{i.k}</p>
+          </div>
+          {i.href ? <a class="link-more small exp__more" href={i.href} aria-hidden="true" tabindex="-1">Lire la page</a> : <span class="exp__more" aria-hidden="true"></span>}
         </li>
       ))}
     </ul>
@@ -28,14 +34,19 @@ const items = [
 </section>
 
 <style>
-  .exp__head { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--clx-space-7); align-items: end; }
-  .exp__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--clx-space-8) var(--clx-space-7); margin-top: var(--clx-space-9); }
-  .exp__item p.muted { margin-top: var(--clx-space-3); }
-  .exp__item h3 a { color: inherit; text-decoration: underline; text-decoration-color: var(--clx-accent); text-decoration-thickness: 2px; text-underline-offset: 5px; }
-  .exp__item h3 a:hover { color: var(--clx-link); }
-  .exp__k { margin-top: var(--clx-space-4); color: var(--clx-text); font-weight: 500; }
-  .exp__more { display: inline-block; margin-top: var(--clx-space-3); }
-  @media (max-width: 1099px) { .exp__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 899px) { .exp__head { grid-template-columns: 1fr; gap: var(--clx-space-4); } }
-  @media (max-width: 599px) { .exp__grid { grid-template-columns: 1fr; gap: var(--clx-space-7); margin-top: var(--clx-space-7); } }
+  .expertises--page { padding-top: var(--clx-space-7); }
+  .exp__head { display: grid; gap: var(--clx-space-5); max-width: 52rem; }
+  .exp__head .lead { max-width: 46ch; }
+  .exp__list { margin-top: var(--clx-space-8); border-top: 1px solid var(--clx-border); }
+  .exp__row { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr) 8rem; gap: var(--clx-space-6); padding-block: var(--clx-space-6); border-bottom: 1px solid var(--clx-border); align-items: baseline; }
+  .exp__row .h3 a { color: inherit; text-decoration: underline; text-decoration-color: var(--clx-accent); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+  .exp__row .h3 a:hover { color: var(--clx-link); }
+  .exp__body p.muted { max-width: 58ch; }
+  .exp__k { margin-top: var(--clx-space-3); color: var(--clx-text); font-weight: 500; }
+  .exp__more { justify-self: end; }
+  @media (max-width: 899px) {
+    .exp__row { grid-template-columns: 1fr; gap: var(--clx-space-3); }
+    .exp__more { justify-self: start; }
+    .exp__more:empty { display: none; }
+  }
 </style>

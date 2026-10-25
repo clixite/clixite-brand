@@ -27,7 +27,7 @@ export const REVIEW = import.meta.env.PUBLIC_REVIEW === "1";
 
 export const bookingHref = () =>
   SITE.bookingsUrl ||
-  `mailto:${SITE.email}?subject=${encodeURIComponent("Échange de 30 minutes avec Clixite")}&body=${encodeURIComponent("Bonjour Nicolas,\n\nNotre x, en deux phrases :\n\n\nDisponibilités :\n")}`;
+  `mailto:${SITE.email}?subject=${encodeURIComponent("Échange de 30 minutes avec Clixite")}&body=${encodeURIComponent("Bonjour Nicolas,\n\nNotre enjeu, en deux phrases :\n\n\nDisponibilités :\n")}`;
 
 export const KNOWS_ABOUT = [
   "Architecture d'entreprise", "Architecture de solutions", "Forward Deployed Engineering", "Transformation des achats",

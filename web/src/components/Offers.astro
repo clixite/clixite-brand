@@ -1,15 +1,16 @@
 ---
-import { bookingHref } from "../data/site";
+import { SITE, bookingHref } from "../data/site";
+const ask = (o: string) => SITE.bookingsUrl || `mailto:${SITE.email}?subject=${encodeURIComponent(o + " : premier échange")}`;
 const offers = [
-  { t: "Diagnostic d'architecture", dur: "10 jours", d: "Une photographie honnête de vos systèmes, de vos flux et de vos risques, et trois options chiffrées pour la suite.", g: ["Cartographie applicative et des flux", "Risques et dette prioritaires", "Trois scénarios chiffrés, une recommandation"] },
-  { t: "Revue d'architecture", dur: "5 jours", d: "Un regard indépendant sur un projet en cours ou un choix de solution, avant qu'il ne coûte trop cher.", g: ["Lecture critique du dossier et entretiens", "Points de rupture et alternatives", "Avis écrit, présenté à votre comité"] },
-  { t: "IA en production", dur: "4 semaines", d: "Un cas d'usage IA, de l'idée au service en production, en Forward Deployed Engineer dans votre équipe.", g: ["Cadrage du cas et des données", "Mise en production avec garde-fous", "Mesure, documentation et transfert"] },
+  { t: "Diagnostic d'architecture", dur: "10 jours", d: "Une photographie honnête de vos systèmes, de vos flux et de vos risques, et trois options chiffrées pour la suite.", g: ["Cartographie applicative et des flux", "Risques et dette prioritaires", "Trois scénarios chiffrés, une recommandation"], cta: "Demander le diagnostic" },
+  { t: "Revue d'architecture", dur: "5 jours", d: "Un regard indépendant sur un projet en cours ou un choix de solution, avant qu'il ne coûte trop cher.", g: ["Lecture critique du dossier et entretiens", "Points de rupture et alternatives", "Avis écrit, présenté à votre comité"], cta: "Demander une revue" },
+  { t: "IA en production", dur: "4 semaines", d: "Un cas d'usage IA délimité, de l'idée au service en production, en Forward Deployed Engineer dans votre équipe.", g: ["Cadrage du cas et des données", "Mise en production avec garde-fous", "Mesure, documentation et transfert"], cta: "Cadrer un cas d'usage" },
 ];
 ---
 <section id="offres" class="section offers" aria-labelledby="offers-title">
   <div class="wrap">
     <div class="offers__head">
-      <h2 id="offers-title" class="h2">Trois façons de commencer cette semaine.</h2>
+      <h2 id="offers-title" class="h2">Trois façons de commencer, sans engagement long.</h2>
       <p class="lead">Un périmètre court, un prix fixe annoncé avant de commencer, un résultat que vous gardez même si nous nous arrêtons là. <span class="av">Prix communiqués après le premier échange.</span></p>
     </div>
     <ul role="list" class="offers__grid">
@@ -23,22 +24,35 @@ const offers = [
           <ul class="offers__gets">
             {o.g.map((x) => <li>{x}</li>)}
           </ul>
+          <a class="link-more offers__ask" href={ask(o.t)}>{o.cta}</a>
         </li>
       ))}
     </ul>
-    <p class="offers__cta"><a class="btn btn--primary" href={bookingHref()}>Choisir avec nous en 30 minutes</a></p>
+    <div class="offers__foot">
+      <p class="offers__cta"><a class="btn btn--primary" href={bookingHref()}>Choisir avec nous en 30 minutes</a></p>
+      <dl class="offers__terms small av">
+        <div><dt>Contrat</dt><dd>En direct, ou via les sociétés de conseil référencées chez vous.</dd></div>
+        <div><dt>Confidentialité</dt><dd>Accord de confidentialité signé avant l'échange si vous le souhaitez.</dd></div>
+        <div><dt>Assurance</dt><dd>Responsabilité civile professionnelle.</dd></div>
+      </dl>
+    </div>
   </div>
 </section>
 
 <style>
-  .offers__head { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--clx-space-7); align-items: end; }
+  .offers__head { display: grid; gap: var(--clx-space-5); max-width: 52rem; }
+  .offers__head .lead { max-width: 46ch; }
   .offers__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--clx-space-5); margin-top: var(--clx-space-8); }
   .offers__card { display: flex; flex-direction: column; gap: var(--clx-space-4); padding: var(--clx-space-6); }
   .offers__top { display: flex; justify-content: space-between; gap: var(--clx-space-3); align-items: baseline; }
   .offers__dur { color: var(--clx-link); white-space: nowrap; }
   .offers__gets { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.4rem; }
   .offers__gets li::marker { color: var(--clx-accent); }
-  .offers__cta { margin-top: var(--clx-space-7); }
+  .offers__ask { margin-top: auto; padding-top: var(--clx-space-2); align-self: flex-start; }
+  .offers__foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--clx-space-6); margin-top: var(--clx-space-7); }
+  .offers__terms { display: grid; grid-template-columns: repeat(3, minmax(0, 14rem)); gap: var(--clx-space-5); color: var(--clx-text-muted); }
+  .offers__terms dt { font-weight: 600; color: var(--clx-text); }
+  @media (max-width: 899px) { .offers__terms { grid-template-columns: 1fr; } }
   @media (max-width: 1099px) { .offers__grid { grid-template-columns: 1fr; max-width: 40rem; } }
   @media (max-width: 899px) { .offers__head { grid-template-columns: 1fr; gap: var(--clx-space-4); } }
 </style>

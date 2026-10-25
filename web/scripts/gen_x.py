@@ -135,19 +135,13 @@ def etape(n):
     return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {f(vw)} {f(vh)}" aria-hidden="true" focusable="false">{"".join(body)}</svg>'
 
 def wordmark(variant="color"):
-    """mot-marque sans descripteur pour l'en-tête (sous 240 px de large le descripteur devient illisible)"""
-    sc = scheme2(variant); wm = 150.0; overshoot = 0.05; gap_em = 0.035; tr = 0.06
-    m = metrics("space", 700); cap = m["cap"] / m["upem"] * wm
-    xs = cap * (1 + 2 * overshoot); t_ratio = 1.08 * STEM * wm / xs
-    baseline = xs - overshoot * cap
-    left, lw = text_paths("space", 700, "CLI", wm, 0, baseline, tracking=tr)
-    gap = gap_em * wm
-    x_x = lw + gap; x_y = baseline - cap - overshoot * cap
-    right, rw = text_paths("space", 700, "ITE", wm, x_x + xs + gap, baseline, tracking=tr)
-    W = x_x + xs + gap + rw; H = xs
-    ink = "currentColor"
-    body = paths_for(left, ink) + f'<g transform="translate({f(x_x)},{f(x_y)})">{x_master(sc, xs, variant, t_ratio=t_ratio)}</g>' + paths_for(right, ink)
-    return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {f(W)} {f(H)}">{body}</svg>'
+    """mot-marque officiel sans descripteur (logos10.lockup_wordmark), fond transparent, sans dimensions fixes"""
+    from logos10 import lockup_wordmark
+    import re
+    svg, _ = lockup_wordmark(x_master, variant)
+    svg = re.sub(r'<rect width="100%" height="100%" fill="[^"]+"/>', "", svg)
+    svg = re.sub(r'\s(width|height)="[^"]*"', "", svg, count=2)
+    return re.sub(r"(\d+\.\d{2})\d+", r"\1", svg)   # 2 décimales suffisent à l'écran
 
 if __name__ == "__main__":
     svg, centre = hero()

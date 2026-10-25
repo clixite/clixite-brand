@@ -1,0 +1,44 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE } from "../data/site";
+---
+<Base
+  title="Mentions légales et confidentialité | Clixite"
+  description="Éditeur du site, hébergement, propriété intellectuelle et protection des données personnelles sur www.clixite.be."
+  path="/mentions-legales/"
+>
+  <article class="section legal">
+    <div class="wrap legal__in">
+      <h1 class="h-display legal__title">Mentions légales et confidentialité.</h1>
+      <div class="legal__body stack" style="--stack: 2.5rem">
+        <section aria-labelledby="l-editeur">
+          <h2 id="l-editeur" class="h3">Éditeur</h2>
+          <p class="av">{SITE.legalName}, société à responsabilité limitée. Siège : {SITE.address.street}, {SITE.address.postalCode} {SITE.address.city}, Belgique. Numéro d'entreprise et TVA : {SITE.vat}, RPM Brabant wallon. Responsable de la publication : {SITE.founder.name}. Contact : <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+        </section>
+        <section aria-labelledby="l-hebergement">
+          <h2 id="l-hebergement" class="h3">Hébergement</h2>
+          <p class="av">Le site est servi par un serveur privé virtuel administré par Clixite et loué à Hostinger International Ltd, dans un centre de données situé dans l'Union européenne.</p>
+        </section>
+        <section aria-labelledby="l-pi">
+          <h2 id="l-pi" class="h3">Propriété intellectuelle</h2>
+          <p>Les textes, le logo et les illustrations de Clixite sont protégés. Leur reproduction demande un accord écrit. Les logos des organisations citées appartiennent à leurs titulaires respectifs.</p>
+        </section>
+        <section aria-labelledby="l-donnees">
+          <h2 id="l-donnees" class="h3">Vos données personnelles</h2>
+          <p>Ce site ne dépose aucun cookie, n'utilise aucun outil de mesure d'audience et ne charge aucune ressource externe : les polices sont hébergées sur notre propre serveur.</p>
+          <p class="av">Le serveur conserve des journaux techniques (adresse IP, date, page demandée) pendant une durée limitée, pour la sécurité du service.</p>
+          <p>Si vous nous écrivez, nous utilisons votre nom, votre adresse électronique et le contenu du message pour vous répondre et, si vous le demandez, pour préparer une proposition. Ces données ne sont ni vendues ni cédées. Responsable du traitement : {SITE.legalName}.</p>
+          <p>Vous pouvez demander l'accès à vos données, leur rectification, leur effacement, la limitation du traitement ou vous y opposer, en écrivant à <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. Vous pouvez aussi introduire une plainte auprès de l'Autorité de protection des données, rue de la Presse 35, 1000 Bruxelles (<a href="https://www.autoriteprotectiondonnees.be/">autoriteprotectiondonnees.be</a>).</p>
+        </section>
+      </div>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .legal__in { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--clx-space-8); align-items: start; }
+  .legal__title { font-size: var(--clx-type-h2-font-size); }
+  .legal__body p { max-width: 62ch; margin-top: var(--clx-space-3); color: var(--clx-text-muted); }
+  .legal__body h2 { color: var(--clx-text); }
+  @media (max-width: 899px) { .legal__in { grid-template-columns: 1fr; gap: var(--clx-space-6); } }
+</style>

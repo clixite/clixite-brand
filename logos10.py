@@ -152,6 +152,24 @@ def lockup_stacked(gen, variant="color", descriptor="ENTERPRISE & SOLUTION ARCHI
     H = baseline + 34 + pad * 0.9
     return svg_wrap(content, W, H, sc["bg"]), (W, H)
 
+def lockup_wordmark(gen, variant="color", wm_size=150.0, overshoot=0.05, gap_em=0.035):
+    """Mot-marque seul (Design System 2.0) : pour les usages sous 240 px de large, en-têtes d'interface et barres
+    de navigation, où le descripteur deviendrait illisible. Mêmes métriques que lockup_central, sans descripteur."""
+    sc = scheme2(variant); pad = 0.0
+    m = metrics("space", 700); cap = m["cap"] / m["upem"] * wm_size
+    xs = cap * (1 + 2 * overshoot); stem = STEM * wm_size; t_ratio = 1.08 * stem / xs; tr = 0.06
+    baseline = xs - overshoot * cap
+    left, lw = text_paths("space", 700, "CLI", wm_size, pad, baseline, tracking=tr)
+    gap_px = gap_em * wm_size
+    t_px = t_ratio * xs; d_px = 0.30 * t_px; edx, edy = ext_vec(d_px)
+    flat = gen in (x_master, x_solid)
+    shx = 0.0 if flat else edx / 2; shy = 0.0 if flat else -edy / 2
+    x_x = pad + lw + gap_px + shx; x_y = baseline - cap - overshoot * cap + shy
+    right, rw = text_paths("space", 700, "ITE", wm_size, x_x + xs + gap_px - shx, baseline, tracking=tr)
+    W = (x_x + xs + gap_px + rw); H = xs + (0.0 if flat else -edy)
+    content = paths_for(left, sc["text"]) + f'<g transform="translate({x_x:.2f},{x_y:.2f})">{gen(sc, xs, variant, t_ratio=t_ratio)}</g>' + paths_for(right, sc["text"])
+    return svg_wrap(content, W, H, sc["bg"]), (W, H)
+
 def mark(gen, variant="color", size=200.0, t_ratio=0.2):
     sc = scheme2(variant); pad = size * 0.17; inner = size - 2 * pad
     return svg_wrap(f'<g transform="translate({pad},{pad})">{gen(sc, inner, variant, t_ratio=t_ratio)}</g>', size, size, sc["bg"])
