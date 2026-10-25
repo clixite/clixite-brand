@@ -150,3 +150,12 @@ Phrases courtes, verbes d'action, chiffres avant adjectifs. Vouvoiement en exter
 - Pas de mono partout pour « faire technique ».
 - Pas de rebond, pas d'élastique, pas d'animation d'entrée sur chaque section.
 - Pas de slogan dans le logo ; « nous résolvons votre *x* » reste dans le texte.
+
+## 9. Design System 2.0 (refonte 2030)
+
+Le site www.clixite.be est construit sur le Design System 2.0 (`ds/`, documentation dans `ds/README.md`) : tokens au format W3C, contrastes contrôlés à chaque build, composants Astro dans `web/`. Quatre ajouts à la charte, décidés pour l'écran :
+
+- **Mot-marque sans descripteur** : sous 240 px de large (en-têtes d'interface, barres de navigation), utiliser `clixite-maitre-motmarque-*`, généré par `logos10.lockup_wordmark`. Au-dessus, le descripteur reste obligatoire.
+- **Ouverture web en 2,4 s** : sur un site, le X se construit en 2,4 s (repères, tracé, chant, champs, lentille), puis seul l'angle entre les champs respire entre 4° et 6°. Exception documentée à la règle « transform et opacité » : le tracé des repères (`stroke-dashoffset`), pendant l'ouverture uniquement. Sur écran tactile, pas de boucle.
+- **Le *x* en deux endroits par page** au plus : le titre d'ouverture et l'appel final.
+- **Logos clients** : fichiers officiels uniquement, inscrits au registre `web/src/data/clients.registry.json` avec leur source et l'accord du client, teintés par masque CSS. Jamais redessinés, jamais publiés sans accord écrit.
