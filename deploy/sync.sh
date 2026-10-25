@@ -1,0 +1,23 @@
+#!/bin/sh
+# Synchronise les branches `site` et `www` du dépôt public clixite/clixite-brand vers /www/<branche>,
+# et dépose la configuration nginx et Traefik. Tourne dans le conteneur clixite-sync (alpine).
+set -e
+REPO="clixite/clixite-brand"; RAW="https://raw.githubusercontent.com/$REPO/main/deploy"
+mkdir -p /www /state
+for b in site www; do
+  head=$(curl -fsSL -H "Accept: application/vnd.github.sha" "https://api.github.com/repos/$REPO/commits/$b" 2>/dev/null || true)
+  if [ -z "$head" ]; then echo "[$b] HEAD inconnu (API indisponible), on réessaie plus tard"; continue; fi
+  if [ -f /state/$b.sha ] && [ "$(cat /state/$b.sha)" = "$head" ] && [ -d /www/$b ]; then echo "[$b] à jour ($head)"; continue; fi
+  echo "[$b] mise à jour vers $head"
+  rm -rf /tmp/$b /tmp/$b.zip; mkdir -p /tmp/$b
+  curl -fsSL -o /tmp/$b.zip "https://codeload.github.com/$REPO/zip/$head"
+  unzip -q /tmp/$b.zip -d /tmp/$b
+  src=$(find /tmp/$b -maxdepth 1 -mindepth 1 -type d | head -1)
+  rm -rf /www/$b.new; mkdir -p /www/$b.new; cp -a "$src"/. /www/$b.new/
+  rm -rf /www/$b.old; [ -d /www/$b ] && mv /www/$b /www/$b.old; mv /www/$b.new /www/$b; rm -rf /www/$b.old
+  echo "$head" > /state/$b.sha
+  rm -rf /tmp/$b /tmp/$b.zip
+done
+curl -fsSL -o /stack/nginx.conf.new "$RAW/nginx.conf" && mv /stack/nginx.conf.new /stack/nginx.conf
+curl -fsSL -o /traefik-config/clixite-sites.yml.new "$RAW/traefik-clixite.yml" && mv /traefik-config/clixite-sites.yml.new /traefik-config/clixite-sites.yml
+echo "sync ok $(date -u +%FT%TZ)"

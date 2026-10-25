@@ -1,0 +1,22 @@
+# Routage Traefik (provider fichier) pour les sites Clixite. Copié par le conteneur clixite-sync dans /docker/traefik-svsx/config/clixite-sites.yml.
+http:
+  routers:
+    clixite-sites-www:
+      rule: "Host(`www.clixite.be`) || Host(`clixite.be`)"
+      entryPoints: [websecure]
+      service: clixite-sites
+      priority: 100
+      tls:
+        certResolver: le
+    clixite-sites-charte:
+      rule: "Host(`charte.clixite.be`)"
+      entryPoints: [websecure]
+      service: clixite-sites
+      priority: 100
+      tls:
+        certResolver: le
+  services:
+    clixite-sites:
+      loadBalancer:
+        servers:
+          - url: "http://clixite-web:80"

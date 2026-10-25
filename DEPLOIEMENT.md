@@ -1,4 +1,17 @@
-# Déployer charte.clixite.be sur Hostinger
+# Déployer charte.clixite.be et www.clixite.be
+
+## Ce que l'on a constaté le 25 octobre 2026
+
+- clixite.be (76.13.46.55) n'est pas un hébergement mutualisé mais le **VPS Hostinger srv1352234** (Ubuntu 24.04, KVM 8, Paris). Il n'y a ni sous-domaine, ni gestionnaire de fichiers, ni SSL « en un clic » : tout passe par Docker (hPanel > VPS > Gestionnaire Docker) et par **Traefik v3.3** (projet `traefik-svsx`, provider fichier `/docker/traefik-svsx/config/*.yml`, résolveur TLS `le`, réseau `proxy`).
+- La zone DNS de clixite.be est servie par **Microsoft 365** (`ns1-4.bdm.microsoftonline.com`), pas par OVH ; l'enregistrement A `charte` y a été ajouté par Nicolas.
+
+## Déploiement retenu : projet Docker `clixite-sites` (deploy/)
+
+`deploy/docker-compose.yml` crée deux conteneurs : `clixite-sync` (alpine) qui, toutes les cinq minutes, télécharge les branches `site` (charte) et `www` (accueil) du dépôt public et dépose `nginx.conf` et le routage Traefik ; `clixite-web` (nginx) qui sert les deux sites. Le dépôt doit être **public** pour que le VPS le lise sans clé (le contenu est de toute façon un site web). Mise en place, une fois : hPanel > VPS > Gestionnaire Docker > Composer, nom `clixite-sites`, coller le YAML, Déployer. Ensuite, chaque push sur `main` est en ligne dans les cinq minutes.
+
+Les anciennes instructions ci-dessous (hébergement mutualisé) sont conservées pour mémoire.
+
+---
 
 Le site est statique : un dossier `charte/` à copier tel quel dans le dossier web du sous-domaine. Trois façons de le faire, de la plus simple à la plus autonome.
 
