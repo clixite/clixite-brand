@@ -1,7 +1,7 @@
 ---
 // Le solveur : trois questions, une recommandation qui se compose en direct, puis une demande préremplie.
 // Règles simples (pas d'IA) : la recommandation vient de src/data/audiences.ts, rien n'est envoyé sans clic.
-import { AUDIENCES, SOLVER, URGENCY } from "../data/audiences";
+import { AUDIENCES, SOLVER, URGENCY, URGENCY_NOTES } from "../data/audiences";
 import { SITE } from "../data/site";
 const first = (k: keyof typeof SOLVER) => SOLVER[k].x[0].rec;
 ---
@@ -9,7 +9,7 @@ const first = (k: keyof typeof SOLVER) => SOLVER[k].x[0].rec;
   <div class="wrap">
     <div class="solver__head">
       <h2 id="solver-title" class="h2">Trois questions, une première piste.</h2>
-      <p class="lead">Répondez : la recommandation se compose en direct, avec les premières actions, le livrable et la durée. Rien n'est envoyé tant que vous ne le demandez pas.</p>
+      <p class="lead">Répondez : la recommandation se compose en direct, avec les premières actions, le livrable et le premier pas. Rien n'est envoyé tant que vous ne le demandez pas.</p>
     </div>
 
     <div class="solver__in">
@@ -48,18 +48,19 @@ const first = (k: keyof typeof SOLVER) => SOLVER[k].x[0].rec;
         <ol class="solver__steps" data-r="first">{first("groupe").first.map((f) => <li>{f}</li>)}</ol>
         <dl class="solver__facts">
           <div><dt>Livrable</dt><dd data-r="deliverable">{first("groupe").deliverable}</dd></div>
-          <div><dt>Durée indicative</dt><dd data-r="duration" class="av">{first("groupe").duration}</dd></div>
-          <div><dt>Preuve proche</dt><dd data-r="proof" class="av">{first("groupe").proof}</dd></div>
+          <div><dt>Format</dt><dd data-r="format">{SOLVER.groupe.formatNotes[SOLVER.groupe.formats[0]]}</dd></div>
+          <div><dt>Premier pas</dt><dd data-r="urgency">{URGENCY_NOTES[URGENCY[1]]}</dd></div>
+          <div><dt>Preuve proche</dt><dd data-r="proof">{first("groupe").proof}</dd></div>
         </dl>
         <a class="btn btn--primary solver__cta" data-r="cta" href={`mailto:${SITE.email}`}>Envoyer cette demande</a>
-        <p class="small solver__note">Le bouton ouvre votre messagerie avec vos réponses déjà rédigées. <span class="av">Réponse sous un jour ouvrable.</span></p>
+        <p class="small solver__note">Le bouton ouvre votre messagerie avec un message déjà rédigé à partir de vos réponses. Vous le relisez avant de l'envoyer.</p>
       </article>
     </div>
   </div>
 </section>
 
 <script>
-  import { SOLVER, AUDIENCES, type AudKey } from "../data/audiences";
+  import { SOLVER, AUDIENCES, URGENCY_NOTES, type AudKey } from "../data/audiences";
   import { SITE } from "../data/site";
   const form = document.querySelector<HTMLFormElement>("[data-solver]");
   const out = document.querySelector<HTMLElement>("[data-solver-out]");
@@ -67,17 +68,21 @@ const first = (k: keyof typeof SOLVER) => SOLVER[k].x[0].rec;
     form.addEventListener("submit", (e) => e.preventDefault());
     const aud = (): AudKey => ((document.querySelector<HTMLInputElement>('input[name="aud"]:checked')?.value ?? document.documentElement.dataset.audience ?? "groupe") as AudKey);
     const val = (name: string) => form.querySelector<HTMLInputElement>(`input[name="${name}"]:checked`)?.value ?? "";
-    const set = (k: string, v: string) => { const el = out.querySelector<HTMLElement>(`[data-r="${k}"]`); if (el) el.textContent = v; };
+    // même typographie que le rendu serveur (scripts/typo-fr.mjs) : apostrophe courbe, espaces insécables
+    const fr = (t: string) => t.replace(/'/g, "\u2019").replace(/ ([:;!?»])/g, "\u00a0$1").replace(/« /g, "«\u00a0");
+    const set = (k: string, v: string) => { const el = out.querySelector<HTMLElement>(`[data-r="${k}"]`); if (el) el.textContent = fr(v); };
     const render = () => {
       const k = aud(); const data = SOLVER[k];
       const x = data.x.find((i) => i.id === val(`sx-${k}`)) ?? data.x[0];
       const urgency = val("su"); const format = val(`sf-${k}`);
       const label = AUDIENCES.find((a) => a.key === k)?.label ?? "";
-      set("title", x.rec.title); set("deliverable", x.rec.deliverable); set("duration", x.rec.duration); set("proof", x.rec.proof);
-      const ol = out.querySelector('[data-r="first"]'); if (ol) ol.replaceChildren(...x.rec.first.map((f) => { const li = document.createElement("li"); li.textContent = f; return li; }));
+      set("title", x.rec.title); set("deliverable", x.rec.deliverable); set("proof", x.rec.proof);
+      set("format", data.formatNotes[format] ?? ""); set("urgency", URGENCY_NOTES[urgency] ?? "");
+      const ol = out.querySelector('[data-r="first"]'); if (ol) ol.replaceChildren(...x.rec.first.map((f) => { const li = document.createElement("li"); li.textContent = fr(f); return li; }));
       const audEl = form.querySelector("[data-solver-aud]"); if (audEl) audEl.textContent = label;
-      const subject = `${x.label} : ${x.rec.title}`;
-      const body = `Bonjour Nicolas,\n\nJe représente ${label}.\nNotre enjeu : ${x.label}.\nÉchéance : ${urgency}.\nFormat souhaité : ${format}.\n\nPiste proposée par le site : ${x.rec.title}.\n\nContexte en deux phrases :\n\n\nMes disponibilités pour un échange :\n`;
+      const WHEN: Record<string, string> = { "Ce mois-ci": "dès ce mois-ci", "Ce trimestre": "dans le trimestre", "Plus tard": "plus tard, sans urgence" };
+      const subject = `${x.label} : premier échange`;
+      const body = `Bonjour Nicolas,\n\nNous sommes ${label}. Notre sujet : ${x.label}.\nNous aimerions avancer ${WHEN[urgency] ?? urgency.toLowerCase()}. Format envisagé : ${format.toLowerCase()}.\nLa piste « ${x.rec.title} » nous parle.\n\nNotre contexte, en deux phrases :\n\n\nPourriez-vous me proposer un échange de 30 minutes ? Mes disponibilités :\n\n\nBien à vous,\n`;
       const cta = out.querySelector<HTMLAnchorElement>('[data-r="cta"]');
       if (cta) cta.href = SITE.bookingsUrl || `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       out.classList.remove("is-new"); void out.offsetWidth; out.classList.add("is-new");

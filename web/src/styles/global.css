@@ -61,6 +61,8 @@ a:hover { color: var(--clx-link-hover); }
   transition: transform var(--clx-duration-press) var(--clx-easing-out), background-color var(--clx-duration-quick) var(--clx-easing-out), border-color var(--clx-duration-quick) var(--clx-easing-out), color var(--clx-duration-quick) var(--clx-easing-out);
 }
 .btn:active { transform: scale(0.97); }
+/* très petits écrans : un libellé long passe à la ligne plutôt que de déborder */
+@media (max-width: 399px) { .btn { white-space: normal; text-align: center; line-height: 1.2; padding: 0.625rem 1.25rem; max-width: 100%; } }
 .btn--primary { background: var(--clx-accent); color: var(--clx-on-accent); }
 .btn--primary:hover { background: var(--clx-accent-hover); color: var(--clx-on-accent); }
 .btn--secondary { background: transparent; color: var(--clx-text); border-color: var(--clx-border-strong); }

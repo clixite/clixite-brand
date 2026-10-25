@@ -5,7 +5,7 @@ import { SITE, bookingHref } from "../../data/site";
 
 const scope = [
   { t: "Source-to-Pay, du besoin au paiement", d: "Du besoin au paiement : sourcing, appels d'offres, contrats, commandes, réception et factures. Des processus simples, outillés quand le volume le justifie, avec SAP Ariba ou l'outil qui convient à votre taille, et intégrés à votre ERP." },
-  { t: "Direction des achats à temps partagé", d: "Un Fractional CPO présent un à deux jours par semaine : feuille de route, pilotage des appels d'offres stratégiques, montée en compétence de l'équipe. Une expérience de grands comptes, facturée au temps réellement passé.", av: true },
+  { t: "Direction des achats à temps partagé", d: "Un Fractional CPO présent chaque semaine, au rythme que vous fixez : feuille de route, pilotage des appels d'offres stratégiques, montée en compétence de l'équipe. Une expérience de grands comptes, à la taille de votre entreprise.", av: true },
   { t: "Direction des achats par intérim", d: "Une prise de poste rapide quand la fonction est vacante ou en transformation. On stabilise, on décide, on prépare l'arrivée du titulaire.", av: true },
   { t: "Risques tiers et conformité", d: "Cartographie et suivi des fournisseurs critiques, registre d'information DORA, exigences NIS2 sur la chaîne d'approvisionnement, clauses contractuelles et plans de sortie." },
 ];
@@ -91,7 +91,7 @@ const schema = [
         </div>
         <div>
           <dt class="ach-proof__n">L1, L2, L3</dt>
-          <dd class="av">Politique achats à trois niveaux pour KBC. <span class="small ach-proof__src">Mission Clixite</span></dd>
+          <dd class="av">Politique achats de KBC réécrite en trois niveaux : la politique (L1), les standards (L2) et les playbooks opérationnels (L3), alignés sur DORA, NIS2 et les exigences de l'EBA. <span class="small ach-proof__src">Mission Clixite, 18 mois auprès du CPO</span></dd>
         </div>
       </dl>
     </div>
@@ -100,20 +100,18 @@ const schema = [
   <section id="offres-achats" class="section ach-offers band-alt" aria-labelledby="ach-offers-title">
     <div class="wrap">
       <h2 id="ach-offers-title" class="h2">Trois formules, un même niveau d'exigence.</h2>
+      <p class="lead ach-offers__lead">Le périmètre, la durée et le budget se fixent ensemble au premier échange.</p>
       <ul role="list" class="ach-offers__grid">
         <li class="panel">
           <h3 class="h3">Diagnostic achats</h3>
-          <p class="data ach-dur av">10 jours</p>
           <p class="muted">Cartographie des dépenses, maturité des processus, risques fournisseurs et gains rapides chiffrés.</p>
         </li>
         <li class="panel">
           <h3 class="h3">Fractional CPO</h3>
-          <p class="data ach-dur av">1 à 2 jours par semaine</p>
           <p class="muted">Une direction des achats présente, une feuille de route tenue, des appels d'offres pilotés.</p>
         </li>
         <li class="panel">
           <h3 class="h3">Intérim de direction</h3>
-          <p class="data ach-dur av">Démarrage sous 2 semaines</p>
           <p class="muted">La fonction tenue et transformée pendant la vacance du poste, puis transmise.</p>
         </li>
       </ul>
@@ -155,7 +153,7 @@ const schema = [
   .ach-proof__src { display: block; margin-top: var(--clx-space-2); color: var(--clx-text); font-weight: 500; }
   .ach-offers__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--clx-space-5); margin-top: var(--clx-space-8); }
   .ach-offers__grid .panel { display: grid; gap: var(--clx-space-3); align-content: start; padding: var(--clx-space-6); }
-  .ach-dur { color: var(--clx-link); }
+  .ach-offers__lead { margin-top: var(--clx-space-4); max-width: 52ch; }
   .ach-faq__in { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: var(--clx-space-8); }
   .ach-faq__list details { border-top: 1px solid var(--clx-border); padding-block: var(--clx-space-5); }
   .ach-faq__list details:last-child { border-bottom: 1px solid var(--clx-border); }

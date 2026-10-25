@@ -1,15 +1,17 @@
 ---
-import heroX from "../assets/x/hero.svg?raw";
-import geo from "../assets/x/hero.json";
+// Hero : le film de lancement en boucle, en fond, sous un voile Encre.
+// Boucle sans titres ni logo (video/hero_loop.py), trois variantes : large, moyenne, verticale.
+// Chargée après l'affichage de la page, jamais en mouvement réduit ni en économie de données, toujours en pause possible.
 import { SITE } from "../data/site";
-import { AUDIENCES, HERO, AVAILABILITY } from "../data/audiences";
-// chant : translation de la face vers sa position (0,30 barre à 70°), en unités de la viewBox
-const D = 0.3 * 0.2 * 480;
-const cdx = (D * Math.cos((70 * Math.PI) / 180)).toFixed(2);
-const cdy = (D * Math.sin((70 * Math.PI) / 180)).toFixed(2);
+import { AUDIENCES, HERO, IDENTITY } from "../data/audiences";
 const mail = (subject: string) => SITE.bookingsUrl || `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}`;
 ---
-<section class="hero" aria-labelledby="hero-title">
+<section class="hero" data-theme="encre" aria-labelledby="hero-title">
+  <div class="hero__media" aria-hidden="true">
+    <video class="hero__video" muted playsinline loop preload="none" disablepictureinpicture disableremoteplayback tabindex="-1"
+      data-hero-video data-wide="/video/hero-1920" data-mid="/video/hero-1280" data-tall="/video/hero-720x1280"></video>
+  </div>
+
   <div class="wrap hero__in">
     <div class="hero__text">
       <h1 id="hero-title" class="hero__title">
@@ -41,29 +43,26 @@ const mail = (subject: string) => SITE.bookingsUrl || `mailto:${SITE.email}?subj
 
       {AUDIENCES.map((a) => (
         <div class="hero__body" data-aud={a.key}>
-          <p class="lead hero__lead">{HERO[a.key].lead}</p>
           <div class="hero__cta">
             <a class="btn btn--primary" href={mail(HERO[a.key].ctaSubject)}>{HERO[a.key].cta}</a>
             <a class="btn btn--secondary" href={HERO[a.key].second.href}>{HERO[a.key].second.label}</a>
           </div>
+          <p class="lead hero__lead">{HERO[a.key].lead}</p>
         </div>
       ))}
-      <p class="hero__facts small"><span class={AVAILABILITY.av ? "hero__avail av" : "hero__avail"}>{AVAILABILITY.text}</span> Clixite, à Wavre depuis 2005.</p>
-    </div>
-    <div class="hero__art" data-hx style={`--cx:${geo.cx}px; --cy:${geo.cy}px; --cdx:${cdx}px; --cdy:${cdy}px;`}>
-      <Fragment set:html={heroX} />
+      <p class="hero__facts small">{IDENTITY}</p>
     </div>
   </div>
+
+  <button type="button" class="hero__pause" data-hero-pause aria-pressed="false" hidden>
+    <svg class="hero__pause-i" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path class="i-pause" d="M2 1h3v10H2zM7 1h3v10H7z" /><path class="i-play" d="M2.5 1l8.5 5-8.5 5z" /></svg><span data-hero-pause-l>Pause</span>
+    <span class="visually-hidden"> du film de fond</span>
+  </button>
 </section>
 
 <script>
-  // Le seul « être vivant » de la page : l'angle entre les deux champs (règle de la charte).
-  // Ouverture en CSS (14° vers l'angle de base), puis respiration lente autour de la base, que le choix d'audience accorde :
-  // grand groupe 4°, cabinet 5,5°, PME 7°. Le pointeur ouvre l'angle, avec inertie.
-  import { AUDIENCES } from "../data/audiences";
-  const host = document.querySelector<HTMLElement>("[data-hx]");
+  // choix d'audience : mémorisé, reporté dans l'adresse (?pour=), diffusé aux autres composants
   const radios = [...document.querySelectorAll<HTMLInputElement>('input[name="aud"]')];
-  const baseOf = () => AUDIENCES.find((a) => a.key === (radios.find((r) => r.checked)?.value ?? "groupe"))?.angle ?? 4;
   const apply = () => {
     const k = radios.find((r) => r.checked)?.value ?? "groupe";
     document.documentElement.dataset.audience = k;
@@ -73,47 +72,72 @@ const mail = (subject: string) => SITE.bookingsUrl || `mailto:${SITE.email}?subj
   };
   radios.forEach((r) => r.addEventListener("change", apply));
 
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)");
-  const fine = matchMedia("(pointer: fine)").matches; // écran tactile : le X s'ouvre puis se pose, sans boucle
-  if (host && !reduce.matches && fine) {
-    let angle = baseOf(), raf = 0, visible = true, pointer = 0, started = 0, shown = -1;
-    const t0 = performance.now() + 2400;
-    const tick = (now: number) => {
-      raf = 0;
-      if (!visible || document.hidden) return;
-      if (now < t0) { raf = requestAnimationFrame(tick); return; }
-      if (!started) { started = now; angle = baseOf(); host.classList.add("is-live"); }
-      const breath = (1 - Math.cos(((now - started) / 7000) * Math.PI * 2)) * 0.75; // 0 à 1,5°
-      const target = Math.min(9.5, baseOf() + breath + pointer * 2);
-      angle += (target - angle) * 0.045;
-      if (Math.abs(angle - shown) > 0.02) { shown = angle; host.style.setProperty("--hx-a", angle.toFixed(3)); }
-      raf = requestAnimationFrame(tick);
+  // film de fond : chargé quand la page est prête, mis en pause hors écran, onglet caché ou sur demande
+  const v = document.querySelector<HTMLVideoElement>("[data-hero-video]");
+  const btn = document.querySelector<HTMLButtonElement>("[data-hero-pause]");
+  const label = btn?.querySelector<HTMLElement>("[data-hero-pause-l]");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData === true;
+  if (v && btn && label && !reduce && !saveData) {
+    let paused = false, inView = true;
+    try { paused = localStorage.getItem("clx-film") === "pause"; } catch { /* stockage indisponible */ }
+    // H.264 partout où il est lu nativement, VP9 sinon (Chromium sans codecs propriétaires)
+    const ext = v.canPlayType('video/mp4; codecs="avc1.640028"') === "probably" ? ".mp4"
+      : v.canPlayType('video/webm; codecs="vp9"') ? ".webm" : ".mp4";
+    const pick = () => {
+      if (matchMedia("(max-aspect-ratio: 4/5)").matches) return v.dataset.tall! + ext;
+      return (innerWidth * Math.min(devicePixelRatio || 1, 2) > 1500 ? v.dataset.wide! : v.dataset.mid!) + ext;
     };
-    const start = () => { if (!raf) raf = requestAnimationFrame(tick); };
-    new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) start(); }, { threshold: 0.05 }).observe(host);
-    document.addEventListener("visibilitychange", start);
-    window.addEventListener("pointermove", (e) => {
-      const r = host.getBoundingClientRect();
-      const dx = (e.clientX - (r.left + r.width / 2)) / Math.max(r.width, 1);
-      const dy = (e.clientY - (r.top + r.height / 2)) / Math.max(r.height, 1);
-      pointer = Math.max(0, 1 - Math.hypot(dx, dy) / 1.4);
-    }, { passive: true });
-    start();
+    const sync = () => {
+      btn.setAttribute("aria-pressed", String(paused));
+      label.textContent = paused ? "Lecture" : "Pause";
+      btn.classList.toggle("is-paused", paused);
+      if (!v.src) return;
+      if (paused || !inView || document.hidden) v.pause(); else v.play().catch(() => { /* lecture refusée : l'affiche reste */ });
+    };
+    const load = () => {
+      v.src = pick();
+      v.addEventListener("playing", () => v.classList.add("is-on"), { once: true });
+      btn.hidden = false;
+      sync();
+    };
+    const idle = (window as Window & { requestIdleCallback?: (f: () => void) => void }).requestIdleCallback ?? ((f: () => void) => setTimeout(f, 800));
+    // sur mobile, le film attend que la page soit au calme (processeur et réseau plus modestes)
+    const later = () => (matchMedia("(pointer: coarse)").matches ? setTimeout(() => idle(load), 1800) : idle(load));
+    if (document.readyState === "complete") later(); else addEventListener("load", later, { once: true });
+    btn.addEventListener("click", () => {
+      paused = !paused;
+      try { localStorage.setItem("clx-film", paused ? "pause" : "lecture"); } catch { /* stockage indisponible */ }
+      sync();
+    });
+    new IntersectionObserver(([e]) => { inView = e.isIntersecting; sync(); }, { threshold: 0.1 }).observe(v);
+    document.addEventListener("visibilitychange", sync);
   }
 </script>
 
 <style>
-  .hero { padding-block: clamp(2rem, 0.8rem + 4vw, 5rem) clamp(3rem, 1rem + 5vw, 6rem); }
-  .hero__in { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr); gap: var(--clx-space-8); align-items: center; }
-  .hero__text { max-width: 42rem; }
-  .hero__title { font-weight: 700; }
-  .hero__line { display: block; font-size: clamp(3rem, 1.3rem + 5.2vw, 6rem); line-height: 0.95; letter-spacing: -0.04em; }
-  .hero__sub { display: block; margin-top: var(--clx-space-4); font-weight: 500; font-size: clamp(1.25rem, 1.05rem + 0.9vw, 1.75rem); line-height: 1.2; letter-spacing: -0.01em; color: var(--clx-text); max-width: 30ch; }
+  .hero { position: relative; isolation: isolate; overflow: hidden; display: grid; align-items: center; min-height: min(86vh, 860px); padding-block: clamp(2.5rem, 1rem + 4vw, 5rem); background: var(--clx-color-encre); }
 
-  /* sélecteur d'audience : trois pilules, l'état choisi passe en Encre */
+  /* affiche (première image du film), puis film ; voile Encre pour la lisibilité */
+  .hero__media { position: absolute; inset: 0; z-index: -2; background: var(--clx-color-encre) url(/video/hero-1920.webp) center / cover no-repeat; }
+  .hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 900ms var(--clx-easing-out); }
+  .hero__video.is-on { opacity: 1; }
+  .hero::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      linear-gradient(90deg, rgb(11 34 57 / 0.94) 0%, rgb(11 34 57 / 0.88) 40%, rgb(11 34 57 / 0.45) 70%, rgb(11 34 57 / 0.18) 100%),
+      linear-gradient(0deg, rgb(11 34 57 / 0.55) 0%, transparent 30%); }
+
+  .hero__in { position: relative; }
+  .hero__text { max-width: 64rem; display: flex; flex-direction: column; }
+  .hero__title { font-weight: 700; color: var(--clx-text); }
+  .hero__line { display: block; font-size: clamp(3rem, 1.3rem + 5.2vw, 6rem); line-height: 0.95; letter-spacing: -0.04em; }
+  .hero__line .x { color: var(--clx-accent); }
+  .hero__sub { display: block; margin-top: var(--clx-space-4); font-weight: 500; font-size: clamp(1.25rem, 1.05rem + 0.9vw, 1.75rem); line-height: 1.2; letter-spacing: -0.01em; color: var(--clx-text); max-width: 34ch; text-wrap: balance; }
+
+  /* sélecteur d'audience : trois pilules, l'état choisi passe en Papier */
   .aud { border: 0; padding: 0; margin: var(--clx-space-6) 0 0; min-width: 0; }
   .aud__legend { padding: 0; font-size: 0.9375rem; color: var(--clx-text-muted); margin-bottom: var(--clx-space-2); }
-  .aud__opts { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; border: 1px solid var(--clx-border-strong); border-radius: var(--clx-radius-pill); background: var(--clx-surface); }
+  .aud__opts { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; border: 1px solid var(--clx-border-strong); border-radius: var(--clx-radius-pill); background: rgb(11 34 57 / 0.8); }
   .aud__opt { position: relative; }
   .aud__opt input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
   .aud__opt label { display: inline-flex; align-items: center; min-height: 40px; padding: 0 1rem; border-radius: var(--clx-radius-pill); font-weight: 600; font-size: 0.9375rem; color: var(--clx-text); cursor: pointer; transition: background-color var(--clx-duration-quick) var(--clx-easing-out), color var(--clx-duration-quick) var(--clx-easing-out); }
@@ -122,53 +146,29 @@ const mail = (subject: string) => SITE.bookingsUrl || `mailto:${SITE.email}?subj
   .aud__opt input:focus-visible + label { outline: 3px solid var(--clx-focus); outline-offset: 2px; }
   .aud__s { display: none; }
 
-  .hero__lead { margin-top: var(--clx-space-5); max-width: 38rem; }
+  .hero__body { display: flex; flex-direction: column; }
+  .hero__lead { order: -1; margin-top: var(--clx-space-5); max-width: 40rem; color: var(--clx-text); }
   .hero__cta { display: flex; flex-wrap: wrap; gap: var(--clx-space-3); margin-top: var(--clx-space-6); }
-  .hero__facts { margin-top: var(--clx-space-5); color: var(--clx-text-muted); }
-  .hero__avail { color: var(--clx-text); font-weight: 600; }
-  .hero__art { color: var(--clx-text-muted); justify-self: end; width: min(100%, 620px); }
-  .hero__art :global(svg) { width: 100%; height: auto; overflow: visible; }
+  .hero__facts { margin-top: var(--clx-space-5); color: var(--clx-text-muted); max-width: 44ch; }
+  .hero :global(.btn--secondary) { background: rgb(11 34 57 / 0.5); }
 
-  /* ---- X en construction ---- */
-  @property --hx-a { syntax: "<number>"; inherits: true; initial-value: 4; }
-  .hero__art { --hx-a: 4; transition: --hx-a 900ms var(--clx-easing-out); }
-  .hero__art:global(.is-live) { transition: none; }
-  :global(:root:has(#aud-pme:checked)) .hero__art { --hx-a: 7; }
-  :global(:root:has(#aud-cabinet:checked)) .hero__art { --hx-a: 5.5; }
-  .hero__art :global(.hx-guides *) { vector-effect: non-scaling-stroke; }
-  .hero__art :global(.hx-guides) { opacity: 0.32; }
-  .hero__art :global(.hx-labels) { opacity: 0.7; }
-  .hero__art :global(.hx-outline) { opacity: 0; stroke-dasharray: 1; stroke-dashoffset: 0; }
-  .hero__art :global(.hx-field),
-  .hero__art :global(.hx-lens) { transform-box: view-box; transform-origin: var(--cx) var(--cy); }
-  .hero__art :global(.hx-field-a) { transform: rotate(calc(var(--hx-a) * -0.5deg)); }
-  .hero__art :global(.hx-field-b) { transform: rotate(calc(var(--hx-a) * 0.5deg)); }
+  /* bouton pause (WCAG 2.2.2) */
+  .hero__pause { position: absolute; right: max(var(--clx-layout-gutter), env(safe-area-inset-right, 0px)); bottom: var(--clx-space-5); display: inline-flex; align-items: center; gap: 0.5rem; min-height: 40px; padding: 0 0.9rem; border-radius: var(--clx-radius-pill); border: 1px solid var(--clx-border-strong); background: rgb(11 34 57 / 0.72); color: var(--clx-text); font: 600 0.8125rem/1 var(--clx-font-family-text); cursor: pointer; }
+  .hero__pause:hover { border-color: var(--clx-text); }
+  .hero__pause:focus-visible { outline: 3px solid var(--clx-focus); outline-offset: 2px; }
+  .hero__pause-i { width: 12px; height: 12px; fill: currentColor; }
+  .hero__pause .i-play, .hero__pause.is-paused .i-pause { display: none; }
+  .hero__pause.is-paused .i-play { display: inline; }
 
-  @media (prefers-reduced-motion: no-preference) {
-    .hero__art { animation: hx-angle 1300ms var(--clx-easing-out) 1100ms backwards; }
-    .hero__art :global(.hx-guides) { animation: hx-guides 2400ms var(--clx-easing-out) backwards; }
-    .hero__art :global(.hx-labels) { animation: hx-labels 2400ms var(--clx-easing-out) backwards; }
-    .hero__art :global(.hx-outline) { animation: hx-outline 2400ms var(--clx-easing-out) backwards; }
-    .hero__art :global(.hx-chant) { animation: hx-chant 700ms var(--clx-easing-out) 1000ms backwards; }
-    .hero__art :global(.hx-face) { animation: hx-fade 400ms var(--clx-easing-out) 850ms backwards; }
-    .hero__art :global(.hx-field) { animation: hx-fade 700ms var(--clx-easing-out) 1100ms backwards; }
-    .hero__art :global(.hx-lens) { animation: hx-lens 500ms var(--clx-easing-out) 1700ms backwards; }
-  }
-  @keyframes hx-angle { from { --hx-a: 14; } }
-  @keyframes hx-guides { 0% { opacity: 0; } 20% { opacity: 1; } 70% { opacity: 1; } 100% { opacity: 0.32; } }
-  @keyframes hx-labels { 0%, 12% { opacity: 0; } 32% { opacity: 1; } 75% { opacity: 1; } 100% { opacity: 0.7; } }
-  @keyframes hx-outline { 0% { opacity: 1; stroke-dashoffset: 1; } 46% { opacity: 1; stroke-dashoffset: 0; } 66% { opacity: 1; stroke-dashoffset: 0; } 92%, 100% { opacity: 0; stroke-dashoffset: 0; } }
-  @keyframes hx-chant { from { opacity: 0; transform: translate(calc(var(--cdx) * -1), calc(var(--cdy) * -1)); } to { opacity: 1; transform: none; } }
-  @keyframes hx-fade { from { opacity: 0; } to { opacity: 1; } }
-  @keyframes hx-lens { from { opacity: 0; transform: scale(0.4); } to { opacity: 1; transform: none; } }
-  @media (prefers-reduced-motion: reduce) { .hero__art { transition: none; } }
-
-  @media (max-width: 599px) { .hero__art :global(.hx-labels) { display: none; } .aud__l { display: none; } .aud__s { display: inline; } }
+  @media (max-width: 599px) { .aud__l { display: none; } .aud__s { display: inline; } }
   @media (max-width: 899px) {
-    .hero { padding-top: var(--clx-space-5); }
-    .hero__in { grid-template-columns: 1fr; gap: var(--clx-space-5); }
-    .hero__art { order: -1; justify-self: center; width: min(42vw, 300px); }
+    .hero { min-height: 0; align-items: start; padding-block: var(--clx-space-7) calc(var(--clx-space-9) + 24px); }
+    .hero::before { background: linear-gradient(180deg, rgb(11 34 57 / 0.78) 0%, rgb(11 34 57 / 0.86) 55%, rgb(11 34 57 / 0.94) 100%); }
     .hero__sub { font-size: 1.1875rem; }
+    /* mobile : le bouton d'action passe avant le texte d'accompagnement */
+    .hero__lead { order: 0; }
+    .hero__cta { margin-top: var(--clx-space-5); }
   }
-  @media (max-width: 899px) and (max-height: 760px) { .hero__art { width: min(44vw, 240px); } }
+  @media (max-aspect-ratio: 4/5) { .hero__media { background-image: url(/video/hero-720x1280.webp); } }
+  @media (prefers-reduced-motion: reduce) { .hero__video { display: none; } }
 </style>

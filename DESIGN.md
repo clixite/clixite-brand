@@ -144,7 +144,7 @@ Phrases courtes, verbes d'action, chiffres avant adjectifs. Vouvoiement en exter
 
 ### À ne pas faire
 
-- Pas de dégradés, pas de texte en dégradé, pas de verre dépoli, pas de lueur « outil IA », pas de violet.
+- Pas de dégradés, pas de texte en dégradé, pas de verre dépoli, pas de lueur « outil IA », pas de violet. Seule exception : le voile de lisibilité posé sur une photo ou une vidéo, d'Encre opaque vers Encre transparente, sans autre couleur.
 - Pas de gris neutre ni de noir pur : les neutres sont teintés d'Encre.
 - Pas de tuile d'icône arrondie au-dessus de chaque titre, pas d'étiquette-chapeau, pas de flèche « → » collée aux liens.
 - Pas de mono partout pour « faire technique ».
@@ -157,6 +157,7 @@ Le site www.clixite.be est construit sur le Design System 2.0 (`ds/`, documentat
 
 - **Mot-marque sans descripteur** : sous 240 px de large (en-têtes d'interface, barres de navigation), utiliser `clixite-maitre-motmarque-*`, généré par `logos10.lockup_wordmark`. Au-dessus, le descripteur reste obligatoire.
 - **Ouverture web en 2,4 s** : sur un site, le X se construit en 2,4 s (repères, tracé, chant, champs, lentille), puis seul l'angle entre les champs respire entre 4° et 6°. Exception documentée à la règle « transform et opacité » : le tracé des repères (`stroke-dashoffset`), pendant l'ouverture uniquement. Sur écran tactile, pas de boucle.
+- **Film en fond de hero** (www.clixite.be, depuis octobre 2026) : la boucle du film de lancement remplace le X construit dans le hero de l'accueil. Boucle sans titres ni logo (le logo est déjà dans l'en-tête), sous un voile Encre de 88 à 94 % côté texte, chargée après l'affichage, jamais en mouvement réduit ni en économie de données, avec un bouton Pause visible (WCAG 2.2.2). Le X construit reste la règle pour les autres pages, couvertures et bannières.
 - **Le *x* en deux endroits par page** au plus : le titre d'ouverture et l'appel final.
 - **Un site par acheteur** : l'accueil s'adapte au visiteur (grand groupe, PME, cabinet). L'angle entre les champs du X suit ce choix : 4° pour les groupes régulés (précision), 5,5° pour les cabinets, 7° pour les PME (énergie). C'est la seule animation que l'action du visiteur déclenche sur le logo.
 - **Logos clients** : fichiers officiels uniquement, inscrits au registre `web/src/data/clients.registry.json` avec leur source et l'accord du client, teintés par masque CSS. Jamais redessinés, jamais publiés sans accord écrit.

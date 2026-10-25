@@ -113,7 +113,13 @@ def controler(brut, nom, langue='fr', interne=False):
                 f = f.strip().strip('\'"').strip()
                 if f and not f.startswith('var(') and not POLICES_OK.match(f): familles.add(f)
         add('corriger', 'police', 'Police hors charte (Space Grotesk, Inter, Fraunces, JetBrains Mono).', sorted(familles))
-        add('corriger', 'degrade', 'Dégradé : interdit (fond uni, Encre ou Papier).', re.findall(r'[a-z-]*gradient\([^)]{0,40}', brut))
+        # seule exception : le voile de lisibilité sur photo ou vidéo, Encre vers Encre transparente (DESIGN.md)
+        def voile_encre(g):
+            cols = re.findall(r'#[0-9a-fA-F]{3,8}\b|rgba?\([^)]*\)|\btransparent\b', g)
+            ok = lambda c: c.lower() in ('transparent', '#0000', '#00000000') or c.lower().startswith('#0b2239') or re.match(r'rgba?\(\s*11[\s,]+34[\s,]+57\b', c)
+            return bool(cols) and all(ok(c) for c in cols)
+        degrades = [g[:40] for g in re.findall(r'[a-z-]*gradient\((?:[^()]|\([^()]*\))*\)', brut) if not voile_encre(g)]
+        add('corriger', 'degrade', 'Dégradé : interdit (fond uni, Encre ou Papier ; seul le voile Encre sur image est admis).', degrades)
         add('corriger', 'ombre', 'Ombre portée : aucune ombre au repos.', re.findall(r'(?:box|text)-shadow\s*:\s*[^;]{0,40}', brut))
         add('corriger', 'bordure-gauche', 'Bordure colorée à gauche : interdite sur les cartes et encadrés.', [m for m in re.findall(r'border-left\s*:\s*[^;]{0,40}', brut) if not re.search(r'\b(0|1px)\b', m)])
         add('corriger', 'rebond', 'Easing élastique ou rebond : une seule courbe, cubic-bezier(.2, .8, .2, 1).', re.findall(r'cubic-bezier\(\s*[^)]*(?:-\d|1\.\d{2,}|2\.)[^)]*\)|ease-in-out-back|bounce|elastic', brut))

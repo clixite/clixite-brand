@@ -29,7 +29,7 @@ const groups = [
             {g.logos.map((l) => {
               const s = size(l);
               return (
-                <li>
+                <li data-id={l.id}>
                   <span class="refs__logo av-logo" role="img" aria-label={l.name}
                     style={`--src:url(/clients/${l.id}.svg); width:${s.w}px; height:${s.h}px;`} />
                 </li>
@@ -57,6 +57,10 @@ const groups = [
   .refs__list li:hover .refs__logo { background-color: var(--clx-text); }
   .refs__group[data-group="parcours"] { padding-left: var(--clx-space-8); border-left: 1px solid var(--clx-border); }
   .refs__note { margin-top: var(--clx-space-6); }
+  /* PME : les missions PME passent en tête */
+  :global(html[data-audience="pme"]) .refs__list li:is([data-id="tero"], [data-id="design-plus"]),
+  :global(:root:has(#aud-pme:checked)) .refs__list li:is([data-id="tero"], [data-id="design-plus"]) { order: -1; }
+  :global(:root:has(#aud-groupe:checked)) .refs__list li, :global(:root:has(#aud-cabinet:checked)) .refs__list li { order: 0; }
   @media (forced-colors: active) { .refs__logo { background-color: CanvasText; forced-color-adjust: none; } }
   @media (max-width: 899px) {
     .refs__groups { grid-template-columns: 1fr; gap: var(--clx-space-6); }

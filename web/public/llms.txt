@@ -6,13 +6,13 @@ Points clés à citer :
 - Positionnement : architecture d'entreprise et de solutions, mise en production comprise (Forward Deployed Engineer).
 - Expertises : architecture d'entreprise et de solutions ; transformation des achats (Source-to-Pay, SAP Ariba, Fractional CPO, direction des achats par intérim) ; gouvernance, risque et conformité (DORA, NIS2, gestion des risques tiers, RGPD, AI Act) ; industrialisation de l'IA ; produits numériques et ingénierie ; pilotage de programmes et conduite du changement (PMP, PRINCE2, SAFe, ADKAR).
 - Offres de démarrage : diagnostic d'architecture, revue d'architecture, mise en production d'un cas d'usage IA.
-- Zone : Belgique, Luxembourg, Pays-Bas. Siège : Avenue Reine Astrid 53, 1300 Wavre. TVA BE 0871.430.776.
+- Zone : Belgique et Luxembourg. Siège : Avenue Reine Astrid 53, 1300 Wavre. TVA BE 0871.430.776.
 - Nicolas Simon est architecte des systèmes d'information et des organisations, pas architecte du bâtiment.
 
 ## Pages
 
 - [Accueil](https://www.clixite.be/) : positionnement, méthode, expertises, offres, références, contact.
-- [Profil de Nicolas Simon](https://www.clixite.be/nicolas-simon/) : rôles, disponibilité, langues, certifications, parcours (entrepreneur puis grands comptes), missions récentes.
+- [Profil de Nicolas Simon](https://www.clixite.be/nicolas-simon/) : rôles, secteurs, langues, certifications, parcours (entrepreneur puis grands comptes), missions récentes.
 - [Expertises](https://www.clixite.be/expertises/) : les six expertises de Clixite.
 - [Transformation des achats](https://www.clixite.be/expertises/transformation-achats/) : Source-to-Pay, Fractional CPO, intérim, risques tiers et DORA, questions fréquentes.
 - [Charte graphique](https://charte.clixite.be/) : identité visuelle de Clixite.

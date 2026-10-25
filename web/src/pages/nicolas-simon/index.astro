@@ -4,7 +4,7 @@ import Parcours from "../../components/Parcours.astro";
 import Skills from "../../components/Skills.astro";
 import FinalCta from "../../components/FinalCta.astro";
 import { SITE } from "../../data/site";
-import { AVAILABILITY, CASES } from "../../data/audiences";
+import { CASES } from "../../data/audiences";
 const cv = SITE.bookingsUrl || `mailto:${SITE.email}?subject=${encodeURIComponent("Demande de CV : Nicolas Simon")}&body=${encodeURIComponent("Bonjour Nicolas,\n\nRôle proposé :\nClient et secteur :\nDurée et rythme :\nDate de démarrage :\nLieu :\n")}`;
 const facts = [
   { k: "Rôles", v: "Enterprise ou Solution Architect, Procurement Transformation Lead, TPRM et DORA Advisor, Program ou Change Manager, responsable de la mise en production IA" },
@@ -25,7 +25,7 @@ const schema = [
 ---
 <Base
   title="Nicolas Simon, Enterprise & Solution Architect et Forward Deployed Engineer | Clixite"
-  description="Profil de Nicolas Simon (Clixite, Wavre) : architecture d'entreprise et de solutions, transformation des achats, DORA, NIS2, TPRM, IA en production. Disponibilité, rôles, certifications, parcours."
+  description="Profil de Nicolas Simon (Clixite, Wavre) : architecture d'entreprise et de solutions, transformation des achats, DORA, NIS2, TPRM, IA en production. Rôles, secteurs, certifications et parcours."
   path="/nicolas-simon/"
   schema={schema}
 >
@@ -36,7 +36,7 @@ const schema = [
     <div class="wrap ns-hero__in">
       <div>
         <h1 id="ns-title" class="h-display">Nicolas Simon.<span class="ns-sub">Enterprise &amp; Solution Architect, Forward Deployed Engineer. Architecte des systèmes d'information et des organisations, pas du bâtiment.</span></h1>
-        <p class={AVAILABILITY.av ? "ns-avail av" : "ns-avail"}>{AVAILABILITY.text}</p>
+        <p class="ns-avail">Missions en direct ou via votre cabinet, en Belgique et au Luxembourg.</p>
         <div class="ns-cta">
           <a class="btn btn--primary" href={cv}>Demander le CV</a>
           <a class="btn btn--secondary" href={SITE.linkedin} rel="me noopener">Profil LinkedIn</a>

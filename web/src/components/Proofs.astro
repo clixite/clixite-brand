@@ -4,7 +4,6 @@ const figures = [
   { n: "≈ 800 M€", d: "d'achats dans le périmètre couvert comme Procurement Lead chez Proximus, de 2022 à 2024.", src: "Parcours du fondateur", av: true },
   { n: "18 mois", d: "auprès du CPO de KBC : politique achats v2.0 et circuit d'achats tactiques en production.", src: "Mission Clixite", av: true },
   { n: "2", d: "entreprises créées puis cédées, avant de conseiller celles des autres.", src: "Parcours du fondateur", av: true },
-  { n: "7", d: "certifications professionnelles : PMP, PRINCE2, AgilePM, SAFe, Scrum, ITIL v3 et ADKAR.", src: "Nicolas Simon" },
 ];
 ---
 <section class="section proofs" aria-labelledby="proofs-title">
@@ -34,14 +33,14 @@ const figures = [
 
 <style>
   .proofs__title { max-width: 18ch; }
-  .proofs__figs { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr) repeat(2, minmax(0, 1fr)); gap: var(--clx-space-7); margin-top: var(--clx-space-8); }
+  .proofs__figs { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr) minmax(0, 1fr); gap: var(--clx-space-7); margin-top: var(--clx-space-8); }
   .proofs__n { font-family: var(--clx-font-family-voice); font-style: italic; font-weight: 500; font-size: var(--clx-type-figure-font-size); line-height: var(--clx-type-figure-line-height); letter-spacing: var(--clx-type-figure-letter-spacing); color: var(--clx-link); white-space: nowrap; font-variant-numeric: lining-nums; }
   .proofs__fig dd { margin-top: var(--clx-space-4); color: var(--clx-text-muted); max-width: 30ch; }
   .proofs__src { display: block; margin-top: var(--clx-space-3); color: var(--clx-text); font-weight: 500; }
   .proofs__cases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--clx-space-6); margin-top: var(--clx-space-9); padding-top: var(--clx-space-7); border-top: 1px solid var(--clx-border); }
   .proofs__cases li { display: grid; gap: var(--clx-space-2); align-content: start; }
   .proofs__client { font-family: var(--clx-font-family-display); font-weight: 500; font-size: 1.25rem; }
-  @media (max-width: 1099px) { .proofs__figs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 1099px) { .proofs__figs { grid-template-columns: repeat(2, minmax(0, 1fr)); } .proofs__fig:first-child { grid-column: 1 / -1; } }
   @media (max-width: 767px) { .proofs__cases { grid-template-columns: 1fr; } }
   @media (max-width: 479px) { .proofs__figs { grid-template-columns: 1fr; gap: var(--clx-space-6); } }
 </style>

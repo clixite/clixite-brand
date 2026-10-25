@@ -4,13 +4,13 @@ import e2 from "../assets/x/etape-2.svg?raw";
 import e3 from "../assets/x/etape-3.svg?raw";
 import e4 from "../assets/x/etape-4.svg?raw";
 const steps = [
-  { svg: e1, t: "Relever", d: "Cartographie de vos systèmes, de vos flux, de vos contrats et de vos risques. On mesure avant de dessiner.", out: "Diagnostic", dur: "10 jours" },
-  { svg: e2, t: "Concevoir", d: "L'architecture cible et le chemin pour y aller, en options chiffrées. Ce qu'on garde, ce qu'on remplace, ce qu'on arrête.", out: "Cible et feuille de route", dur: "2 à 4 semaines" },
-  { svg: e3, t: "Construire", d: "Intégrations, données, automatisations et IA, livrées par incréments courts que vos équipes testent en conditions réelles.", out: "Incréments en production", dur: "Sprints de 2 semaines" },
-  { svg: e4, t: "Mettre en service", d: "Déploiement, adoption et transfert. Nous partons quand vos équipes n'ont plus besoin de nous, pas avant.", out: "Solution exploitée et documentée", dur: "Selon le périmètre" },
+  { svg: e1, t: "Relever", d: "Cartographie de vos systèmes, de vos flux, de vos contrats et de vos risques. On mesure avant de dessiner.", out: "Diagnostic" },
+  { svg: e2, t: "Concevoir", d: "L'architecture cible et le chemin pour y aller, en options chiffrées. Ce qu'on garde, ce qu'on remplace, ce qu'on arrête.", out: "Cible et feuille de route" },
+  { svg: e3, t: "Construire", d: "Intégrations, données, automatisations et IA, livrées par incréments courts que vos équipes testent en conditions réelles.", out: "Incréments en production" },
+  { svg: e4, t: "Mettre en service", d: "Déploiement, adoption et transfert. Nous partons quand vos équipes n'ont plus besoin de nous, pas avant.", out: "Solution exploitée et documentée" },
 ];
 ---
-<section id="methode" class="section method" aria-labelledby="method-title">
+<section id="methode" class="section method" data-aud="groupe pme" aria-labelledby="method-title">
   <div class="wrap">
     <div class="method__head">
       <h2 id="method-title" class="h2">Du relevé à la mise en service.</h2>
@@ -22,7 +22,7 @@ const steps = [
           <div class="method__art" set:html={s.svg} />
           <h3 class="h3">{s.t}</h3>
           <p class="muted">{s.d}</p>
-          <p class="method__meta small"><span>{s.out}</span> <span class="data av">{s.dur}</span></p>
+          <p class="method__meta small"><span>Livrable</span> <span class="method__out">{s.out}</span></p>
         </li>
       ))}
     </ol>
@@ -37,7 +37,7 @@ const steps = [
   .method__step { display: flex; flex-direction: column; }
   .method__step p.muted { margin-top: var(--clx-space-3); margin-bottom: var(--clx-space-4); }
   .method__meta { margin-top: auto !important; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; padding-top: var(--clx-space-3); border-top: 1px solid var(--clx-border); font-weight: 600; }
-  .method__meta .data { font-weight: 500; color: var(--clx-text-muted); }
+  .method__out { font-weight: 500; color: var(--clx-text-muted); }
   @media (max-width: 1099px) { .method__list { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--clx-space-8); } }
   @media (max-width: 899px) { .method__head { grid-template-columns: 1fr; gap: var(--clx-space-4); } }
   @media (max-width: 599px) {

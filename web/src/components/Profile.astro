@@ -10,11 +10,10 @@ const commitments = [
 <section class="section profile" data-theme="encre" aria-labelledby="profile-title">
   <div class="wrap">
     <div class="profile__head">
-      <h2 id="profile-title" class="h2">Un architecte qui livre.</h2>
+      <h2 id="profile-title" class="h2">L'architecte de vos systèmes, jusqu'à la mise en service.</h2>
       <p class="lead profile__lead">
         Enterprise &amp; Solution Architect pour concevoir, Forward Deployed Engineer pour mettre en œuvre : un architecte des systèmes d'information et des organisations, pas du bâtiment.
-        Le rôle de Forward Deployed Engineer a été popularisé par Palantir : un ingénieur qui s'installe chez le client et ne repart qu'une fois la solution en service.
-        Nous l'appliquons à votre architecture, que vous soyez une PME de vingt personnes ou un groupe de vingt mille.
+        Il s'installe dans vos équipes et ne repart qu'une fois la solution en service, que vous soyez une PME de vingt personnes ou un groupe de vingt mille.
       </p>
     </div>
     <ul role="list" class="profile__list">
@@ -45,6 +44,7 @@ const commitments = [
 
 <style>
   .profile__head { max-width: 56rem; }
+  .profile__head .h2 { max-width: 22ch; text-wrap: balance; }
   .profile__lead { margin-top: var(--clx-space-5); max-width: 52ch; }
   .profile__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--clx-space-7); margin-top: var(--clx-space-9); }
   .profile__list p { margin-top: var(--clx-space-3); color: var(--clx-text-muted); }
