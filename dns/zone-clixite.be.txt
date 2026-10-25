@@ -8,6 +8,7 @@
 _autodiscover._tcp   SRV    0 0 443 ex4.mail.ovh.net.                ttl=0 id=5099215666
 autoconfig           CNAME  mailconfig.ovh.net.                      ttl=0 id=5099183000
 autodiscover         CNAME  mailconfig.ovh.net.                      ttl=0 id=5099183001
+charte               A      76.13.46.55                              ttl=0 id=5444313269
 ftp                  CNAME  clixite.be.                              ttl=0 id=5099183009
 imap                 CNAME  ssl0.ovh.net.                            ttl=0 id=5099182999
 isjb                 A      51.91.236.193                            ttl=0 id=5140091435
