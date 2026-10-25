@@ -28,7 +28,11 @@ services:
       - sync
     volumes:
       - /var/www/clixite:/usr/share/nginx/html:ro
-      - /opt/stacks/clixite-sites/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - /opt/stacks/clixite-sites/conf.d:/etc/nginx/conf.d:ro
+    command: >
+      sh -c "while [ ! -f /etc/nginx/conf.d/clixite.conf ]; do sleep 2; done;
+      (while true; do sleep 600; nginx -s reload; done) &
+      exec nginx -g 'daemon off;'"
     networks:
       - proxy
 volumes:

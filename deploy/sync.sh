@@ -18,6 +18,8 @@ for b in site www; do
   echo "$head" > /state/$b.sha
   rm -rf /tmp/$b /tmp/$b.zip
 done
-curl -fsSL -o /stack/nginx.conf.new "$RAW/nginx.conf" && mv /stack/nginx.conf.new /stack/nginx.conf
+[ -d /stack/nginx.conf ] && rm -rf /stack/nginx.conf   # reliquat du premier déploiement (Docker avait créé un dossier)
+mkdir -p /stack/conf.d
+curl -fsSL -o /stack/conf.d/clixite.conf.new "$RAW/nginx.conf" && mv /stack/conf.d/clixite.conf.new /stack/conf.d/clixite.conf
 curl -fsSL -o /traefik-config/clixite-sites.yml.new "$RAW/traefik-clixite.yml" && mv /traefik-config/clixite-sites.yml.new /traefik-config/clixite-sites.yml
 echo "sync ok $(date -u +%FT%TZ)"
