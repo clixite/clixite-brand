@@ -31,6 +31,10 @@ Le système qui fait tourner www.clixite.be (refonte 2030) et, à terme, charte.
 | Gap, Profile, Method, Expertises, Offers, Proofs, FinalCta | sections de la page d'accueil | une idée par section, titres sur deux lignes au plus, panneaux selon la charte (blanc, Brume 1 px, rayon 10, sans ombre) |
 | Boutons | principal (turquoise, texte Encre), secondaire (contour) | 48 px de haut (44 px en petit), pression `scale(.97)` en 160 ms, focus visible 3 px |
 | FAQ | questions fréquentes | `details` natif, balisage `FAQPage` |
+| Sélecteur d'audience | grand groupe, PME, cabinet | boutons radio natifs ; le contenu `[data-aud]` s'adapte en CSS (`:has`), avec repli par attribut `data-audience` ; lien `?pour=groupe|pme|cabinet` pour la prospection ; l'angle des champs du X suit le choix (4°, 7°, 5,5°) |
+| Solveur | qualification en trois questions | règles explicites (pas d'IA), recommandation rendue côté serveur puis mise à jour en direct, courriel prérempli avec les réponses, rien n'est envoyé sans clic |
+| Parcours en X | deux trajectoires qui se croisent | SVG monochrome, traits perpendiculaires (pas de points reliés), liste accessible et version mobile en deux colonnes |
+| Boîte à outils | six familles de compétences | ordre des familles selon l'audience (`order` en CSS) |
 
 ## Mouvement
 

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr-BE">
+<head>
+<meta charset="utf-8">
+<title>Nicolas Simon, profil</title>
+<style>
+  @font-face { font-family: "Space Grotesk"; src: url("../web/public/fonts/space-grotesk-700-normal.woff2") format("woff2"); font-weight: 700; }
+  @font-face { font-family: "Space Grotesk"; src: url("../web/public/fonts/space-grotesk-500-normal.woff2") format("woff2"); font-weight: 500; }
+  @font-face { font-family: "Inter"; src: url("../web/public/fonts/inter-400-normal.woff2") format("woff2"); font-weight: 400; }
+  @font-face { font-family: "Inter"; src: url("../web/public/fonts/inter-600-normal.woff2") format("woff2"); font-weight: 600; }
+  @font-face { font-family: "Fraunces"; src: url("../web/public/fonts/fraunces-500-italic.woff2") format("woff2"); font-weight: 500; font-style: italic; }
+  @page { size: A4; margin: 0; }
+  :root { --encre: #0B2239; --papier: #F6F5F0; --turq: #0C7893; --ardoise: #4B5A6B; --brume: #CDD5DD; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { width: 210mm; height: 297mm; padding: 13mm 14mm 11mm; font: 400 8.6pt/1.42 "Inter", Arial, sans-serif; color: var(--encre); background: #fff; display: grid; grid-template-rows: auto auto 1fr auto; gap: 5.5mm; }
+  h1, h2 { font-family: "Space Grotesk", Arial, sans-serif; margin: 0; }
+  p, ul, dl { margin: 0; }
+  .draft { position: absolute; top: 5mm; right: 14mm; font: 600 7pt "Inter", Arial, sans-serif; color: #D81B60; }
+  header { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 8mm; padding-bottom: 4mm; border-bottom: 1.5px solid var(--encre); }
+  header img { width: 46mm; }
+  h1 { font-size: 24pt; font-weight: 700; letter-spacing: -0.02em; line-height: 1; }
+  .role { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; font-size: 11.5pt; margin-top: 2mm; }
+  .contact { margin-top: 2mm; color: var(--ardoise); }
+  .avail { display: inline-block; margin-top: 2.5mm; padding: 1mm 3mm; border-radius: 99px; background: #D6F1F8; font-weight: 600; }
+  .lead { font-family: "Fraunces", Georgia, serif; font-style: italic; font-size: 11pt; line-height: 1.35; }
+  .cols { display: grid; grid-template-columns: 1.25fr 1fr; gap: 8mm; min-height: 0; }
+  h2 { font-size: 10.5pt; font-weight: 700; margin-bottom: 2mm; padding-bottom: 1mm; border-bottom: 1px solid var(--brume); }
+  section + section { margin-top: 4.5mm; }
+  .m { display: grid; gap: 0.6mm; margin-bottom: 3mm; }
+  .m b { font-weight: 600; }
+  .m .when { color: var(--turq); font-weight: 600; }
+  ul { padding-left: 3.6mm; }
+  li { margin: 0.4mm 0; }
+  li::marker { color: var(--turq); }
+  dl { display: grid; grid-template-columns: 24mm 1fr; gap: 1.2mm 3mm; }
+  dt { font-weight: 600; }
+  dd { margin: 0; color: var(--encre); }
+  .muted { color: var(--ardoise); }
+  footer { display: flex; justify-content: space-between; gap: 6mm; padding-top: 3mm; border-top: 1px solid var(--brume); color: var(--ardoise); font-size: 7.4pt; }
+  footer b { color: var(--encre); font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; letter-spacing: 0.08em; }
+</style>
+</head>
+<body>
+  <p class="draft">Brouillon à valider avant envoi</p>
+  <header>
+    <div>
+      <h1>Nicolas Simon</h1>
+      <p class="role">Enterprise &amp; Solution Architect, Forward Deployed Engineer</p>
+      <p class="contact">nicolas@clixite.be, linkedin.com/in/nicolassim, Wavre (Belgique). Français, anglais, néerlandais opérationnel.</p>
+      <p class="avail">Disponible pour une nouvelle mission à partir de novembre 2026</p>
+    </div>
+    <img src="logo.svg" alt="Clixite">
+  </header>
+
+  <p class="lead">Architecte qui conçoit puis met en production : achats, risques tiers, conformité DORA et NIS2, architecture et IA. Deux entreprises créées et cédées, puis huit ans dans les grands comptes : la vitesse d’un entrepreneur, la rigueur d’un grand groupe.</p>
+
+  <div class="cols">
+    <div>
+      <section>
+        <h2>Missions récentes</h2>
+        <div class="m"><p><b>KBC Bank &amp; Insurance</b>, Expert Procurement et TPRM Advisor auprès du CPO <span class="when">2025 à 2026, 18 mois</span></p>
+          <ul><li>Politique achats v2.0 en trois couches (politique, standards, playbooks), alignée sur DORA, l’EBA, NIS2 et la CSRD</li><li>Circuit d’achats tactiques en production depuis janvier 2026 sur SAP Ariba, avec LegalFly, World-Check et DocuSign</li></ul></div>
+        <div class="m"><p><b>P&amp;V Assurances et Vivium</b>, Head of Procurement par intérim <span class="when">janvier à mi-2025</span></p></div>
+        <div class="m"><p><b>Proximus</b>, Procurement Lead <span class="when">2022 à 2024</span></p><ul><li>Périmètre d’achats d’environ 800 M€</li></ul></div>
+        <div class="m"><p><b>Proximus</b>, Senior Program Manager, domaine TV <span class="when">2018 à 2022</span></p></div>
+        <div class="m"><p><b>PME</b> via Clixite : Design Plus (charte, site, visibilité IA, HubSpot), groupe Tero (site et back-office) <span class="when">en cours</span></p></div>
+      </section>
+      <section>
+        <h2>Entrepreneur</h2>
+        <ul><li>Fonde Clixite en 2005 ; cède l’agence Clixite Communication en 2011</li><li>Cède Twin Square Catering (traiteur aérien, Brussels Airport) en 2017</li><li>Construit ses logiciels : conformité NIS2 et CyFun pour PME, gestion des risques tiers orchestrée par agents IA</li></ul>
+      </section>
+    </div>
+    <div>
+      <section>
+        <h2>Rôles</h2>
+        <ul><li>Enterprise ou Solution Architect</li><li>Procurement Transformation Lead, Fractional ou interim CPO</li><li>TPRM et DORA Advisor, DORA ou NIS2 Program Manager</li><li>Program Manager, Change Manager (ADKAR)</li><li>Responsable de la mise en production IA</li></ul>
+      </section>
+      <section>
+        <h2>Compétences</h2>
+        <dl>
+          <dt>Achats</dt><dd>Source-to-Pay, politique achats, sourcing, contrats, SAP Ariba</dd>
+          <dt>Risques</dt><dd>DORA, EBA Outsourcing, NIS2 et CyFun, TPRM, RGPD, AI Act, CSRD</dd>
+          <dt>Architecture</dt><dd>Cartographie, architecture cible, intégrations, choix de solutions</dd>
+          <dt>IA</dt><dd>Claude et Claude Code, MCP, agents multiples, RAG, garde-fous</dd>
+          <dt>Ingénierie</dt><dd>Python, Node, Astro, Docker, Traefik, HubSpot, GEO</dd>
+          <dt>Programmes</dt><dd>Gouvernance, comités, adoption, conduite du changement</dd>
+        </dl>
+      </section>
+      <section>
+        <h2>Certifications et formation</h2>
+        <p>PMP, PRINCE2, AgilePM, SAFe, Scrum, ITIL v3, ADKAR</p>
+        <p class="muted">Marketing et communication, EPHEC Louvain-la-Neuve (2006)</p>
+      </section>
+      <section>
+        <h2>Formats</h2>
+        <p>Régie à temps plein ou partiel, forfait à livrable, temps partagé. En direct ou via cabinet référencé. Bruxelles, Wallonie, Flandre, Luxembourg.</p>
+      </section>
+    </div>
+  </div>
+
+  <footer><span><b>CLIXITE</b>, Enterprise &amp; Solution Architecture</span><span>Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, BE 0871.430.776, www.clixite.be</span></footer>
+</body>
+</html>

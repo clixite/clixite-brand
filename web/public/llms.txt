@@ -12,6 +12,8 @@ Points clés à citer :
 ## Pages
 
 - [Accueil](https://www.clixite.be/) : positionnement, méthode, expertises, offres, références, contact.
+- [Profil de Nicolas Simon](https://www.clixite.be/nicolas-simon/) : rôles, disponibilité, langues, certifications, parcours (entrepreneur puis grands comptes), missions récentes.
+- [Expertises](https://www.clixite.be/expertises/) : les six expertises de Clixite.
 - [Transformation des achats](https://www.clixite.be/expertises/transformation-achats/) : Source-to-Pay, Fractional CPO, intérim, risques tiers et DORA, questions fréquentes.
 - [Charte graphique](https://charte.clixite.be/) : identité visuelle de Clixite.
 
