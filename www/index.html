@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="fr-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clixite</title>
+<meta name="description" content="Clixite, Enterprise & Solution Architecture. Nicolas Simon, Wavre. Nous résolvons votre x.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="any"><link rel="apple-touch-icon" href="app-icon-180.png"><link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#0B2239">
+<meta property="og:title" content="Clixite"><meta property="og:description" content="Enterprise & Solution Architecture. Nous résolvons votre x."><meta property="og:image" content="https://www.clixite.be/og-image-1200x630.png"><meta property="og:url" content="https://www.clixite.be/"><meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Clixite SRL","alternateName":"Clixite","url":"https://www.clixite.be/","logo":"https://www.clixite.be/og-image-1200x630.png","description":"Enterprise & Solution Architecture. Architecture de solutions et d'entreprise pour les organisations régulées et les PME en croissance.","founder":{"@type":"Person","name":"Nicolas Simon","jobTitle":"Solutions & Enterprise Architect","sameAs":"https://www.linkedin.com/in/nicolassim/"},"address":{"@type":"PostalAddress","streetAddress":"Avenue Reine Astrid 53","postalCode":"1300","addressLocality":"Wavre","addressCountry":"BE"},"vatID":"BE0871430776","email":"nicolas@clixite.be","sameAs":["https://www.linkedin.com/in/nicolassim/"]}</script>
+<style>
+@font-face{font-family:'Space Grotesk';font-weight:500;font-display:swap;src:url(fonts/space-grotesk-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Space Grotesk';font-weight:700;font-display:swap;src:url(fonts/space-grotesk-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-weight:400;font-display:swap;src:url(fonts/inter-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-weight:500;font-display:swap;src:url(fonts/inter-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:600;font-display:swap;src:url(fonts/fraunces-600-italic.woff2) format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-weight:500;font-display:swap;src:url(fonts/jetbrains-mono-500-normal.woff2) format('woff2')}
+:root{--encre:#0B2239;--papier:#F6F5F0;--turquoise:#19B3D9;--rose:#FF4F8B;--signal:#FFD233;--brume:#CDD5DD;--ardoise:#4B5A6B;--encre-teintee:#1F3A5A;--ease:cubic-bezier(.2,.8,.2,1)}
+*{box-sizing:border-box}
+html{height:100%;-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100%;background:var(--encre);color:var(--papier);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column}
+::selection{background:var(--encre-teintee);color:var(--papier)}
+a{color:var(--papier);text-decoration-thickness:1px;text-underline-offset:4px;text-decoration-color:var(--turquoise)}
+a:hover{color:var(--turquoise)}
+:focus-visible{outline:2px solid var(--turquoise);outline-offset:4px;border-radius:4px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:22px clamp(20px,4vw,56px);font-size:13px;color:var(--brume)}
+.top .descr{font-family:'Space Grotesk',sans-serif;font-weight:500;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--turquoise)}
+.top a{color:var(--brume);text-decoration:none;border-bottom:1px solid var(--encre-teintee);padding-bottom:2px}
+.top a:hover{color:var(--papier);border-color:var(--turquoise)}
+.stage{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 clamp(16px,4vw,56px);text-align:center}
+.o3d-wrap{width:min(100%,1040px);cursor:crosshair}
+canvas.o3d{display:block;width:100%;aspect-ratio:3/1;touch-action:none}
+.o3d-fallback{width:min(100%,720px);margin:0 auto}
+[hidden]{display:none!important}
+.claim{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(22px,3.2vw,34px);line-height:1.2;letter-spacing:-.01em;margin:8px 0 0;color:var(--papier);text-wrap:balance}
+.claim .x{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;color:var(--signal);position:relative;display:inline-block;min-width:1.1ch;cursor:pointer;background:none;border:0;padding:0;font-size:inherit;line-height:inherit}
+.claim .x:hover{color:#FFE066}
+.claim .x{transition:opacity .25s ease}
+.claim .x.swap{opacity:0}
+.claim .hint{display:block;margin-top:18px;font-size:13px;color:var(--ardoise);min-height:1.4em}
+.foot{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:28px;padding:28px clamp(20px,4vw,56px) 30px;border-top:1px solid var(--encre-teintee);font-size:14px;color:var(--brume);align-items:end}
+.foot b{display:block;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--papier);margin-bottom:4px;letter-spacing:-.01em}
+.foot .mono{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ardoise);margin-top:6px;display:block}
+.foot address{font-style:normal}
+.foot ul{list-style:none;margin:0;padding:0}
+.foot li{margin:0 0 6px}
+.foot .in{display:inline-flex;align-items:center;gap:10px;height:40px;padding:0 16px;border-radius:999px;background:var(--turquoise);color:var(--encre);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;text-decoration:none;transition:transform 160ms var(--ease),background .2s ease}
+.foot .in:active{transform:scale(.97)}
+.foot .in svg{width:16px;height:16px;fill:currentColor}
+@media (hover:hover) and (pointer:fine){.foot .in:hover{background:#3FC3E3;color:var(--encre)}}
+@media (max-width:760px){.foot{grid-template-columns:1fr;gap:18px;align-items:start}.top .descr{display:none}.claim .hint{margin-top:26px}}
+@media (prefers-reduced-motion:reduce){.claim .x .sub{transition:none}.foot .in{transition:none}}
+</style>
+</head>
+<body>
+<header class="top"><span class="descr">Enterprise &amp; Solution Architecture</span><span>Wavre, Belgique</span><a href="https://charte.clixite.be/">La charte</a></header>
+<main class="stage">
+  <div class="o3d-wrap" id="stage"><canvas class="o3d" id="o3d" aria-label="Clixite, Enterprise and Solution Architecture"></canvas><img class="o3d-fallback" src="assets/clixite.svg" alt="Clixite, Enterprise &amp; Solution Architecture" hidden></div>
+  <p class="claim">Nous résolvons votre <button class="x" id="x" type="button" aria-label="Votre x : cliquer pour voir des exemples">x</button>.<span class="hint" id="hint">Cliquez sur le <em>x</em>.</span></p>
+</main>
+<footer class="foot">
+  <div><b>Nicolas Simon</b>Solutions &amp; Enterprise Architect<br>Banque, assurance, télécom et PME en croissance : la structure d'abord, puis ce qui tourne.<span class="mono">Depuis 2005 · Clixite SRL · BE 0871.430.776</span></div>
+  <address><b>Clixite SRL</b>Avenue Reine Astrid 53<br>1300 Wavre, Belgique<br><a href="mailto:nicolas@clixite.be">nicolas@clixite.be</a></address>
+  <ul>
+    <li><a class="in" href="https://www.linkedin.com/in/nicolassim/" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a></li>
+    <li><a href="https://charte.clixite.be/">Charte graphique</a></li>
+  </ul>
+</footer>
+<script src="assets/ouverture3d.js" defer></script>
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // le x : des exemples d'inconnues que Clixite résout, au clic
+  var xs = ['policy achats', 'conformité DORA', 'back-office', 'processus Source-to-Pay', 'architecture d’entreprise', 'croissance', 'exigence NIS2', 'dette d’outils', 'audit', 'x'];
+  var i = -1, x = document.getElementById('x'), hint = document.getElementById('hint'), busy = false;
+  x.addEventListener('click', function () {
+    if (busy) return; busy = true;
+    i = (i + 1) % xs.length; var v = xs[i];
+    x.classList.add('swap');
+    setTimeout(function () { x.textContent = v; x.classList.remove('swap'); busy = false; }, reduce ? 0 : 220);
+    hint.textContent = i === 0 ? 'Encore.' : i === 1 ? 'Chaque x est différent.' : (v === 'x' ? 'Et le vôtre ?' : '');
+  });
+  function boot(scene) {
+    var c = document.getElementById('o3d');
+    try {
+      var o = new ClixiteOuverture(c, scene, { theme: 'encre', host: document.getElementById('stage'), margin: 0.05 });
+      o.play();
+      c.addEventListener('dblclick', function () { o.replay(); });
+    } catch (e) { c.hidden = true; document.querySelector('.o3d-fallback').hidden = false; }
+  }
+  function start() {
+    if (!window.ClixiteOuverture) { document.getElementById('o3d').hidden = true; document.querySelector('.o3d-fallback').hidden = false; return; }
+    fetch('assets/scene.json').then(function (r) { return r.json(); }).then(boot).catch(function () { document.getElementById('o3d').hidden = true; document.querySelector('.o3d-fallback').hidden = false; });
+  }
+  if (document.readyState === 'complete') start(); else window.addEventListener('load', start);
+})();
+</script>
+</body>
+</html>

@@ -8,6 +8,7 @@ Le logo n'est pas dessiné à la main : chaque fichier (SVG, PNG, favicons, bann
 
 | Dossier ou fichier | Rôle |
 | --- | --- |
+| `www/` | La page d'accueil de www.clixite.be (carte de visite, mot-marque 3D, adresse, LinkedIn), produite par `build_www.py` ; publiée sur la branche `www`. |
 | `charte/` | Le site statique déployé sur charte.clixite.be, avec tous les téléchargements (`charte/downloads/`), l'animation (`charte/animation/`) et les polices auto-hébergées (`charte/fonts/`). |
 | `logos10.py` | Le logo final (piste P) : X maître, peau Relief, peau Interférence, mots-marques central, symbole à gauche, empilé. Les constantes de construction sont en tête de fichier (`STEM`, `EXTRUDE_DEG`). |
 | `typo.py`, `geom.py` | Mise en forme des glyphes (fontTools + HarfBuzz) et géométrie (shapely). |

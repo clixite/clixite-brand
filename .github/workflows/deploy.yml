@@ -1,7 +1,7 @@
 # Déploiement de charte.clixite.be
 #
 # À chaque push sur main qui touche charte/, ce workflow :
-#   1. publie le contenu de charte/ sur la branche `site` (sans les sources) ;
+#   1. publie le contenu de charte/ sur la branche `site` et celui de www/ sur la branche `www` (sans les sources) ;
 #      Hostinger (hPanel > Avancé > Git) peut suivre cette branche et se mettre à jour tout seul ;
 #   2. si les secrets FTP_SERVER, FTP_USERNAME et FTP_PASSWORD existent, envoie aussi charte/ par FTPS
 #      vers le dossier FTP_SERVER_DIR (variable de dépôt, par défaut /public_html/charte/).
@@ -11,7 +11,7 @@ name: Déployer charte.clixite.be
 on:
   push:
     branches: [main]
-    paths: ["charte/**", ".github/workflows/deploy.yml"]
+    paths: ["charte/**", "www/**", ".github/workflows/deploy.yml"]
   workflow_dispatch:
 
 permissions:
@@ -36,6 +36,9 @@ jobs:
           SHA=$(git subtree split --prefix charte HEAD)
           git push --force origin "$SHA:refs/heads/site"
           echo "Branche site mise à jour : $SHA"
+          WWW=$(git subtree split --prefix www HEAD)
+          git push --force origin "$WWW:refs/heads/www"
+          echo "Branche www mise à jour : $WWW"
 
   ftp:
     name: Envoyer charte/ par FTPS (si les secrets existent)
