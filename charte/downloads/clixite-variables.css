@@ -1,0 +1,10 @@
+:root{
+  --clx-encre:#0B2239; --clx-papier:#F6F5F0; --clx-blanc:#FFFFFF;
+  --clx-turquoise:#19B3D9; --clx-turquoise-texte:#0C7893; --clx-turquoise-doux:#D6F1F8;
+  --clx-rose:#FF4F8B; --clx-rose-texte:#D81B60;
+  --clx-signal:#FFD233; --clx-indigo:#193776;
+  --clx-ardoise:#4B5A6B; --clx-brume:#CDD5DD; --clx-encre-teintee:#1F3A5A; --clx-surface-sombre:#122D4A;
+  --clx-font-display:'Space Grotesk',system-ui,sans-serif; --clx-font-sans:'Inter',system-ui,sans-serif;
+  --clx-font-editorial:'Fraunces',Georgia,serif; --clx-font-mono:'JetBrains Mono',ui-monospace,monospace;
+  --clx-radius-sm:6px; --clx-radius-md:10px; --clx-radius-pill:999px;
+}

@@ -1,0 +1,65 @@
+# Déploiement de charte.clixite.be
+#
+# À chaque push sur main qui touche charte/, ce workflow :
+#   1. publie le contenu de charte/ sur la branche `site` (sans les sources) ;
+#      Hostinger (hPanel > Avancé > Git) peut suivre cette branche et se mettre à jour tout seul ;
+#   2. si les secrets FTP_SERVER, FTP_USERNAME et FTP_PASSWORD existent, envoie aussi charte/ par FTPS
+#      vers le dossier FTP_SERVER_DIR (variable de dépôt, par défaut /public_html/charte/).
+# Les deux routes sont indépendantes : l'une ou l'autre suffit.
+name: Déployer charte.clixite.be
+
+on:
+  push:
+    branches: [main]
+    paths: ["charte/**", ".github/workflows/deploy.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-charte
+  cancel-in-progress: true
+
+jobs:
+  branche-site:
+    name: Publier charte/ sur la branche site
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Pousser charte/ sur la branche site
+        run: |
+          git config user.name "clixite-brand bot"
+          git config user.email "noreply@clixite.be"
+          SHA=$(git subtree split --prefix charte HEAD)
+          git push --force origin "$SHA:refs/heads/site"
+          echo "Branche site mise à jour : $SHA"
+
+  ftp:
+    name: Envoyer charte/ par FTPS (si les secrets existent)
+    runs-on: ubuntu-latest
+    needs: branche-site
+    env:
+      FTP_SERVER: ${{ secrets.FTP_SERVER }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Vérifier les secrets
+        id: check
+        run: |
+          if [ -n "$FTP_SERVER" ]; then echo "ok=true" >> "$GITHUB_OUTPUT"; else echo "ok=false" >> "$GITHUB_OUTPUT"; echo "Pas de secrets FTP : étape ignorée."; fi
+      - name: Déployer par FTPS
+        if: steps.check.outputs.ok == 'true'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: ./charte/
+          server-dir: ${{ vars.FTP_SERVER_DIR || '/public_html/charte/' }}
+          exclude: |
+            **/.git*
+            **/.git*/**

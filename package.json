@@ -1,0 +1,28 @@
+{
+  "name": "clixite-brand",
+  "version": "1.0.0",
+  "description": "Charte graphique Clixite : générateur du logo, kit de marque et site charte.clixite.be",
+  "scripts": {
+    "pack": "python3 build_pack.py",
+    "office": "node build_pptx.js && python3 build_docx.py && python3 build_xlsx.py",
+    "anim": "python3 anim.py --video",
+    "site": "python3 build_site_assets.py && python3 build_site.py",
+    "all": "npm run pack && npm run office && npm run anim && npm run site",
+    "preview": "cd charte && python3 -m http.server 8765",
+    "shots": "node site_src/shoot.js /tmp/shots"
+  },
+  "author": "Nicolas Simon, Clixite SRL",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@fontsource/dm-serif-display": "^5.3.0",
+    "@fontsource/fraunces": "^5.3.0",
+    "@fontsource/instrument-serif": "^5.3.0",
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@fontsource/sora": "^5.3.0",
+    "@fontsource/space-grotesk": "^5.3.0",
+    "@resvg/resvg-js": "^2.6.2",
+    "pptxgenjs": "^4.0.1"
+  },
+  "private": true
+}
