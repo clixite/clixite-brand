@@ -1,10 +1,10 @@
 {
-  "$note": "Registre des logos clients. Fichiers officiels uniquement, jamais redessinés. 'verified' = empreinte SHA-256 (espaces ignorés) identique au fichier servi par la source le 25 octobre 2026. 'autorisation' : accord de citation du client, à confirmer par Nicolas avant mise en ligne.",
+  "$note": "Registre des logos clients. Fichiers officiels uniquement, jamais redessinés. 'verified' = empreinte SHA-256 (espaces ignorés) identique au fichier servi par la source le 25 octobre 2026. 'autorisation' : décision de publication.",
   "logos": [
-    { "id": "kbc", "name": "KBC", "file": "kbc.svg", "group": "missions", "source": "https://www.kbc.be (wcmassets.kbc.be/content/dam/kdl-assets/logos/k/logos-kbc.svg)", "verified": true, "autorisation": "à confirmer" },
-    { "id": "pv-groupe", "name": "Groupe P&V", "file": "pv-groupe.svg", "group": "missions", "source": "https://pvgroup.coop (logo d'en-tête, SVG en ligne)", "verified": true, "autorisation": "à confirmer" },
-    { "id": "tero", "name": "Tero", "file": "tero.svg", "group": "missions", "source": "Kit de marque Tero Group, assets/logo/tero-logo-currentColor.svg (registre officiel du 15 octobre 2026)", "verified": true, "autorisation": "à confirmer" },
-    { "id": "design-plus", "name": "Design Plus", "file": "design-plus.svg", "group": "missions", "source": "Charte Design Plus, references/logos/logo-designplus-black.svg", "verified": true, "autorisation": "à confirmer" },
-    { "id": "proximus", "name": "Proximus", "file": "proximus-group.svg", "group": "parcours", "source": "https://www.proximus.com (dam/jcr:e466a577-8e43-4a26-aa53-809b293efa24/proximus-logo-header.svg)", "verified": true, "autorisation": "non requise pour un parcours salarié, mention à valider" }
+    { "id": "kbc", "name": "KBC", "file": "kbc.svg", "group": "missions", "source": "https://www.kbc.be (wcmassets.kbc.be/content/dam/kdl-assets/logos/k/logos-kbc.svg)", "verified": true, "autorisation": "publication décidée par Nicolas Simon le 25 octobre 2026" },
+    { "id": "pv-groupe", "name": "Groupe P&V", "file": "pv-groupe.svg", "group": "missions", "source": "https://pvgroup.coop (logo d'en-tête, SVG en ligne)", "verified": true, "autorisation": "publication décidée par Nicolas Simon le 25 octobre 2026" },
+    { "id": "tero", "name": "Tero", "file": "tero.svg", "group": "missions", "source": "Kit de marque Tero Group, assets/logo/tero-logo-currentColor.svg (registre officiel du 15 octobre 2026)", "verified": true, "autorisation": "publication décidée par Nicolas Simon le 25 octobre 2026" },
+    { "id": "design-plus", "name": "Design Plus", "file": "design-plus.svg", "group": "missions", "source": "Charte Design Plus, references/logos/logo-designplus-black.svg", "verified": true, "autorisation": "publication décidée par Nicolas Simon le 25 octobre 2026" },
+    { "id": "proximus", "name": "Proximus", "file": "proximus-group.svg", "group": "parcours", "source": "https://www.proximus.com (dam/jcr:e466a577-8e43-4a26-aa53-809b293efa24/proximus-logo-header.svg)", "verified": true, "autorisation": "parcours salarié, publication décidée par Nicolas Simon le 25 octobre 2026" }
   ]
 }
