@@ -2,7 +2,7 @@
 import { SITE } from "../data/site";
 import Parcours from "./Parcours.astro";
 const commitments = [
-  { t: "Dans vos équipes, pas à côté.", d: "Nous travaillons avec vos gens, dans vos outils et à votre rythme. Les décisions se prennent là où le travail se fait." },
+  { t: "Dans vos équipes, pas à côté.", d: "Nous travaillons avec vos équipes, dans vos outils et à votre rythme. Les décisions se prennent là où le travail se fait." },
   { t: "En production, pas en PowerPoint.", d: "Chaque mission se mesure à ce qui tourne : une intégration, un processus, un agent IA, un tableau de bord utilisé le lundi matin." },
   { t: "Outillé par l'IA, sous votre contrôle.", d: "Des outils d'IA récents, dont Claude, utilisés seulement avec votre accord, sur vos environnements et selon vos règles de sécurité. Vous gardez le code, les accès et la documentation." },
 ];
@@ -13,7 +13,7 @@ const commitments = [
       <h2 id="profile-title" class="h2">L'architecte de vos systèmes, jusqu'à la mise en service.</h2>
       <p class="lead profile__lead">
         Enterprise &amp; Solution Architect pour concevoir, Forward Deployed Engineer pour mettre en œuvre : un architecte des systèmes d'information et des organisations, pas du bâtiment.
-        Il s'installe dans vos équipes et ne repart qu'une fois la solution en service, que vous soyez une PME de vingt personnes ou un groupe de vingt mille.
+        Nous nous installons dans vos équipes et restons jusqu'à la mise en service, que vous soyez une PME de vingt personnes ou un groupe de vingt mille.
       </p>
     </div>
     <ul role="list" class="profile__list">
@@ -34,7 +34,7 @@ const commitments = [
       </blockquote>
       <figcaption>
         <span><span class="profile__name">{SITE.founder.name}</span>, fondateur de Clixite.</span>
-        <span class="av">Plus de quinze ans dans la banque, l'assurance, les télécoms et les médias, puis dans les PME.</span>
+        <span class="av">Plus de quinze ans dans la banque, l'assurance, les télécoms et les médias. Entrepreneur depuis 2005.</span>
         <span class="profile__certs">{SITE.founder.certifications.join(", ")}</span>
         <a href={SITE.linkedin} rel="me noopener" class="link-more">Profil LinkedIn</a>
       </figcaption>

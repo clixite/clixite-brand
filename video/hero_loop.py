@@ -14,9 +14,9 @@ XF = E["fondu_1_2"] / FPS     # fondu enchaîné plan 1 vers plan 2, comme dans 
 
 # nom, largeur, hauteur, format de cadrage (edit.json), qualité
 VARIANTES = [
-    ("hero-1920", 1920, 1080, "16x9", 27),
-    ("hero-1280", 1280, 720, "16x9", 26),
-    ("hero-720x1280", 720, 1280, "9x16", 26),
+    ("hero-1920", 1920, 1080, "16x9", 22),
+    ("hero-1280", 1280, 720, "16x9", 23),
+    ("hero-720x1280", 720, 1280, "9x16", 23),
 ]
 
 def plan(i, start, dur, W, H, fmt, label):
@@ -61,7 +61,7 @@ def build(name, W, H, fmt, crf):
                     "-deadline", "good", "-cpu-used", "2", "-row-mt", "1", "-g", "48", "-pix_fmt", "yuv420p", *col, webm], check=True)
     os.remove(master)
     # affiche : la première image du fichier, en WebP
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", out, "-frames:v", "1", "-c:v", "libwebp", "-quality", "70",
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", out, "-frames:v", "1", "-c:v", "libwebp", "-quality", "84",
                     f"{OUT}/{name}.webp"], check=True)
     print("ok", out)
 

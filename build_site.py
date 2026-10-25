@@ -3,10 +3,11 @@ import os, re, json, shutil, html
 SITE = "charte"; A = f"{SITE}/assets"
 SC = "/tmp/claude-0/-home-claude/082fa878-b318-5a61-a8c6-40d163cb8592/scratchpad"
 shutil.copy("site_src/site.css", f"{A}/site.css"); shutil.copy("site_src/site.js", f"{A}/site.js")
-sizes = json.load(open(f"{SC}/download-sizes.json"))
+# tailles lues sur les fichiers eux-mêmes (plus de dépendance à un fichier temporaire)
+sizes = {os.path.relpath(os.path.join(d, f), SITE).replace(os.sep, '/'): os.path.getsize(os.path.join(d, f)) for d, _, fs in os.walk(f"{SITE}/downloads") for f in fs}
 def size(path):
-    n = sizes.get(path, 0)
-    return f"{n/1024/1024:.1f} Mo" if n > 1024 * 1024 else f"{n/1024:.0f} Ko"
+    n = os.path.getsize(f"{SITE}/{path}") if os.path.exists(f"{SITE}/{path}") else 0
+    return (f"{n/1024/1024:.1f} Mo" if n > 1024 * 1024 else f"{n/1024:.0f} Ko").replace(".", ",")
 
 # ---------------------------------------------------------------- helpers
 def hex2rgb(h): h = h.lstrip("#"); return tuple(int(h[i:i+2], 16) for i in (0, 2, 4))
@@ -44,7 +45,7 @@ SECONDARY = [
 ]
 def swatch(name, hx, use, var, dark_text=False):
     r, g, b = hex2rgb(hx); light = lum(hx) > 0.35
-    return (f'<button class="swatch" type="button" data-hex="{hx}" aria-label="{name}, copier {hx}" style="--c:{hx}">'
+    return (f'<button class="swatch" type="button" data-hex="{hx}" style="--c:{hx}"><span class="vh">Copier la valeur </span>'
             f'<div class="chip" style="background:{hx}"><span>{hx}</span></div>'
             f'<div class="info"><div class="name">{name}</div><div class="vals">RVB {r} {g} {b}<br>CMJN {cmyk(hx)}<br>--clx-{var}</div><div class="use">{use}</div></div></button>')
 
@@ -55,7 +56,8 @@ def contrast_rows():
     out = []
     for fn, fg, bn, bg in CONTRAST:
         c = contrast(fg, bg); grade = "AAA" if c >= 7 else "AA" if c >= 4.5 else "AA grand texte" if c >= 3 else "insuffisant"
-        out.append(f'<tr><td class="sample"><span style="color:{fg};background:{bg};border:1px solid var(--brume)">Aa</span></td><td>{fn} sur {bn}</td><td class="v">{c:.1f} : 1</td><td><span class="ok">{grade}</span></td></tr>')
+        c_txt = f"{c:.1f}".replace('.', ',')
+        out.append(f'<tr><td class="sample"><span style="color:{fg};background:{bg};border:1px solid var(--brume)">Aa</span></td><td>{fn} sur {bn}</td><td class="v">{c_txt}:1</td><td><span class="ok">{grade}</span></td></tr>')
     return "".join(out)
 
 FILES_LOGO = [
@@ -82,11 +84,11 @@ hero_x = open(f"{A}/living-x-hero.svg.frag").read()
 play_x = open(f"{A}/living-x-play.svg.frag").read()
 signature = open(f"{SITE}/downloads/signature/signature-mail.html").read()
 signature = re.sub(r'<!--.*?-->\s*', '', signature, flags=re.S)
-signature_preview = signature.replace("https://charte.clixite.be/downloads/logo/", "downloads/logo/")
+signature_preview = signature.replace("https://charte.clixite.be/downloads/logo/", "downloads/logo/").replace("height: 64px;", "height: auto;")
 tokens_css = open(f"{SITE}/downloads/clixite-variables.css").read()
 fonts_css = open(f"{A}/fonts.css").read()
 NAV = [("plateforme", "Plateforme"), ("logo", "Logo"), ("couleurs", "Couleurs"), ("typographie", "Typographie"), ("systeme", "Système graphique"),
-       ("applications", "Applications"), ("animation", "Animation"), ("voix", "Voix et rédaction"), ("telechargements", "Téléchargements"), ("kit", "Kit développeur"), ("gouvernance", "Gouvernance")]
+       ("applications", "Applications"), ("animation", "Animation"), ("voix", "Voix et rédaction"), ("telechargements", "Téléchargements"), ("kit", "Kit développeur"), ("ecran", "Écran et web"), ("gouvernance", "Gouvernance")]
 nav_side = "".join(f'<li><a href="#{i}"><span class="n">{n:02d}</span>{t}</a></li>' for n, (i, t) in enumerate(NAV, 1))
 nav_mobile = "".join(f'<a href="#{i}">{n:02d} {t}</a>' for n, (i, t) in enumerate(NAV, 1))
 
@@ -106,10 +108,12 @@ page = r'''<!doctype html>
 <meta property="og:image" content="https://charte.clixite.be/downloads/reseaux/og-image-1200x630.png">
 <meta property="og:url" content="https://charte.clixite.be/">
 <meta property="og:type" content="website">
-<link rel="stylesheet" href="assets/fonts.css">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="preload" href="fonts/space-grotesk-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>__INLINE_CSS__</style>
 </head>
 <body>
+<a class="skip" href="#plateforme">Aller au contenu</a>
 <header class="topbar">
   <a class="brand" href="#top"><img src="downloads/logo/clixite-maitre-inverse-transparent.svg" alt="Clixite" width="110" height="30"><span>Charte graphique</span></a>
   <div class="meta"><span class="version">Version 1.0, octobre 2026</span><a class="btn" href="downloads/clixite-kit-complet.zip" download>Télécharger le kit complet</a></div>
@@ -119,7 +123,7 @@ page = r'''<!doctype html>
   <div class="o3d-wrap"><canvas class="o3d" id="hero-3d" aria-label="Mot-marque Clixite en relief, animé"></canvas><img class="o3d-fallback" src="downloads/logo/clixite-relief-inverse-transparent.svg" alt="Clixite, Enterprise &amp; Solution Architecture" hidden></div>
   <h1 id="titre">Charte graphique</h1>
   <p class="lede">Clixite est le cabinet d'architecture de solutions de Nicolas Simon. Cette charte fixe la marque, ses règles et ses fichiers. Elle sert à tout le monde : Nicolas, ses partenaires, un imprimeur, un développeur.</p>
-  <p class="hint"><span class="mouse">Déplacez le curseur : </span><span class="touch">Glissez le doigt : </span><b>le relief suit</b>. <button type="button" class="linkbtn" id="hero-replay">Rejouer l'ouverture</button></p>
+  <p class="hint"><span class="mouse">Déplacez le curseur : <b>le relief suit</b>.</span> <button type="button" class="linkbtn" id="hero-replay">Rejouer l'ouverture</button></p>
   <div class="scrolldown" aria-hidden="true"></div>
 </section>
 
@@ -143,18 +147,18 @@ page = r'''<!doctype html>
   <h3>Promesse</h3>
   <p>Des cadres clairs, des processus qui tiennent à l'audit et des outils qui tournent réellement. Pas de slides pour les slides.</p>
 
-  <h3>Deux terrains, un même métier</h3>
+  <h3>Deux marchés, un même métier</h3>
   <div class="markets">
-    <div><h4>Grands comptes régulés</h4><p>Banque, assurance, télécom. Procurement, conformité, architecture d'entreprise. Preuves : 800 M€ d'achats pilotés chez Proximus, Procurement Policy v2.0 et Tactical Sourcing Light Track en production chez KBC, missions chez P&amp;V.</p></div>
+    <div><h4>Grands comptes régulés</h4><p>Banque, assurance, télécom. Procurement, conformité, architecture d'entreprise. Preuves : 800 M€ d'achats dans le périmètre couvert chez Proximus, politique achats en trois niveaux et circuit d'achats tactiques en production chez KBC, direction des achats par intérim chez P&amp;V.</p></div>
     <div><h4>PME en croissance</h4><p>Audit, choix et connexion des outils existants, automatisation, IA quand elle sert. Architecturer la croissance avec ce qui existe déjà. Preuves : sites et back-offices de Tero et Design Plus, CyGap et Vidango conçus et codés.</p></div>
   </div>
 
   <h3>Piliers</h3>
   <div class="pillars">
-    <div><h4>Structure</h4><p>Policies, architectures et playbooks à trois niveaux. Le désordre devient un système.</p></div>
+    <div><h4>Structure</h4><p>Politiques, architectures et playbooks à trois niveaux. Le désordre devient un système.</p></div>
     <div><h4>Conformité maîtrisée</h4><p>DORA, NIS2, RGPD, EBA : des exigences traduites en processus et en preuves.</p></div>
     <div><h4>Pragmatisme</h4><p>Livrer, mesurer, ajuster. Des décisions rationnelles, une vision humaine.</p></div>
-    <div><h4>Build</h4><p>Concevoir et coder : agents IA, SaaS, automatisations. L'IA est un levier, jamais le produit.</p></div>
+    <div><h4>Construire</h4><p>Concevoir et coder : agents IA, SaaS, automatisations. L'IA est un levier, jamais le produit.</p></div>
   </div>
 
   <h3>Personnalité</h3>
@@ -164,7 +168,6 @@ page = r'''<!doctype html>
   <div class="archi">
     <div><h4>Clixite</h4><p>La marque mère et la caution. Services : Fractional CPO, transformation Source-to-Pay, conformité DORA et NIS2, architecture d'entreprise, architecture de croissance pour les PME.</p></div>
     <div><h4>by Clixite</h4><p>Les produits endossés : Vidango (VOS) et CyGap. Ils gardent leur nom, portent la mention « by Clixite » et empruntent la palette.</p></div>
-    <div><h4>Marque sœur</h4><p>L'agence montée avec Chris, nom à trouver. Elle peut porter « powered by Clixite » sans reprendre le X.</p></div>
   </div>
 </section>
 
@@ -183,7 +186,7 @@ page = r'''<!doctype html>
     </div>
     <div class="text">
       <h3 style="margin-top:0">Les peaux</h3>
-      <p>Au-dessus de 48 px, le X reçoit une peau. Le <strong>Relief</strong> extrude le X de 0,30 barre, à 70°, avec un chant Encre : c'est la marque déposée, celle qui s'imprime. L'<strong>Interférence</strong> remplace la face par deux champs de lignes, turquoise et rose, tournés l'un par rapport à l'autre, avec une lentille Signal au croisement : c'est l'expression vivante, pour le site, les bannières et le mouvement.</p>
+      <p>Au-dessus de 48 px, le X reçoit une peau. Le <strong>Relief</strong> extrude le X de 0,30 barre, à 70°, avec un chant Encre : c'est la version de référence, celle qui s'imprime. L'<strong>Interférence</strong> remplace la face par deux champs de lignes, turquoise et rose, tournés l'un par rapport à l'autre, avec une lentille Signal au croisement : c'est l'expression vivante, pour le site, les bannières et le mouvement.</p>
     </div>
   </div>
   <figure class="full"><div class="panel"><img src="assets/construction.svg" alt="Construction du mot-marque : capitale, dépassement de 5 %, barre égale à 1,08 fût, chant de 0,30 barre à 70°, silhouette du X centrée entre les deux I" width="1400" height="560"></div><figcaption class="cap">Construction. La silhouette complète du X, face et chant, est centrée entre les deux I au pixel près.</figcaption></figure>
@@ -224,11 +227,11 @@ page = r'''<!doctype html>
     <figure class="fond-turq"><div class="pic"><img src="downloads/logo/clixite-relief-color-transparent.svg" alt=""></div><figcaption style="color:#0B2239">Poser le logo sur du turquoise, du rose ou du Signal</figcaption></figure>
     <figure class="shadow"><div class="pic"><img src="downloads/logo/clixite-relief-color-transparent.svg" alt=""></div><figcaption>Ajouter une ombre portée</figcaption></figure>
     <figure><div class="pic"><img src="assets/interdit-contour.svg" alt=""></div><figcaption>Ajouter un contour</figcaption></figure>
-    <figure class="tilt"><div class="pic"><img src="downloads/logo/clixite-relief-color-transparent.svg" alt=""></div><figcaption>Incliner, ni réécrire le descripteur dans une autre police</figcaption></figure>
+    <figure class="tilt"><div class="pic"><img src="downloads/logo/clixite-relief-color-transparent.svg" alt=""></div><figcaption>Incliner le logo, ou réécrire le descripteur dans une autre police</figcaption></figure>
   </div>
 
   <h3 id="atelier">L'atelier de l'interférence</h3>
-  <p>L'angle entre les deux champs est la seule variable de la peau Interférence. Au repos il vaut 8°. En mouvement il respire entre 6° et 10°, et il se résout vers 4° quand l'ouverture se termine. Essayez.</p>
+  <p>L'angle entre les deux champs est la seule variable de la peau Interférence. Sur un support fixe, il vaut 8°. Ici, il respire d'un peu plus d'un degré autour de cette valeur. Dans l'ouverture animée, il se résout vers 4°, puis respire entre 4° et 6°. Essayez.</p>
   <div class="atelier">
     <div class="living">__PLAY_X__</div>
     <div>
@@ -268,8 +271,8 @@ page = r'''<!doctype html>
     <div style="background:#0B2239;color:#19B3D9">Turquoise sur Encre</div>
     <div style="background:#19B3D9;color:#0B2239">Encre sur turquoise</div>
     <div style="background:#0B2239;color:#FFD233">Signal sur Encre, en repère seulement</div>
-    <div class="no" aria-hidden="true" style="background:#F6F5F0;color:#19B3D9">Turquoise sur Papier</div>
-    <div class="no" aria-hidden="true" style="background:#FFD233;color:#F6F5F0">Texte sur Signal</div>
+    <div class="no" aria-hidden="true" data-t="Turquoise sur Papier" style="background:#F6F5F0;color:#19B3D9"></div>
+    <div class="no" aria-hidden="true" data-t="Texte sur Signal" style="background:#FFD233;color:#F6F5F0"></div>
   </div>
 
   <h3>Contrastes vérifiés</h3>
@@ -295,19 +298,20 @@ page = r'''<!doctype html>
     <div class="about"><b>Fraunces Italic</b>La voix éditoriale : citations, chiffres clés, et le x variable. Toujours en italique, jamais en pavé. Graisses 500 et 600.<a href="https://fonts.google.com/specimen/Fraunces">Google Fonts</a></div>
   </div>
   <div class="specimen">
-    <div class="sample mono">PROCUREMENT POLICY V2.0 · KBC · 2024<br>DORA · NIS2 · RGPD · EBA<br>#19B3D9 · 800 M€ · 12 semaines</div>
+    <div class="sample mono">DORA · NIS2 · RGPD · EBA · TPRM<br>L1 · L2 · L3<br>#19B3D9 · 800 M€ · 14,8:1</div>
     <div class="about"><b>JetBrains Mono</b>Données, références, identifiants et étiquettes en capitales espacées. Le clin d'œil au builder. Graisse 500.<a href="https://fonts.google.com/specimen/JetBrains+Mono">Google Fonts</a></div>
   </div>
 
   <h3>Échelle</h3>
   <table class="scale">
+    <thead class="vh"><tr><th scope="col">Niveau</th><th scope="col">Exemple</th><th scope="col">Spécification</th></tr></thead>
     <tr><td>display</td><td class="s-display">Du cadre à la livraison</td><td>Space Grotesk 700, 56 px, interligne 1, approche -2 %</td></tr>
     <tr><td>h1</td><td class="s-h1">Architecturer la croissance</td><td>Space Grotesk 600, 40 px, interligne 1,05</td></tr>
     <tr><td>h2</td><td class="s-h2">Ce que nous avons compris</td><td>Space Grotesk 600, 28 px, interligne 1,15</td></tr>
     <tr><td>h3</td><td class="s-h3">Étape 1, cadrer</td><td>Space Grotesk 600, 20 px, interligne 1,25</td></tr>
     <tr><td>quote</td><td class="s-quote">Des processus qui tiennent à l'audit.</td><td>Fraunces Italic 500, 26 px, interligne 1,3</td></tr>
-    <tr><td>body</td><td class="s-body">Nous mettons votre policy achats en production en douze semaines, avec les preuves pour l'audit.</td><td>Inter 400, 16 px, interligne 1,5</td></tr>
-    <tr><td>small</td><td class="s-small">Prix hors TVA, facturation mensuelle à 30 jours.</td><td>Inter 400, 13 px, interligne 1,45</td></tr>
+    <tr><td>body</td><td class="s-body">Nous mettons votre politique achats en production, avec les preuves pour l'audit.</td><td>Inter 400, 16 px, interligne 1,5</td></tr>
+    <tr><td>small</td><td class="s-small">Document confidentiel, diffusion restreinte.</td><td>Inter 400, 13 px, interligne 1,45</td></tr>
     <tr><td>label</td><td class="s-label">Proposition de services</td><td>JetBrains Mono 500, 12 px, capitales, approche +8 %</td></tr>
     <tr><td>data</td><td class="s-data">12 345,00 € · 2026-10-25 · v1.0</td><td>JetBrains Mono 500, 14 px, chiffres alignés à droite</td></tr>
   </table>
@@ -392,8 +396,8 @@ page = r'''<!doctype html>
   </div>
   <h3>Règles de mouvement</h3>
   <ul class="rules">
-    <li>Courbe unique : cubic-bezier(.2, .8, .2, 1). Rien ne rebondit, rien n'élastique.</li>
-    <li>Durées : 450 ms pour un élément, 600 ms pour un bloc, 3,5 s pour l'ouverture complète. Jamais plus.</li>
+    <li>Une seule courbe : cubic-bezier(.2, .8, .2, 1). Rien ne rebondit, rien n'élastique.</li>
+    <li>Durées : 450 ms pour un élément, 600 ms pour un bloc, 3,6 s pour l'ouverture complète. Jamais plus.</li>
     <li>Une seule séquence orchestrée par page ou par vidéo. Pas d'apparition en fondu section par section.</li>
     <li>Le X ne tourne jamais sur lui-même : seul l'angle entre les champs change. À l'écran, le mot-marque entier peut suivre le curseur de quelques degrés (7° au plus), jamais le X seul.</li>
     <li>Respecter prefers-reduced-motion : le logo s'affiche alors directement, au repos.</li>
@@ -407,16 +411,16 @@ page = r'''<!doctype html>
   <p class="lede">Clixite écrit comme son fondateur parle : phrases courtes, verbes d'action, chiffres avant adjectifs. Une note d'humour sec quand elle détend sans décrédibiliser.</p></header>
   <ul class="rules">
     <li>Vouvoiement en externe. Français de Belgique, anglais et néerlandais sans traduction mot à mot : on écrit dans la langue du lecteur.</li>
-    <li>Jamais de buzzwords (« synergies », « disruption », « game changer »), jamais de hype IA, jamais de promesse vague.</li>
+    <li>Jamais de buzzwords (« <s>synergies</s> », « <s>disruption</s> », « <s>game changer</s> »), jamais de hype IA, jamais de promesse vague.</li>
     <li>Le descripteur de la marque reste en anglais sur tous les supports : ENTERPRISE &amp; SOLUTION ARCHITECTURE.</li>
     <li>Le <span class="x">x</span> en italique Fraunces est le seul effet typographique autorisé dans un titre : il marque l'inconnue que l'on résout.</li>
     <li>Pas de tirets longs dans les textes ; une virgule, un point ou deux points font le travail.</li>
-    <li>Les chiffres portent leur preuve : 800 M€ pilotés, douze semaines, v2.0 en production.</li>
+    <li>Les chiffres portent leur preuve : un périmètre, une période, une source.</li>
   </ul>
   <div class="voice">
-    <div><span class="bad">Nous accompagnons votre transformation digitale de bout en bout.</span><span class="good">Nous mettons votre policy achats en production en douze semaines, avec les preuves pour l'audit.</span></div>
+    <div><span class="bad">Nous accompagnons votre transformation digitale de bout en bout.</span><span class="good">Nous mettons votre politique achats en production, avec les preuves pour l'audit.</span></div>
     <div><span class="bad">Une solution innovante propulsée par l'IA pour booster votre croissance.</span><span class="good">Vos outils existants, connectés et automatisés. L'IA là où elle fait gagner du temps, nulle part ailleurs.</span></div>
-    <div><span class="bad">Expert en conformité réglementaire multisectorielle.</span><span class="good">DORA et NIS2 traduits en processus, en responsables et en preuves. Audit compris.</span></div>
+    <div><span class="bad">Expert en conformité réglementaire multisectorielle.</span><span class="good">DORA et NIS2 traduits en processus, en responsables et en preuves. Prêt pour l'audit.</span></div>
     <div><span class="bad">N'hésitez pas à nous contacter pour plus d'informations.</span><span class="good">Un premier échange de trente minutes suffit pour cadrer votre <span class="x">x</span>.</span></div>
   </div>
 </section>
@@ -473,14 +477,42 @@ page = r'''<!doctype html>
   </dl>
 </section>
 
-<!-- ===================================================== 11 GOUVERNANCE -->
+<!-- ===================================================== 11 ECRAN ET WEB -->
+<section class="chapter" id="ecran">
+  <header><h2><span class="n">11</span>Écran et web</h2>
+  <p class="lede">www.clixite.be applique cette charte à l'écran avec le Design System 2.0 : des valeurs au format W3C, des contrastes vérifiés à chaque mise en ligne et des composants documentés. Ces règles valent pour tout site ou produit « by Clixite ».</p></header>
+  <figure class="screen"><img src="apercus/www-hero.webp" width="1440" height="900" loading="lazy" alt="Accueil de www.clixite.be : le film de lancement plein cadre, la promesse posée sur une plaque Encre"><figcaption>L'accueil de www.clixite.be, octobre 2026 : le film plein cadre, la promesse sur une plaque Encre.</figcaption></figure>
+  <h3>Le hero de l'accueil</h3>
+  <ul class="rules">
+    <li>Le film de lancement tourne en boucle, plein cadre, sans titres ni logo : le logo est déjà dans l'en-tête.</li>
+    <li>Le texte se pose sur une plaque Encre à 92 %, rayon 10 px, avec le filet turquoise de 44 × 4 px des titres du film. Aucun voile ni dégradé sur l'image.</li>
+    <li>Les quatre phrases du film défilent au-dessus de la promesse, au rythme des plans.</li>
+    <li>La boucle dure 11,5 s, sans coupure visible : ses dernières images se fondent dans les premières.</li>
+    <li>Le film arrive après l'affichage de la page, jamais en mouvement réduit ni en économie de données. Le bouton Pause reste visible (WCAG 2.2.2).</li>
+  </ul>
+  <h3>Règles d'interface</h3>
+  <ul class="rules">
+    <li>Sous 240 px de large, le mot-marque se pose sans descripteur (fichiers clixite-maitre-motmarque). Au-dessus, le descripteur est obligatoire.</li>
+    <li>Le <em>x</em> en italique Fraunces, deux fois par page au plus : la promesse d'ouverture et l'appel final.</li>
+    <li>Un site par acheteur : grand groupe, PME, cabinet ou intermédiaire. Le sous-titre, l'appel à l'action, les offres, les preuves et l'ordre des logos suivent ce choix.</li>
+    <li>Logos clients : fichiers officiels uniquement, jamais redessinés, teintés par masque CSS et inscrits au registre avec leur source. La publication est décidée par Nicolas Simon ; l'accord écrit du client est archivé dès qu'il est obtenu.</li>
+    <li>Chaque paire texte et fond est contrôlée à la construction du site : sous 4,5:1, la mise en ligne échoue.</li>
+    <li>Espaces insécables et apostrophes courbes se posent automatiquement à la construction.</li>
+    <li>Une seule séquence d'ouverture par page, sur la courbe de la charte, en transform et opacité uniquement.</li>
+    <li>Objectifs vérifiés à chaque version : Lighthouse 95 ou plus sur mobile, accessibilité 100, aucun débordement de 320 px aux grands écrans.</li>
+  </ul>
+  <h3>Fichiers du Design System</h3>
+  <table class="files"><thead><tr><th scope="col">Fichier</th><th scope="col">Usage</th><th scope="col">Formats</th><th scope="col">Poids</th></tr></thead><tbody>__FILES_DS__</tbody></table>
+  <p class="note">Documentation complète des composants : <a href="https://github.com/clixite/clixite-brand/blob/main/ds/README.md">ds/README.md</a>. Site de référence : <a href="https://www.clixite.be/">www.clixite.be</a>.</p>
+</section>
+
+<!-- ===================================================== 12 GOUVERNANCE -->
 <section class="chapter" id="gouvernance">
-  <header><h2><span class="n">11</span>Gouvernance</h2>
+  <header><h2><span class="n">12</span>Gouvernance</h2>
   <p class="lede">Une marque tient si une seule personne en répond. Pour Clixite, c'est Nicolas Simon.</p></header>
   <dl class="kv">
     <dt>Version</dt><dd>1.0, publiée le 25 octobre 2026. Les fichiers de cette page sont la référence ; un fichier qui ne vient pas d'ici n'est pas à jour.</dd>
     <dt>Demandes</dt><dd>Un nouveau support, une exception, un co-branding : écrire à <a href="mailto:nicolas@clixite.be">nicolas@clixite.be</a>. Réponse sous deux jours ouvrables.</dd>
-    <dt>Dépôt de marque</dt><dd>Conseil du comité : marque verbale CLIXITE dans l'Union européenne (classes 35 et 42), symbole Relief en figuratif couleur, et un dessin ou modèle de l'Union à vues multiples pour les variantes d'angle de l'Interférence, après recherche d'antériorités en classe de Vienne 27.5.</dd>
     <dt>Licences</dt><dd>Polices sous licence OFL. Le logo, les couleurs et les textes de cette charte appartiennent à Clixite SRL.</dd>
     <dt>Historique</dt><dd>2005, agence de communication, premier X. 2015, bascule vers l'architecture de solutions. 2026, cette charte : X maître, peaux Relief et Interférence, descripteur ENTERPRISE &amp; SOLUTION ARCHITECTURE.</dd>
   </dl>
@@ -510,14 +542,36 @@ reps = {
     "__SWATCHES_PRIMARY__": "".join(swatch(*s) for s in PRIMARY), "__SWATCHES_SECONDARY__": "".join(swatch(*s) for s in SECONDARY),
     "__CONTRAST__": contrast_rows(), "__FILES_LOGO__": file_rows("logo", FILES_LOGO), "__SIGNATURE__": signature_preview,
     "__CSS_VARS__": html.escape(tokens_css.strip()), "__LINES_T__": lines_t, "__LINES_R__": lines_r,
+    "__FILES_DS__": file_rows("ds", [("clixite-tokens-dtcg.json", "Toutes les valeurs au format W3C Design Tokens"), ("clixite-tokens.css", "Variables CSS --clx-*, thèmes Papier et Encre"), ("clixite-contrastes.json", "Les paires texte et fond contrôlées, avec leur ratio")]),
     "__KIT_SIZE__": size("downloads/clixite-kit-complet.zip"), "__LOGOS_SIZE__": size("downloads/clixite-logos.zip"), "__FAV_SIZE__": size("downloads/clixite-favicons.zip"),
     "__RES_SIZE__": size("downloads/clixite-reseaux.zip"), "__OFF_SIZE__": size("downloads/clixite-office.zip"), "__FONTS_SIZE__": size("downloads/fonts/clixite-polices.zip"),
     "__ANIM_SIZE__": size("downloads/clixite-animation.zip"), "__PLUGIN_SIZE__": size("downloads/clixite-charte.plugin"),
 }
 for k, v in reps.items(): page = page.replace(k, v)
+site_css = open(f"{A}/site.css").read(); page = page.replace("__INLINE_CSS__", fonts_css.replace("url('../fonts/", "url('fonts/") + site_css)
+page = page.replace("<pre><code>", '<pre tabindex="0"><code>')
+def sized(m):
+    tag, src = m.group(0), m.group(1)
+    if " width=" in tag or not os.path.exists(f"{SITE}/{src}"): return tag
+    if re.search(r"\.(png|webp|jpe?g)$", src):
+        from PIL import Image
+        iw, ih = Image.open(f"{SITE}/{src}").size
+        return tag.replace("<img ", f'<img width="{iw}" height="{ih}" ', 1)
+    if not src.endswith(".svg"): return tag
+    head = open(f"{SITE}/{src}").read(600)
+    w = re.search(r'<svg[^>]*\swidth="([\d.]+)', head); h = re.search(r'<svg[^>]*\sheight="([\d.]+)', head)
+    if not (w and h):
+        vb = re.search(r'viewBox="[\d.\-]+ [\d.\-]+ ([\d.]+) ([\d.]+)"', head)
+        if not vb: return tag
+        w, h = vb.group(1), vb.group(2)
+    else: w, h = w.group(1), h.group(1)
+    return tag.replace("<img ", f'<img width="{round(float(w))}" height="{round(float(h))}" ', 1)
+page = re.sub(r'<img [^>]*src="([^"]+)"[^>]*>', sized, page)
 assert "__" not in re.sub(r'__(?!\w+__)', '', page) or True
 leftover = re.findall(r'__[A-Z_]+__', page); assert not leftover, leftover
 open(f"{SITE}/index.html", "w").write(page)
+# typographie française (espaces insécables, apostrophes courbes), le même passage que pour www.clixite.be
+import subprocess; subprocess.run(["node", "web/scripts/typo-fr.mjs", f"{SITE}/index.html"], check=True)
 open(f"{SITE}/.htaccess", "w").write("""# charte.clixite.be
 AddType image/svg+xml .svg
 AddType font/woff2 .woff2

@@ -10,10 +10,11 @@ interface Props {
   path?: string;
   schema?: Record<string, unknown>[];
   audienceMode?: boolean;
+  noindex?: boolean;
 }
-const { title, description, path = "/", schema = [], audienceMode = false } = Astro.props;
+const { title, description, path = "/", schema = [], audienceMode = false, noindex = false } = Astro.props;
 const canonical = new URL(path, SITE.url).href;
-const og = new URL("/og-image.png", SITE.url).href;
+const og = new URL("/og-image.jpg", SITE.url).href;
 
 const org = {
   "@type": ["Organization", "ProfessionalService"],
@@ -24,7 +25,7 @@ const org = {
   logo: `${SITE.url}/app-icon-512.png`,
   image: og,
   slogan: "Nous résolvons votre x.",
-  description: "Cabinet d'architecture d'entreprise et de solutions à Wavre (Belgique), fondé en 2005 : conception de l'architecture cible puis mise en production en Forward Deployed Engineer, pour les PME et les grands groupes.",
+  description: "Cabinet d'architecture d'entreprise et de solutions à Wavre (Belgique), fondé en 2005 : conception de l'architecture cible puis mise en production par un Forward Deployed Engineer, pour les PME et les grands groupes.",
   foundingDate: SITE.founded,
   vatID: SITE.vatId,
   email: SITE.email,
@@ -68,8 +69,8 @@ const graph = { "@context": "https://schema.org", "@graph": [org, person, websit
     </script>
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
-    {REVIEW && <meta name="robots" content="noindex, nofollow" />}
+    {!noindex && <link rel="canonical" href={canonical} />}
+    {(REVIEW || noindex) && <meta name="robots" content="noindex, nofollow" />}
     <meta name="theme-color" content="#F6F5F0" />
     <meta name="color-scheme" content="light" />
     <link rel="preload" href="/fonts/space-grotesk-700-normal.woff2" as="font" type="font/woff2" crossorigin />
@@ -88,7 +89,7 @@ const graph = { "@context": "https://schema.org", "@graph": [org, person, websit
     <meta property="og:image" content={og} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Logo Clixite, Enterprise & Solution Architecture" />
+    <meta property="og:image:alt" content="Nous résolvons votre x. Clixite, architecture d’entreprise et de solutions, jusqu’à la mise en production." />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json" set:html={JSON.stringify(graph)} />
   </head>

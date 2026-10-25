@@ -19,7 +19,7 @@ PALETTE = set('''0b2239 f6f5f0 ffffff 19b3d9 0c7893 d6f1f8 ff4f8b d81b60 ffd233 
 # Design System 2.0 : teintes dérivées de la palette (fonds, survols, états), générées par ds/build-tokens.mjs
 PALETTE |= set('''071827 2a4a6e 095e73 8c99a8 edebe3 ffe3ec fff4cc'''.split())
 POLICES_OK = re.compile(r'^(space grotesk fallback|inter fallback|sfmono-regular|space grotesk|inter|fraunces|jetbrains mono|arial|calibri|georgia|system-ui|sans-serif|serif|monospace|ui-monospace|menlo|-apple-system|segoe ui|roboto|helvetica neue|helvetica|courier new|courier|symbol|wingdings|times new roman)$', re.I)
-SIGLES = set('''HTVA TVA WCAG RGPD GDPR DORA NIS2 EBA SRL SPRL BCE PMP PRINCE2 SAFE ITIL ADKAR CPO CTO CIO CEO KBC VOS SAAS API HTML JSON SVG PDF URL HTTPS MCP GEO SEO
+SIGLES = set('''TPRM CSRD L1 L2 L3 HTVA TVA WCAG RGPD GDPR DORA NIS2 EBA SRL SPRL BCE PMP PRINCE2 SAFE ITIL ADKAR CPO CTO CIO CEO KBC VOS SAAS API HTML JSON SVG PDF URL HTTPS MCP GEO SEO
 CMJN CMYK RVB RGB PNG MP4 GIF WEBM IA AI ERP CRM SAP ARIBA S2P P2P KPI SLA RFP RFI RFQ NDA ISO OFL UE EU BE ENTERPRISE SOLUTION ARCHITECTURE CLIXITE CLI ITE X'''.split())
 LEXIQUE = [
     (r'\bsynergies?\b', 'Nommer ce qui est relié : « relier les achats, l’IT et la conformité autour d’un seul processus ».'),
@@ -81,6 +81,9 @@ def controler(brut, nom, langue='fr', interne=False):
     prose = brut
     if est_html:
         prose = re.sub(r'<(script|style)[\s\S]*?</\1>', ' ', brut, flags=re.I)
+        # contre-exemples affichés comme tels : barrés (<s>, <del>) ou marqués class="bad" ; code et blocs de code
+        prose = re.sub(r'<(s|del|code|pre)\b[\s\S]*?</\1>', ' ', prose, flags=re.I)
+        prose = re.sub(r'<(span|div|p|li)\b[^>]*class="[^"]*\bbad\b[^"]*"[^>]*>[\s\S]*?</\1>', ' ', prose, flags=re.I)
         prose = htmlmod.unescape(re.sub(r'<[^>]+>', ' ', prose))
     if est_css:
         prose = ''
@@ -102,7 +105,7 @@ def controler(brut, nom, langue='fr', interne=False):
     add('corriger', 'unite-collee', 'Séparer le nombre et l’unité : 12 semaines, 800 M€, 4,5:1.', re.findall(r'\b\d+(?:€|M€|k€|j\b|h\b|sem\b)', prose))
     if not interne and langue == 'fr':
         add('corriger', 'tutoiement', 'Vouvoiement en externe.', re.findall(r'[^\n]{0,20}\b(?:tu|te|toi|ton|ta|tes)\b[^\n]{0,20}', prose))
-    titres = [l.strip() for l in lignes if l.strip() and len(l.strip()) < 90 and l.strip().isupper() and len(re.findall(r'[A-ZÀ-Ý]{3,}', l)) >= 2 and not set(re.findall(r'[A-ZÀ-Ý0-9]+', l.strip())) <= SIGLES]
+    titres = [l.strip() for l in lignes if l.strip() and len(l.strip()) < 90 and l.strip().isupper() and len(re.findall(r'[A-ZÀ-Ý]{3,}', l)) >= 2 and not set(t for t in re.findall(r'[A-ZÀ-Ý0-9]+', l.strip()) if not t.isdigit() and t != 'M') <= SIGLES]
     add('corriger', 'capitales', 'Titre en capitales : casse de phrase (capitales réservées aux étiquettes, sigles et descripteur).', titres)
     if est_html or est_css or nom.lower().endswith(('.css', '.html', '.htm', '.svg')):
         couleurs = set(c.lower() for c in re.findall(r'#([0-9a-fA-F]{6})\b', brut))
@@ -113,13 +116,7 @@ def controler(brut, nom, langue='fr', interne=False):
                 f = f.strip().strip('\'"').strip()
                 if f and not f.startswith('var(') and not POLICES_OK.match(f): familles.add(f)
         add('corriger', 'police', 'Police hors charte (Space Grotesk, Inter, Fraunces, JetBrains Mono).', sorted(familles))
-        # seule exception : le voile de lisibilité sur photo ou vidéo, Encre vers Encre transparente (DESIGN.md)
-        def voile_encre(g):
-            cols = re.findall(r'#[0-9a-fA-F]{3,8}\b|rgba?\([^)]*\)|\btransparent\b', g)
-            ok = lambda c: c.lower() in ('transparent', '#0000', '#00000000') or c.lower().startswith('#0b2239') or re.match(r'rgba?\(\s*11[\s,]+34[\s,]+57\b', c)
-            return bool(cols) and all(ok(c) for c in cols)
-        degrades = [g[:40] for g in re.findall(r'[a-z-]*gradient\((?:[^()]|\([^()]*\))*\)', brut) if not voile_encre(g)]
-        add('corriger', 'degrade', 'Dégradé : interdit (fond uni, Encre ou Papier ; seul le voile Encre sur image est admis).', degrades)
+        add('corriger', 'degrade', 'Dégradé : interdit (fond uni, Encre ou Papier).', re.findall(r'[a-z-]*gradient\([^)]{0,40}', brut))
         add('corriger', 'ombre', 'Ombre portée : aucune ombre au repos.', re.findall(r'(?:box|text)-shadow\s*:\s*[^;]{0,40}', brut))
         add('corriger', 'bordure-gauche', 'Bordure colorée à gauche : interdite sur les cartes et encadrés.', [m for m in re.findall(r'border-left\s*:\s*[^;]{0,40}', brut) if not re.search(r'\b(0|1px)\b', m)])
         add('corriger', 'rebond', 'Easing élastique ou rebond : une seule courbe, cubic-bezier(.2, .8, .2, 1).', re.findall(r'cubic-bezier\(\s*[^)]*(?:-\d|1\.\d{2,}|2\.)[^)]*\)|ease-in-out-back|bounce|elastic', brut))

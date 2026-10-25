@@ -1,7 +1,8 @@
 ---
 import Base from "../../layouts/Base.astro";
 import FinalCta from "../../components/FinalCta.astro";
-import { SITE, bookingHref } from "../../data/site";
+import { SITE } from "../../data/site";
+const ask = (subject: string) => SITE.bookingsUrl || `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Bonjour Nicolas,\n\nNos achats, en deux phrases :\n\n\nNos disponibilités pour un échange de 30 minutes :\n\nBien à vous,\n")}`;
 
 const scope = [
   { t: "Source-to-Pay, du besoin au paiement", d: "Du besoin au paiement : sourcing, appels d'offres, contrats, commandes, réception et factures. Des processus simples, outillés quand le volume le justifie, avec SAP Ariba ou l'outil qui convient à votre taille, et intégrés à votre ERP." },
@@ -10,7 +11,7 @@ const scope = [
   { t: "Risques tiers et conformité", d: "Cartographie et suivi des fournisseurs critiques, registre d'information DORA, exigences NIS2 sur la chaîne d'approvisionnement, clauses contractuelles et plans de sortie." },
 ];
 const faq = [
-  { q: "Qu'est-ce qu'un Fractional CPO ?", a: "Un directeur des achats expérimenté qui travaille pour votre entreprise à temps partagé, en général un à deux jours par semaine. Vous accédez à une expertise de grand groupe sans créer un poste à temps plein, et vous ajustez la présence selon la charge." },
+  { q: "Qu'est-ce qu'un Fractional CPO ?", a: "Un directeur des achats expérimenté qui travaille pour votre entreprise à temps partagé, au rythme que vous fixez. Vous accédez à une expertise de grand groupe sans créer un poste à temps plein, et vous ajustez la présence selon la charge." },
   { q: "Le Source-to-Pay est-il utile pour une PME ?", a: "Oui, à condition de commencer par les processus avant les outils. Une PME gagne surtout en visibilité sur ses dépenses, en conditions négociées et en temps de traitement des factures. L'outil vient ensuite, dimensionné à vos volumes." },
   { q: "En quoi le règlement DORA concerne-t-il les achats ?", a: "Depuis le 17 janvier 2025, DORA impose aux entités financières de l'Union de tenir un registre d'information sur leurs prestataires de services TIC, d'évaluer leurs risques de concentration et d'inscrire des clauses précises dans les contrats. Les achats sont en première ligne pour collecter ces données et négocier ces clauses." },
   { q: "Clixite travaille-t-elle aussi en néerlandais et en anglais ?", a: "Oui. Les missions se déroulent en français, en néerlandais ou en anglais, selon vos équipes et vos fournisseurs, partout en Belgique et au Luxembourg." },
@@ -56,7 +57,7 @@ const schema = [
           Pour les PME qui structurent leurs achats comme pour les groupes régulés.
         </p>
         <div class="ach-hero__cta">
-          <a class="btn btn--primary" href={bookingHref()}>Parler de vos achats</a>
+          <a class="btn btn--primary" href={ask("Achats : premier échange")}>Parler de vos achats</a>
           <a class="btn btn--secondary" href="#offres-achats">Voir les formules</a>
         </div>
       </div>
@@ -100,19 +101,22 @@ const schema = [
   <section id="offres-achats" class="section ach-offers band-alt" aria-labelledby="ach-offers-title">
     <div class="wrap">
       <h2 id="ach-offers-title" class="h2">Trois formules, un même niveau d'exigence.</h2>
-      <p class="lead ach-offers__lead">Le périmètre, la durée et le budget se fixent ensemble au premier échange.</p>
+      <p class="lead ach-offers__lead">Le périmètre, la durée et le budget se fixent ensemble après un premier échange. Pas encore sûr de la formule ? <a href="/#solveur">Trois questions pour cadrer votre besoin</a>.</p>
       <ul role="list" class="ach-offers__grid">
         <li class="panel">
           <h3 class="h3">Diagnostic achats</h3>
           <p class="muted">Cartographie des dépenses, maturité des processus, risques fournisseurs et gains rapides chiffrés.</p>
+          <a class="link-more ach-ask" href={ask("Diagnostic achats : premier échange")}>Demander le diagnostic</a>
         </li>
         <li class="panel">
           <h3 class="h3">Fractional CPO</h3>
           <p class="muted">Une direction des achats présente, une feuille de route tenue, des appels d'offres pilotés.</p>
+          <a class="link-more ach-ask" href={ask("Fractional CPO : premier échange")}>Parler d'un Fractional CPO</a>
         </li>
         <li class="panel">
           <h3 class="h3">Intérim de direction</h3>
           <p class="muted">La fonction tenue et transformée pendant la vacance du poste, puis transmise.</p>
+          <a class="link-more ach-ask" href={ask("Intérim de direction des achats : premier échange")}>Parler d'un intérim</a>
         </li>
       </ul>
     </div>
@@ -152,7 +156,9 @@ const schema = [
   .ach-proof__list dd { margin-top: var(--clx-space-3); color: var(--clx-text-muted); max-width: 52ch; }
   .ach-proof__src { display: block; margin-top: var(--clx-space-2); color: var(--clx-text); font-weight: 500; }
   .ach-offers__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--clx-space-5); margin-top: var(--clx-space-8); }
-  .ach-offers__grid .panel { display: grid; gap: var(--clx-space-3); align-content: start; padding: var(--clx-space-6); }
+  .ach-offers__grid .panel { display: flex; flex-direction: column; gap: var(--clx-space-3); padding: var(--clx-space-6); }
+  .ach-ask { margin-top: auto; padding-top: var(--clx-space-2); align-self: flex-start; }
+  .ach-offers__lead a { color: var(--clx-text); text-decoration: underline; text-underline-offset: 0.2em; }
   .ach-offers__lead { margin-top: var(--clx-space-4); max-width: 52ch; }
   .ach-faq__in { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: var(--clx-space-8); }
   .ach-faq__list details { border-top: 1px solid var(--clx-border); padding-block: var(--clx-space-5); }

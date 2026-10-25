@@ -38,12 +38,12 @@ const first = (k: keyof typeof SOLVER) => SOLVER[k].x[0].rec;
             </div>
           </fieldset>
         ))}
-        <p class="solver__aud small">Recommandation pour <span data-solver-aud>{AUDIENCES[0].label}</span>. <a href="#hero-title">Changer</a></p>
+        <p class="solver__aud small">Recommandation pour <span data-solver-aud>{AUDIENCES[0].label}</span>. <a href="#hero-title">Changer de type d'acheteur</a></p>
       </form>
 
-      <article class="solver__out" aria-live="polite" aria-atomic="true" data-solver-out>
+      <article class="solver__out" data-solver-out>
         <p class="solver__kicker small">Notre recommandation</p>
-        <h3 class="solver__title" data-r="title">{first("groupe").title}</h3>
+        <h3 class="solver__title" data-r="title" aria-live="polite">{first("groupe").title}</h3>
         <p class="solver__label small">Ce que nous ferions en premier</p>
         <ol class="solver__steps" data-r="first">{first("groupe").first.map((f) => <li>{f}</li>)}</ol>
         <dl class="solver__facts">
@@ -52,7 +52,7 @@ const first = (k: keyof typeof SOLVER) => SOLVER[k].x[0].rec;
           <div><dt>Premier pas</dt><dd data-r="urgency">{URGENCY_NOTES[URGENCY[1]]}</dd></div>
           <div><dt>Preuve proche</dt><dd data-r="proof">{first("groupe").proof}</dd></div>
         </dl>
-        <a class="btn btn--primary solver__cta" data-r="cta" href={`mailto:${SITE.email}`}>Envoyer cette demande</a>
+        <a class="btn btn--primary solver__cta" data-r="cta" href={`mailto:${SITE.email}`}>Préparer le courriel</a>
         <p class="small solver__note">Le bouton ouvre votre messagerie avec un message déjà rédigé à partir de vos réponses. Vous le relisez avant de l'envoyer.</p>
       </article>
     </div>
@@ -82,7 +82,7 @@ const first = (k: keyof typeof SOLVER) => SOLVER[k].x[0].rec;
       const audEl = form.querySelector("[data-solver-aud]"); if (audEl) audEl.textContent = label;
       const WHEN: Record<string, string> = { "Ce mois-ci": "dès ce mois-ci", "Ce trimestre": "dans le trimestre", "Plus tard": "plus tard, sans urgence" };
       const subject = `${x.label} : premier échange`;
-      const body = `Bonjour Nicolas,\n\nNous sommes ${label}. Notre sujet : ${x.label}.\nNous aimerions avancer ${WHEN[urgency] ?? urgency.toLowerCase()}. Format envisagé : ${format.toLowerCase()}.\nLa piste « ${x.rec.title} » nous parle.\n\nNotre contexte, en deux phrases :\n\n\nPourriez-vous me proposer un échange de 30 minutes ? Mes disponibilités :\n\n\nBien à vous,\n`;
+      const body = `Bonjour Nicolas,\n\nJe vous écris pour ${label}. Notre sujet : ${x.label}.\nNous aimerions avancer ${WHEN[urgency] ?? urgency.toLowerCase()}. Format envisagé : ${format.toLowerCase()}.\nLa piste « ${x.rec.title} » nous parle.\n\nNotre contexte, en deux phrases :\n\n\nPourriez-vous nous proposer un échange de 30 minutes ? Nos disponibilités :\n\n\nBien à vous,\n`;
       const cta = out.querySelector<HTMLAnchorElement>('[data-r="cta"]');
       if (cta) cta.href = SITE.bookingsUrl || `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       out.classList.remove("is-new"); void out.offsetWidth; out.classList.add("is-new");

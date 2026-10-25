@@ -45,11 +45,11 @@ export const OFFERS: Record<AudKey, { t: string; d: string; g: string[]; cta: st
   pme: [
     { t: "Diagnostic d'architecture", d: "Une photographie honnête de vos outils, de vos flux et de vos risques, et trois options chiffrées pour la suite.", g: ["Cartographie des outils et des données", "Gains rapides chiffrés", "Feuille de route sur douze mois"], cta: "Demander le diagnostic" },
     { t: "Accompagnement croissance", d: "Site, visibilité dans Google et les moteurs IA, CRM, automatisations et agents IA, mis en place puis entretenus.", g: ["Lancement intensif, puis suivi mensuel", "Indicateurs suivis chaque mois", "Vous gardez les accès et le code"], cta: "Parler de votre croissance" },
-    { t: "Direction des achats à temps partagé", d: "Un CPO expérimenté, en trois temps : évaluer, construire, faire tourner. Vos achats et vos fournisseurs enfin pilotés.", g: ["Cartographie des dépenses et des fournisseurs", "Appels d'offres et contrats clés", "Processus et outils dimensionnés à votre taille"], cta: "Structurer vos achats" },
+    { t: "Direction des achats à temps partagé", d: "Un CPO expérimenté, en trois temps : évaluer, construire, faire tourner. Vos achats et vos fournisseurs pilotés.", g: ["Cartographie des dépenses et des fournisseurs", "Appels d'offres et contrats clés", "Processus et outils dimensionnés à votre taille"], cta: "Structurer vos achats" },
   ],
   cabinet: [
-    { t: "Rôles proposés", d: "Interim Head of Procurement ou CPO, Procurement Transformation Lead, Third-Party Risk Manager, TPRM et DORA Advisor, DORA Program Manager, Enterprise ou Solution Architect, Change Manager ADKAR.", g: ["Grands comptes régulés et secteur public", "Banque, assurance, télécoms, médias", "Équipes en français, en anglais et en néerlandais"], cta: "Proposer un rôle" },
-    { t: "Formats", d: "Régie à temps plein ou partiel, forfait à livrable, ou renfort ponctuel sur une phase critique.", g: ["Facturation par Clixite SRL", "Accord de confidentialité avant tout échange", "Démarrage fixé avec votre client"], cta: "Discuter du format" },
+    { t: "Rôles proposés", d: "Interim Head of Procurement ou CPO, Procurement Transformation Lead, Third-Party Risk Manager, TPRM et DORA Advisor, DORA Program Manager, Enterprise ou Solution Architect, Change Manager ADKAR.", g: ["Grands comptes régulés", "Banque, assurance, télécoms, médias", "Équipes en français, en anglais et en néerlandais"], cta: "Proposer un rôle" },
+    { t: "Formats", d: "Régie à temps plein ou partiel, forfait à livrable, ou renfort ponctuel sur une phase critique.", g: ["Facturation par Clixite SRL", "Accord de confidentialité dès qu'un dossier client est partagé", "Démarrage fixé avec votre client"], cta: "Discuter du format" },
     { t: "Dossier de candidature", d: "CV à jour, références joignables et réponses à vos grilles de compétences, adaptés au rôle de votre client.", g: ["CV en français ou en anglais", "Synthèse des missions comparables", "Disponibilité et conditions"], cta: "Demander le dossier" },
   ],
 };
@@ -57,7 +57,7 @@ export const OFFERS: Record<AudKey, { t: string; d: string; g: string[]; cta: st
 // ---- Preuves par audience
 export const CASES: Record<AudKey, { c: string; d: string; g: string }[]> = {
   groupe: [
-    { c: "KBC", d: "Politique achats refondue et alignée sur DORA, NIS2 et les exigences de l'EBA. Circuit d'achats tactiques outillé et mis en production.", g: "Mission Clixite, 18 mois auprès du CPO" },
+    { c: "KBC", d: "Politique achats refondue en trois niveaux et alignée sur DORA et les exigences de l'EBA. Circuit d'achats tactiques outillé et mis en production.", g: "Mission Clixite, 18 mois auprès du CPO" },
     { c: "Groupe P&V", d: "Direction des achats par intérim pour P&V Assurances et Vivium.", g: "Mission Clixite, 2025" },
     { c: "Proximus", d: "Senior Program Manager du domaine TV, puis Procurement Lead sur un périmètre d'environ 800 M€.", g: "Parcours du fondateur, 2018 à 2024" },
   ],
@@ -67,7 +67,7 @@ export const CASES: Record<AudKey, { c: string; d: string; g: string }[]> = {
     { c: "Logiciels maison", d: "Une plateforme de conformité NIS2 et CyFun pour PME, et une plateforme de gestion des risques tiers à base d'agents IA, en phase pilote.", g: "Produits Clixite" },
   ],
   cabinet: [
-    { c: "KBC", d: "18 mois comme Expert Procurement et TPRM Advisor auprès du CPO : politique achats refondue, circuit d'achats tactiques en production.", g: "Mission Clixite, terminée en septembre 2026" },
+    { c: "KBC", d: "18 mois comme Expert Procurement et TPRM Advisor auprès du CPO : politique achats refondue, circuit d'achats tactiques en production.", g: "Mission Clixite, 18 mois" },
     { c: "Groupe P&V", d: "Head of Procurement par intérim, P&V Assurances et Vivium.", g: "Mission Clixite, 2025" },
     { c: "Proximus", d: "Senior Program Manager TV, puis Procurement Lead (environ 800 M€).", g: "Salarié, 2018 à 2024" },
   ],
@@ -78,10 +78,10 @@ export const SOLVER: Record<AudKey, { x: { id: string; label: string; rec: { tit
   groupe: {
     x: [
       { id: "dora", label: "DORA et risques tiers", rec: { title: "Diagnostic DORA des tiers, puis mission de remédiation", first: ["Relire le registre d'information et les contrats des prestataires critiques", "Mesurer les risques de concentration et les plans de sortie", "Prioriser les remédiations avec la deuxième ligne"], deliverable: "Registre fiabilisé et plan de remédiation chiffré", proof: "KBC : politique achats alignée sur DORA et l'EBA" } },
-      { id: "achats", label: "Achats à transformer", rec: { title: "Transformation des achats, de la politique au Source-to-Pay", first: ["Cartographier les dépenses et les circuits d'achat", "Réécrire la politique en politique, standards et playbooks", "Mettre en production un circuit d'achats tactiques"], deliverable: "Politique, processus et outil en production", proof: "KBC : circuit tactique en production sur SAP Ariba" } },
+      { id: "achats", label: "Achats à transformer", rec: { title: "Transformation des achats, de la politique au Source-to-Pay", first: ["Cartographier les dépenses et les circuits d'achat", "Réécrire la politique en politique, standards et playbooks", "Mettre en production un circuit d'achats tactiques"], deliverable: "Politique, processus et outil en production", proof: "KBC : circuit d'achats tactiques en production" } },
       { id: "archi", label: "Architecture à rationaliser", rec: { title: "Revue puis architecture cible", first: ["Cartographier les applications et les flux", "Identifier doublons, dette et risques", "Dessiner la cible et la trajectoire en options chiffrées"], deliverable: "Architecture cible et feuille de route", proof: "Plus de quinze ans dans la banque, l'assurance et les télécoms" } },
       { id: "programme", label: "Programme NIS2 ou transformation à piloter", rec: { title: "Pilotage de programme et conduite du changement", first: ["Reprendre le plan, les risques et la gouvernance", "Aligner les métiers avec la méthode ADKAR", "Installer un comité qui décide"], deliverable: "Programme remis sur les rails, adoption mesurée", proof: "Proximus : Senior Program Manager du domaine TV" } },
-      { id: "ia", label: "IA à mettre en production", rec: { title: "IA en production, en Forward Deployed Engineer", first: ["Choisir un cas d'usage mesurable et ses données", "Construire avec garde-fous, traçabilité et AI Act", "Mettre en service et transférer"], deliverable: "Un cas d'usage IA en production", proof: "Deux plateformes maison à base d'agents IA, en phase pilote" } },
+      { id: "ia", label: "IA à mettre en production", rec: { title: "IA en production, par un Forward Deployed Engineer", first: ["Choisir un cas d'usage mesurable et ses données", "Construire avec garde-fous, traçabilité et AI Act", "Mettre en service et transférer"], deliverable: "Un cas d'usage IA en production", proof: "Deux plateformes maison à base d'agents IA, en phase pilote" } },
     ],
     formats: ["Mission sur site", "Forfait à livrable", "Avis ponctuel"],
     formatNotes: { "Mission sur site": "Un senior intégré à vos équipes, sur site ou à distance.", "Forfait à livrable": "Un livrable défini et un budget fixé avant de commencer.", "Avis ponctuel": "Un regard indépendant, rendu par écrit à votre comité." },
@@ -94,14 +94,14 @@ export const SOLVER: Record<AudKey, { x: { id: string; label: string; rec: { tit
       { id: "nis2", label: "NIS2 et cybersécurité", rec: { title: "Mise en conformité NIS2 et CyFun", first: ["Vérifier si vous êtes concerné et à quel niveau", "Évaluer l'écart avec le référentiel CyFun", "Prioriser les mesures et la documentation"], deliverable: "Écart mesuré et plan de conformité", proof: "Plateforme maison de conformité NIS2 pour PME, en phase pilote" } },
       { id: "ia", label: "IA à mettre au travail", rec: { title: "IA en production", first: ["Choisir la tâche répétitive qui coûte le plus", "Construire l'agent avec vos données et vos règles", "Mesurer le temps gagné"], deliverable: "Un agent IA en service", proof: "Agents IA conçus et exploités chez Clixite" } },
     ],
-    formats: ["Temps partagé", "Forfait", "Atelier d'une journée"],
-    formatNotes: { "Temps partagé": "Une présence régulière, au rythme de votre croissance.", "Forfait": "Un périmètre et un budget fixés avant de commencer.", "Atelier d'une journée": "Une journée avec votre équipe, et un plan d'action écrit." },
+    formats: ["Temps partagé", "Forfait", "Atelier avec votre équipe"],
+    formatNotes: { "Temps partagé": "Une présence régulière, au rythme de votre croissance.", "Forfait": "Un périmètre et un budget fixés avant de commencer.", "Atelier avec votre équipe": "Un atelier de travail avec votre équipe, et un plan d'action écrit." },
   },
   cabinet: {
     x: [
-      { id: "archi", label: "Mission en architecture", rec: { title: "Enterprise ou Solution Architect", first: ["Lire le rôle, le paysage applicatif et les attentes du client", "Cibler le CV sur les chantiers d'architecture comparables", "Préparer l'entretien avec un premier avis sur le contexte"], deliverable: "Dossier de candidature ciblé", proof: "KBC : circuit d'achats tactiques outillé et mis en production" } },
+      { id: "archi", label: "Mission en architecture", rec: { title: "Enterprise ou Solution Architect", first: ["Lire le rôle, le paysage applicatif et les attentes du client", "Cibler le CV sur les chantiers d'architecture comparables", "Préparer l'entretien avec un premier avis sur le contexte"], deliverable: "Dossier de candidature ciblé", proof: "Tero et Design Plus : sites et back-offices livrés" } },
       { id: "achats", label: "Mission achats ou TPRM", rec: { title: "Procurement Transformation Lead ou TPRM Advisor", first: ["Lire le rôle, le périmètre de dépenses et l'outil en place", "Mettre en avant les missions comparables chez KBC, P&V et Proximus", "Préparer l'entretien avec une lecture de la maturité achats"], deliverable: "Dossier de candidature ciblé", proof: "Groupe P&V : direction des achats par intérim" } },
-      { id: "risques", label: "Mission DORA, NIS2 ou risques", rec: { title: "DORA ou NIS2 Program Manager, Risk Program Manager", first: ["Lire le rôle et l'état du registre DORA ou du programme NIS2", "Cibler le CV sur les contrats TIC, la sous-traitance et la deuxième ligne", "Préparer l'entretien avec les points d'attention réglementaires"], deliverable: "Dossier de candidature ciblé", proof: "KBC : politique achats alignée sur DORA, NIS2 et l'EBA" } },
+      { id: "risques", label: "Mission DORA, NIS2 ou risques", rec: { title: "DORA ou NIS2 Program Manager, Risk Program Manager", first: ["Lire le rôle et l'état du registre DORA ou du programme NIS2", "Cibler le CV sur les contrats TIC, la sous-traitance et la deuxième ligne", "Préparer l'entretien avec les points d'attention réglementaires"], deliverable: "Dossier de candidature ciblé", proof: "KBC : politique achats alignée sur DORA et l'EBA" } },
       { id: "changement", label: "Mission programme ou changement", rec: { title: "Program Manager ou Change Manager ADKAR", first: ["Lire le rôle, la gouvernance et le calendrier du programme", "Cibler le CV sur les programmes comparables et la méthode ADKAR", "Préparer l'entretien avec un premier regard sur l'adoption"], deliverable: "Dossier de candidature ciblé", proof: "Proximus : Senior Program Manager du domaine TV" } },
       { id: "ia", label: "Mission IA", rec: { title: "Responsable de la mise en production IA", first: ["Lire le rôle et le cas d'usage visé", "Joindre des démonstrations d'agents réellement exploités", "Préparer l'entretien avec les garde-fous et l'AI Act"], deliverable: "Dossier de candidature ciblé", proof: "Agents IA conçus et exploités chez Clixite" } },
     ],

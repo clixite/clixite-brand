@@ -7,6 +7,7 @@ interface Step { yr: string; t: string; s: string; av?: boolean }
 const entreprendre: Step[] = [
   { yr: "2005", t: "Fonde Clixite, agence de communication", s: "Fonde Clixite", av: true },
   { yr: "2011", t: "Cède l'agence Clixite Communication ; la société Clixite SRL continue", s: "Cède Clixite Communication", av: true },
+  { yr: "2015", t: "Clixite passe de la communication à l'architecture", s: "Clixite passe à l’architecture" },
   { yr: "2017", t: "Cède Twin Square Catering, traiteur aérien à Brussels Airport", s: "Cède Twin Square Catering", av: true },
   { yr: "2024", t: "Construit ses logiciels : conformité NIS2, risques tiers par agents IA", s: "Construit ses logiciels IA", av: true },
 ];
@@ -14,7 +15,7 @@ const grandsComptes: Step[] = [
   { yr: "2018", t: "Proximus, Senior Program Manager du domaine TV", s: "Proximus, Program Manager TV" },
   { yr: "2022", t: "Proximus, Procurement Lead, environ 800 M€", s: "Proximus, Procurement Lead", av: true },
   { yr: "2025", t: "P&V Assurances et Vivium, Head of Procurement par intérim", s: "P&V, Head of Procurement", av: true },
-  { yr: "2025", t: "KBC, Expert Procurement et TPRM Advisor, 18 mois", s: "KBC, Procurement et TPRM", av: true },
+  { yr: "2025", t: "KBC, Expert Procurement et TPRM Advisor, 18 mois (2025 à 2026)", s: "KBC, Procurement et TPRM", av: true },
 ];
 // géométrie : X symétrique dans une viewBox 1000 × 560, centre (500, 280)
 const W = 1000, H = 560, P = 40, C = { x: 500, y: 280 };
@@ -22,7 +23,8 @@ const A0 = { x: P, y: P }, A1 = { x: W - P, y: H - P };      // entreprendre : h
 const B0 = { x: P, y: H - P }, B1 = { x: W - P, y: P };      // grands comptes : bas gauche vers haut droite
 const lerp = (p: { x: number; y: number }, q: { x: number; y: number }, t: number) => ({ x: p.x + (q.x - p.x) * t, y: p.y + (q.y - p.y) * t });
 const ts = [0.05, 0.15, 0.25, 0.35];
-const ptsA = entreprendre.map((s, i) => ({ ...s, ...lerp(A0, A1, ts[i]) }));
+const tsA = [0.04, 0.125, 0.21, 0.295, 0.38];   // cinq jalons côté entreprendre
+const ptsA = entreprendre.map((s, i) => ({ ...s, ...lerp(A0, A1, tsA[i]) }));
 const ptsB = grandsComptes.map((s, i) => ({ ...s, ...lerp(B0, B1, ts[i]) }));
 const tick = (x: number, y: number, dir: 1 | -1) => {
   // petit trait perpendiculaire à la barre (pas de points reliés)

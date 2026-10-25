@@ -1,5 +1,6 @@
 ---
 import { SITE, bookingHref } from "../data/site";
+import CopyMail from "./CopyMail.astro";
 ---
 <section id="contact" class="section final" data-theme="encre" aria-labelledby="final-title">
   <div class="wrap final__in">
@@ -8,8 +9,8 @@ import { SITE, bookingHref } from "../data/site";
       <p class="lead">Trente minutes suffisent pour le nommer. Vous repartez avec une première piste, même si nous ne travaillons pas ensemble.</p>
       <div class="final__cta">
         <a class="btn btn--primary" href={bookingHref()}>Demander un échange de 30 min</a>
-        <a class="btn btn--secondary" href={`mailto:${SITE.email}`}>{SITE.email}</a>
       </div>
+      <p class="final__mail">Ou écrivez directement à <CopyMail /></p>
       <p class="small muted final__addr">{SITE.legalName}, {SITE.address.street}, {SITE.address.postalCode} {SITE.address.city}. Rendez-vous à Wavre, chez vous ou en visio.</p>
     </div>
   </div>
@@ -21,6 +22,7 @@ import { SITE, bookingHref } from "../data/site";
   .final__title { font-size: var(--clx-type-display-font-size); line-height: var(--clx-type-display-line-height); letter-spacing: var(--clx-type-display-letter-spacing); font-weight: 700; color: var(--clx-text); }
   .final__title .x { color: var(--clx-accent); }
   .final__cta { display: flex; flex-wrap: wrap; gap: var(--clx-space-3); margin-top: var(--clx-space-6); }
+  .final__mail { margin-top: var(--clx-space-4); color: var(--clx-text-muted); }
   .final__addr { margin-top: var(--clx-space-5); }
   .final :global(.btn--secondary) { color: var(--clx-text); }
   @media (max-width: 899px) { .final__in { grid-template-columns: 1fr; gap: var(--clx-space-5); } }

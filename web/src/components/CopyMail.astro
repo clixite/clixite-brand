@@ -1,0 +1,28 @@
+---
+// L'adresse en clair et un bouton pour la copier : le lien mailto ne fait rien chez qui n'a qu'une messagerie en ligne.
+import { SITE } from "../data/site";
+---
+<span class="cm"><a href={`mailto:${SITE.email}`}>{SITE.email}</a> <button type="button" class="cm__btn" data-copy={SITE.email}>Copier l'adresse</button><span class="visually-hidden" aria-live="polite" data-copy-status></span></span>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>("[data-copy]").forEach((b) => {
+    const status = b.parentElement?.querySelector<HTMLElement>("[data-copy-status]");
+    b.addEventListener("click", async () => {
+      const text = b.dataset.copy ?? "";
+      let ok = false;
+      try { await navigator.clipboard.writeText(text); ok = true; } catch { /* presse-papiers refusé : on sélectionne le texte */ }
+      if (!ok) { const a = b.previousElementSibling; const r = document.createRange(); if (a) { r.selectNodeContents(a); const s = getSelection(); s?.removeAllRanges(); s?.addRange(r); } }
+      const prev = b.textContent; b.textContent = ok ? "Adresse copiée" : "Adresse sélectionnée"; if (status) status.textContent = b.textContent;
+      setTimeout(() => { b.textContent = prev; }, 1800);
+    });
+  });
+</script>
+
+<style>
+  .cm { white-space: nowrap; }
+  .cm a { color: var(--clx-link); }
+  .cm__btn { margin-left: 0.35rem; padding: 0.25rem 0.6rem; min-height: 32px; border-radius: var(--clx-radius-pill); border: 1px solid var(--clx-border-strong); background: transparent; color: var(--clx-text); font: 600 0.8125rem/1 var(--clx-font-family-text); cursor: pointer; white-space: nowrap; }
+  .cm__btn:hover { border-color: var(--clx-text); }
+  .cm__btn:focus-visible { outline: 3px solid var(--clx-focus); outline-offset: 2px; }
+  @media (max-width: 399px) { .cm { white-space: normal; } }
+</style>

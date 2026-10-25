@@ -65,7 +65,7 @@ hr{border:0;border-top:1px solid var(--brume);margin:40px 0}
 .hero .hint b{color:var(--papier);font-weight:500}
 .hero .hint .touch{display:none}
 @media (hover:none){.hero .hint .touch{display:inline}.hero .hint .mouse{display:none}}
-.hero .scrolldown{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);width:1px;height:40px;background:linear-gradient(var(--turquoise),transparent)}
+.hero .scrolldown{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);width:1px;height:40px;background:var(--turquoise);opacity:.6}
 
 /* ----- X vivant ----- */
 .living-x{display:block;width:100%;height:auto;overflow:visible}
@@ -103,7 +103,7 @@ main{min-width:0;padding-left:clamp(24px,4vw,64px)}
   .mobilenav{display:block;position:sticky;top:var(--topbar);z-index:40;background:var(--papier);border-bottom:1px solid var(--brume);margin:0;padding:0 var(--gutter);overflow-x:auto;white-space:nowrap;scrollbar-width:none}
   .mobilenav::-webkit-scrollbar{display:none}
   .mobilenav a{display:inline-block;padding:12px 10px;font-size:13px;color:var(--ardoise);text-decoration:none}
-  .mobilenav a.active{color:var(--encre);box-shadow:inset 0 -2px 0 var(--turquoise)}
+  .mobilenav a.active{color:var(--encre);text-decoration:underline 2px var(--turquoise);text-underline-offset:6px}
 }
 
 /* ----- chapitres ----- */
@@ -351,3 +351,17 @@ footer .right{font-family:var(--mono);font-size:12px;text-align:right}
 /* 2.0 : les champs du X vivant ne doivent pas élargir la page sur tablette */
 .atelier{overflow-x:clip}
 @media (max-width:900px){.scale td:last-child{white-space:normal;width:auto}.scale .s-display{font-size:44px}}
+/* correctifs d'affichage (octobre 2026) : rien ne déborde, de 320 px aux grands écrans */
+.levels .box{flex-wrap:wrap;min-width:0}
+.levels .box img{max-width:100%}
+.scale td:nth-child(2){overflow-wrap:break-word}
+@media (max-width:1180px){.scale td:last-child{white-space:normal;width:auto}.scale .s-display{font-size:48px}}
+@media (max-width:520px){.contrast{font-size:13px}.contrast th,.contrast td{padding:8px 6px}.contrast td.sample{width:auto}table.files{display:block;overflow-x:auto;max-width:100%}}
+/* accessibilité et chapitre Écran et web (octobre 2026) */
+.vh{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:16px;top:-60px;z-index:100;background:var(--encre);color:var(--papier);padding:10px 16px;border-radius:8px;font-weight:600}
+.skip:focus{top:12px}
+.combos .no::before{content:attr(data-t)}
+.screen{margin:24px 0 8px}
+.screen img{width:100%;border-radius:10px;border:1px solid var(--brume)}
+.screen figcaption{font-size:13px;color:var(--ardoise);margin-top:10px}

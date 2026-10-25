@@ -4,8 +4,8 @@
 const { collapsible = false } = Astro.props as { collapsible?: boolean };
 interface Fam { t: string; d: string; tools: string[]; order: { groupe: number; pme: number; cabinet: number }; av?: boolean }
 const families: Fam[] = [
-  { t: "Achats et Source-to-Pay", d: "Politique achats en trois couches (politique, standards, playbooks), circuits d'achats tactiques, sourcing, contrats, direction des achats à temps partagé ou par intérim.", tools: ["SAP Ariba", "Source-to-Pay", "Sourcing et appels d'offres", "Contrats", "Fractional CPO"], order: { groupe: 1, pme: 4, cabinet: 1 } },
-  { t: "Risques, conformité et gouvernance", d: "Registre d'information et risques TIC tiers, sous-traitance, cybersécurité, protection des données et usage responsable de l'IA, traduits en processus et en contrôles.", tools: ["DORA", "EBA Outsourcing", "NIS2 et CyFun", "TPRM", "RGPD", "AI Act", "CSRD"], order: { groupe: 2, pme: 5, cabinet: 2 } },
+  { t: "Achats et Source-to-Pay", d: "Politique achats en trois niveaux (politique, standards, playbooks), circuits d'achats tactiques, sourcing, contrats, direction des achats à temps partagé ou par intérim.", tools: ["SAP Ariba", "Source-to-Pay", "Sourcing et appels d'offres", "Contrats", "Fractional CPO"], order: { groupe: 1, pme: 4, cabinet: 1 } },
+  { t: "Risques, conformité et gouvernance", d: "Registre d'information et risques TIC tiers, sous-traitance, cybersécurité, protection des données et usage responsable de l'IA, traduits en processus et en contrôles.", tools: ["DORA", "EBA Outsourcing", "NIS2 et CyFun", "TPRM", "RGPD", "AI Act"], order: { groupe: 2, pme: 5, cabinet: 2 } },
   { t: "Architecture d'entreprise et de solutions", d: "Cartographie applicative et des flux, architecture cible, rationalisation des outils, intégrations, choix de solutions et trajectoire chiffrée.", tools: ["Cartographie", "Architecture cible", "API et intégrations", "Cloud", "Données"], order: { groupe: 3, pme: 2, cabinet: 3 } },
   { t: "IA et agents", d: "Cas d'usage passés en production, agents qui travaillent dans vos outils, orchestration de plusieurs agents, garde-fous et traçabilité.", tools: ["Claude et Claude Code", "MCP", "Agents multiples", "RAG", "Garde-fous"], order: { groupe: 5, pme: 3, cabinet: 5 }, av: true },
   { t: "Ingénierie et produits numériques", d: "Sites, applications métier et SaaS construits et exploités : hébergement maîtrisé, déploiement automatisé, visibilité dans Google et les moteurs IA.", tools: ["Astro", "Python", "Node", "Docker", "Traefik", "HubSpot", "GEO"], order: { groupe: 6, pme: 1, cabinet: 6 }, av: true },
@@ -15,7 +15,7 @@ const families: Fam[] = [
 <section id="competences" class="section skills band-alt" data-skills={collapsible ? "collapsible" : undefined} aria-labelledby="skills-title">
   <div class="wrap">
     <div class="skills__head">
-      <h2 id="skills-title" class="h2">Toute la boîte à outils, une seule personne.</h2>
+      <h2 id="skills-title" class="h2">Six familles de compétences, un seul interlocuteur.</h2>
       <p class="lead">{collapsible ? "Six familles de compétences rarement réunies. Les trois plus utiles pour vous d'abord, les autres à un clic." : "Six familles de compétences rarement réunies, du conseil à la mise en production."}</p>
     </div>
     <ul role="list" class="skills__grid" id="skills-grid">

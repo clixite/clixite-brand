@@ -95,7 +95,7 @@ Fichiers : `charte/downloads/logo/` (les « transparent » sont ceux à utiliser
 L'Encre domine (45 %), le Papier respire (25 %), le turquoise signe (15 %), le rose et le Signal ponctuent (8 % et 7 %). Dans le corps d'un document, un seul accent à la fois, turquoise par défaut.
 
 - Texte sur fond clair : Encre ou Ardoise ; accents en turquoise-texte ou rose-texte. Jamais de turquoise, rose ou Signal pur en texte sur fond clair.
-- Sur Encre : Papier pour le texte, Brume pour le secondaire (jamais de gris neutre), turquoise et Signal comme accents (6,5:1 et 11,2:1).
+- Sur Encre : Papier pour le texte, Brume pour le secondaire (jamais de gris neutre), turquoise et Signal comme accents (6,5:1 et 11,1:1).
 - Le Signal ne porte jamais de texte. Un seul losange Signal par support.
 - Deux séries qui se chevauchent prennent l'Indigo. Jamais de vert et rouge seuls pour distinguer deux états.
 - Contrastes vérifiés AA : Encre sur Papier 14,8:1 ; turquoise-texte sur Papier 4,7:1 ; rose-texte sur Papier 4,5:1 ; Ardoise sur Papier 6,5:1.
@@ -144,7 +144,7 @@ Phrases courtes, verbes d'action, chiffres avant adjectifs. Vouvoiement en exter
 
 ### À ne pas faire
 
-- Pas de dégradés, pas de texte en dégradé, pas de verre dépoli, pas de lueur « outil IA », pas de violet. Seule exception : le voile de lisibilité posé sur une photo ou une vidéo, d'Encre opaque vers Encre transparente, sans autre couleur.
+- Pas de dégradés, pas de texte en dégradé, pas de verre dépoli, pas de lueur « outil IA », pas de violet.
 - Pas de gris neutre ni de noir pur : les neutres sont teintés d'Encre.
 - Pas de tuile d'icône arrondie au-dessus de chaque titre, pas d'étiquette-chapeau, pas de flèche « → » collée aux liens.
 - Pas de mono partout pour « faire technique ».
@@ -157,7 +157,7 @@ Le site www.clixite.be est construit sur le Design System 2.0 (`ds/`, documentat
 
 - **Mot-marque sans descripteur** : sous 240 px de large (en-têtes d'interface, barres de navigation), utiliser `clixite-maitre-motmarque-*`, généré par `logos10.lockup_wordmark`. Au-dessus, le descripteur reste obligatoire.
 - **Ouverture web en 2,4 s** : sur un site, le X se construit en 2,4 s (repères, tracé, chant, champs, lentille), puis seul l'angle entre les champs respire entre 4° et 6°. Exception documentée à la règle « transform et opacité » : le tracé des repères (`stroke-dashoffset`), pendant l'ouverture uniquement. Sur écran tactile, pas de boucle.
-- **Film en fond de hero** (www.clixite.be, depuis octobre 2026) : la boucle du film de lancement remplace le X construit dans le hero de l'accueil. Boucle sans titres ni logo (le logo est déjà dans l'en-tête), sous un voile Encre de 88 à 94 % côté texte, chargée après l'affichage, jamais en mouvement réduit ni en économie de données, avec un bouton Pause visible (WCAG 2.2.2). Le X construit reste la règle pour les autres pages, couvertures et bannières.
+- **Film en fond de hero** (www.clixite.be, depuis octobre 2026) : la boucle du film de lancement, plein cadre, sans titres ni logo (le logo est déjà dans l'en-tête), remplace le X construit dans le hero de l'accueil. Le texte se pose sur une plaque Encre à 92 % (rayon 10 px, filet turquoise de 44 × 4 px, comme les titres du film) ; aucun voile ni dégradé sur l'image. Les quatre phrases du film défilent au-dessus de la promesse, au rythme des plans. Boucle de 11,5 s sans coupure visible, chargée après l'affichage, jamais en mouvement réduit ni en économie de données, avec un bouton Pause visible (WCAG 2.2.2). Le X construit reste la règle pour les autres pages, couvertures et bannières.
 - **Le *x* en deux endroits par page** au plus : le titre d'ouverture et l'appel final.
-- **Un site par acheteur** : l'accueil s'adapte au visiteur (grand groupe, PME, cabinet). L'angle entre les champs du X suit ce choix : 4° pour les groupes régulés (précision), 5,5° pour les cabinets, 7° pour les PME (énergie). C'est la seule animation que l'action du visiteur déclenche sur le logo.
-- **Logos clients** : fichiers officiels uniquement, inscrits au registre `web/src/data/clients.registry.json` avec leur source et l'accord du client, teintés par masque CSS. Jamais redessinés, jamais publiés sans accord écrit.
+- **Un site par acheteur** : l'accueil s'adapte au visiteur (grand groupe, PME, cabinet ou intermédiaire). Le sous-titre, l'appel à l'action, les offres, les conditions, les preuves, l'ordre des logos et les compétences mises en avant suivent ce choix. Là où le X construit est affiché, l'angle entre ses champs suit aussi l'acheteur : 4° pour les groupes régulés, 6° pour les cabinets, 7,5° pour les PME (valeurs de `web/src/data/audiences.ts`).
+- **Logos clients** : fichiers officiels uniquement, inscrits au registre `web/src/data/clients.registry.json` avec leur source, teintés par masque CSS, jamais redessinés. La publication est décidée par Nicolas Simon et tracée dans le registre ; l'accord écrit du client est archivé dès qu'il est obtenu.

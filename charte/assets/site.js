@@ -36,8 +36,11 @@
     this.fb.setAttribute('transform', 'rotate(' + (a / 2).toFixed(3) + ' ' + this.cx + ' ' + this.cy + ')');
   };
   LivingX.prototype.loop = function () {
-    var self = this;
+    var self = this, visible = true, raf = 0;
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; if (visible && !raf) raf = requestAnimationFrame(frame); }, { rootMargin: '100px' }).observe(this.svg);
     function frame(now) {
+      raf = 0;
+      if (!visible) return;
       var t = (now - self.t0) / 1000;
       var target;
       if (self.manual !== null) target = self.manual;
@@ -46,21 +49,29 @@
       if (!reduce && t < 1.6 && self.manual === null) target = 14 - (14 - self.rest) * ease(Math.min(1, Math.max(0, (t - 0.4) / 1.2)));
       self.angle += (target - self.angle) * (self.manual !== null ? 0.25 : 0.08);
       self.apply(self.angle);
-      requestAnimationFrame(frame);
+      raf = requestAnimationFrame(frame);
     }
-    requestAnimationFrame(frame);
+    raf = requestAnimationFrame(frame);
   };
   function ease(x) { return 1 - Math.pow(1 - x, 3); }
 
   /* ---------- ouverture 3D (hero et chapitre Animation) ---------- */
+  // une animation WebGL ne tourne que lorsqu'elle est à l'écran
+  function watch(el, o, may) {
+    if (!('IntersectionObserver' in window)) return;
+    new IntersectionObserver(function (es) { if (es[0].isIntersecting) { if (may() && !o.playing) o.play(); } else o.stop(); }, { threshold: 0 }).observe(el);
+  }
   function boot3d(scene) {
     var heroC = document.getElementById('hero-3d'), animC = document.getElementById('anim-3d');
     var heroO = null, animO = null;
     try {
       if (heroC) {
         heroO = new ClixiteOuverture(heroC, scene, { theme: 'encre', host: document.getElementById('hero'), margin: 0.05 });
-        heroO.play();
-        var hr = document.getElementById('hero-replay'); if (hr) hr.addEventListener('click', function () { heroO.replay(); });
+        // écran tactile ou mouvement réduit : l'image finale, nette, sans boucle ; sinon l'ouverture, en pause hors écran
+        var still = reduce || window.matchMedia('(pointer: coarse)').matches;
+        if (still) { heroO.setTime(4.8); heroO.render(); } else heroO.play();
+        watch(heroC, heroO, function () { return !still; });
+        var hr = document.getElementById('hero-replay'); if (hr) hr.addEventListener('click', function () { heroO.replay(); if (still) setTimeout(function () { heroO.stop(); }, 6000); });
       }
     } catch (e) {
       if (heroC) { heroC.hidden = true; var fb = document.querySelector('.o3d-fallback'); if (fb) fb.hidden = false; }
@@ -71,6 +82,7 @@
         animO.setTime(0); animO.render();
         var seen = false, io = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting && !seen) { seen = true; animO.replay(); } }); }, { threshold: 0.4 });
         io.observe(animC);
+        watch(animC, animO, function () { return seen; });
         animC.addEventListener('click', function () { animO.replay(); });
         var rb = document.getElementById('replay'); if (rb) rb.addEventListener('click', function () { animO.replay(); });
         var tb = document.getElementById('anim-theme');
@@ -82,10 +94,14 @@
       }
     } catch (e) { if (animC) animC.hidden = true; }
   }
-  if (window.ClixiteOuverture && (document.getElementById('hero-3d') || document.getElementById('anim-3d'))) {
+  function start3d() {
     fetch('assets/scene.json').then(function (r) { return r.json(); }).then(boot3d).catch(function () {
       var heroC = document.getElementById('hero-3d'); if (heroC) { heroC.hidden = true; var fb = document.querySelector('.o3d-fallback'); if (fb) fb.hidden = false; }
     });
+  }
+  if (window.ClixiteOuverture && (document.getElementById('hero-3d') || document.getElementById('anim-3d'))) {
+    var idle = window.requestIdleCallback || function (f) { return setTimeout(f, 300); };
+    if (document.readyState === 'complete') idle(start3d); else window.addEventListener('load', function () { idle(start3d); }, { once: true });
   }
   var play = document.querySelector('.atelier .living-x');
   if (play) {
@@ -101,14 +117,23 @@
   /* ---------- navigation : chapitre actif ---------- */
   var links = Array.prototype.slice.call(document.querySelectorAll('.sidenav a[href^="#"], .mobilenav a[href^="#"]'));
   var sections = Array.prototype.slice.call(document.querySelectorAll('section.chapter[id]'));
+  var tops = [], last = null, ticking = false;
+  function measure() { tops = sections.map(function (sec) { return sec.offsetTop; }); }
   function spy() {
+    ticking = false;
     var y = window.scrollY + 140, cur = sections[0] && sections[0].id;
-    for (var i = 0; i < sections.length; i++) if (sections[i].offsetTop <= y) cur = sections[i].id;
+    for (var i = 0; i < sections.length; i++) if (tops[i] <= y) cur = sections[i].id;
+    if (cur === last) return; last = cur;
     links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + cur); });
-    var act = document.querySelector('.mobilenav a.active');
-    if (act && act.scrollIntoView) act.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+    var act = document.querySelector('.mobilenav a.active'), nav = act && act.parentNode;
+    if (act && nav && nav.scrollWidth > nav.clientWidth) nav.scrollTo({ left: act.offsetLeft - (nav.clientWidth - act.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
   }
-  window.addEventListener('scroll', spy, { passive: true }); spy();
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(spy); } }
+  measure();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', function () { measure(); onScroll(); }, { passive: true });
+  window.addEventListener('load', function () { measure(); spy(); }, { once: true });
+  spy();
 
   /* ---------- copie dans le presse-papier ---------- */
   var toast = document.getElementById('toast'), toastT;

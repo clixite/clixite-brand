@@ -1,0 +1,4 @@
+Contact: mailto:nicolas@clixite.be
+Expires: 2027-10-25T00:00:00.000Z
+Preferred-Languages: fr, en, nl
+Canonical: https://www.clixite.be/.well-known/security.txt

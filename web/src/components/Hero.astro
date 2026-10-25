@@ -1,23 +1,45 @@
 ---
-// Hero : le film de lancement en boucle, en fond, sous un voile Encre.
-// Boucle sans titres ni logo (video/hero_loop.py), trois variantes : large, moyenne, verticale.
-// Chargée après l'affichage de la page, jamais en mouvement réduit ni en économie de données, toujours en pause possible.
+// Hero cinéma : le film de lancement en boucle, plein cadre et bien visible.
+// Le texte se pose sur une plaque Encre, comme les titres du film ; les quatre phrases du film défilent en synchronisation.
+// Boucle sans titres ni logo (video/hero_loop.py) : large, moyenne et verticale, en H.264 et en VP9.
+// Le film arrive après l'affichage, jamais en mouvement réduit ni en économie de données ; il reste toujours en pause possible.
 import { SITE } from "../data/site";
-import { AUDIENCES, HERO, IDENTITY } from "../data/audiences";
+import { AUDIENCES, HERO } from "../data/audiences";
 const mail = (subject: string) => SITE.bookingsUrl || `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}`;
+// chapitres de la boucle (11,5 s) : les titres du film, au rythme des plans
+const STORY = [
+  { t: "Votre architecture commence sur papier.", from: 0 },
+  { t: "Elle prend du relief.", from: 2.5 },
+  { t: "Elle se pose chez vous.", from: 5.5 },
+  { t: "Et elle tourne.", from: 8.5 },
+];
 ---
 <section class="hero" data-theme="encre" aria-labelledby="hero-title">
   <div class="hero__media" aria-hidden="true">
+    <picture>
+      <source media="(max-aspect-ratio: 4/5)" srcset="/video/hero-720x1280.webp" width="720" height="1280" />
+      <img class="hero__poster" src="/video/hero-1920.webp" alt="" width="1920" height="1080" fetchpriority="high" decoding="async" />
+    </picture>
     <video class="hero__video" muted playsinline loop preload="none" disablepictureinpicture disableremoteplayback tabindex="-1"
       data-hero-video data-wide="/video/hero-1920" data-mid="/video/hero-1280" data-tall="/video/hero-720x1280"></video>
   </div>
 
   <div class="wrap hero__in">
-    <div class="hero__text">
+    <div class="hero__plate">
+      <p class="hero__story" aria-hidden="true" data-story>
+        {STORY.map((s, i) => <span class:list={["hero__chap", { "is-on": i === 0 }]} data-from={s.from}>{s.t}</span>)}
+      </p>
       <h1 id="hero-title" class="hero__title">
         <span class="hero__line">Nous résolvons votre <span class="x">x</span>.</span>
         {AUDIENCES.map((a) => <span class="hero__sub" data-aud={a.key}>{HERO[a.key].sub}</span>)}
       </h1>
+
+      {AUDIENCES.map((a) => (
+        <div class="hero__cta" data-aud={a.key}>
+          <a class="btn btn--primary" href={mail(HERO[a.key].ctaSubject)}>{HERO[a.key].cta}</a>
+          <a class="btn btn--secondary" href={HERO[a.key].second.href}>{HERO[a.key].second.label}</a>
+        </div>
+      ))}
 
       <fieldset class="aud" aria-describedby="aud-help">
         <legend class="aud__legend">Vous représentez</legend>
@@ -40,17 +62,6 @@ const mail = (subject: string) => SITE.bookingsUrl || `mailto:${SITE.email}?subj
           if (el) { el.checked = true; document.documentElement.dataset.audience = k; }
         })();
       </script>
-
-      {AUDIENCES.map((a) => (
-        <div class="hero__body" data-aud={a.key}>
-          <div class="hero__cta">
-            <a class="btn btn--primary" href={mail(HERO[a.key].ctaSubject)}>{HERO[a.key].cta}</a>
-            <a class="btn btn--secondary" href={HERO[a.key].second.href}>{HERO[a.key].second.label}</a>
-          </div>
-          <p class="lead hero__lead">{HERO[a.key].lead}</p>
-        </div>
-      ))}
-      <p class="hero__facts small">{IDENTITY}</p>
     </div>
   </div>
 
@@ -72,21 +83,23 @@ const mail = (subject: string) => SITE.bookingsUrl || `mailto:${SITE.email}?subj
   };
   radios.forEach((r) => r.addEventListener("change", apply));
 
-  // film de fond : chargé quand la page est prête, mis en pause hors écran, onglet caché ou sur demande
+  // film : chargé quand la page est prête, mis en pause hors écran, onglet caché ou sur demande
+  const hero = document.querySelector<HTMLElement>(".hero");
   const v = document.querySelector<HTMLVideoElement>("[data-hero-video]");
   const btn = document.querySelector<HTMLButtonElement>("[data-hero-pause]");
   const label = btn?.querySelector<HTMLElement>("[data-hero-pause-l]");
+  const chaps = [...document.querySelectorAll<HTMLElement>(".hero__chap")];
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData === true;
-  if (v && btn && label && !reduce && !saveData) {
-    let paused = false, inView = true;
+  if (hero && v && btn && label && !reduce && !saveData) {
+    let paused = false, inView = true, shown = 0;
     try { paused = localStorage.getItem("clx-film") === "pause"; } catch { /* stockage indisponible */ }
     // H.264 partout où il est lu nativement, VP9 sinon (Chromium sans codecs propriétaires)
     const ext = v.canPlayType('video/mp4; codecs="avc1.640028"') === "probably" ? ".mp4"
       : v.canPlayType('video/webm; codecs="vp9"') ? ".webm" : ".mp4";
     const pick = () => {
       if (matchMedia("(max-aspect-ratio: 4/5)").matches) return v.dataset.tall! + ext;
-      return (innerWidth * Math.min(devicePixelRatio || 1, 2) > 1500 ? v.dataset.wide! : v.dataset.mid!) + ext;
+      return (innerWidth * Math.min(devicePixelRatio || 1, 2) > 1100 ? v.dataset.wide! : v.dataset.mid!) + ext;
     };
     const sync = () => {
       btn.setAttribute("aria-pressed", String(paused));
@@ -95,9 +108,16 @@ const mail = (subject: string) => SITE.bookingsUrl || `mailto:${SITE.email}?subj
       if (!v.src) return;
       if (paused || !inView || document.hidden) v.pause(); else v.play().catch(() => { /* lecture refusée : l'affiche reste */ });
     };
+    // les phrases du film suivent l'image
+    const story = () => {
+      const t = v.currentTime; let i = 0;
+      chaps.forEach((c, k) => { if (t >= Number(c.dataset.from)) i = k; });
+      if (i !== shown) { chaps[shown].classList.remove("is-on"); chaps[i].classList.add("is-on"); shown = i; }
+    };
     const load = () => {
       v.src = pick();
-      v.addEventListener("playing", () => v.classList.add("is-on"), { once: true });
+      v.addEventListener("playing", () => { v.classList.add("is-on"); hero.classList.add("has-film"); }, { once: true });
+      v.addEventListener("timeupdate", story);
       btn.hidden = false;
       sync();
     };
@@ -116,28 +136,33 @@ const mail = (subject: string) => SITE.bookingsUrl || `mailto:${SITE.email}?subj
 </script>
 
 <style>
-  .hero { position: relative; isolation: isolate; overflow: hidden; display: grid; align-items: center; min-height: min(86vh, 860px); padding-block: clamp(2.5rem, 1rem + 4vw, 5rem); background: var(--clx-color-encre); }
-
-  /* affiche (première image du film), puis film ; voile Encre pour la lisibilité */
-  .hero__media { position: absolute; inset: 0; z-index: -2; background: var(--clx-color-encre) url(/video/hero-1920.webp) center / cover no-repeat; }
-  .hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 900ms var(--clx-easing-out); }
+  /* plein cadre : la hauteur de l'écran, moins l'en-tête */
+  .hero { position: relative; isolation: isolate; overflow: hidden; display: grid; align-items: end; min-height: clamp(620px, calc(100svh - 72px), 980px); padding-block: clamp(4rem, 2rem + 5vw, 7rem) clamp(1.5rem, 0.5rem + 3vw, 3.5rem); background: var(--clx-color-encre); }
+  .hero__media { position: absolute; inset: 0; z-index: -1; }
+  .hero__media :is(img, video) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero__video { opacity: 0; transition: opacity 1200ms var(--clx-easing-out); }
   .hero__video.is-on { opacity: 1; }
-  .hero::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-    background:
-      linear-gradient(90deg, rgb(11 34 57 / 0.94) 0%, rgb(11 34 57 / 0.88) 40%, rgb(11 34 57 / 0.45) 70%, rgb(11 34 57 / 0.18) 100%),
-      linear-gradient(0deg, rgb(11 34 57 / 0.55) 0%, transparent 30%); }
 
+  /* la plaque : Encre presque opaque, filet turquoise, comme les titres du film */
   .hero__in { position: relative; }
-  .hero__text { max-width: 64rem; display: flex; flex-direction: column; }
-  .hero__title { font-weight: 700; color: var(--clx-text); }
-  .hero__line { display: block; font-size: clamp(3rem, 1.3rem + 5.2vw, 6rem); line-height: 0.95; letter-spacing: -0.04em; }
-  .hero__line .x { color: var(--clx-accent); }
-  .hero__sub { display: block; margin-top: var(--clx-space-4); font-weight: 500; font-size: clamp(1.25rem, 1.05rem + 0.9vw, 1.75rem); line-height: 1.2; letter-spacing: -0.01em; color: var(--clx-text); max-width: 34ch; text-wrap: balance; }
+  .hero__plate { position: relative; max-width: 47rem; padding: clamp(1.5rem, 1rem + 1.8vw, 2.75rem); border-radius: var(--clx-radius-panel); background: rgb(11 34 57 / 0.92); color: var(--clx-text); }
+  .hero__story { position: relative; display: grid; min-height: 1.5em; margin-bottom: var(--clx-space-5); padding-top: calc(var(--clx-space-3) + 4px); font: 500 clamp(1rem, 0.94rem + 0.3vw, 1.125rem)/1.3 var(--clx-font-family-text); color: var(--clx-text-muted); }
+  .hero__story::before { content: ""; position: absolute; top: 0; left: 0; width: 44px; height: 4px; background: var(--clx-accent); }
+  .hero__chap { grid-area: 1 / 1; opacity: 0; transform: translateY(6px); transition: opacity 450ms var(--clx-easing-out), transform 450ms var(--clx-easing-out); }
+  .hero__chap.is-on { opacity: 1; transform: none; }
+  .hero:not(.has-film) .hero__chap:not(:first-child) { display: none; }
 
-  /* sélecteur d'audience : trois pilules, l'état choisi passe en Papier */
-  .aud { border: 0; padding: 0; margin: var(--clx-space-6) 0 0; min-width: 0; }
-  .aud__legend { padding: 0; font-size: 0.9375rem; color: var(--clx-text-muted); margin-bottom: var(--clx-space-2); }
-  .aud__opts { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; border: 1px solid var(--clx-border-strong); border-radius: var(--clx-radius-pill); background: rgb(11 34 57 / 0.8); }
+  .hero__title { font-weight: 700; color: var(--clx-text); }
+  .hero__line { display: block; font-size: clamp(2.75rem, 1.4rem + 3.9vw, 5rem); line-height: 0.95; letter-spacing: -0.04em; text-wrap: balance; }
+  .hero__line .x { color: var(--clx-accent); }
+  .hero__sub { display: block; margin-top: var(--clx-space-4); font-weight: 500; font-size: clamp(1.125rem, 1rem + 0.6vw, 1.5rem); line-height: 1.25; letter-spacing: -0.01em; color: var(--clx-text); max-width: 36ch; text-wrap: balance; }
+  .hero__cta { display: flex; flex-wrap: wrap; gap: var(--clx-space-3); margin-top: var(--clx-space-6); }
+  .hero :global(.btn--secondary) { background: transparent; }
+
+  /* sélecteur d'audience, au pied de la plaque */
+  .aud { border: 0; padding: var(--clx-space-5) 0 0; margin: var(--clx-space-6) 0 0; min-width: 0; border-top: 1px solid var(--clx-border); display: flex; flex-wrap: wrap; align-items: center; gap: var(--clx-space-2) var(--clx-space-4); }
+  .aud__legend { float: left; padding: 0; font-size: 0.9375rem; color: var(--clx-text-muted); }
+  .aud__opts { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; border: 1px solid var(--clx-border-strong); border-radius: var(--clx-radius-pill); }
   .aud__opt { position: relative; }
   .aud__opt input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
   .aud__opt label { display: inline-flex; align-items: center; min-height: 40px; padding: 0 1rem; border-radius: var(--clx-radius-pill); font-weight: 600; font-size: 0.9375rem; color: var(--clx-text); cursor: pointer; transition: background-color var(--clx-duration-quick) var(--clx-easing-out), color var(--clx-duration-quick) var(--clx-easing-out); }
@@ -146,29 +171,45 @@ const mail = (subject: string) => SITE.bookingsUrl || `mailto:${SITE.email}?subj
   .aud__opt input:focus-visible + label { outline: 3px solid var(--clx-focus); outline-offset: 2px; }
   .aud__s { display: none; }
 
-  .hero__body { display: flex; flex-direction: column; }
-  .hero__lead { order: -1; margin-top: var(--clx-space-5); max-width: 40rem; color: var(--clx-text); }
-  .hero__cta { display: flex; flex-wrap: wrap; gap: var(--clx-space-3); margin-top: var(--clx-space-6); }
-  .hero__facts { margin-top: var(--clx-space-5); color: var(--clx-text-muted); max-width: 44ch; }
-  .hero :global(.btn--secondary) { background: rgb(11 34 57 / 0.5); }
-
-  /* bouton pause (WCAG 2.2.2) */
-  .hero__pause { position: absolute; right: max(var(--clx-layout-gutter), env(safe-area-inset-right, 0px)); bottom: var(--clx-space-5); display: inline-flex; align-items: center; gap: 0.5rem; min-height: 40px; padding: 0 0.9rem; border-radius: var(--clx-radius-pill); border: 1px solid var(--clx-border-strong); background: rgb(11 34 57 / 0.72); color: var(--clx-text); font: 600 0.8125rem/1 var(--clx-font-family-text); cursor: pointer; }
+  /* bouton pause (WCAG 2.2.2), en haut à droite, loin du texte */
+  .hero__pause { position: absolute; top: var(--clx-space-5); right: max(var(--clx-layout-gutter), env(safe-area-inset-right, 0px)); display: inline-flex; align-items: center; gap: 0.5rem; min-height: 40px; padding: 0 0.9rem; border-radius: var(--clx-radius-pill); border: 1px solid var(--clx-border-strong); background: rgb(11 34 57 / 0.8); color: var(--clx-text); font: 600 0.8125rem/1 var(--clx-font-family-text); cursor: pointer; }
   .hero__pause:hover { border-color: var(--clx-text); }
   .hero__pause:focus-visible { outline: 3px solid var(--clx-focus); outline-offset: 2px; }
   .hero__pause-i { width: 12px; height: 12px; fill: currentColor; }
   .hero__pause .i-play, .hero__pause.is-paused .i-pause { display: none; }
   .hero__pause.is-paused .i-play { display: inline; }
 
-  @media (max-width: 599px) { .aud__l { display: none; } .aud__s { display: inline; } }
-  @media (max-width: 899px) {
-    .hero { min-height: 0; align-items: start; padding-block: var(--clx-space-7) calc(var(--clx-space-9) + 24px); }
-    .hero::before { background: linear-gradient(180deg, rgb(11 34 57 / 0.78) 0%, rgb(11 34 57 / 0.86) 55%, rgb(11 34 57 / 0.94) 100%); }
-    .hero__sub { font-size: 1.1875rem; }
-    /* mobile : le bouton d'action passe avant le texte d'accompagnement */
-    .hero__lead { order: 0; }
-    .hero__cta { margin-top: var(--clx-space-5); }
+  /* une seule séquence d'ouverture : la plaque se pose, puis la promesse */
+  @media (prefers-reduced-motion: no-preference) {
+    .hero__plate { animation: plate-in 800ms var(--clx-easing-out) 120ms backwards; }
+    .hero__line { animation: line-in 900ms var(--clx-easing-out) 320ms backwards; }
+    @keyframes plate-in { from { opacity: 0; transform: translateY(28px); } }
+    @keyframes line-in { from { opacity: 0; transform: translateY(14px); } }
   }
-  @media (max-aspect-ratio: 4/5) { .hero__media { background-image: url(/video/hero-720x1280.webp); } }
-  @media (prefers-reduced-motion: reduce) { .hero__video { display: none; } }
+  @media (prefers-reduced-motion: reduce) { .hero__video { display: none; } .hero__chap { transition: none; } }
+
+  /* écrans larges mais bas (portables 1280 × 720) : tout tient dans la hauteur */
+  @media (min-width: 900px) and (max-height: 820px) {
+    .hero { padding-top: 2.5rem; }
+    .hero__plate { padding: 1.75rem 2rem; }
+    .hero__line { font-size: clamp(2.5rem, 6.6vh, 4.25rem); }
+    .hero__story { margin-bottom: var(--clx-space-4); }
+    .hero__sub { margin-top: var(--clx-space-3); }
+    .hero__cta { margin-top: var(--clx-space-5); }
+    .aud { margin-top: var(--clx-space-5); padding-top: var(--clx-space-4); }
+  }
+  @media (max-width: 599px) {
+    .aud__l { display: none; } .aud__s { display: inline; }
+    /* un seul bouton sur téléphone : le film reste visible, le profil est juste en dessous */
+    .hero :global(.hero__cta .btn--secondary) { display: none; }
+    .hero__line { font-size: 2.6rem; }
+  }
+  @media (max-width: 899px) {
+    .hero { min-height: clamp(600px, calc(100svh - 64px), 900px); padding-block: 12rem var(--clx-space-4); }
+    .hero__plate { padding: var(--clx-space-5); }
+    .hero__story { margin-bottom: var(--clx-space-4); }
+    .hero__cta { margin-top: var(--clx-space-5); }
+    .aud { margin-top: var(--clx-space-5); padding-top: var(--clx-space-4); }
+    .hero__pause { top: var(--clx-space-4); }
+  }
 </style>

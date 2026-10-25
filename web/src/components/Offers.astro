@@ -1,11 +1,12 @@
 ---
 import { SITE, bookingHref } from "../data/site";
 import { AUDIENCES, OFFERS } from "../data/audiences";
-const ask = (o: string) => SITE.bookingsUrl || `mailto:${SITE.email}?subject=${encodeURIComponent(o + " : premier échange")}`;
+import CopyMail from "./CopyMail.astro";
+const ask = (o: string) => SITE.bookingsUrl || `mailto:${SITE.email}?subject=${encodeURIComponent(o + " : premier échange")}&body=${encodeURIComponent("Bonjour Nicolas,\n\nNotre besoin, en deux phrases :\n\n\nNos disponibilités pour un échange de 30 minutes :\n\nBien à vous,\n")}`;
 const heads = {
   groupe: { h: "Trois façons de travailler ensemble.", l: "Une mission longue sur un rôle clair, ou un livrable court qui éclaire une décision. En direct ou via votre cabinet référencé." },
   pme: { h: "Trois façons de commencer, sans engagement long.", l: "Un périmètre court, un budget validé avant de commencer, un résultat que vous gardez même si nous nous arrêtons là." },
-  cabinet: { h: "Pour vos clients, un profil prêt à partir.", l: "Rôles, formats et dossier de candidature : tout ce qu'il faut pour proposer Nicolas Simon à un client cette semaine." },
+  cabinet: { h: "Pour vos clients, un profil prêt à partir.", l: "Rôles, formats et dossier de candidature : tout ce qu'il faut pour proposer Nicolas Simon à votre client." },
 } as const;
 // conditions par acheteur (la continuité répond à l'objection « une seule personne »)
 const terms = {
@@ -26,12 +27,12 @@ const terms = {
   ],
 } as const;
 ---
-<section id="offres" class="section offers" aria-labelledby="offers-title">
+<section id="offres" class="section offers" aria-label="Offres">
   <div class="wrap">
     {AUDIENCES.map((a, i) => (
       <div class="offers__head" data-aud={a.key}>
-        <h2 id={i === 0 ? "offers-title" : undefined} class="h2">{heads[a.key].h}</h2>
-        <p class="lead">{heads[a.key].l} Le périmètre, la durée et le budget se fixent ensemble au premier échange.</p>
+        <h2 class="h2">{heads[a.key].h}</h2>
+        <p class="lead">{heads[a.key].l} Le périmètre, la durée et le budget se fixent ensemble après un premier échange.</p>
       </div>
     ))}
     {AUDIENCES.map((a) => (
@@ -49,7 +50,10 @@ const terms = {
       </ul>
     ))}
     <div class="offers__foot">
-      <p class="offers__cta"><a class="btn btn--primary" href={bookingHref()}>Demander un échange de 30 min</a></p>
+      <div class="offers__cta">
+        <p><a class="btn btn--primary" href={bookingHref()}>Demander un échange de 30 min</a></p>
+        <p class="small offers__hint">Ces liens ouvrent votre messagerie avec un message prérempli. Vous pouvez aussi écrire à <CopyMail />.</p>
+      </div>
       {AUDIENCES.map((a) => (
         <dl class="offers__terms small" data-aud={a.key}>
           {terms[a.key].map((x) => <div><dt>{x.t}</dt><dd>{x.d}</dd></div>)}
@@ -70,6 +74,8 @@ const terms = {
   .offers__foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--clx-space-6); margin-top: var(--clx-space-7); }
   .offers__terms { display: grid; grid-template-columns: repeat(3, minmax(0, 15rem)); gap: var(--clx-space-5); color: var(--clx-text-muted); }
   .offers__terms dt { font-weight: 600; color: var(--clx-text); }
+  .offers__cta { display: grid; gap: var(--clx-space-3); max-width: 26rem; }
+  .offers__hint { color: var(--clx-text-muted); }
   @media (max-width: 899px) { .offers__terms { grid-template-columns: 1fr; } }
   @media (max-width: 1099px) { .offers__grid { grid-template-columns: 1fr; max-width: 40rem; } }
   @media (max-width: 899px) { .offers__head { grid-template-columns: 1fr; gap: var(--clx-space-4); } }

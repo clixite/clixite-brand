@@ -36,7 +36,7 @@ export function typo(html) {
 }
 
 const walk = (d) => readdirSync(d).flatMap((f) => { const p = join(d, f); return statSync(p).isDirectory() ? walk(p) : p.endsWith(".html") ? [p] : []; });
-const dir = process.argv[2] || "dist";
+const dir = process.argv[2] || "dist";   // un dossier (site construit) ou un seul fichier .html (charte)
 let n = 0;
-for (const f of walk(dir)) { const s = readFileSync(f, "utf8"); const t = typo(s); if (t !== s) { writeFileSync(f, t); n++; } }
+for (const f of dir.endsWith(".html") ? [dir] : walk(dir)) { const s = readFileSync(f, "utf8"); const t = typo(s); if (t !== s) { writeFileSync(f, t); n++; } }
 console.log(`typo-fr : ${n} page(s) corrigée(s) dans ${dir}`);
