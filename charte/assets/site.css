@@ -51,8 +51,8 @@ hr{border:0;border-top:1px solid var(--brume);margin:40px 0}
 .hero .living{width:clamp(240px,40vh,440px);margin:0 auto 44px;cursor:crosshair;touch-action:none}
 .hero h1{margin-bottom:14px}
 .hero .lede{color:var(--brume);margin:0 auto 24px}
-.hero .hint{font-size:13px;color:var(--ardoise);font-family:var(--mono)}
-.hero .hint b{color:var(--brume);font-weight:500}
+.hero .hint{font-size:13px;color:var(--brume);font-family:var(--mono);opacity:.8}
+.hero .hint b{color:var(--papier);font-weight:500}
 .hero .hint .touch{display:none}
 @media (hover:none){.hero .hint .touch{display:inline}.hero .hint .mouse{display:none}}
 .hero .scrolldown{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);width:1px;height:40px;background:linear-gradient(var(--turquoise),transparent)}
