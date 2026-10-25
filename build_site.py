@@ -110,14 +110,14 @@ page = r'''<!doctype html>
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-<div class="topbar">
+<header class="topbar">
   <a class="brand" href="#top"><img src="downloads/logo/clixite-maitre-inverse-transparent.svg" alt="Clixite" width="110" height="30"><span>Charte graphique</span></a>
   <div class="meta"><span class="version">Version 1.0, octobre 2026</span><a class="btn" href="downloads/clixite-kit-complet.zip" download>Télécharger le kit complet</a></div>
-</div>
+</header>
 
-<section class="hero" id="hero">
+<section class="hero" id="hero" role="region" aria-labelledby="titre">
   <div class="living">__HERO_X__</div>
-  <h1>Charte graphique</h1>
+  <h1 id="titre">Charte graphique</h1>
   <p class="lede">Clixite est le cabinet d'architecture de solutions de Nicolas Simon. Cette charte fixe la marque, ses règles et ses fichiers. Elle sert à tout le monde : Nicolas, ses partenaires, un imprimeur, un développeur.</p>
   <p class="hint"><span class="mouse">Déplacez le curseur sur le X : </span><span class="touch">Glissez le doigt sur le X : </span><b>l'interférence se résout</b>.</p>
   <div class="scrolldown" aria-hidden="true"></div>
@@ -261,15 +261,15 @@ page = r'''<!doctype html>
 
   <h3>Combinaisons</h3>
   <p>Texte et fond : ce qui est permis, ce qui ne l'est pas. Les accents ne portent pas de texte sur fond clair ; on passe par leur version « texte ».</p>
-  <div class="combos">
+  <div class="combos" role="img" aria-label="Huit combinaisons texte et fond : six permises, deux barrées (turquoise sur Papier, texte sur Signal)">
     <div style="background:#F6F5F0;color:#0B2239">Encre sur Papier</div>
     <div style="background:#0B2239;color:#F6F5F0">Papier sur Encre</div>
     <div style="background:#F6F5F0;color:#0C7893">Turquoise texte sur Papier</div>
     <div style="background:#0B2239;color:#19B3D9">Turquoise sur Encre</div>
     <div style="background:#19B3D9;color:#0B2239">Encre sur turquoise</div>
     <div style="background:#0B2239;color:#FFD233">Signal sur Encre, en repère seulement</div>
-    <div class="no" style="background:#F6F5F0;color:#19B3D9">Turquoise sur Papier</div>
-    <div class="no" style="background:#FFD233;color:#F6F5F0">Texte sur Signal</div>
+    <div class="no" aria-hidden="true" style="background:#F6F5F0;color:#19B3D9">Turquoise sur Papier</div>
+    <div class="no" aria-hidden="true" style="background:#FFD233;color:#F6F5F0">Texte sur Signal</div>
   </div>
 
   <h3>Contrastes vérifiés</h3>
@@ -320,9 +320,9 @@ page = r'''<!doctype html>
   <header><span class="n">05</span><h2>Système graphique</h2>
   <p class="lede">Trois motifs sortent du logo et suffisent à habiller tous les supports. Ils s'emploient un à la fois, en grand, jamais en semis décoratif.</p></header>
   <div class="system">
-    <div><div class="vis"><svg viewBox="0 0 160 120" width="160" height="120" aria-hidden="true"><rect width="160" height="120" fill="#F6F5F0"/><g transform="translate(80,60) rotate(45)"><rect x="-38" y="-38" width="76" height="76" fill="#FFD233"/></g></svg></div><h4>La lentille</h4><p>Le losange Signal du croisement. Un seul par support, posé sur un chiffre clé, un repère de carte, un point d'attention.</p></div>
-    <div><div class="vis"><svg viewBox="0 0 160 120" width="160" height="120" aria-hidden="true"><rect width="160" height="120" fill="#F6F5F0"/><g transform="rotate(-4 80 60)">__LINES_T__</g><g transform="rotate(4 80 60)" opacity=".85">__LINES_R__</g></svg></div><h4>Les champs</h4><p>Deux champs de lignes, turquoise et rose, à 8° l'un de l'autre. En fond de couverture, en bandeau de site, en masque sur une photo. Jamais sous du texte courant.</p></div>
-    <div><div class="vis"><svg viewBox="0 0 160 120" width="160" height="120" aria-hidden="true"><rect width="160" height="120" fill="#F6F5F0"/><path d="M40 30 h80 v22 h-80z" fill="#0B2239"/><path d="M34 22 h80 v22 h-80z" fill="#19B3D9"/><path d="M40 72 h80 v22 h-80z" fill="#0B2239"/><path d="M34 64 h80 v22 h-80z" fill="#FF4F8B"/></svg></div><h4>Le chant</h4><p>L'extrusion à 70°, en Encre. Elle donne du relief à un bloc, un bouton principal, une carte de visite. Une seule épaisseur : 0,30 de la hauteur de l'élément.</p></div>
+    <div><div class="vis"><svg viewBox="0 0 160 120" width="160" height="120" aria-hidden="true"><rect width="160" height="120" fill="#F6F5F0"/><g transform="translate(80,60) rotate(45)"><rect x="-38" y="-38" width="76" height="76" fill="#FFD233"/></g></svg></div><h3>La lentille</h3><p>Le losange Signal du croisement. Un seul par support, posé sur un chiffre clé, un repère de carte, un point d'attention.</p></div>
+    <div><div class="vis"><svg viewBox="0 0 160 120" width="160" height="120" aria-hidden="true"><rect width="160" height="120" fill="#F6F5F0"/><g transform="rotate(-4 80 60)">__LINES_T__</g><g transform="rotate(4 80 60)" opacity=".85">__LINES_R__</g></svg></div><h3>Les champs</h3><p>Deux champs de lignes, turquoise et rose, à 8° l'un de l'autre. En fond de couverture, en bandeau de site, en masque sur une photo. Jamais sous du texte courant.</p></div>
+    <div><div class="vis"><svg viewBox="0 0 160 120" width="160" height="120" aria-hidden="true"><rect width="160" height="120" fill="#F6F5F0"/><path d="M40 30 h80 v22 h-80z" fill="#0B2239"/><path d="M34 22 h80 v22 h-80z" fill="#19B3D9"/><path d="M40 72 h80 v22 h-80z" fill="#0B2239"/><path d="M34 64 h80 v22 h-80z" fill="#FF4F8B"/></svg></div><h3>Le chant</h3><p>L'extrusion à 70°, en Encre. Elle donne du relief à un bloc, un bouton principal, une carte de visite. Une seule épaisseur : 0,30 de la hauteur de l'élément.</p></div>
   </div>
 
   <h3>Mise en page</h3>
@@ -424,13 +424,13 @@ page = r'''<!doctype html>
   <header><span class="n">09</span><h2>Téléchargements</h2>
   <p class="lede">Tout est ici, en vectoriel et en raster, prêt à l'emploi. Les archives regroupent chaque famille de fichiers ; le kit complet contient tout.</p></header>
   <div class="packs">
-    <div class="pack main"><div><h4>Kit complet</h4><p>Logos, favicons, réseaux, Office, signature, animation, polices, tokens.</p></div><a class="btn" href="downloads/clixite-kit-complet.zip" download>Télécharger, __KIT_SIZE__</a></div>
-    <div class="pack"><h4>Logos</h4><p>Mot-marque et symbole, trois peaux, couleur, inversé, monochrome ; SVG et PNG jusqu'à 3200 px.</p><span class="size">__LOGOS_SIZE__</span><a class="btn secondary" href="downloads/clixite-logos.zip" download>clixite-logos.zip</a></div>
-    <div class="pack"><h4>Favicons et icônes d'app</h4><p>favicon.ico, SVG, PNG de 16 à 512 px, icône d'app, site.webmanifest.</p><span class="size">__FAV_SIZE__</span><a class="btn secondary" href="downloads/clixite-favicons.zip" download>clixite-favicons.zip</a></div>
-    <div class="pack"><h4>Réseaux et visio</h4><p>Avatar, bannière LinkedIn, image Open Graph, fonds de visio, gabarit de publication.</p><span class="size">__RES_SIZE__</span><a class="btn secondary" href="downloads/clixite-reseaux.zip" download>clixite-reseaux.zip</a></div>
-    <div class="pack"><h4>Modèles Office</h4><p>Présentation PowerPoint (9 mises en page), papier à lettre, modèle d'offre, tableau de suivi Excel.</p><span class="size">__OFF_SIZE__</span><a class="btn secondary" href="downloads/clixite-office.zip" download>clixite-office.zip</a></div>
-    <div class="pack"><h4>Polices</h4><p>Space Grotesk, Inter, Fraunces en TTF pour Office, avec leurs licences OFL.</p><span class="size">__FONTS_SIZE__</span><a class="btn secondary" href="downloads/fonts/clixite-polices.zip" download>clixite-polices.zip</a></div>
-    <div class="pack"><h4>Animation</h4><p>Ouverture en HTML autonome, MP4 1080p, GIF 800 px et image d'affiche.</p><span class="size">__ANIM_SIZE__</span><a class="btn secondary" href="downloads/clixite-animation.zip" download>clixite-animation.zip</a></div>
+    <div class="pack main"><div><h3>Kit complet</h3><p>Logos, favicons, réseaux, Office, signature, animation, polices, tokens.</p></div><a class="btn" href="downloads/clixite-kit-complet.zip" download>Télécharger, __KIT_SIZE__</a></div>
+    <div class="pack"><h3>Logos</h3><p>Mot-marque et symbole, trois peaux, couleur, inversé, monochrome ; SVG et PNG jusqu'à 3200 px.</p><span class="size">__LOGOS_SIZE__</span><a class="btn secondary" href="downloads/clixite-logos.zip" download>clixite-logos.zip</a></div>
+    <div class="pack"><h3>Favicons et icônes d'app</h3><p>favicon.ico, SVG, PNG de 16 à 512 px, icône d'app, site.webmanifest.</p><span class="size">__FAV_SIZE__</span><a class="btn secondary" href="downloads/clixite-favicons.zip" download>clixite-favicons.zip</a></div>
+    <div class="pack"><h3>Réseaux et visio</h3><p>Avatar, bannière LinkedIn, image Open Graph, fonds de visio, gabarit de publication.</p><span class="size">__RES_SIZE__</span><a class="btn secondary" href="downloads/clixite-reseaux.zip" download>clixite-reseaux.zip</a></div>
+    <div class="pack"><h3>Modèles Office</h3><p>Présentation PowerPoint (9 mises en page), papier à lettre, modèle d'offre, tableau de suivi Excel.</p><span class="size">__OFF_SIZE__</span><a class="btn secondary" href="downloads/clixite-office.zip" download>clixite-office.zip</a></div>
+    <div class="pack"><h3>Polices</h3><p>Space Grotesk, Inter, Fraunces en TTF pour Office, avec leurs licences OFL.</p><span class="size">__FONTS_SIZE__</span><a class="btn secondary" href="downloads/fonts/clixite-polices.zip" download>clixite-polices.zip</a></div>
+    <div class="pack"><h3>Animation</h3><p>Ouverture en HTML autonome, MP4 1080p, GIF 800 px et image d'affiche.</p><span class="size">__ANIM_SIZE__</span><a class="btn secondary" href="downloads/clixite-animation.zip" download>clixite-animation.zip</a></div>
   </div>
   <details class="more"><summary>Fichiers du logo, un par un</summary>
   <table class="files"><thead><tr><th>Fichier</th><th>Usage</th><th>PNG</th><th style="text-align:right">SVG</th></tr></thead><tbody>__FILES_LOGO__</tbody></table>

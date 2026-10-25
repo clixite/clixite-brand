@@ -1,0 +1,55 @@
+# Zone DNS clixite.be chez OVH, pilotée depuis GitHub (lancement manuel, ou par Claude via l'API GitHub).
+# Prérequis : les secrets OVH_APP_KEY, OVH_APP_SECRET, OVH_CONSUMER_KEY d'une clé API OVH limitée à
+#   GET/POST/PUT/DELETE /domain/zone/clixite.be/*
+# Sans ces secrets, le workflow s'arrête proprement.
+name: DNS OVH clixite.be
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "list, upsert ou delete"
+        required: true
+        default: "list"
+        type: choice
+        options: [list, upsert, delete]
+      subdomain:
+        description: "Sous-domaine (ex. charte)"
+        required: false
+        default: ""
+      type:
+        description: "Type d'enregistrement (A, CNAME, TXT, MX)"
+        required: false
+        default: "A"
+      target:
+        description: "Cible (IP, nom avec point final, texte)"
+        required: false
+        default: ""
+
+jobs:
+  dns:
+    runs-on: ubuntu-latest
+    env:
+      OVH_APP_KEY: ${{ secrets.OVH_APP_KEY }}
+      OVH_APP_SECRET: ${{ secrets.OVH_APP_SECRET }}
+      OVH_CONSUMER_KEY: ${{ secrets.OVH_CONSUMER_KEY }}
+      OVH_ZONE: clixite.be
+    steps:
+      - uses: actions/checkout@v4
+      - name: Vérifier les secrets
+        run: |
+          if [ -z "$OVH_APP_KEY" ]; then echo "Secrets OVH absents : rien à faire."; exit 0; fi
+      - uses: actions/setup-python@v5
+        if: env.OVH_APP_KEY != ''
+        with: { python-version: "3.12" }
+      - name: Installer le client OVH
+        if: env.OVH_APP_KEY != ''
+        run: pip install ovh
+      - name: Exécuter
+        if: env.OVH_APP_KEY != ''
+        run: |
+          case "${{ inputs.action }}" in
+            list)   python3 scripts/ovh_dns.py list ;;
+            upsert) python3 scripts/ovh_dns.py upsert "${{ inputs.subdomain }}" "${{ inputs.type }}" "${{ inputs.target }}" ;;
+            delete) python3 scripts/ovh_dns.py delete "${{ inputs.subdomain }}" "${{ inputs.type }}" ;;
+          esac
