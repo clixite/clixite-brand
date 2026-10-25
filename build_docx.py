@@ -40,6 +40,23 @@ def base_document():
     t.element.rPr.rFonts.set(qn("w:ascii"), "Space Grotesk"); t.element.rPr.rFonts.set(qn("w:hAnsi"), "Space Grotesk")
     pPr = t.element.get_or_add_pPr()
     for bd in pPr.findall(qn("w:pBdr")): pPr.remove(bd)
+    # styles nommés propres à la charte
+    from docx.enum.style import WD_STYLE_TYPE
+    if "Étiquette Clixite" not in [x.name for x in st]:
+        e = st.add_style("Étiquette Clixite", WD_STYLE_TYPE.PARAGRAPH); e.base_style = st["Normal"]
+        e.font.name = "JetBrains Mono"; e.font.size = Pt(8); e.font.bold = True; e.font.color.rgb = TURQ_T; e.font.all_caps = True
+        e.element.rPr.rFonts.set(qn("w:ascii"), "JetBrains Mono"); e.element.rPr.rFonts.set(qn("w:hAnsi"), "JetBrains Mono")
+        e.paragraph_format.space_after = Pt(2); e.paragraph_format.space_before = Pt(12)
+    if "Citation Clixite" not in [x.name for x in st]:
+        q = st.add_style("Citation Clixite", WD_STYLE_TYPE.PARAGRAPH); q.base_style = st["Normal"]
+        q.font.name = "Fraunces"; q.font.size = Pt(15); q.font.italic = True; q.font.color.rgb = INK
+        q.element.rPr.rFonts.set(qn("w:ascii"), "Fraunces"); q.element.rPr.rFonts.set(qn("w:hAnsi"), "Fraunces")
+        q.paragraph_format.space_before = Pt(12); q.paragraph_format.space_after = Pt(12); q.paragraph_format.left_indent = Cm(0.8)
+    if "Chiffre Clixite" not in [x.name for x in st]:
+        c = st.add_style("Chiffre Clixite", WD_STYLE_TYPE.PARAGRAPH); c.base_style = st["Normal"]
+        c.font.name = "Space Grotesk"; c.font.size = Pt(28); c.font.bold = True; c.font.color.rgb = INK
+        c.element.rPr.rFonts.set(qn("w:ascii"), "Space Grotesk"); c.element.rPr.rFonts.set(qn("w:hAnsi"), "Space Grotesk")
+        c.paragraph_format.space_after = Pt(0)
     # header: logo left, descriptor right
     header = sec.header; hp = header.paragraphs[0]; hp.alignment = WD_ALIGN_PARAGRAPH.LEFT
     hp.add_run().add_picture(os.path.join(L, "clixite-relief-color-transparent-1600px.png"), width=Cm(4.2))
@@ -50,8 +67,7 @@ def base_document():
     return doc
 
 def add_label(doc, text):
-    p = doc.add_paragraph(); r = p.add_run(text.upper()); r.font.name = "JetBrains Mono"; r.font.size = Pt(8); r.font.color.rgb = TURQ_T; r.font.bold = True
-    p.paragraph_format.space_after = Pt(2)
+    p = doc.add_paragraph(text, style="Étiquette Clixite")
     return p
 
 # ---------------------------------------------------------------- letter
@@ -88,6 +104,7 @@ doc.add_paragraph().add_run().add_break(WD_BREAK.PAGE)
 
 doc.add_heading("1. Contexte et enjeu", level=1)
 doc.add_paragraph("[Trois à cinq phrases : la situation du client, le x à résoudre, ce qui se passe si rien ne change. Chiffres et faits.]")
+doc.add_paragraph("« [Une phrase du client, telle qu'il l'a dite, qui résume l'enjeu.] »", style="Citation Clixite")
 doc.add_heading("Ce que nous avons compris", level=2)
 for b in ["[Enjeu 1, formulé du point de vue du client]", "[Enjeu 2]", "[Enjeu 3]"]:
     doc.add_paragraph(b, style="List Bullet")

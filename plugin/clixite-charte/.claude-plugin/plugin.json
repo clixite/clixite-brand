@@ -1,0 +1,21 @@
+{
+  "name": "clixite-charte",
+  "version": "1.0.0",
+  "description": "Charte graphique Clixite : appliquer le design (documents, présentations, pages, posts, visuels), rédiger dans la voix de la marque et vérifier la conformité avant de livrer.",
+  "author": {
+    "name": "Nicolas Simon, Clixite SRL"
+  },
+  "homepage": "https://charte.clixite.be/",
+  "license": "Propriétaire Clixite SRL. Polices sous licence SIL OFL.",
+  "keywords": [
+    "clixite",
+    "charte-graphique",
+    "brand",
+    "powerpoint",
+    "word",
+    "excel",
+    "linkedin",
+    "verification",
+    "architecture"
+  ]
+}

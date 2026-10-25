@@ -1,0 +1,52 @@
+/* Clixite, jetons de design, version 1.0 (octobre 2026). Source : https://charte.clixite.be/ */
+:root {
+  /* Socle */
+  --clx-encre: #0B2239;
+  --clx-papier: #F6F5F0;
+  --clx-blanc: #FFFFFF;
+  /* Signature */
+  --clx-turquoise: #19B3D9;
+  --clx-turquoise-texte: #0C7893;
+  --clx-turquoise-doux: #D6F1F8;
+  --clx-rose: #FF4F8B;
+  --clx-rose-texte: #D81B60;
+  --clx-signal: #FFD233;
+  --clx-indigo: #193776;
+  /* Neutres teintés */
+  --clx-ardoise: #4B5A6B;
+  --clx-brume: #CDD5DD;
+  --clx-encre-teintee: #1F3A5A;
+  --clx-surface-sombre: #122D4A;
+  /* Rôles, thème Papier */
+  --clx-fond: var(--clx-papier);
+  --clx-surface: var(--clx-blanc);
+  --clx-texte: var(--clx-encre);
+  --clx-texte-2: var(--clx-ardoise);
+  --clx-filet: var(--clx-brume);
+  --clx-accent: var(--clx-turquoise-texte);
+  --clx-accent-fond: var(--clx-turquoise);
+  --clx-selection: var(--clx-turquoise-doux);
+  /* Polices */
+  --clx-font-display: 'Space Grotesk', system-ui, sans-serif;
+  --clx-font-sans: 'Inter', system-ui, sans-serif;
+  --clx-font-editorial: 'Fraunces', Georgia, serif;
+  --clx-font-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  /* Échelle (px) */
+  --clx-display-1: 56px; --clx-h1: 40px; --clx-h2: 28px; --clx-h3: 20px; --clx-quote: 26px;
+  --clx-body: 16px; --clx-small: 13px; --clx-label: 12px; --clx-data: 14px;
+  /* Espace, rayons, mouvement */
+  --clx-space-1: 8px; --clx-space-2: 16px; --clx-space-3: 24px; --clx-space-4: 32px; --clx-space-6: 48px; --clx-space-8: 64px; --clx-space-11: 88px;
+  --clx-radius-sm: 6px; --clx-radius-md: 10px; --clx-radius-pill: 999px;
+  --clx-ease: cubic-bezier(.2, .8, .2, 1);
+  --clx-duree-element: 450ms; --clx-duree-bloc: 600ms; --clx-duree-pression: 160ms;
+}
+[data-theme="encre"], .clx-encre {
+  --clx-fond: var(--clx-encre);
+  --clx-surface: var(--clx-surface-sombre);
+  --clx-texte: var(--clx-papier);
+  --clx-texte-2: var(--clx-brume);
+  --clx-filet: var(--clx-encre-teintee);
+  --clx-accent: var(--clx-turquoise);
+  --clx-accent-fond: var(--clx-turquoise);
+  --clx-selection: var(--clx-encre-teintee);
+}

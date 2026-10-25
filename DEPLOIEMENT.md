@@ -5,7 +5,7 @@ Le site est statique : un dossier `charte/` à copier tel quel dans le dossier w
 ## 0. Créer le sous-domaine (une fois)
 
 1. hPanel, Sites web, clixite.be, Domaines, Sous-domaines : créer `charte`. Hostinger propose un dossier ; garder la valeur par défaut (`public_html/charte` ou `domains/charte.clixite.be/public_html` selon le plan) et la noter : c'est le **dossier cible**.
-2. DNS : si la zone de clixite.be est gérée par Hostinger (les serveurs de noms du domaine pointent vers Hostinger), l'enregistrement `charte` est ajouté tout seul. Si la zone est restée chez OVH (serveurs de noms OVH, enregistrement A vers l'IP Hostinger), ajouter chez OVH un enregistrement **A `charte` vers la même IP que `clixite.be`** (ou un CNAME `charte` vers `clixite.be`). Propagation : quelques minutes à quelques heures.
+2. DNS : les serveurs de noms de clixite.be sont ceux de **Microsoft 365** (`ns1.bdm.microsoftonline.com` à `ns4`), constaté le 25 octobre 2026. La zone active se gère donc dans le centre d'administration Microsoft 365 (https://admin.microsoft.com/#/Domains, clixite.be, Enregistrements DNS) : ajouter un enregistrement **A, nom d'hôte `charte`, adresse 76.13.46.55** (l'IP de www.clixite.be chez Hostinger), TTL 1 heure. La zone OVH du domaine existe toujours (le workflow DNS de ce dépôt la gère) mais elle n'est pas servie tant que les serveurs de noms restent chez Microsoft. Propagation : quelques minutes à une heure.
 3. SSL : hPanel, Sécurité, SSL, installer le certificat gratuit sur charte.clixite.be, puis forcer HTTPS.
 
 ## 1. À la main (gestionnaire de fichiers)
@@ -43,4 +43,4 @@ Les identifiants restent dans les secrets GitHub : ni dans le dépôt, ni dans l
 
 ## OVH
 
-Un accès OVH n'est nécessaire que si la zone DNS de clixite.be est restée chez OVH (étape 0.2). Dans ce cas, plutôt qu'un accès au compte, créer une clé API OVH limitée (https://www.ovh.com/auth/api/createToken) avec les droits `GET/POST/PUT/DELETE /domain/zone/clixite.be/*` uniquement, et la stocker en secret GitHub (`OVH_APP_KEY`, `OVH_APP_SECRET`, `OVH_CONSUMER_KEY`) : un petit workflow peut alors gérer les enregistrements sans jamais voir le mot de passe du compte.
+La zone OVH n'est utile que si les serveurs de noms de clixite.be reviennent un jour chez OVH (étape 0.2) ; dans ce cas le workflow `DNS OVH clixite.be` du dépôt gère les enregistrements. Dans ce cas, plutôt qu'un accès au compte, créer une clé API OVH limitée (https://www.ovh.com/auth/api/createToken) avec les droits `GET/POST/PUT/DELETE /domain/zone/clixite.be/*` uniquement, et la stocker en secret GitHub (`OVH_APP_KEY`, `OVH_APP_SECRET`, `OVH_CONSUMER_KEY`) : un petit workflow peut alors gérer les enregistrements sans jamais voir le mot de passe du compte.

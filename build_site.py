@@ -433,6 +433,7 @@ page = r'''<!doctype html>
     <div class="pack"><h3>Modèles Office</h3><p>Présentation PowerPoint (9 mises en page), papier à lettre, modèle d'offre, tableau de suivi Excel.</p><span class="size">__OFF_SIZE__</span><a class="btn secondary" href="downloads/clixite-office.zip" download>clixite-office.zip</a></div>
     <div class="pack"><h3>Polices</h3><p>Space Grotesk, Inter, Fraunces en TTF pour Office, avec leurs licences OFL.</p><span class="size">__FONTS_SIZE__</span><a class="btn secondary" href="downloads/fonts/clixite-polices.zip" download>clixite-polices.zip</a></div>
     <div class="pack"><h3>Animation</h3><p>Ouverture en HTML autonome, MP4 1080p, GIF 800 px et image d'affiche.</p><span class="size">__ANIM_SIZE__</span><a class="btn secondary" href="downloads/clixite-animation.zip" download>clixite-animation.zip</a></div>
+    <div class="pack"><h3>Plugin Claude</h3><p>Trois compétences pour Claude : appliquer la charte (modèles Office, kit HTML, logos), rédiger dans la voix Clixite, vérifier un contenu avec un score. Ouvrir le fichier dans une conversation Claude et accepter.</p><span class="size">__PLUGIN_SIZE__</span><a class="btn secondary" href="downloads/clixite-charte.plugin" download>clixite-charte.plugin</a></div>
   </div>
   <details class="more"><summary>Fichiers du logo, un par un</summary>
   <table class="files"><thead><tr><th>Fichier</th><th>Usage</th><th>PNG</th><th style="text-align:right">SVG</th></tr></thead><tbody>__FILES_LOGO__</tbody></table>
@@ -443,7 +444,7 @@ page = r'''<!doctype html>
 <!-- ===================================================== 10 KIT DEV -->
 <section class="chapter" id="kit">
   <header><h2><span class="n">10</span>Kit développeur</h2>
-  <p class="lede">Pour un site, une application ou un produit « by Clixite » : les variables, les polices et les balises à copier.</p></header>
+  <p class="lede">Pour un site, une application ou un produit « by Clixite » : les variables, les polices et les balises à copier. Pour Claude et les autres agents : le plugin et le DESIGN.md.</p></header>
   <h3>Variables CSS</h3>
   <div class="codeblock"><pre><code>__CSS_VARS__</code></pre><button class="btn secondary copy" type="button">Copier</button></div>
   <p><a href="downloads/clixite-variables.css" download>clixite-variables.css</a> et <a href="downloads/clixite-tokens.json" download>clixite-tokens.json</a> (thèmes clair et sombre, styles de texte, espacements, rayons).</p>
@@ -458,6 +459,8 @@ page = r'''<!doctype html>
 &lt;link rel="manifest" href="/site.webmanifest"&gt;
 &lt;meta name="theme-color" content="#0B2239"&gt;
 &lt;meta property="og:image" content="https://clixite.be/og-image-1200x630.png"&gt;</code></pre><button class="btn secondary copy" type="button">Copier</button></div>
+  <h3>Agents IA</h3>
+  <p>Le plugin <a href="downloads/clixite-charte.plugin" download>clixite-charte.plugin</a> donne à Claude trois compétences : appliquer la charte (modèles PowerPoint, Word et Excel à styles nommés, kit CSS, logos), rédiger dans la voix Clixite et vérifier un contenu. Le fichier <a href="https://github.com/clixite/clixite-brand/blob/main/DESIGN.md">DESIGN.md</a> du dépôt décrit le système (jetons en en-tête, règles, à faire et à ne pas faire) pour n'importe quel agent.</p>
   <h3>Le X en code</h3>
   <p>Le logo est généré par un script (Python, fontTools et shapely) : chaque fichier de cette charte sort du même générateur, ce qui garantit que le X est identique partout, au pixel. Le dépôt <code>clixite/clixite-brand</code> sur GitHub contient les sources, ce site et les modèles.</p>
   <dl class="kv">
@@ -509,7 +512,7 @@ reps = {
     "__CSS_VARS__": html.escape(tokens_css.strip()), "__LINES_T__": lines_t, "__LINES_R__": lines_r,
     "__KIT_SIZE__": size("downloads/clixite-kit-complet.zip"), "__LOGOS_SIZE__": size("downloads/clixite-logos.zip"), "__FAV_SIZE__": size("downloads/clixite-favicons.zip"),
     "__RES_SIZE__": size("downloads/clixite-reseaux.zip"), "__OFF_SIZE__": size("downloads/clixite-office.zip"), "__FONTS_SIZE__": size("downloads/fonts/clixite-polices.zip"),
-    "__ANIM_SIZE__": size("downloads/clixite-animation.zip"),
+    "__ANIM_SIZE__": size("downloads/clixite-animation.zip"), "__PLUGIN_SIZE__": size("downloads/clixite-charte.plugin"),
 }
 for k, v in reps.items(): page = page.replace(k, v)
 assert "__" not in re.sub(r'__(?!\w+__)', '', page) or True
