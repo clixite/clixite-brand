@@ -20,6 +20,7 @@ a{color:var(--turquoise-texte);text-decoration-thickness:1px;text-underline-offs
 @media (hover:hover) and (pointer:fine){a:hover{color:var(--encre)}}
 :focus-visible{outline:2px solid var(--turquoise);outline-offset:3px;border-radius:4px}
 img,svg,video{max-width:100%;height:auto;display:block}
+[hidden]{display:none!important}
 h1,h2,h3,h4{font-family:var(--display);line-height:1.1;margin:0;font-weight:600;letter-spacing:-0.01em;text-wrap:balance}
 h1{font-size:clamp(40px,6vw,76px);font-weight:700;letter-spacing:-0.02em}
 h2{font-size:clamp(30px,3.4vw,44px)}
@@ -52,7 +53,12 @@ hr{border:0;border-top:1px solid var(--brume);margin:40px 0}
 
 /* ----- héros ----- */
 .hero{background:var(--encre);color:var(--papier);padding:calc(var(--topbar) + 56px) var(--gutter) 72px;min-height:calc(100vh - 0px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
-.hero .living{width:clamp(240px,40vh,440px);margin:0 auto 44px;cursor:crosshair;touch-action:none}
+.hero .o3d-wrap{width:min(100%,1040px);margin:0 auto 20px;position:relative}
+.o3d{display:block;width:100%;aspect-ratio:3/1;touch-action:none}
+.hero .o3d{cursor:crosshair}
+.o3d-fallback{width:min(100%,720px);margin:0 auto}
+.linkbtn{background:none;border:0;padding:0;margin-left:10px;font:inherit;color:var(--turquoise);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.linkbtn:hover{color:var(--papier)}
 .hero h1{margin-bottom:14px}
 .hero .lede{color:var(--brume);margin:0 auto 24px;line-height:1.58;letter-spacing:.005em}
 .hero .hint{font-size:14px;color:var(--brume);opacity:.85}
@@ -275,8 +281,8 @@ figure.full .panel{padding:36px}
 .sigwrap{background:var(--blanc);border:1px solid var(--brume);border-radius:10px;padding:28px;margin:16px 0 20px;overflow:auto}
 
 /* ----- animation ----- */
-.anim-stage{background:var(--encre);border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/9;margin:20px 0 12px}
-.anim-stage iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:var(--encre)}
+.anim-stage{background:var(--encre);border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/9;margin:20px 0 12px;border:1px solid var(--brume)}
+.anim-stage .o3d{aspect-ratio:16/9;cursor:pointer}
 .anim-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:28px}
 .timeline{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:2px;margin:16px 0 32px;font-size:13px}
 .timeline div{background:var(--blanc);border:1px solid var(--brume);padding:12px 12px 14px}
