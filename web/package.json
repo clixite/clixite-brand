@@ -8,7 +8,7 @@
     "tokens": "node ../ds/build-tokens.mjs && cp ../ds/dist/tokens.css src/styles/tokens.css",
     "clients": "node scripts/build-clients.mjs",
     "x": "python3 scripts/gen_x.py",
-    "prebuild": "npm run tokens && npm run clients",
+    "prebuild": "npm run tokens",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",

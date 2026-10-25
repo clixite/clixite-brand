@@ -11,7 +11,7 @@ name: Déployer charte.clixite.be
 on:
   push:
     branches: [main]
-    paths: ["charte/**", "www/**", ".github/workflows/deploy.yml"]
+    paths: ["charte/**", "www/**", "web/**", "ds/**", ".github/workflows/deploy.yml"]
   workflow_dispatch:
 
 permissions:
@@ -36,9 +36,27 @@ jobs:
           SHA=$(git subtree split --prefix charte HEAD)
           git push --force origin "$SHA:refs/heads/site"
           echo "Branche site mise à jour : $SHA"
-          WWW=$(git subtree split --prefix www HEAD)
-          git push --force origin "$WWW:refs/heads/www"
-          echo "Branche www mise à jour : $WWW"
+      # www.clixite.be : depuis la refonte 2030, le site est construit avec Astro (web/) puis publié sur la branche www
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Construire www (Astro, contrôle de contraste des tokens inclus)
+        working-directory: web
+        run: |
+          npm ci
+          npm run build
+      - name: Publier web/dist sur la branche www
+        run: |
+          cd web/dist
+          git init -q -b www
+          git config user.name "clixite-brand bot"
+          git config user.email "noreply@clixite.be"
+          git add -A
+          git commit -q -m "www.clixite.be : build de $GITHUB_SHA"
+          git push --force "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" www:www
+          echo "Branche www mise à jour depuis $GITHUB_SHA"
 
   ftp:
     name: Envoyer charte/ par FTPS (si les secrets existent)
