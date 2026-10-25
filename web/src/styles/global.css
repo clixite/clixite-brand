@@ -78,6 +78,6 @@ a:hover { color: var(--clx-link-hover); }
 
 /* ---- Marqueur « à valider » : visible seulement en prévisualisation ---- */
 .av { }
-.review .av { background: var(--clx-warning-bg); box-shadow: 0 0 0 2px var(--clx-warning-bg); border-radius: 2px; }
+.review .av { background: var(--clx-warning-bg); outline: 2px solid var(--clx-warning-bg); border-radius: 2px; }
 .review .av::after { content: "à valider"; font: 500 0.6875rem/1 var(--clx-font-family-data); color: var(--clx-text-muted); margin-left: 0.4em; vertical-align: 0.15em; white-space: nowrap; }
-.review [data-theme="encre"] .av, .review .band-encre .av { background: var(--clx-color-encre-700); box-shadow: 0 0 0 2px var(--clx-color-encre-700); }
+.review [data-theme="encre"] .av, .review .band-encre .av { background: var(--clx-color-encre-700); outline: 2px solid var(--clx-color-encre-700); }

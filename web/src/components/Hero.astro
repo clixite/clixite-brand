@@ -33,8 +33,10 @@ const cdy = (D * Math.sin((70 * Math.PI) / 180)).toFixed(2);
   // Ouverture en CSS (14° vers 4°), puis respiration lente entre 4° et 6°, et le pointeur ouvre l'angle jusqu'à 8°, avec inertie.
   const host = document.querySelector<HTMLElement>("[data-hx]");
   const reduce = matchMedia("(prefers-reduced-motion: reduce)");
-  if (host && !reduce.matches) {
-    let angle = 4, target = 4, raf = 0, visible = true, pointer = 0, started = 0;
+  // Sur écran tactile, le X s'ouvre puis se pose : pas de boucle, la batterie et la fluidité passent avant.
+  const fine = matchMedia("(pointer: fine)").matches;
+  if (host && !reduce.matches && fine) {
+    let angle = 4, target = 4, raf = 0, visible = true, pointer = 0, started = 0, shown = 4;
     const t0 = performance.now() + 2400; // après l'ouverture
     const tick = (now: number) => {
       raf = 0;
@@ -44,13 +46,13 @@ const cdy = (D * Math.sin((70 * Math.PI) / 180)).toFixed(2);
       const breath = 5 - Math.cos(((now - started) / 7000) * Math.PI * 2); // 4° à 6°
       target = Math.min(8, breath + pointer * 2.5);
       angle += (target - angle) * 0.045;
-      host.style.setProperty("--hx-a", angle.toFixed(3));
+      if (Math.abs(angle - shown) > 0.02) { shown = angle; host.style.setProperty("--hx-a", angle.toFixed(3)); } // repeint seulement si l'angle bouge vraiment
       raf = requestAnimationFrame(tick);
     };
     const start = () => { if (!raf) raf = requestAnimationFrame(tick); };
     new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) start(); }, { threshold: 0.05 }).observe(host);
     document.addEventListener("visibilitychange", start);
-    if (matchMedia("(pointer: fine)").matches) {
+    {
       window.addEventListener("pointermove", (e) => {
         const r = host.getBoundingClientRect();
         const dx = (e.clientX - (r.left + r.width / 2)) / Math.max(r.width, 1);

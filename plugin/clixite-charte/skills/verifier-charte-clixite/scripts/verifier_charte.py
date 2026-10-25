@@ -16,7 +16,9 @@ Usage :
 import json, re, sys, zipfile, html as htmlmod
 
 PALETTE = set('''0b2239 f6f5f0 ffffff 19b3d9 0c7893 d6f1f8 ff4f8b d81b60 ffd233 193776 4b5a6b cdd5dd 1f3a5a 122d4a 3fc3e3 000000'''.split())
-POLICES_OK = re.compile(r'^(space grotesk|inter|fraunces|jetbrains mono|arial|calibri|georgia|system-ui|sans-serif|serif|monospace|ui-monospace|menlo|-apple-system|segoe ui|roboto|helvetica neue|helvetica|courier new|courier|symbol|wingdings|times new roman)$', re.I)
+# Design System 2.0 : teintes dérivées de la palette (fonds, survols, états), générées par ds/build-tokens.mjs
+PALETTE |= set('''071827 2a4a6e 095e73 8c99a8 edebe3 ffe3ec fff4cc'''.split())
+POLICES_OK = re.compile(r'^(space grotesk fallback|inter fallback|sfmono-regular|space grotesk|inter|fraunces|jetbrains mono|arial|calibri|georgia|system-ui|sans-serif|serif|monospace|ui-monospace|menlo|-apple-system|segoe ui|roboto|helvetica neue|helvetica|courier new|courier|symbol|wingdings|times new roman)$', re.I)
 SIGLES = set('''HTVA TVA WCAG RGPD GDPR DORA NIS2 EBA SRL SPRL BCE PMP PRINCE2 SAFE ITIL ADKAR CPO CTO CIO CEO KBC VOS SAAS API HTML JSON SVG PDF URL HTTPS MCP GEO SEO
 CMJN CMYK RVB RGB PNG MP4 GIF WEBM IA AI ERP CRM SAP ARIBA S2P P2P KPI SLA RFP RFI RFQ NDA ISO OFL UE EU BE ENTERPRISE SOLUTION ARCHITECTURE CLIXITE CLI ITE X'''.split())
 LEXIQUE = [
@@ -89,7 +91,7 @@ def controler(brut, nom, langue='fr', interne=False):
     add('bloquant', 'tiret-long', 'Tiret long ou demi-cadratin : remplacer par une virgule, un point ou deux points.', re.findall(r'[^\n]{0,30}[—–][^\n]{0,30}', prose))
     add('bloquant', 'double-tiret', 'Double tiret ou double souligné : interdits dans un texte Clixite.', re.findall(r'[^\n]{0,30}(?:--(?![a-zA-Z])|__)[^\n]{0,30}', prose))
     add('bloquant', 'emoji', 'Émoji : aucun dans un support de marque.', [m.group(0) for m in EMOJI.finditer(prose)])
-    add('bloquant', 'descripteur', 'Le descripteur reste en anglais : ENTERPRISE & SOLUTION ARCHITECTURE.', re.findall(r'[^\n]{0,20}(?:architecture d.entreprise (?:&|et) de solutions?|enterprise (?:&|and) solutions? architecte)[^\n]{0,20}', prose, re.I))
+    add('bloquant', 'descripteur', 'Le descripteur reste en anglais : ENTERPRISE & SOLUTION ARCHITECTURE.', re.findall(r'[^\n]{0,20}(?:ARCHITECTURE D.ENTREPRISE (?:&|ET) DE SOLUTIONS?|ENTERPRISE (?:&|AND) SOLUTIONS? ARCHITECTE)[^\n]{0,20}', prose))  # 2.0 : seul le descripteur en capitales est visé, le nom du métier en français reste permis
 
     # ---- à corriger
     for motif, conseil in LEXIQUE:
