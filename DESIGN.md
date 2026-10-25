@@ -60,7 +60,7 @@ motion:
   element: 450ms
   block: 600ms
   press: "160ms, transform scale(.97)"
-  opening: "3 s, une seule séquence orchestrée par page ou par vidéo"
+  opening: "3,5 s, une seule séquence orchestrée par page ou par vidéo (moteur WebGL charte/assets/ouverture3d.js)"
   reduced-motion: "le logo s'affiche directement au repos ; les fondus restent, les déplacements disparaissent"
 ---
 
@@ -124,9 +124,9 @@ Quatre familles, chacune avec un rôle et jamais en concurrence. Space Grotesk p
 
 ## 6. Mouvement
 
-Une seule courbe, `cubic-bezier(.2, .8, .2, 1)`, un fort ease-out. Rien ne rebondit, rien n'élastique. Durées : 450 ms pour un élément, 600 ms pour un bloc, 3 s pour l'ouverture complète ; les interactions courantes restent sous 300 ms. Une seule séquence orchestrée par page ou par vidéo ; pas d'apparition en fondu section par section, pas d'animation sur ce qui se répète. Le X ne tourne jamais sur lui-même : seul l'angle entre les champs change (8° au repos, respiration entre 6° et 10°, résolution vers 4° en fin d'ouverture). Animer uniquement `transform` et `opacity`. Interactions au curseur interpolées avec inertie, jamais liées directement à la position. `prefers-reduced-motion` : le logo s'affiche au repos, les fondus restent, les déplacements disparaissent.
+Une seule courbe, `cubic-bezier(.2, .8, .2, 1)`, un fort ease-out. Rien ne rebondit, rien n'élastique. Durées : 450 ms pour un élément, 600 ms pour un bloc, 3 s pour l'ouverture complète ; les interactions courantes restent sous 300 ms. Une seule séquence orchestrée par page ou par vidéo ; pas d'apparition en fondu section par section, pas d'animation sur ce qui se répète. Le X ne tourne jamais sur lui-même : seul l'angle entre les champs change (8° au repos, respiration entre 4° et 6° après l'ouverture, qui le résout de 14° vers 4°). À l'écran, le mot-marque entier en relief peut suivre le curseur de quelques degrés (7° au plus), jamais le X seul. Animer uniquement `transform` et `opacity`. Interactions au curseur interpolées avec inertie, jamais liées directement à la position. `prefers-reduced-motion` : le logo s'affiche au repos, les fondus restent, les déplacements disparaissent.
 
-L'ouverture de référence : `charte/animation/clixite-ouverture.html` (0 à 0,8 s les champs arrivent, 0,8 à 2 s l'angle se résout et la lentille s'allume, 2 à 2,6 s le chant tombe, 2,6 à 3 s les lettres se posent, puis le descripteur).
+L'ouverture de référence : `charte/animation/clixite-ouverture.html`, rendue en 3D depuis la géométrie exacte du logo (0 à 0,9 s les champs arrivent, 0,7 à 2 s l'angle se résout et la lentille s'allume, 2 à 2,6 s le chant tombe sous un balayage de lumière, 2,3 à 3,2 s recul de la caméra et les lettres se posent, 3,15 à 3,65 s le descripteur).
 
 ## 7. Voix
 

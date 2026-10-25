@@ -116,10 +116,10 @@ page = r'''<!doctype html>
 </header>
 
 <section class="hero" id="hero" role="region" aria-labelledby="titre">
-  <div class="living">__HERO_X__</div>
+  <div class="o3d-wrap"><canvas class="o3d" id="hero-3d" aria-label="Mot-marque Clixite en relief, animé"></canvas><img class="o3d-fallback" src="downloads/logo/clixite-relief-inverse-transparent.svg" alt="Clixite, Enterprise &amp; Solution Architecture" hidden></div>
   <h1 id="titre">Charte graphique</h1>
   <p class="lede">Clixite est le cabinet d'architecture de solutions de Nicolas Simon. Cette charte fixe la marque, ses règles et ses fichiers. Elle sert à tout le monde : Nicolas, ses partenaires, un imprimeur, un développeur.</p>
-  <p class="hint"><span class="mouse">Déplacez le curseur sur le X : </span><span class="touch">Glissez le doigt sur le X : </span><b>l'interférence se résout</b>.</p>
+  <p class="hint"><span class="mouse">Déplacez le curseur : </span><span class="touch">Glissez le doigt : </span><b>le relief suit</b>. <button type="button" class="linkbtn" id="hero-replay">Rejouer l'ouverture</button></p>
   <div class="scrolldown" aria-hidden="true"></div>
 </section>
 
@@ -373,27 +373,29 @@ page = r'''<!doctype html>
 <!-- ===================================================== 07 ANIMATION -->
 <section class="chapter" id="animation">
   <header><h2><span class="n">07</span>Animation</h2>
-  <p class="lede">L'ouverture dure trois secondes et raconte le logo : deux champs qui arrivent, un angle qui se résout, une lentille qui s'allume, un chant qui tombe, les lettres qui se posent. Puis le X respire.</p></header>
-  <div class="anim-stage"><iframe id="anim-frame" src="animation/clixite-ouverture.html" title="Animation d'ouverture Clixite" loading="lazy"></iframe></div>
+  <p class="lede">L'ouverture dure trois secondes et demie et raconte le logo, en relief réel : deux champs qui arrivent, un angle qui se résout, une lentille qui s'allume, un chant qui tombe sous une lumière qui le balaie, puis le recul qui révèle le mot. Elle est calculée en temps réel (WebGL) depuis la géométrie exacte du logo ; la vidéo en est rendue image par image.</p></header>
+  <div class="anim-stage" id="anim-stage"><canvas class="o3d" id="anim-3d" aria-label="Animation d'ouverture Clixite"></canvas></div>
   <div class="anim-actions">
     <button class="btn secondary" id="replay" type="button">Rejouer</button>
+    <button class="btn secondary" id="anim-theme" type="button">Voir sur Papier</button>
     <a class="btn secondary" href="animation/clixite-ouverture-1080p.mp4" download>MP4 1080p</a>
+    <a class="btn secondary" href="animation/clixite-ouverture-1080p.webm" download>WebM</a>
     <a class="btn secondary" href="animation/clixite-ouverture-800.gif" download>GIF 800 px</a>
     <a class="btn secondary" href="animation/clixite-ouverture.html" download>HTML autonome</a>
   </div>
   <div class="timeline">
     <div><b>0 à 0,8 s</b>Les deux champs glissent depuis les coins, à 14° l'un de l'autre.</div>
     <div><b>0,8 à 2 s</b>L'angle se résout de 14° vers 4°. La lentille s'allume à 1,2 s.</div>
-    <div><b>2 à 2,6 s</b>Le chant tombe : le X prend son relief.</div>
-    <div><b>2,6 à 3 s</b>CLI et ITE se posent de chaque côté, puis le descripteur.</div>
-    <div><b>Repos</b>L'angle respire entre 4° et 6° sur six secondes. Aucune autre boucle.</div>
+    <div><b>2 à 2,6 s</b>Le chant tombe : le X prend son relief, une lumière le balaie.</div>
+    <div><b>2,3 à 3,6 s</b>Recul de la caméra ; CLI et ITE se posent de chaque côté, puis le descripteur.</div>
+    <div><b>Repos</b>L'angle respire entre 4° et 6° sur six secondes ; le relief suit le curseur de quelques degrés.</div>
   </div>
   <h3>Règles de mouvement</h3>
   <ul class="rules">
     <li>Courbe unique : cubic-bezier(.2, .8, .2, 1). Rien ne rebondit, rien n'élastique.</li>
-    <li>Durées : 450 ms pour un élément, 600 ms pour un bloc, 3 s pour l'ouverture complète. Jamais plus.</li>
+    <li>Durées : 450 ms pour un élément, 600 ms pour un bloc, 3,5 s pour l'ouverture complète. Jamais plus.</li>
     <li>Une seule séquence orchestrée par page ou par vidéo. Pas d'apparition en fondu section par section.</li>
-    <li>Le X ne tourne jamais sur lui-même. Seul l'angle entre les champs change.</li>
+    <li>Le X ne tourne jamais sur lui-même : seul l'angle entre les champs change. À l'écran, le mot-marque entier peut suivre le curseur de quelques degrés (7° au plus), jamais le X seul.</li>
     <li>Respecter prefers-reduced-motion : le logo s'affiche alors directement, au repos.</li>
     <li>Fond Encre par défaut ; sur Papier, le chant devient Encre et les champs gardent leurs couleurs.</li>
   </ul>
@@ -491,6 +493,7 @@ page = r'''<!doctype html>
   </div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/ouverture3d.js" defer></script>
 <script src="assets/site.js" defer></script>
 </body>
 </html>
@@ -499,7 +502,7 @@ page = r'''<!doctype html>
 lines_t = "".join(f'<rect x="{x}" y="-60" width="3" height="240" fill="#19B3D9"/>' for x in range(-40, 220, 6))
 lines_r = "".join(f'<rect x="{x}" y="-60" width="3" height="240" fill="#FF4F8B"/>' for x in range(-37, 220, 6))
 reps = {
-    "__HERO_X__": hero_x, "__PLAY_X__": play_x, "__NAV_SIDE__": nav_side, "__NAV_MOBILE__": nav_mobile,
+    "__PLAY_X__": play_x, "__NAV_SIDE__": nav_side, "__NAV_MOBILE__": nav_mobile,
     "__LOGO_RELIEF__": inline_logo("clixite-relief-color-transparent"),
     "__SWATCHES_PRIMARY__": "".join(swatch(*s) for s in PRIMARY), "__SWATCHES_SECONDARY__": "".join(swatch(*s) for s in SECONDARY),
     "__CONTRAST__": contrast_rows(), "__FILES_LOGO__": file_rows("logo", FILES_LOGO), "__SIGNATURE__": signature_preview,

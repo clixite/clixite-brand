@@ -52,8 +52,41 @@
   };
   function ease(x) { return 1 - Math.pow(1 - x, 3); }
 
-  var hero = document.querySelector('#hero .living-x');
-  if (hero) new LivingX(hero, { host: document.getElementById('hero'), rest: 8 });
+  /* ---------- ouverture 3D (hero et chapitre Animation) ---------- */
+  function boot3d(scene) {
+    var heroC = document.getElementById('hero-3d'), animC = document.getElementById('anim-3d');
+    var heroO = null, animO = null;
+    try {
+      if (heroC) {
+        heroO = new ClixiteOuverture(heroC, scene, { theme: 'encre', host: document.getElementById('hero'), margin: 0.05 });
+        heroO.play();
+        var hr = document.getElementById('hero-replay'); if (hr) hr.addEventListener('click', function () { heroO.replay(); });
+      }
+    } catch (e) {
+      if (heroC) { heroC.hidden = true; var fb = document.querySelector('.o3d-fallback'); if (fb) fb.hidden = false; }
+    }
+    try {
+      if (animC) {
+        animO = new ClixiteOuverture(animC, scene, { theme: 'encre', margin: 0.1 });
+        animO.setTime(0); animO.render();
+        var seen = false, io = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting && !seen) { seen = true; animO.replay(); } }); }, { threshold: 0.4 });
+        io.observe(animC);
+        animC.addEventListener('click', function () { animO.replay(); });
+        var rb = document.getElementById('replay'); if (rb) rb.addEventListener('click', function () { animO.replay(); });
+        var tb = document.getElementById('anim-theme');
+        if (tb) tb.addEventListener('click', function () {
+          var dark = animO.theme === 'encre'; animO.theme = dark ? 'papier' : 'encre';
+          document.getElementById('anim-stage').style.background = dark ? '#F6F5F0' : '#0B2239';
+          tb.textContent = dark ? 'Voir sur Encre' : 'Voir sur Papier'; animO.replay();
+        });
+      }
+    } catch (e) { if (animC) animC.hidden = true; }
+  }
+  if (window.ClixiteOuverture && (document.getElementById('hero-3d') || document.getElementById('anim-3d'))) {
+    fetch('assets/scene.json').then(function (r) { return r.json(); }).then(boot3d).catch(function () {
+      var heroC = document.getElementById('hero-3d'); if (heroC) { heroC.hidden = true; var fb = document.querySelector('.o3d-fallback'); if (fb) fb.hidden = false; }
+    });
+  }
   var play = document.querySelector('.atelier .living-x');
   if (play) {
     var lx = new LivingX(play, { follow: false, rest: 8 });
@@ -91,7 +124,4 @@
     b.addEventListener('click', function () { copy(b.parentNode.querySelector('code').textContent, 'Code'); });
   });
 
-  /* ---------- animation : relire ---------- */
-  var replay = document.getElementById('replay'), frame = document.getElementById('anim-frame');
-  if (replay && frame) replay.addEventListener('click', function () { frame.src = frame.src; });
 })();
