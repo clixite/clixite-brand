@@ -100,7 +100,7 @@ main{min-width:0;padding-left:clamp(24px,4vw,64px)}
   .shell{display:block;padding:0 var(--gutter)}
   .sidenav{display:none}
   main{padding-left:0}
-  .mobilenav{display:block;position:sticky;top:var(--topbar);z-index:40;background:var(--papier);border-bottom:1px solid var(--brume);margin:0 calc(-1 * var(--gutter));padding:0 var(--gutter);overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+  .mobilenav{display:block;position:sticky;top:var(--topbar);z-index:40;background:var(--papier);border-bottom:1px solid var(--brume);margin:0;padding:0 var(--gutter);overflow-x:auto;white-space:nowrap;scrollbar-width:none}
   .mobilenav::-webkit-scrollbar{display:none}
   .mobilenav a{display:inline-block;padding:12px 10px;font-size:13px;color:var(--ardoise);text-decoration:none}
   .mobilenav a.active{color:var(--encre);box-shadow:inset 0 -2px 0 var(--turquoise)}
@@ -347,3 +347,7 @@ footer .right{font-family:var(--mono);font-size:12px;text-align:right}
 @media (max-width:640px){footer .right{text-align:left}}
 
 @media (prefers-reduced-motion:reduce){.btn,.swatch{transition:none}.btn:active,.swatch:active{transform:none}.toast{transition:opacity .2s ease-out;transform:translate(-50%,0)}}
+
+/* 2.0 : les champs du X vivant ne doivent pas élargir la page sur tablette */
+.atelier{overflow-x:clip}
+@media (max-width:900px){.scale td:last-child{white-space:normal;width:auto}.scale .s-display{font-size:44px}}
