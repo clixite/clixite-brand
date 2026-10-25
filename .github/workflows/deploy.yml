@@ -39,7 +39,8 @@ jobs:
       # www.clixite.be : depuis la refonte 2030, le site est construit avec Astro (web/) puis publié sur la branche www
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          # Astro 7 exige Node 22.23.4 ou plus récent : version figée, celle des tests locaux (web/.nvmrc)
+          node-version-file: web/.nvmrc
           cache: npm
           cache-dependency-path: web/package-lock.json
       - name: Construire www (Astro, contrôle de contraste des tokens inclus)
