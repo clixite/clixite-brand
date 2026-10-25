@@ -26,6 +26,9 @@ on:
         required: false
         default: ""
 
+permissions:
+  contents: write
+
 jobs:
   dns:
     runs-on: ubuntu-latest
