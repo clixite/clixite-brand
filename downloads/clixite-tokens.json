@@ -1,0 +1,75 @@
+{
+  "name": "Clixite",
+  "version": 2,
+  "color": {
+    "themes": [{"id": "light", "name": "Papier"}, {"id": "dark", "name": "Encre"}],
+    "tokens": [
+      {"name": "surface-000", "value": {"light": "#f6f5f0", "dark": "#0b2239"}, "usage": "Fond de page. Papier chaud en clair, Encre en sombre."},
+      {"name": "surface-100", "value": {"light": "#ffffff", "dark": "#122d4a"}, "usage": "Cartes, panneaux, blocs posés sur le fond."},
+      {"name": "surface-200", "value": {"light": "#e9edf1", "dark": "#1f3a5a"}, "usage": "Zones secondaires, en-têtes de tableau, champs désactivés."},
+      {"name": "ink", "value": {"light": "#0b2239", "dark": "#f6f5f0"}, "usage": "Texte principal et titres sur surface-000 et surface-100."},
+      {"name": "ink-muted", "value": {"light": "#4b5a6b", "dark": "#cdd5dd"}, "usage": "Texte secondaire, légendes, descripteurs. 6,5:1 sur Papier."},
+      {"name": "line", "value": {"light": "#cdd5dd", "dark": "#1f3a5a"}, "usage": "Filets, bordures de cartes, séparateurs. Jamais d'ombre portée."},
+      {"name": "turquoise", "value": {"light": "#19b3d9", "dark": "#19b3d9"}, "usage": "Couleur de marque : symbole, surfaces, boutons principaux (texte ink dessus), accents sur fond sombre. Pas de texte sur fond clair."},
+      {"name": "turquoise-text", "value": {"light": "#0c7893", "dark": "#19b3d9"}, "usage": "Le turquoise en texte et liens sur fond clair (4,7:1 sur Papier)."},
+      {"name": "turquoise-soft", "value": {"light": "#d6f0f7", "dark": "#123f52"}, "usage": "Teinte de relief : fond de badge, surlignage de ligne, zone active."},
+      {"name": "rose", "value": {"light": "#ff4f8b", "dark": "#ff4f8b"}, "usage": "Accent de signature : point du premier i, écosystème (produits, agence), data viz série 2."},
+      {"name": "rose-text", "value": {"light": "#d81b60", "dark": "#ff4f8b"}, "usage": "Le rose en texte sur fond clair (4,5:1 sur Papier)."},
+      {"name": "signal", "value": {"light": "#ffd233", "dark": "#ffd233"}, "usage": "Jaune signal : point du second i, surlignage, repère d'attention, intersection sur fond sombre. Ne porte jamais de texte."},
+      {"name": "indigo", "value": {"light": "#193776", "dark": "#193776"}, "usage": "Turquoise multiplié par rose : couleur des chevauchements en data viz et en motion."},
+      {"name": "success", "value": {"light": "#1f7a3f", "dark": "#5fcf84"}, "usage": "État conforme, validé. Toujours accompagné d'une icône ou d'un libellé."},
+      {"name": "danger", "value": {"light": "#b3261e", "dark": "#ff8a80"}, "usage": "État non conforme, erreur. Jamais seul face au vert : différence de luminosité et libellé."},
+      {"name": "focus", "value": "{turquoise}", "usage": "Anneau de focus 2 px, décalé de 2 px."}
+    ]
+  },
+  "type": {
+    "fonts": [],
+    "families": {
+      "display": "\"Space Grotesk\", \"Inter\", system-ui, sans-serif",
+      "sans": "\"Inter\", system-ui, -apple-system, \"Segoe UI\", sans-serif",
+      "editorial": "\"Fraunces\", Georgia, serif",
+      "mono": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+    },
+    "groups": [
+      {"name": "Display", "family": "display", "styles": [
+        {"name": "display-1", "fontSize": "56px", "lineHeight": "60px", "fontWeight": 600, "letterSpacing": "-0.02em", "sample": "L'architecte qui relie", "usage": "Titre de couverture, hero de site. Une phrase, deux lignes maximum."},
+        {"name": "h1", "fontSize": "40px", "lineHeight": "44px", "fontWeight": 600, "letterSpacing": "-0.01em", "sample": "Structurer ce qui est complexe", "usage": "Titre de page ou de slide."},
+        {"name": "h2", "fontSize": "28px", "lineHeight": "34px", "fontWeight": 600, "sample": "Conformité maîtrisée", "usage": "Titre de section."},
+        {"name": "h3", "fontSize": "20px", "lineHeight": "26px", "fontWeight": 500, "sample": "Trois décisions à prendre", "usage": "Sous-titre, titre de carte."}
+      ]},
+      {"name": "Texte", "family": "sans", "styles": [
+        {"name": "body", "fontSize": "16px", "lineHeight": "24px", "fontWeight": 400, "sample": "Des cadres clairs, des processus qui tiennent à l'audit.", "usage": "Texte courant des documents, mails et interfaces."},
+        {"name": "body-strong", "fontSize": "16px", "lineHeight": "24px", "fontWeight": 600, "sample": "Preuve : Procurement Policy v2.0 en production.", "usage": "Mise en évidence dans le texte courant. Jamais plus de 600."},
+        {"name": "small", "fontSize": "13px", "lineHeight": "18px", "fontWeight": 400, "sample": "Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre", "usage": "Notes, légendes, pied de page. En ink-muted."}
+      ]},
+      {"name": "Éditorial", "family": "editorial", "styles": [
+        {"name": "quote", "fontSize": "26px", "lineHeight": "32px", "fontWeight": 600, "fontStyle": "italic", "sample": "Nous résolvons votre x.", "usage": "Citation, chiffre clé, le x variable. Toujours en italique, jamais en pavé de texte."}
+      ]},
+      {"name": "Données", "family": "mono", "styles": [
+        {"name": "label", "fontSize": "12px", "lineHeight": "16px", "fontWeight": 500, "letterSpacing": "0.12em", "sample": "DORA · NIS2 · RGPD", "usage": "Étiquettes en capitales, références, numéros. Capitales appliquées en CSS (text-transform)."},
+        {"name": "data", "fontSize": "14px", "lineHeight": "20px", "fontWeight": 500, "sample": "BE0871430776", "usage": "Chiffres dans les tableaux, identifiants, extraits de code."}
+      ]}
+    ]
+  },
+  "spacing": {
+    "note": "Grille de 8 px. Les demi-pas (4, 12) servent à l'intérieur des composants, jamais entre blocs.",
+    "tokens": [
+      {"name": "space-1", "value": "4px", "usage": "Entre une icône et son libellé."},
+      {"name": "space-2", "value": "8px", "usage": "Entre éléments d'un même groupe (puces, badges)."},
+      {"name": "space-3", "value": "12px", "usage": "Padding vertical des boutons et champs."},
+      {"name": "space-4", "value": "16px", "usage": "Padding horizontal des boutons, gouttière de grille mobile."},
+      {"name": "space-6", "value": "24px", "usage": "Padding des cartes, écart entre cartes."},
+      {"name": "space-8", "value": "32px", "usage": "Entre sections d'une carte ou d'un formulaire."},
+      {"name": "space-12", "value": "48px", "usage": "Entre sections de page."},
+      {"name": "space-16", "value": "64px", "usage": "Marges de page sur grand écran, marges d'une slide."}
+    ]
+  },
+  "radius": {
+    "tokens": [
+      {"name": "radius-sm", "value": "6px", "usage": "Badges, champs, petites pastilles."},
+      {"name": "radius-md", "value": "8px", "usage": "Boutons, cartes, blocs de couleur."},
+      {"name": "radius-lg", "value": "10px", "usage": "Panneaux, grandes cartes, encarts de logo."},
+      {"name": "radius-pill", "value": "999px", "usage": "Tags, filtres, boutons pilule."}
+    ]
+  }
+}
