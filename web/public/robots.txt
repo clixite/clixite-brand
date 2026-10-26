@@ -3,3 +3,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.clixite.be/sitemap-index.xml
+
+# Résumé pour les assistants IA (llmstxt.org) : https://www.clixite.be/llms.txt
+# Texte complet en Markdown : https://www.clixite.be/llms-full.txt
