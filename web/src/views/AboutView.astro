@@ -21,7 +21,7 @@ const facts = [
   [F.vat, SITE.vat],
   [F.area, F.areaValue],
   [F.langs, F.langsValue],
-  [F.phones, SITE.phones.map((p) => `${common.countries[p.country]} ${p.display}`).join(" ; ")],
+  [F.phones, SITE.phones.map((p) => `${common.countries[p.country]} ${p.display}`).join(lang === "fr" ? "\u00a0; " : "; ")],
   [F.email, SITE.email],
   [F.frameworks, "PMP, PRINCE2, AgilePM, SAFe, Scrum, ITIL, ADKAR"],
 ];

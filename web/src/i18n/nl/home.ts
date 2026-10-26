@@ -27,9 +27,9 @@ const home: Home = {
     lead: "Clixite gaat aan de slag in uw teams om uw integraties, automatiseringen en AI-agents te ontwerpen, te bouwen en in productie te brengen, en draagt de oplossing daarna aan u over. In België en Luxemburg, in het Nederlands, Frans of Engels.",
     btn: "Forward Deployed Engineering in detail",
     items: [
-      { t: "In uw teams, niet ernaast.", d: "Ter plaatse of op afstand, in uw tools en op uw ritme. Beslissingen vallen waar het werk gebeurt." },
-      { t: "In productie, niet in PowerPoint.", d: "De opdracht wordt gemeten aan wat draait: een integratie, een geautomatiseerd proces, een AI-agent die op maandagochtend gebruikt wordt." },
-      { t: "Onder uw controle, daarna bij u.", d: "Uw omgevingen, uw beveiligingsregels, persoonsgebonden toegangsrechten. Op het einde blijven de code, de documentatie en de knowhow bij u." },
+      { t: "In uw teams, niet ernaast.", d: "Ter plaatse of op afstand, in uw tools en in uw tempo. Beslissingen vallen waar het werk gebeurt." },
+      { t: "In productie, niet in PowerPoint.", d: "De opdracht wordt afgemeten aan wat draait: een integratie, een geautomatiseerd proces, een AI-agent die op maandagochtend gebruikt wordt." },
+      { t: "Onder uw controle, daarna bij u.", d: "Uw omgevingen, uw beveiligingsregels, persoonsgebonden toegangsrechten. Aan het einde blijven de code, de documentatie en de knowhow bij u." },
     ],
   },
   geo: {
@@ -39,7 +39,7 @@ const home: Home = {
     items: [
       { t: "Meten", d: "De vragen die uw klanten stellen, getest op de belangrijkste assistenten: wie wordt vermeld, en met welke informatie." },
       { t: "Structureren", d: "Een coherente entiteit, pagina's die antwoorden geven en gestructureerde data die klopt: uw site wordt citeerbaar." },
-      { t: "Publiceren en opvolgen", d: "Bedrijfsfiches, profielen, open databanken, vermeldingen bij derden, en daarna regelmatige tests: de assistenten toetsen hun bronnen aan elkaar voor ze iemand vermelden." },
+      { t: "Publiceren en opvolgen", d: "Bedrijfsfiches, profielen, open databanken, vermeldingen bij derden, en daarna regelmatige tests: de assistenten toetsen hun bronnen aan elkaar voor ze een bedrijf vermelden." },
     ],
   },
   expertises: {
@@ -52,7 +52,7 @@ const home: Home = {
     steps: [
       { t: "Opmeten", d: "Uw systemen, stromen, contracten en risico's in kaart gebracht. We meten voor we tekenen.", out: "Diagnose" },
       { t: "Ontwerpen", d: "De doelarchitectuur en de weg ernaartoe, in becijferde opties. Wat we behouden, wat we vervangen, wat we stopzetten.", out: "Doelarchitectuur en roadmap" },
-      { t: "Bouwen", d: "Integraties, data, automatiseringen en AI, opgeleverd in korte incrementen die uw teams in reële omstandigheden testen.", out: "Incrementen in productie" },
+      { t: "Bouwen", d: "Integraties, data, automatiseringen en AI, opgeleverd in korte incrementen die uw teams in de praktijk testen.", out: "Incrementen in productie" },
       { t: "In gebruik nemen", d: "Uitrol, adoptie en overdracht. Wij vertrekken wanneer uw teams de oplossing zelfstandig draaiende houden.", out: "Oplossing in gebruik en gedocumenteerd" },
     ],
   },
