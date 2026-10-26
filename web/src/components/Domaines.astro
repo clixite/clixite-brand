@@ -1,0 +1,52 @@
+---
+// Domaines d'application : quatre entrées, chacune avec une phrase et la page qui la traite (aucune entrée sans lien).
+// Sur Papier 200 dans l'accueil ; sur Encre, sous la bande photo, dans le hub des expertises.
+import { DOMAINES } from "../data/expertises";
+interface Props { encre?: boolean; id?: string }
+const { encre = false, id = "domaines" } = Astro.props;
+---
+<section id={id} class:list={["section", "dom", !encre && "band-alt"]} data-theme={encre ? "encre" : undefined} aria-labelledby={`${id}-title`}>
+  <div class="wrap">
+    <div class="dom__head">
+      <h2 id={`${id}-title`} class="h2">Là où nos métiers s'appliquent.</h2>
+      <p class="lead">Les mêmes méthodes, sur les sujets qui pèsent le plus dans les entreprises régulées comme dans les PME.</p>
+    </div>
+    <ul role="list" class="dom__grid">
+      {DOMAINES.map((d) => (
+        <li class="dom__item">
+          <h3 class="dom__t">{d.t}</h3>
+          <p class="dom__sub small">{d.sub}</p>
+          <p class="dom__d">{d.d}</p>
+          <a class="dom__link" href={d.href}>{d.l}</a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .dom__head { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--clx-space-7); align-items: end; }
+  .dom__head .lead { max-width: 52ch; }
+  .dom__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--clx-space-6); margin-top: var(--clx-space-8); }
+  .dom__item { position: relative; display: flex; flex-direction: column; gap: var(--clx-space-3); padding-top: var(--clx-space-5); }
+  /* la cote turquoise des titres du film, au-dessus de chaque domaine */
+  .dom__item::before { content: ""; position: absolute; top: 0; left: 0; width: 44px; height: 4px; background: var(--clx-accent); }
+  .dom__t { font-family: var(--clx-font-family-display); font-weight: 500; font-size: 1.375rem; line-height: 1.2; letter-spacing: -0.01em; }
+  .dom__sub { color: var(--clx-text-muted); font-weight: 500; }
+  .dom__d { color: var(--clx-text-muted); max-width: 40ch; }
+  .dom__link { margin-top: auto; padding-top: var(--clx-space-3); align-self: flex-start; color: var(--clx-text); font-weight: 600; text-decoration: underline; text-decoration-color: var(--clx-accent); text-decoration-thickness: 2px; text-underline-offset: 5px; transition: text-underline-offset var(--clx-duration-quick) var(--clx-easing-out), color var(--clx-duration-quick) var(--clx-easing-out); }
+  .dom__link:hover { color: var(--clx-link); text-underline-offset: 7px; }
+  [data-theme="encre"] .dom__link:hover { color: var(--clx-text); }
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .dom__grid { view-timeline: --clx-dom block; }
+      .dom__item::before { transform-origin: 0 50%; animation: clx-cote linear both; animation-timeline: --clx-dom; animation-range: entry 30% cover 45%; }
+      .dom__item:nth-child(2)::before { animation-range: entry 40% cover 50%; }
+      .dom__item:nth-child(3)::before { animation-range: entry 50% cover 55%; }
+      .dom__item:nth-child(4)::before { animation-range: entry 60% cover 60%; }
+    }
+  }
+  @media (max-width: 1099px) { .dom__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--clx-space-7); } }
+  @media (max-width: 899px) { .dom__head { grid-template-columns: 1fr; gap: var(--clx-space-4); } }
+  @media (max-width: 599px) { .dom__grid { grid-template-columns: 1fr; gap: var(--clx-space-6); margin-top: var(--clx-space-7); } }
+</style>

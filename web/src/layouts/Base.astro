@@ -65,12 +65,35 @@ const graph = { "@context": "https://schema.org", "@graph": [org, website, page,
     <!-- transitions entre pages : sens du relevé (vers le haut quand on remonte dans l'arborescence) ; avant tout autre script -->
     <link rel="expect" href="#contenu" blocking="render" />
     <script is:inline>
-      addEventListener("pagereveal", (e) => {
-        const vt = e.viewTransition, a = window.navigation && navigation.activation;
-        if (!vt || !a || !a.from) return;
+      // Transitions entre pages : sens du relevé, et glissement du titre et de la photo du métier choisi.
+      // Les noms ne sont posés que pour la navigation en cours, sur les éléments visibles, un seul par nom.
+      (() => {
         const depth = (u) => new URL(u).pathname.split("/").filter(Boolean).length;
-        if (depth(a.entry.url) < depth(a.from.url)) vt.types.add("remonte");
-      });
+        const visible = (el) => { const r = el.getBoundingClientRect(); return r.height > 0 && r.bottom > 0 && r.top < innerHeight; };
+        const mark = (path) => {
+          const used = new Set();
+          document.querySelectorAll('[data-vt-href="' + path + '"]').forEach((el) => {
+            const n = el.dataset.vt;
+            if (used.has(n) || !visible(el)) return;
+            used.add(n); el.style.viewTransitionName = n; el.style.viewTransitionClass = el.dataset.vtClass || "";
+          });
+        };
+        const clear = () => document.querySelectorAll("[data-vt]").forEach((el) => { el.style.viewTransitionName = ""; el.style.viewTransitionClass = ""; });
+        addEventListener("pageswap", (e) => {
+          if (!e.viewTransition || !e.activation || !e.activation.entry) return;
+          mark(new URL(e.activation.entry.url).pathname);
+        });
+        addEventListener("pagereveal", (e) => {
+          const vt = e.viewTransition, a = window.navigation && navigation.activation;
+          if (!vt) return;
+          if (a && a.from && a.entry) {
+            if (depth(a.entry.url) < depth(a.from.url)) vt.types.add("remonte");
+            mark(new URL(a.from.url).pathname);
+          }
+          vt.finished.finally(clear);
+        });
+        addEventListener("pageshow", clear);
+      })();
     </script>
     <title>{title}</title>
     <meta name="description" content={description} />

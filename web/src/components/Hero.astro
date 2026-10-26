@@ -139,6 +139,14 @@ const STORY = [
     @keyframes line-in { from { opacity: 0; transform: translateY(14px); } }
   }
   @media (prefers-reduced-motion: reduce) { .hero__video { display: none; } .hero__chap { transition: none; } }
+  /* en quittant l'écran, le film descend plus lentement que la page et s'approche à peine : de la profondeur, sans effet */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .hero { view-timeline: --clx-hero block; }
+      .hero__media { animation: clx-hero-sortie linear both; animation-timeline: --clx-hero; animation-range: exit 0% exit 100%; }
+      @keyframes clx-hero-sortie { to { transform: translateY(22%) scale(1.06); } }
+    }
+  }
 
   /* écrans larges mais bas (portables 1280 × 720) : tout tient dans la hauteur */
   @media (min-width: 900px) and (max-height: 820px) {

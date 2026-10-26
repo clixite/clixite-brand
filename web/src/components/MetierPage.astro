@@ -28,7 +28,7 @@ const crumbs = [{ name: "Accueil", href: "/" }, ...(P.path.startsWith("/expertis
       </div>
       <p class="small muted"><time datetime="2026-10-26">Mis à jour le 26 octobre 2026</time></p>
     </div>
-    <div class="ph mp-head__ph"><Photo name={P.photo} eager sizes="(min-width: 900px) 40vw, 100vw" /></div>
+    <div class="ph mp-head__ph" style={`view-transition-name: ph-${P.slug}; view-transition-class: clx-morph clx-morph-ph`}><Photo name={P.photo} eager sizes="(min-width: 900px) 40vw, 100vw" /></div>
   </div>
 </section>
 

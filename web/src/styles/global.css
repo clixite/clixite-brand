@@ -40,6 +40,10 @@ a:hover { color: var(--clx-link-hover); }
 .wrap { width: min(100% - 2 * var(--clx-layout-gutter), var(--clx-layout-max)); margin-inline: auto; }
 .section { padding-block: var(--clx-layout-section); }
 .section--tight { padding-block: calc(var(--clx-layout-section) * 0.55); }
+/* rythme vertical : entre deux blocs au même fond, le vide vaut 1,25 section au lieu de 2 (mesuré page par page) */
+main > :is(section, div, article):not(.band-alt):not([data-theme]) + section.section:not(.band-alt):not([data-theme]),
+main > .band-alt + section.section.band-alt,
+main > [data-theme="encre"]:not(.band-photo) + section.section[data-theme="encre"] { padding-top: calc(var(--clx-layout-section) * 0.25); }
 .band-encre { background: var(--clx-bg); color: var(--clx-text); }
 .band-alt { background: var(--clx-bg-alt); }
 .h-display { font-size: var(--clx-type-h1-font-size); line-height: var(--clx-type-h1-line-height); letter-spacing: var(--clx-type-h1-letter-spacing); font-weight: 700; }
@@ -72,8 +76,8 @@ a:hover { color: var(--clx-link-hover); }
 @media (prefers-reduced-motion: reduce) { .btn:active { transform: none; } }
 
 /* ---- Lien d'action discret ---- */
-.link-more { font-weight: 600; text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); }
-.link-more:hover { text-decoration-color: currentColor; }
+.link-more { font-weight: 600; text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-underline-offset: 4px; transition: text-decoration-color var(--clx-duration-quick) var(--clx-easing-out), text-underline-offset var(--clx-duration-quick) var(--clx-easing-out); }
+.link-more:hover { text-decoration-color: var(--clx-accent); text-underline-offset: 6px; }
 
 /* ---- Panneau (charte : blanc, Brume 1 px, rayon 10, padding 24, sans ombre) ---- */
 .panel { background: var(--clx-surface); border: 1px solid var(--clx-border); border-radius: var(--clx-radius-panel); padding: var(--clx-space-5); }
@@ -87,20 +91,25 @@ a:hover { color: var(--clx-link-hover); }
 
 /* ---- Motion (DESIGN.md §6 et §9) : natif, sans librairie, toujours sous garde du mouvement réduit ---- */
 
-/* Transitions entre pages, natives (Chrome 126+, Safari 18.2+ ; ailleurs, navigation directe) :
-   « le relevé », la nouvelle page se déroule sur l'ancienne comme un plan qu'on déplie ; l'en-tête reste en place. */
+/* Transitions entre pages, natives (Chrome 126+, Safari 18.2+ ; ailleurs, navigation directe).
+   L'ancienne page s'efface vite, la nouvelle monte de 16 px en 520 ms ; l'en-tête reste en place ;
+   le titre et la photo du métier choisi glissent de la carte à la page (noms posés par Base.astro au clic). */
 @view-transition { navigation: auto; }
 .hd { view-transition-name: clx-hd; }
-::view-transition-group(clx-hd) { animation-duration: var(--clx-duration-quick); }
+::view-transition-group(clx-hd) { animation-duration: 0s; }
 @media (prefers-reduced-motion: no-preference) {
-  ::view-transition-old(root) { animation: none; }
-  ::view-transition-new(root) { animation: clx-releve var(--clx-duration-block) var(--clx-easing-out) both; }
-  html:active-view-transition-type(remonte)::view-transition-new(root) { animation-name: clx-releve-haut; }
+  ::view-transition-old(root) { animation: clx-vt-out 180ms var(--clx-easing-out) both; }
+  ::view-transition-new(root) { animation: clx-vt-in 520ms var(--clx-easing-out) 60ms both; }
+  html:active-view-transition-type(remonte)::view-transition-new(root) { animation-name: clx-vt-in-haut; }
+  ::view-transition-group(*.clx-morph) { animation-duration: 560ms; animation-timing-function: var(--clx-easing-out); }
   ::view-transition-group(clx-cur) { animation-duration: var(--clx-duration-element); animation-timing-function: var(--clx-easing-out); }
+  /* titres : mise à l'échelle par la hauteur, alignés à gauche, sans déformation */
+  /* photos : recadrage continu d'un format à l'autre */
+  ::view-transition-old(*.clx-morph-ph), ::view-transition-new(*.clx-morph-ph) { width: 100%; height: 100%; object-fit: cover; }
 }
-/* l'état final est écrit : clip-path n'interpole pas d'un inset() vers « none » */
-@keyframes clx-releve { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0); } }
-@keyframes clx-releve-haut { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0); } }
+@keyframes clx-vt-out { to { opacity: 0; } }
+@keyframes clx-vt-in { from { opacity: 0; transform: translateY(16px); } }
+@keyframes clx-vt-in-haut { from { opacity: 0; transform: translateY(-16px); } }
 
 /* Arrivée sur une ancre : la cote turquoise (44 × 4 px, celle des titres du film) se trace au-dessus du titre visé */
 section[id] :is(h1, h2):first-of-type { position: relative; }
@@ -119,7 +128,9 @@ section[id]:target :is(h1, h2):first-of-type::before { content: ""; position: ab
   @media (prefers-reduced-motion: no-preference) {
     .ph--parallax img { animation: clx-parallaxe linear both; animation-timeline: view(); animation-range: cover; }
     .ph[data-reveal]::after { content: ""; position: absolute; inset: 0; background: var(--clx-bg); transform-origin: 50% 0; animation: clx-volet var(--clx-easing-out) both; animation-timeline: view(); animation-range: entry 10% cover 40%; }
+    .ph[data-reveal] img { animation: clx-approche var(--clx-easing-out) both; animation-timeline: view(); animation-range: entry 10% cover 45%; }
   }
 }
 @keyframes clx-parallaxe { from { transform: translateY(-7.4%); } to { transform: translateY(0); } }
 @keyframes clx-volet { to { transform: scaleY(0); } }
+@keyframes clx-approche { from { transform: scale(1.08); } }

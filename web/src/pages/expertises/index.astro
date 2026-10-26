@@ -5,8 +5,9 @@ import Crumbs from "../../components/Crumbs.astro";
 import LivingX from "../../components/LivingX.astro";
 import Photo from "../../components/Photo.astro";
 import Formats from "../../components/Formats.astro";
+import Domaines from "../../components/Domaines.astro";
 import FinalCta from "../../components/FinalCta.astro";
-import { METIERS, DOMAINES } from "../../data/expertises";
+import { METIERS } from "../../data/expertises";
 import { breadcrumb } from "../../data/schema";
 const crumbs = [{ name: "Accueil", href: "/" }, { name: "Expertises", href: "/expertises/" }];
 const schema = [
@@ -36,7 +37,7 @@ const schema = [
       <ol role="list" class="hub__list">
         {METIERS.map((m) => (
           <li class="hub__row">
-            <div class="ph hub__ph"><Photo name={`${m.photo}-45`} sizes="(min-width: 900px) 34vw, 100vw" /></div>
+            <div class="ph hub__ph" data-vt={`ph-${m.slug}`} data-vt-href={m.href} data-vt-class="clx-morph clx-morph-ph"><Photo name={`${m.photo}-45`} sizes="(min-width: 900px) 34vw, 100vw" /></div>
             <div class="hub__text">
               <h2 class="h2"><a href={m.href}>{m.t}</a></h2>
               <p class="lead">{m.d}</p>
@@ -50,15 +51,10 @@ const schema = [
     </div>
   </section>
 
-  <section class="hub-band" data-theme="encre" aria-labelledby="hub-domains">
-    <div class="ph ph--parallax hub-band__ph"><Photo name="centre-donnees-219" small="centre-donnees-45" sizes="100vw" /></div>
-    <div class="wrap hub-band__in">
-      <h2 id="hub-domains" class="h2">Domaines d'application.</h2>
-      <ul role="list" class="hub-band__list">
-        {DOMAINES.map((d) => <li>{d.href ? <a href={d.href}>{d.t}</a> : d.t}</li>)}
-      </ul>
-    </div>
-  </section>
+  <div class="hub-band band-photo" data-theme="encre" aria-hidden="true">
+    <div class="ph ph--parallax hub-band__ph"><Photo name="centre-donnees-219" small="centre-donnees-45" sizes="100vw" alt="" /></div>
+  </div>
+  <Domaines encre id="hub-domaines" />
 
   <Formats />
   <FinalCta x={false} />
@@ -71,11 +67,14 @@ const schema = [
   .hub-head__text .lead { max-width: 52ch; }
   .hub-head :global(.hub-head__x) { width: min(100%, 420px); justify-self: end; }
   .hub { padding-top: 0; }
-  .hub__list { display: grid; gap: var(--clx-space-9); }
+  .hub__list { display: grid; gap: clamp(3rem, 2rem + 3vw, 6rem); }
   .hub__row { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: var(--clx-space-8); align-items: center; }
   .hub__row:nth-child(even) { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); }
   .hub__row:nth-child(even) .hub__ph { order: 2; }
   .hub__ph { aspect-ratio: 4 / 5; }
+  .hub__ph :global(img) { transition: transform 700ms var(--clx-easing-out); }
+  .hub__row:hover .hub__ph :global(img) { transform: scale(1.03); }
+  @media (prefers-reduced-motion: reduce) { .hub__row:hover .hub__ph :global(img) { transform: none; } }
   .hub__text { display: grid; gap: var(--clx-space-4); justify-items: start; }
   .hub__text h2 a { color: var(--clx-text); text-decoration: none; }
   .hub__text h2 a:hover { color: var(--clx-link); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
@@ -83,20 +82,14 @@ const schema = [
   .hub__gets { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.35rem; }
   .hub__gets li::marker { color: var(--clx-accent); }
   .hub__k { font-weight: 500; }
-  .hub-band { padding-bottom: var(--clx-layout-section); }
+  .hub-band { background: var(--clx-bg); }
   .hub-band__ph { aspect-ratio: 21 / 9; max-height: 560px; width: 100%; border-radius: 0; }
-  .hub-band__in { display: grid; gap: var(--clx-space-6); margin-top: var(--clx-space-8); }
-  .hub-band__in h2 { max-width: 20ch; }
-  .hub-band__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--clx-space-7); max-width: 60rem; }
-  .hub-band__list li { padding-block: var(--clx-space-4); border-top: 1px solid var(--clx-border-strong); font-family: var(--clx-font-family-display); font-size: 1.25rem; font-weight: 500; }
-  .hub-band__list a { color: var(--clx-text); text-decoration-color: var(--clx-accent); text-decoration-thickness: 2px; text-underline-offset: 5px; }
   @media (max-width: 899px) {
     .hub-head__in, .hub__row { grid-template-columns: 1fr; gap: var(--clx-space-6); }
     .hub-head :global(.hub-head__x) { width: 220px; justify-self: start; order: -1; }
     .hub__row:nth-child(even) { grid-template-columns: 1fr; }
     .hub__row:nth-child(even) .hub__ph { order: 0; }
     .hub__ph { aspect-ratio: 3 / 2; }
-    .hub-band__list { grid-template-columns: 1fr; }
-    .hub-band__ph { aspect-ratio: 4 / 3; }
+      .hub-band__ph { aspect-ratio: 4 / 3; }
   }
 </style>

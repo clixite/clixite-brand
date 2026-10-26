@@ -1,8 +1,33 @@
-# www.clixite.be : tout est public, assistants IA compris (visibilité GEO).
+# robots.txt for https://www.clixite.be (RFC 9309)
+# Clixite SRL, Wavre, Belgium. Every page is public, AI assistants included.
+#
+# One single group: the named crawlers below follow exactly the same rule
+# as every other crawler. Search engines, AI search, AI assistants fetching
+# a page for a user, and model training are all welcome.
+
 User-agent: *
+User-agent: Googlebot
+User-agent: Google-Extended
+User-agent: Bingbot
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: DuckAssistBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: ClaudeBot
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: MistralAI-User
+User-agent: meta-externalagent
+User-agent: Amazonbot
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://www.clixite.be/sitemap-index.xml
 
-# Résumé pour les assistants IA (llmstxt.org) : https://www.clixite.be/llms.txt
-# Texte complet en Markdown : https://www.clixite.be/llms-full.txt
+# Summary for AI assistants (llmstxt.org): https://www.clixite.be/llms.txt
+# Full site text in Markdown: https://www.clixite.be/llms-full.txt
+# Each page in Markdown: add index.html.md to its address.

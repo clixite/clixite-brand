@@ -6,7 +6,11 @@ export default defineConfig({
   site: "https://www.clixite.be",
   trailingSlash: "always",
   build: { format: "directory", inlineStylesheets: "always" },
-  integrations: [sitemap({ i18n: { defaultLocale: "fr", locales: { fr: "fr-BE", en: "en" } } })],
+  integrations: [sitemap({
+    i18n: { defaultLocale: "fr", locales: { fr: "fr-BE", en: "en" } },
+    // date de la dernière révision du contenu : à avancer à chaque mise à jour réelle des textes
+    lastmod: new Date("2026-10-26"),
+  })],
   compressHTML: true,
   prefetch: false,
 });

@@ -52,9 +52,18 @@ export const METIERS: Metier[] = [
   },
 ];
 
+// domaines d'application : chacun avec une phrase et la page qui le traite
 export const DOMAINES = [
-  { t: "Achats et Source-to-Pay", href: "/expertises/transformation-achats/" },
-  { t: "Risques et conformité : DORA, NIS2, RGPD, AI Act" },
-  { t: "IA en production", href: FDE_PATH },
-  { t: "Produits numériques et SaaS" },
+  { t: "Achats et Source-to-Pay", sub: "Fractional CPO, intérim, risques tiers",
+    d: "Du besoin au paiement : des processus outillés, des risques fournisseurs maîtrisés, une direction des achats à temps partagé ou par intérim.",
+    href: "/expertises/transformation-achats/", l: "La transformation des achats" },
+  { t: "Risques et conformité", sub: "DORA, NIS2, RGPD, AI Act",
+    d: "Des obligations traduites en processus, en responsables et en preuves, dans ce que vous construisez comme dans ce que vous achetez.",
+    href: `${FDE_PATH}#environnement-regule`, l: "Le FDE en environnement régulé" },
+  { t: "IA en production", sub: "Agents, automatisations, intégrations",
+    d: "Du prototype qui convainc en démonstration à l'agent IA qui tourne sur vos systèmes, sous contrôle humain.",
+    href: FDE_PATH, l: "Le Forward Deployed Engineering" },
+  { t: "Produits numériques et SaaS", sub: "Architecture, intégrations, lancement",
+    d: "L'architecture, les intégrations et la mise en production d'un produit numérique, jusqu'à ce que votre équipe le fasse évoluer seule.",
+    href: "/expertises/architecture-entreprise-solutions/", l: "L'architecture de solutions" },
 ];

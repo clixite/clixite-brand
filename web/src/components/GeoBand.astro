@@ -11,7 +11,7 @@ const items = [
 ---
 <section id="geo" class="section geo" aria-labelledby="geo-title">
   <div class="wrap geo__in">
-    <div class="ph geo__ph" data-reveal><Photo name="archives-45" sizes="(min-width: 900px) 38vw, 100vw" /></div>
+    <div class="ph geo__ph" data-reveal data-vt="ph-geo" data-vt-href={GEO_PATH} data-vt-class="clx-morph clx-morph-ph"><Photo name="archives-45" sizes="(min-width: 900px) 38vw, 100vw" /></div>
     <div class="geo__text">
       <h2 id="geo-title" class="geo__title">GEO : être la réponse des assistants IA.</h2>
       <p class="lead geo__lead">Vos clients ne cherchent plus seulement sur Google. Ils demandent à ChatGPT, Claude, Perplexity, Gemini ou Copilot qui peut les aider. Nous travaillons pour que les assistants vous trouvent et vous décrivent juste.</p>
@@ -30,7 +30,17 @@ const items = [
   .geo__title { font-size: var(--clx-type-h1-font-size); line-height: var(--clx-type-h1-line-height); letter-spacing: var(--clx-type-h1-letter-spacing); font-weight: 700; max-width: 16ch; }
   .geo__lead { max-width: 52ch; }
   .geo__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--clx-space-5); margin-block: var(--clx-space-3); }
-  .geo__list li { display: grid; gap: var(--clx-space-2); align-content: start; padding-top: var(--clx-space-4); border-top: 2px solid var(--clx-accent); }
+  .geo__list li { position: relative; display: grid; gap: var(--clx-space-2); align-content: start; padding-top: var(--clx-space-4); }
+  /* filet turquoise : il se trace d'un temps à l'autre quand la liste entre à l'écran */
+  .geo__list li::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--clx-accent); transform-origin: 0 50%; }
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .geo__list { view-timeline: --clx-geo block; }
+      .geo__list li::before { animation: clx-cote linear both; animation-timeline: --clx-geo; animation-range: entry 40% cover 45%; }
+      .geo__list li:nth-child(2)::before { animation-range: entry 55% cover 50%; }
+      .geo__list li:nth-child(3)::before { animation-range: entry 70% cover 55%; }
+    }
+  }
   @media (max-width: 1099px) { .geo__list { grid-template-columns: 1fr; } }
   @media (max-width: 899px) {
     .geo__in { grid-template-columns: 1fr; gap: var(--clx-space-6); }

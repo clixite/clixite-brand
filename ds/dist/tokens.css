@@ -112,7 +112,7 @@
   --clx-layout-gutter: clamp(1rem, 0.4rem + 2.6vw, 2.5rem);
   --clx-layout-max: 1360px;
   --clx-layout-measure: 66ch;
-  --clx-layout-section: clamp(4rem, 2rem + 5vw, 7.5rem);
+  --clx-layout-section: clamp(3.5rem, 1.75rem + 4.4vw, 6.5rem);
 }
 
 :root, [data-theme="papier"] {
