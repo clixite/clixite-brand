@@ -3,9 +3,7 @@
 // Le texte se pose sur une plaque Encre, comme les titres du film ; les quatre phrases du film défilent en synchronisation.
 // Boucle sans titres ni logo (video/hero_loop.py) : large, moyenne et verticale, en H.264 et en VP9.
 // Le film arrive après l'affichage, jamais en mouvement réduit ni en économie de données ; il reste toujours en pause possible.
-import { SITE } from "../data/site";
-import { AUDIENCES, HERO } from "../data/audiences";
-const mail = (subject: string) => SITE.bookingsUrl || `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}`;
+import { bookingHref } from "../data/site";
 // chapitres de la boucle (11,5 s) : les titres du film, au rythme des plans
 const STORY = [
   { t: "Votre architecture commence sur papier.", from: 0 },
@@ -31,37 +29,13 @@ const STORY = [
       </p>
       <h1 id="hero-title" class="hero__title">
         <span class="hero__line">Nous résolvons votre <span class="x">x</span>.</span>
-        {AUDIENCES.map((a) => <span class="hero__sub" data-aud={a.key}>{HERO[a.key].sub}</span>)}
+        <span class="hero__sub">Digitalisation, Forward Deployed Engineering, pilotage de programmes, architecture d'entreprise et de solutions. De la cible à la mise en production.</span>
       </h1>
 
-      {AUDIENCES.map((a) => (
-        <div class="hero__cta" data-aud={a.key}>
-          <a class="btn btn--primary" href={mail(HERO[a.key].ctaSubject)}>{HERO[a.key].cta}</a>
-          <a class="btn btn--secondary" href={HERO[a.key].second.href}>{HERO[a.key].second.label}</a>
-        </div>
-      ))}
-
-      <fieldset class="aud" aria-describedby="aud-help">
-        <legend class="aud__legend">Vous représentez</legend>
-        <div class="aud__opts">
-          {AUDIENCES.map((a, i) => (
-            <span class="aud__opt">
-              <input type="radio" name="aud" id={`aud-${a.key}`} value={a.key} checked={i === 0} />
-              <label for={`aud-${a.key}`}><span class="aud__l">{a.label}</span><span class="aud__s">{a.short}</span></label>
-            </span>
-          ))}
-        </div>
-        <p id="aud-help" class="visually-hidden">Le contenu de la page s'adapte à votre choix.</p>
-      </fieldset>
-      <script is:inline>
-        // choix d'audience avant le premier affichage : lien ?pour=pme (campagnes, prospection), sinon dernier choix
-        (function () {
-          var k = null;
-          try { k = new URLSearchParams(location.search).get("pour") || localStorage.getItem("clx-aud"); } catch (e) {}
-          var el = k && document.getElementById("aud-" + k);
-          if (el) { el.checked = true; document.documentElement.dataset.audience = k; }
-        })();
-      </script>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href={bookingHref()}>Demander un échange</a>
+        <a class="btn btn--secondary" href="#expertises">Nos expertises</a>
+      </div>
     </div>
   </div>
 
@@ -72,17 +46,6 @@ const STORY = [
 </section>
 
 <script>
-  // choix d'audience : mémorisé, reporté dans l'adresse (?pour=), diffusé aux autres composants
-  const radios = [...document.querySelectorAll<HTMLInputElement>('input[name="aud"]')];
-  const apply = () => {
-    const k = radios.find((r) => r.checked)?.value ?? "groupe";
-    document.documentElement.dataset.audience = k;
-    try { localStorage.setItem("clx-aud", k); } catch { /* stockage indisponible */ }
-    try { const u = new URL(location.href); u.searchParams.set("pour", k); history.replaceState(null, "", u); } catch { /* sans effet */ }
-    document.dispatchEvent(new CustomEvent("clx:audience", { detail: k }));
-  };
-  radios.forEach((r) => r.addEventListener("change", apply));
-
   // film : chargé quand la page est prête, mis en pause hors écran, onglet caché ou sur demande
   const hero = document.querySelector<HTMLElement>(".hero");
   const v = document.querySelector<HTMLVideoElement>("[data-hero-video]");
@@ -159,17 +122,6 @@ const STORY = [
   .hero__cta { display: flex; flex-wrap: wrap; gap: var(--clx-space-3); margin-top: var(--clx-space-6); }
   .hero :global(.btn--secondary) { background: transparent; }
 
-  /* sélecteur d'audience, au pied de la plaque */
-  .aud { border: 0; padding: var(--clx-space-5) 0 0; margin: var(--clx-space-6) 0 0; min-width: 0; border-top: 1px solid var(--clx-border); display: flex; flex-wrap: wrap; align-items: center; gap: var(--clx-space-2) var(--clx-space-4); }
-  .aud__legend { float: left; padding: 0; font-size: 0.9375rem; color: var(--clx-text-muted); }
-  .aud__opts { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; border: 1px solid var(--clx-border-strong); border-radius: var(--clx-radius-pill); }
-  .aud__opt { position: relative; }
-  .aud__opt input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
-  .aud__opt label { display: inline-flex; align-items: center; min-height: 40px; padding: 0 1rem; border-radius: var(--clx-radius-pill); font-weight: 600; font-size: 0.9375rem; color: var(--clx-text); cursor: pointer; transition: background-color var(--clx-duration-quick) var(--clx-easing-out), color var(--clx-duration-quick) var(--clx-easing-out); }
-  .aud__opt input:checked + label { background: var(--clx-text); color: var(--clx-bg); }
-  .aud__opt input:not(:checked):hover + label { background: var(--clx-bg-alt); }
-  .aud__opt input:focus-visible + label { outline: 3px solid var(--clx-focus); outline-offset: 2px; }
-  .aud__s { display: none; }
 
   /* bouton pause (WCAG 2.2.2), en haut à droite, loin du texte */
   .hero__pause { position: absolute; top: var(--clx-space-5); right: max(var(--clx-layout-gutter), env(safe-area-inset-right, 0px)); display: inline-flex; align-items: center; gap: 0.5rem; min-height: 40px; padding: 0 0.9rem; border-radius: var(--clx-radius-pill); border: 1px solid var(--clx-border-strong); background: rgb(11 34 57 / 0.8); color: var(--clx-text); font: 600 0.8125rem/1 var(--clx-font-family-text); cursor: pointer; }
@@ -196,10 +148,8 @@ const STORY = [
     .hero__story { margin-bottom: var(--clx-space-4); }
     .hero__sub { margin-top: var(--clx-space-3); }
     .hero__cta { margin-top: var(--clx-space-5); }
-    .aud { margin-top: var(--clx-space-5); padding-top: var(--clx-space-4); }
   }
   @media (max-width: 599px) {
-    .aud__l { display: none; } .aud__s { display: inline; }
     /* un seul bouton sur téléphone : le film reste visible, le profil est juste en dessous */
     .hero :global(.hero__cta .btn--secondary) { display: none; }
     .hero__line { font-size: 2.6rem; }
@@ -209,7 +159,6 @@ const STORY = [
     .hero__plate { padding: var(--clx-space-5); }
     .hero__story { margin-bottom: var(--clx-space-4); }
     .hero__cta { margin-top: var(--clx-space-5); }
-    .aud { margin-top: var(--clx-space-5); padding-top: var(--clx-space-4); }
     .hero__pause { top: var(--clx-space-4); }
   }
 </style>

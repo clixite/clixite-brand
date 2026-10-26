@@ -1,10 +1,95 @@
 {
-  "$note": "Registre des logos clients. Fichiers officiels uniquement, jamais redessinés. 'verified' = empreinte SHA-256 (espaces ignorés) identique au fichier servi par la source le 25 octobre 2026. 'autorisation' : décision de publication.",
+  "$note": "Registre des logos du bandeau « Là où nous avons travaillé ». Fichiers officiels ou repris du site Duonexia, jamais redessinés. 'verified' : empreinte SHA-256 identique au fichier de la source. 'autorisation' : décision de publication ; l'accord écrit du client est archivé dès qu'il est obtenu.",
   "logos": [
-    { "id": "kbc", "name": "KBC", "file": "kbc.svg", "group": "missions", "source": "https://www.kbc.be (wcmassets.kbc.be/content/dam/kdl-assets/logos/k/logos-kbc.svg)", "verified": true, "autorisation": "publication décidée par Nicolas Simon le 25 octobre 2026" },
-    { "id": "pv-groupe", "name": "Groupe P&V", "file": "pv-groupe.svg", "group": "missions", "source": "https://pvgroup.coop (logo d'en-tête, SVG en ligne)", "verified": true, "autorisation": "publication décidée par Nicolas Simon le 25 octobre 2026" },
-    { "id": "tero", "name": "Tero", "file": "tero.svg", "group": "missions", "source": "Kit de marque Tero Group, assets/logo/tero-logo-currentColor.svg (registre officiel du 15 octobre 2026)", "verified": true, "autorisation": "publication décidée par Nicolas Simon le 25 octobre 2026" },
-    { "id": "design-plus", "name": "Design Plus", "file": "design-plus.svg", "group": "missions", "source": "Charte Design Plus, references/logos/logo-designplus-black.svg", "verified": true, "autorisation": "publication décidée par Nicolas Simon le 25 octobre 2026" },
-    { "id": "proximus", "name": "Proximus", "file": "proximus-group.svg", "group": "parcours", "source": "https://www.proximus.com (dam/jcr:e466a577-8e43-4a26-aa53-809b293efa24/proximus-logo-header.svg)", "verified": true, "autorisation": "parcours salarié, publication décidée par Nicolas Simon le 25 octobre 2026" }
+    {
+      "id": "proximus",
+      "name": "Proximus",
+      "file": "proximus-group.svg",
+      "group": "references",
+      "source": "https://www.proximus.com (dam/jcr:e466a577-8e43-4a26-aa53-809b293efa24/proximus-logo-header.svg)",
+      "verified": true,
+      "autorisation": "publication décidée par Nicolas Simon le 26 octobre 2026"
+    },
+    {
+      "id": "kbc",
+      "name": "KBC",
+      "file": "kbc.svg",
+      "group": "references",
+      "source": "https://www.kbc.be (wcmassets.kbc.be/content/dam/kdl-assets/logos/k/logos-kbc.svg)",
+      "verified": true,
+      "autorisation": "publication décidée par Nicolas Simon le 26 octobre 2026"
+    },
+    {
+      "id": "ing",
+      "name": "ING",
+      "file": "ing.svg",
+      "group": "references",
+      "source": "duonexia.com/logos/ing.svg (fichier publié sur le site Duonexia, Clixite SRL), identique octet pour octet le 26 octobre 2026",
+      "verified": true,
+      "autorisation": "publication décidée par Nicolas Simon le 26 octobre 2026"
+    },
+    {
+      "id": "pv-groupe",
+      "name": "Groupe P&V",
+      "file": "pv-groupe.svg",
+      "group": "references",
+      "source": "https://pvgroup.coop (logo d'en-tête, SVG en ligne)",
+      "verified": true,
+      "autorisation": "publication décidée par Nicolas Simon le 26 octobre 2026"
+    },
+    {
+      "id": "eiffage",
+      "name": "Eiffage",
+      "file": "eiffage.svg",
+      "group": "references",
+      "source": "duonexia.com/logos/eiffage.svg (fichier publié sur le site Duonexia, Clixite SRL), identique octet pour octet le 26 octobre 2026",
+      "verified": true,
+      "autorisation": "publication décidée par Nicolas Simon le 26 octobre 2026"
+    },
+    {
+      "id": "marsh",
+      "name": "Marsh",
+      "file": "marsh.svg",
+      "group": "references",
+      "source": "duonexia.com/logos/marsh.svg (fichier publié sur le site Duonexia, Clixite SRL), identique octet pour octet le 26 octobre 2026",
+      "verified": true,
+      "autorisation": "publication décidée par Nicolas Simon le 26 octobre 2026"
+    },
+    {
+      "id": "actito",
+      "name": "Actito",
+      "file": "actito.svg",
+      "group": "references",
+      "source": "duonexia.com/logos/actito.svg (fichier publié sur le site Duonexia, Clixite SRL), identique octet pour octet le 26 octobre 2026",
+      "verified": true,
+      "autorisation": "publication décidée par Nicolas Simon le 26 octobre 2026"
+    },
+    {
+      "id": "orange",
+      "name": "Orange",
+      "file": "orange.svg",
+      "group": "references",
+      "source": "duonexia.com/logos/orange.svg (fichier publié sur le site Duonexia, Clixite SRL), identique octet pour octet le 26 octobre 2026",
+      "verified": true,
+      "autorisation": "publication décidée par Nicolas Simon le 26 octobre 2026"
+    },
+    {
+      "id": "tero",
+      "name": "Tero",
+      "file": "tero.svg",
+      "group": "references",
+      "source": "Kit de marque Tero Group, assets/logo/tero-logo-currentColor.svg (registre officiel du 15 octobre 2026)",
+      "verified": true,
+      "autorisation": "publication décidée par Nicolas Simon le 26 octobre 2026"
+    },
+    {
+      "id": "design-plus",
+      "name": "Design Plus",
+      "file": "design-plus.svg",
+      "group": "references",
+      "source": "Charte Design Plus, references/logos/logo-designplus-black.svg",
+      "verified": true,
+      "autorisation": "publication décidée par Nicolas Simon le 26 octobre 2026"
+    }
   ]
 }

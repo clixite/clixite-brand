@@ -9,10 +9,9 @@ interface Props {
   description: string;
   path?: string;
   schema?: Record<string, unknown>[];
-  audienceMode?: boolean;
   noindex?: boolean;
 }
-const { title, description, path = "/", schema = [], audienceMode = false, noindex = false } = Astro.props;
+const { title, description, path = "/", schema = [], noindex = false } = Astro.props;
 const canonical = new URL(path, SITE.url).href;
 const og = new URL("/og-image.jpg", SITE.url).href;
 
@@ -25,7 +24,7 @@ const org = {
   logo: `${SITE.url}/app-icon-512.png`,
   image: og,
   slogan: "Nous résolvons votre x.",
-  description: "Cabinet d'architecture d'entreprise et de solutions à Wavre (Belgique), fondé en 2005 : conception de l'architecture cible puis mise en production par un Forward Deployed Engineer, pour les PME et les grands groupes.",
+  description: "Société de conseil et d'ingénierie à Wavre (Belgique), fondée en 2005 : digitalisation, Forward Deployed Engineering, pilotage de programmes, architecture d'entreprise et de solutions, de la cible à la mise en production, pour les PME et les grands groupes.",
   foundingDate: SITE.founded,
   vatID: SITE.vatId,
   email: SITE.email,
@@ -34,39 +33,17 @@ const org = {
   identifier: { "@type": "PropertyValue", propertyID: "BCE/KBO", value: "0871.430.776" },
   knowsLanguage: ["fr", "en", "nl"],
   knowsAbout: KNOWS_ABOUT,
-  founder: { "@id": `${SITE.url}/#nicolas-simon` },
   sameAs: [SITE.charte, "https://kbopub.economie.fgov.be/kbopub/toonondernemingps.html?ondernemingsnummer=0871430776"],
-};
-const person = {
-  "@type": "Person",
-  "@id": `${SITE.url}/#nicolas-simon`,
-  name: SITE.founder.name,
-  jobTitle: SITE.founder.jobTitle,
-  description: "Enterprise & Solution Architect et Forward Deployed Engineer, fondateur de Clixite (Wavre, Belgique).",
-  disambiguatingDescription: "Architecte des systèmes d'information et des organisations (architecture d'entreprise et de solutions), pas architecte du bâtiment.",
-  alumniOf: { "@type": "CollegeOrUniversity", name: "EPHEC", address: { "@type": "PostalAddress", addressLocality: "Louvain-la-Neuve", addressCountry: "BE" } },
-  worksFor: { "@id": `${SITE.url}/#org` },
-  url: `${SITE.url}/nicolas-simon/`,
-  sameAs: [SITE.linkedin],
-  knowsAbout: KNOWS_ABOUT,
-  knowsLanguage: ["fr", "en", "nl"],
-  hasCredential: SITE.founder.certifications.map((c) => ({ "@type": "EducationalOccupationalCredential", name: c, credentialCategory: "certification" })),
-  workLocation: { "@type": "Place", address: { "@type": "PostalAddress", addressLocality: SITE.address.city, addressCountry: SITE.address.country } },
 };
 const website = { "@type": "WebSite", "@id": `${SITE.url}/#website`, url: `${SITE.url}/`, name: SITE.name, inLanguage: SITE.locale, publisher: { "@id": `${SITE.url}/#org` } };
 const page = { "@type": "WebPage", "@id": `${canonical}#page`, url: canonical, name: title, description, inLanguage: SITE.locale, isPartOf: { "@id": `${SITE.url}/#website` }, about: { "@id": `${SITE.url}/#org` } };
-const graph = { "@context": "https://schema.org", "@graph": [org, person, website, page, ...schema] };
+const graph = { "@context": "https://schema.org", "@graph": [org, website, page, ...schema] };
 ---
 <!doctype html>
-<html lang="fr-BE" class={REVIEW ? "review" : undefined} data-aud-mode={audienceMode ? "radio" : undefined}>
+<html lang="fr-BE" class={REVIEW ? "review" : undefined}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script is:inline>
-      // audience mémorisée ou passée dans le lien (?pour=groupe|pme|cabinet), avant le premier affichage
-      (function () { try { var k = new URLSearchParams(location.search).get("pour") || localStorage.getItem("clx-aud");
-        if (k === "groupe" || k === "pme" || k === "cabinet") document.documentElement.dataset.audience = k; } catch (e) {} })();
-    </script>
     <title>{title}</title>
     <meta name="description" content={description} />
     {!noindex && <link rel="canonical" href={canonical} />}
@@ -89,7 +66,7 @@ const graph = { "@context": "https://schema.org", "@graph": [org, person, websit
     <meta property="og:image" content={og} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Nous résolvons votre x. Clixite, architecture d’entreprise et de solutions, jusqu’à la mise en production." />
+    <meta property="og:image:alt" content="Nous résolvons votre x. Clixite : digitalisation, Forward Deployed Engineering, pilotage de programmes, architecture d’entreprise et de solutions." />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json" set:html={JSON.stringify(graph)} />
   </head>

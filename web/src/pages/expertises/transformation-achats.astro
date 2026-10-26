@@ -2,7 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import FinalCta from "../../components/FinalCta.astro";
 import { SITE } from "../../data/site";
-const ask = (subject: string) => SITE.bookingsUrl || `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Bonjour Nicolas,\n\nNos achats, en deux phrases :\n\n\nNos disponibilités pour un échange de 30 minutes :\n\nBien à vous,\n")}`;
+const ask = (subject: string) => SITE.bookingsUrl || `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Bonjour,\n\nNos achats, en deux phrases :\n\n\nNos disponibilités pour un échange de 30 minutes :\n\nBien à vous,\n")}`;
 
 const scope = [
   { t: "Source-to-Pay, du besoin au paiement", d: "Du besoin au paiement : sourcing, appels d'offres, contrats, commandes, réception et factures. Des processus simples, outillés quand le volume le justifie, avec SAP Ariba ou l'outil qui convient à votre taille, et intégrés à votre ERP." },
@@ -78,30 +78,11 @@ const schema = [
     </div>
   </section>
 
-  <section class="section ach-proof" aria-labelledby="proof-title">
-    <div class="wrap ach-proof__in">
-      <h2 id="proof-title" class="h2">Le terrain avant la théorie.</h2>
-      <dl class="ach-proof__list">
-        <div>
-          <dt class="ach-proof__n">≈ 800 M€</dt>
-          <dd class="av">d'achats dans le périmètre couvert comme Procurement Lead chez Proximus, de 2022 à 2024. <span class="small ach-proof__src">Parcours du fondateur</span></dd>
-        </div>
-        <div>
-          <dt class="ach-proof__n">Intérim</dt>
-          <dd class="av">Direction des achats de P&amp;V Assurances et Vivium, en 2025. <span class="small ach-proof__src">Mission Clixite</span></dd>
-        </div>
-        <div>
-          <dt class="ach-proof__n">L1, L2, L3</dt>
-          <dd class="av">Politique achats de KBC réécrite en trois niveaux : la politique (L1), les standards (L2) et les playbooks opérationnels (L3), alignés sur DORA, NIS2 et les exigences de l'EBA. <span class="small ach-proof__src">Mission Clixite, 18 mois auprès du CPO</span></dd>
-        </div>
-      </dl>
-    </div>
-  </section>
 
   <section id="offres-achats" class="section ach-offers band-alt" aria-labelledby="ach-offers-title">
     <div class="wrap">
       <h2 id="ach-offers-title" class="h2">Trois formules, un même niveau d'exigence.</h2>
-      <p class="lead ach-offers__lead">Le périmètre, la durée et le budget se fixent ensemble après un premier échange. Pas encore sûr de la formule ? <a href="/#solveur">Trois questions pour cadrer votre besoin</a>.</p>
+      <p class="lead ach-offers__lead">Le périmètre, la durée et le budget se fixent ensemble après un premier échange. Pas encore sûr de la formule ? <a href="/#contact">Trente minutes suffisent pour la choisir</a>.</p>
       <ul role="list" class="ach-offers__grid">
         <li class="panel">
           <h3 class="h3">Diagnostic achats</h3>

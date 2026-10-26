@@ -1,7 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import Expertises from "../../components/Expertises.astro";
-import Offers from "../../components/Offers.astro";
+import Formats from "../../components/Formats.astro";
 import FinalCta from "../../components/FinalCta.astro";
 import { SITE } from "../../data/site";
 const schema = [{
@@ -13,8 +13,8 @@ const schema = [{
 }];
 ---
 <Base
-  title="Expertises : architecture, achats, conformité et IA | Clixite"
-  description="Architecture d'entreprise et de solutions, transformation des achats, DORA et NIS2, industrialisation de l'IA, produits numériques et pilotage de programmes : les six expertises de Clixite."
+  title="Expertises : digitalisation, Forward Deployed Engineering, programmes et architecture | Clixite"
+  description="Les quatre métiers de Clixite : digitalisation, Forward Deployed Engineering, pilotage de programmes, architecture d'entreprise et de solutions. Appliqués aux achats, à la conformité DORA et NIS2 et à l'IA en production."
   path="/expertises/"
   schema={schema}
 >
@@ -22,7 +22,7 @@ const schema = [{
     <ol role="list"><li><a href="/">Accueil</a></li><li aria-current="page">Expertises</li></ol>
   </nav>
   <Expertises headingLevel="h1" />
-  <Offers />
+  <Formats />
   <FinalCta />
 </Base>
 

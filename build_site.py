@@ -122,7 +122,7 @@ page = r'''<!doctype html>
 <section class="hero" id="hero" role="region" aria-labelledby="titre">
   <div class="o3d-wrap"><canvas class="o3d" id="hero-3d" aria-label="Mot-marque Clixite en relief, animé"></canvas><img class="o3d-fallback" src="downloads/logo/clixite-relief-inverse-transparent.svg" alt="Clixite, Enterprise &amp; Solution Architecture" hidden></div>
   <h1 id="titre">Charte graphique</h1>
-  <p class="lede">Clixite est le cabinet d'architecture de solutions de Nicolas Simon. Cette charte fixe la marque, ses règles et ses fichiers. Elle sert à tout le monde : Nicolas, ses partenaires, un imprimeur, un développeur.</p>
+  <p class="lede">Clixite est une société de conseil et d'ingénierie : digitalisation, Forward Deployed Engineering, pilotage de programmes, architecture d'entreprise et de solutions. Cette charte fixe la marque, ses règles et ses fichiers. Elle sert à tout le monde : l'équipe, ses partenaires, un imprimeur, un développeur.</p>
   <p class="hint"><span class="mouse">Déplacez le curseur : <b>le relief suit</b>.</span> <button type="button" class="linkbtn" id="hero-replay">Rejouer l'ouverture</button></p>
   <div class="scrolldown" aria-hidden="true"></div>
 </section>
@@ -138,7 +138,7 @@ page = r'''<!doctype html>
 <!-- ===================================================== 01 PLATEFORME -->
 <section class="chapter" id="plateforme">
   <header><h2><span class="n">01</span>Plateforme de marque</h2>
-  <p class="lede">Clixite existe depuis 2005. Agence de communication pendant dix ans, le cabinet est devenu ce que son fondateur est devenu : un architecte de solutions et d'entreprise. Il relie la stratégie, les systèmes et la conformité, puis livre.</p></header>
+  <p class="lede">Clixite existe depuis 2005. Agence de communication pendant dix ans, la société est devenue une maison de conseil et d'ingénierie : digitalisation, Forward Deployed Engineering, pilotage de programmes, architecture d'entreprise et de solutions. Elle relie la stratégie, les systèmes et la conformité, puis livre.</p></header>
 
   <h3>L'idée</h3>
   <p class="quote">L'architecte qui relie la stratégie, les systèmes et la conformité. Nous résolvons votre <span class="x">x</span>.</p>
@@ -149,8 +149,8 @@ page = r'''<!doctype html>
 
   <h3>Deux marchés, un même métier</h3>
   <div class="markets">
-    <div><h4>Grands comptes régulés</h4><p>Banque, assurance, télécom. Procurement, conformité, architecture d'entreprise. Preuves : 800 M€ d'achats dans le périmètre couvert chez Proximus, politique achats en trois niveaux et circuit d'achats tactiques en production chez KBC, direction des achats par intérim chez P&amp;V.</p></div>
-    <div><h4>PME en croissance</h4><p>Audit, choix et connexion des outils existants, automatisation, IA quand elle sert. Architecturer la croissance avec ce qui existe déjà. Preuves : sites et back-offices de Tero et Design Plus, CyGap et Vidango conçus et codés.</p></div>
+    <div><h4>Grands comptes régulés</h4><p>Banque, assurance, télécoms, courtage. Programmes, architecture d'entreprise, achats et conformité, menés jusqu'à la mise en production. Les projets restent confidentiels.</p></div>
+    <div><h4>PME en croissance</h4><p>Audit, choix et connexion des outils existants, automatisation, IA quand elle sert. Architecturer la croissance avec ce qui existe déjà, et digitaliser ce qui se fait encore à la main.</p></div>
   </div>
 
   <h3>Piliers</h3>
@@ -298,7 +298,7 @@ page = r'''<!doctype html>
     <div class="about"><b>Fraunces Italic</b>La voix éditoriale : citations, chiffres clés, et le x variable. Toujours en italique, jamais en pavé. Graisses 500 et 600.<a href="https://fonts.google.com/specimen/Fraunces">Google Fonts</a></div>
   </div>
   <div class="specimen">
-    <div class="sample mono">DORA · NIS2 · RGPD · EBA · TPRM<br>L1 · L2 · L3<br>#19B3D9 · 800 M€ · 14,8:1</div>
+    <div class="sample mono">DORA · NIS2 · RGPD · EBA · TPRM<br>L1 · L2 · L3<br>#19B3D9 · 2005 · 14,8:1</div>
     <div class="about"><b>JetBrains Mono</b>Données, références, identifiants et étiquettes en capitales espacées. Le clin d'œil au builder. Graisse 500.<a href="https://fonts.google.com/specimen/JetBrains+Mono">Google Fonts</a></div>
   </div>
 
@@ -481,7 +481,7 @@ page = r'''<!doctype html>
 <section class="chapter" id="ecran">
   <header><h2><span class="n">11</span>Écran et web</h2>
   <p class="lede">www.clixite.be applique cette charte à l'écran avec le Design System 2.0 : des valeurs au format W3C, des contrastes vérifiés à chaque mise en ligne et des composants documentés. Ces règles valent pour tout site ou produit « by Clixite ».</p></header>
-  <figure class="screen"><img src="apercus/www-hero.webp" width="1440" height="900" loading="lazy" alt="Accueil de www.clixite.be : le film de lancement plein cadre, la promesse posée sur une plaque Encre"><figcaption>L'accueil de www.clixite.be, octobre 2026 : le film plein cadre, la promesse sur une plaque Encre.</figcaption></figure>
+  <figure class="screen"><img src="apercus/www-hero.webp" width="1440" height="900" loading="lazy" alt="Accueil de www.clixite.be : le film de lancement plein cadre, la promesse et les quatre métiers posés sur une plaque Encre"><figcaption>L'accueil de www.clixite.be, octobre 2026 : le film plein cadre, la promesse sur une plaque Encre.</figcaption></figure>
   <h3>Le hero de l'accueil</h3>
   <ul class="rules">
     <li>Le film de lancement tourne en boucle, plein cadre, sans titres ni logo : le logo est déjà dans l'en-tête.</li>
@@ -494,8 +494,8 @@ page = r'''<!doctype html>
   <ul class="rules">
     <li>Sous 240 px de large, le mot-marque se pose sans descripteur (fichiers clixite-maitre-motmarque). Au-dessus, le descripteur est obligatoire.</li>
     <li>Le <em>x</em> en italique Fraunces, deux fois par page au plus : la promesse d'ouverture et l'appel final.</li>
-    <li>Un site par acheteur : grand groupe, PME, cabinet ou intermédiaire. Le sous-titre, l'appel à l'action, les offres, les preuves et l'ordre des logos suivent ce choix.</li>
-    <li>Logos clients : fichiers officiels uniquement, jamais redessinés, teintés par masque CSS et inscrits au registre avec leur source. La publication est décidée par Nicolas Simon ; l'accord écrit du client est archivé dès qu'il est obtenu.</li>
+    <li>Un site d'entreprise : il parle de Clixite et de ses quatre métiers, pas de son fondateur. Aucun projet détaillé, aucun contenu qui change selon le visiteur.</li>
+    <li>Logos « Là où nous avons travaillé » : fichiers officiels, jamais redessinés, teintés par masque CSS et inscrits au registre avec leur source. Ils montrent des environnements de travail, pas des projets. L'accord écrit de chaque entreprise est archivé dès qu'il est obtenu.</li>
     <li>Chaque paire texte et fond est contrôlée à la construction du site : sous 4,5:1, la mise en ligne échoue.</li>
     <li>Espaces insécables et apostrophes courbes se posent automatiquement à la construction.</li>
     <li>Une seule séquence d'ouverture par page, sur la courbe de la charte, en transform et opacité uniquement.</li>

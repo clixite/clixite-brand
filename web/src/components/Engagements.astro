@@ -1,0 +1,29 @@
+---
+// Notre façon de travailler : trois engagements, en voix d'entreprise.
+const items = [
+  { t: "Dans vos équipes, pas à côté.", d: "Nous travaillons avec vos équipes, dans vos outils et à votre rythme. Les décisions se prennent là où le travail se fait." },
+  { t: "En production, pas en PowerPoint.", d: "Chaque mission se mesure à ce qui tourne : une intégration, un processus, un agent IA, un tableau de bord utilisé le lundi matin." },
+  { t: "L'IA comme levier, sous votre contrôle.", d: "Des outils d'IA récents, utilisés seulement avec votre accord, sur vos environnements et selon vos règles de sécurité. Vous gardez le code, les accès et la documentation." },
+];
+---
+<section class="section engage" data-theme="encre" aria-labelledby="engage-title">
+  <div class="wrap">
+    <h2 id="engage-title" class="h2 engage__title">Notre façon de travailler.</h2>
+    <ul role="list" class="engage__list">
+      {items.map((i) => (
+        <li>
+          <h3 class="h3">{i.t}</h3>
+          <p>{i.d}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .engage__title { max-width: 20ch; }
+  .engage__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--clx-space-7); margin-top: var(--clx-space-8); }
+  .engage__list li { display: grid; gap: var(--clx-space-3); align-content: start; padding-top: var(--clx-space-4); border-top: 1px solid var(--clx-border-strong); }
+  .engage__list p { color: var(--clx-text-muted); max-width: 44ch; }
+  @media (max-width: 899px) { .engage__list { grid-template-columns: 1fr; gap: var(--clx-space-6); margin-top: var(--clx-space-7); } }
+</style>

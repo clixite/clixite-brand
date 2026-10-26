@@ -1,69 +1,53 @@
 ---
-// Bandeau de références. Fichiers officiels (registre src/data/clients.registry.json), teintés par masque CSS :
-// la forme vient du client, la couleur vient du thème. Équilibrage optique : surface visuelle constante,
-// corrigée par la densité d'encre mesurée par scripts/build-clients.mjs.
+// « Là où nous avons travaillé » : fichiers officiels (registre src/data/clients.registry.json), teintés par masque CSS.
+// Équilibrage optique : surface visuelle constante, corrigée par la densité d'encre mesurée par scripts/build-clients.mjs.
+// Ce ne sont pas des références de projets : aucun projet n'est détaillé.
 import clients from "../data/clients.json";
-import { REVIEW } from "../data/site";
 interface Logo { id: string; name: string; group: string; aspect: number; density: number }
 const BASE = 40;      // hauteur de référence d'un logo carré, en px
 const REF_DENSITY = 0.4;
 const size = (l: Logo) => {
   let h = BASE / Math.sqrt(l.aspect) * 1.6;
   h *= Math.pow(REF_DENSITY / l.density, 0.3);
-  h = Math.max(26, Math.min(64, h));
+  h = Math.max(24, Math.min(60, h));
   return { h: Math.round(h), w: Math.round(h * l.aspect) };
 };
-const groups = [
-  { key: "missions", label: "Missions Clixite" },
-  { key: "parcours", label: "Parcours du fondateur" },
-].map((g) => ({ ...g, logos: (clients as Logo[]).filter((c) => c.group === g.key) }));
+const logos = clients as Logo[];
 ---
-<section id="references" class="refs section--tight" aria-labelledby="refs-title">
+<section id="references" class="refs" aria-labelledby="refs-title">
   <div class="wrap">
-    <h2 id="refs-title" class="refs__title">Missions et parcours.</h2>
-    <div class="refs__groups">
-      {groups.map((g) => (
-        <div class="refs__group" data-group={g.key}>
-          <p class="refs__label small">{g.label}</p>
-          <ul role="list" class="refs__list">
-            {g.logos.map((l) => {
-              const s = size(l);
-              return (
-                <li data-id={l.id}>
-                  <span class="refs__logo av-logo" role="img" aria-label={l.name}
-                    style={`--src:url(/clients/${l.id}.svg); width:${s.w}px; height:${s.h}px;`} />
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      ))}
+    <div class="refs__head">
+      <h2 id="refs-title" class="refs__title">Là où nous avons travaillé.</h2>
+      <p class="refs__note">Télécoms, banque, assurance, construction, courtage, PME : des environnements très différents, en mission, en conseil ou en poste. Les projets, eux, restent confidentiels.</p>
     </div>
-    {REVIEW && <p class="refs__note small muted av">Logos reproduits avec l'accord des organisations citées.</p>}
+    <ul role="list" class="refs__list">
+      {logos.map((l) => {
+        const s = size(l);
+        return (
+          <li>
+            <span class="refs__logo" role="img" aria-label={l.name} style={`--src:url(/clients/${l.id}.svg); width:${s.w}px; height:${s.h}px;`} />
+          </li>
+        );
+      })}
+    </ul>
   </div>
 </section>
 
 <style>
-  .refs { border-block: 1px solid var(--clx-border); }
+  .refs { padding-block: clamp(2.5rem, 1.5rem + 3vw, 4.5rem); border-bottom: 1px solid var(--clx-border); }
+  .refs__head { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: var(--clx-space-7); align-items: baseline; }
   .refs__title { font-size: var(--clx-type-h3-font-size); line-height: 1.2; font-weight: 500; letter-spacing: -0.01em; }
-  .refs__groups { display: grid; grid-template-columns: auto auto; justify-content: start; gap: var(--clx-space-8); margin-top: var(--clx-space-6); align-items: end; }
-  .refs__label { color: var(--clx-text-muted); margin-bottom: var(--clx-space-4); }
-  .refs__list { display: flex; flex-wrap: wrap; align-items: center; gap: var(--clx-space-5) clamp(1.5rem, 0.5rem + 3vw, 3.5rem); min-height: 64px; }
+  .refs__note { color: var(--clx-text-muted); max-width: 60ch; }
+  .refs__list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: center; justify-items: center; gap: var(--clx-space-7) var(--clx-space-6); margin-top: var(--clx-space-8); }
+  .refs__list li { display: grid; place-items: center; min-height: 64px; width: 100%; }
   .refs__logo {
-    display: block; background-color: var(--clx-text-muted);
+    display: block; max-width: 100%; background-color: var(--clx-text-muted);
     -webkit-mask: var(--src) center / contain no-repeat; mask: var(--src) center / contain no-repeat;
-    transition: background-color var(--clx-duration-quick) var(--clx-easing-out);
   }
-  .refs__list li:hover .refs__logo { background-color: var(--clx-text); }
-  .refs__group[data-group="parcours"] { padding-left: var(--clx-space-8); border-left: 1px solid var(--clx-border); }
-  .refs__note { margin-top: var(--clx-space-6); }
-  /* PME : les missions PME passent en tête */
-  :global(html[data-audience="pme"]) .refs__list li:is([data-id="tero"], [data-id="design-plus"]),
-  :global(:root:has(#aud-pme:checked)) .refs__list li:is([data-id="tero"], [data-id="design-plus"]) { order: -1; }
-  :global(:root:has(#aud-groupe:checked)) .refs__list li, :global(:root:has(#aud-cabinet:checked)) .refs__list li { order: 0; }
   @media (forced-colors: active) { .refs__logo { background-color: CanvasText; forced-color-adjust: none; } }
   @media (max-width: 899px) {
-    .refs__groups { grid-template-columns: 1fr; gap: var(--clx-space-6); }
-    .refs__group[data-group="parcours"] { padding-left: 0; border-left: 0; padding-top: var(--clx-space-5); border-top: 1px solid var(--clx-border); }
+    .refs__head { grid-template-columns: 1fr; gap: var(--clx-space-3); }
+    .refs__list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--clx-space-6) var(--clx-space-5); margin-top: var(--clx-space-7); }
   }
+  @media (max-width: 479px) { .refs__list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 </style>

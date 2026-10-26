@@ -8,7 +8,7 @@ import { QUOTES } from "../data/quotes";
       <h2 id="quotes-title" class="h2">Ce qu'en disent nos clients.</h2>
       <ul role="list" class="quotes__list">
         {QUOTES.map((x) => (
-          <li data-aud={x.aud.join(" ")}>
+          <li>
             <figure>
               <blockquote><p>« {x.q} »</p></blockquote>
               <figcaption><span class="quotes__who">{x.who}</span>, {x.role}, {x.org}</figcaption>

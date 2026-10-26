@@ -1,0 +1,37 @@
+---
+// Comment travailler ensemble : trois formats, sans prix ni durée (fixés après un premier échange).
+const formats = [
+  { t: "Mission de conseil", d: "Un rôle clair au sein de vos équipes, en direct ou via votre cabinet référencé." },
+  { t: "Forfait à livrable", d: "Un périmètre et un livrable définis, un budget validé avant de commencer." },
+  { t: "Renfort de programme", d: "Une phase critique tenue : reprise d'un programme, mise en production, transfert à vos équipes." },
+];
+const terms = [
+  { t: "Confidentialité", d: "Accord de confidentialité signé avant l'échange si vous le souhaitez." },
+  { t: "Continuité", d: "Documentation au fil de l'eau et transfert prévu dès le départ." },
+  { t: "Propriété", d: "Vos accès, votre code et votre documentation restent chez vous." },
+];
+---
+<section id="formats" class="section formats" aria-labelledby="formats-title">
+  <div class="wrap">
+    <div class="formats__head">
+      <h2 id="formats-title" class="h2">Travailler ensemble.</h2>
+      <p class="lead">Le périmètre, la durée et le budget se fixent ensemble après un premier échange. En Belgique et au Luxembourg, en français, en néerlandais ou en anglais.</p>
+    </div>
+    <ul role="list" class="formats__list">
+      {formats.map((f) => <li class="panel formats__card"><h3 class="h3">{f.t}</h3><p class="muted">{f.d}</p></li>)}
+    </ul>
+    <dl class="formats__terms small">
+      {terms.map((x) => <div><dt>{x.t}</dt><dd>{x.d}</dd></div>)}
+    </dl>
+  </div>
+</section>
+
+<style>
+  .formats__head { display: grid; gap: var(--clx-space-5); max-width: 52rem; }
+  .formats__head .lead { max-width: 52ch; }
+  .formats__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--clx-space-5); margin-top: var(--clx-space-8); }
+  .formats__card { display: grid; gap: var(--clx-space-3); align-content: start; padding: var(--clx-space-6); }
+  .formats__terms { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--clx-space-6); margin-top: var(--clx-space-7); color: var(--clx-text-muted); }
+  .formats__terms dt { font-weight: 600; color: var(--clx-text); }
+  @media (max-width: 899px) { .formats__list, .formats__terms { grid-template-columns: 1fr; } .formats__list { max-width: 40rem; } }
+</style>
