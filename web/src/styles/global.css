@@ -26,6 +26,10 @@ img, svg { display: block; max-width: 100%; }
 h1, h2, h3, p, ul, ol, figure, blockquote, dl, dd { margin: 0; }
 ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
 h1, h2, h3 { font-family: var(--clx-font-family-display); text-wrap: balance; color: var(--clx-text); }
+/* les mots longs (composés néerlandais : programmamanagement, aankooptransformatie) ne débordent jamais sur petit écran :
+   coupure avec trait d'union en néerlandais, et en dernier recours, coupure du seul mot qui dépasse */
+h1, h2, h3, .h-display, .h1 { overflow-wrap: anywhere; }
+:lang(nl) :is(h1, h2, h3, .h-display, .lead) { hyphens: auto; -webkit-hyphens: auto; hyphenate-limit-chars: 12 5 5; }
 p, li, dd { text-wrap: pretty; }
 ::selection { background: var(--clx-selection); color: var(--clx-text); }
 a { color: var(--clx-link); text-decoration-thickness: 1px; text-underline-offset: 3px; transition: color var(--clx-duration-quick) var(--clx-easing-out); }
