@@ -47,13 +47,13 @@ const home: Home = {
     lead: "We step in where a strategy has to become a working system, in SMEs and regulated groups alike.",
   },
   method: {
-    title: "From survey to go-live.",
+    title: "From discovery to go-live.",
     lead: "Four stages, each with a deliverable you keep, even if you stop there. You decide on the next one based on evidence.",
     steps: [
-      { t: "Survey", d: "A map of your systems, flows, contracts and risks. We measure before we draw.", out: "Assessment" },
-      { t: "Design", d: "The target architecture and the path to get there, as costed options. What we keep, what we replace, what we stop.", out: "Target and roadmap" },
+      { t: "Discover", d: "A map of your systems, flows, contracts and risks. We measure before we draw.", out: "Assessment" },
+      { t: "Design", d: "The target architecture and the path to get there, as costed options. What we keep, what we replace, what we stop.", out: "Target architecture and roadmap" },
       { t: "Build", d: "Integrations, data, automations and AI, delivered in short increments that your teams test in real conditions.", out: "Increments in production" },
-      { t: "Go live", d: "Deployment, adoption and handover. We leave when your teams run the solution on their own.", out: "Solution in operation, documented" },
+      { t: "Go live", d: "Deployment, adoption and handover. We leave when your teams run the solution on their own.", out: "Solution in operation and documented" },
     ],
   },
 };

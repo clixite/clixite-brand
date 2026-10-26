@@ -17,12 +17,12 @@ const pages: PageMetier[] = [
     serviceType: ["Generative Engine Optimization", "Search engine optimisation", "Structured data", "AI search visibility audit"],
     blocs: [
       { id: "geo-seo", h: "GEO and SEO: what is the difference?", kind: "prose", p: [
-        "SEO aims for a position in a list of links. GEO aims for a place in the answer the assistant writes, with a citation of your site.",
+        "SEO aims for a position in a list of links. GEO aims for a place in the answer the assistant writes, with your site cited as a source.",
         "The two complement each other. Answer engines rely heavily on pages that already rank well, but they read differently: they look for clear definitions, verifiable facts and sources that confirm one another.",
       ], src: [{ t: "Aggarwal et al., “GEO: Generative Engine Optimization”, 2023", href: SOURCES.geoPaper }] },
       { id: "geo-criteres", h: "What makes an assistant cite you", kind: "defs", band: true, lead: "What is known today, and what we measure for every client.", defs: [
         { t: "An unambiguous entity", d: "The same name, the same address, the same services everywhere: company register, website, LinkedIn, directories, Wikidata." },
-        { t: "Pages that answer", d: "A definition in a few sentences, visible frequently asked questions, honest comparisons, dated pages." },
+        { t: "Pages that answer questions", d: "A definition in a few sentences, visible frequently asked questions, honest comparisons, dated pages." },
         { t: "Accurate structured data", d: "schema.org markup that describes exactly what the page displays, and a site that assistants' crawlers can read." },
         { t: "Mentions beyond your own site", d: "Press, professional directories, open databases: assistants cross-check their sources before they cite." },
       ] },
@@ -40,16 +40,16 @@ const pages: PageMetier[] = [
         "SMEs and professional firms whose clients do their own research before they call.",
         "Groups that want assistants to describe their offerings, brands and obligations correctly.",
         "Software and service providers whose name must come up when someone asks an assistant for a solution.",
-        "Any company present in several languages: assistants answer in the language of the question.",
+        "Any company that operates in several languages: assistants answer in the language of the question.",
       ] },
     ],
     faq: [
       { q: "What is GEO?", a: "Generative Engine Optimization (GEO) makes a company understandable, verifiable and citable by answer engines such as ChatGPT, Claude, Perplexity, Gemini, Copilot and Google's AI Overviews." },
-      { q: "Is SEO still useful?", a: "Yes. Answer engines rely largely on the indexes of search engines. Good SEO remains the foundation; GEO adds what makes content citable." },
-      { q: "Can anyone guarantee that ChatGPT will cite you?", a: "No, and be wary of anyone who promises it. What can be done is to measure your visibility, fix what works against you and track how citations evolve." },
-      { q: "Is an llms.txt file enough?", a: "No. It helps some tools summarise a site, but the main assistants rarely read it so far. We set it up without expecting miracles." },
+      { q: "Is SEO still useful?", a: "Yes. Answer engines rely largely on search engine indexes. Good SEO remains the foundation; GEO adds what makes content citable." },
+      { q: "Can anyone guarantee that ChatGPT will cite you?", a: "No, and be wary of anyone who promises it. What you can do is measure your visibility, fix what works against you and track how citations change over time." },
+      { q: "Is an llms.txt file enough?", a: "No. It helps some tools summarise a site, but so far the main assistants rarely read it. We set it up without expecting miracles." },
       { q: "Do you need to rebuild your website?", a: "Rarely. Most fixes concern content, structured data and off-site presence." },
-      { q: "Which languages do you work in?", a: "English, French and Dutch. Assistants answer in the language of the question: you need to exist in each one." },
+      { q: "Which languages do you work in?", a: "We work in English, French and Dutch. Assistants answer in the language of the question: you need to be present in each one." },
     ],
   },
   {
@@ -57,7 +57,7 @@ const pages: PageMetier[] = [
     title: "Enterprise and solution architecture in Belgium | Clixite",
     description: "IT landscape mapping, target architecture, roadmap options and solution selection, all the way to production. In Belgium and Luxembourg.",
     h1: ["Enterprise and solution architecture: ", "decide where your IT landscape is heading."],
-    chapo: "Enterprise architecture links strategy to the information system: what you have, what you are aiming for and the path between the two. Solution architecture selects and designs the tools that get you there. Clixite does both, from mapping to production, for SMEs and regulated groups alike, in Belgium and Luxembourg.",
+    chapo: "Enterprise architecture links strategy to information systems: what you have, what you are aiming for and the path between the two. Solution architecture selects and designs the tools that get you there. Clixite does both, from mapping to production, for SMEs and regulated groups alike, in Belgium and Luxembourg.",
     photo: "aiguillage-45",
     serviceType: ["Enterprise architecture", "Solution architecture", "IT landscape mapping", "Architecture review"],
     blocs: [
@@ -72,16 +72,16 @@ const pages: PageMetier[] = [
         { t: "A landscape map", d: "Applications, data, flows, contracts and critical suppliers, on a map your teams can read." },
         { t: "A target architecture", d: "Principles, building blocks, integrations and security: where you are heading, and why." },
         { t: "A roadmap with options", d: "What we keep, what we replace, what we stop; each option with its costs, risks and dependencies." },
-        { t: "External architecture reviews", d: "An outside, reasoned view of a solution choice or an architecture document, before the decision becomes expensive." },
+        { t: "External architecture reviews", d: "An outside, well-argued view of a solution choice or an architecture document, before the decision becomes expensive." },
       ] },
       { id: "archi-suite", h: "From target to production", kind: "prose", p: [
         "A target only has value if it gets built. Once it is approved, we can implement it with your teams, through Forward Deployed Engineering, and manage the programme that delivers it.",
       ], link: { t: "Forward Deployed Engineering", href: r.fde } },
     ],
     faq: [
-      { q: "What is the difference between enterprise architecture and solution architecture?", a: "Enterprise architecture decides the whole: business, data, applications, technology, and the path from today to the target. Solution architecture designs a specific solution within that framework, down to integrations and security." },
+      { q: "What is the difference between enterprise architecture and solution architecture?", a: "Enterprise architecture decides on the whole picture: business, data, applications, technology, and the path from today to the target. Solution architecture designs a specific solution within that framework, down to integrations and security." },
       { q: "Does an SME need enterprise architecture?", a: "Yes, at its own scale. A clear map of your tools and flows avoids redundant purchases and prepares for growth. For an SME, the exercise fits into a few short deliverables." },
-      { q: "Do you follow a methodological framework?", a: "We draw on the concepts of recognised frameworks when they help, without imposing heavy formalism: an architecture deliverable has to be read and used by your teams." },
+      { q: "Do you follow a specific framework?", a: "We draw on the concepts of recognised frameworks when they help, without imposing heavy formalism: an architecture deliverable has to be read and used by your teams." },
       { q: "Can you also build the target?", a: "Yes, through Forward Deployed Engineering: we join your teams to take what has been decided into production, then hand it over." },
     ],
   },
@@ -90,7 +90,7 @@ const pages: PageMetier[] = [
     title: "Programme management and change management | Clixite",
     description: "Governance, planning, budget, risk and adoption: your multi-team programmes kept on track through to go-live, in Belgium and Luxembourg.",
     h1: ["Programme management: ", "multi-team programmes kept on track through to go-live."],
-    chapo: "Programme management coordinates several projects that serve a single objective: governance, planning, budget, risk and change management. Clixite launches or takes over your transformation programmes in Belgium and Luxembourg, with recognised frameworks (PMP, PRINCE2, SAFe, Scrum, ADKAR) and one rule: decisions are made on the evidence.",
+    chapo: "Programme management coordinates several projects that serve a single objective, covering governance, planning, budget, risk and change management. Clixite launches or takes over your transformation programmes in Belgium and Luxembourg, with recognised frameworks (PMP, PRINCE2, SAFe, Scrum, ADKAR) and one rule: decisions are made on the evidence.",
     photo: "salle-45",
     serviceType: ["Programme management", "Project management", "Change management", "Programme recovery"],
     blocs: [
@@ -109,7 +109,7 @@ const pages: PageMetier[] = [
       ] },
     ],
     faq: [
-      { q: "Can you take over a programme already under way?", a: "Yes, it is a common case: an assessment, a recovery plan and clear trade-off decisions, then programme management close to the teams." },
+      { q: "Can you take over a programme already under way?", a: "Yes, this is common: an assessment, a recovery plan and clear trade-off decisions, then programme management close to the teams." },
       { q: "Iterative methods or the V-model?", a: "Both, depending on the nature of the programme and your constraints: SAFe and Scrum for product and software, PRINCE2 or PMP for heavily governed programmes, often a deliberate mix." },
       { q: "Do you work with our suppliers and integrators?", a: "Yes. We coordinate internal teams and suppliers, with clear commitments for each of them." },
       { q: "How do you measure adoption?", a: "With indicators defined at the start: actual usage, support requests, quality of the data entered, user feedback." },
@@ -118,7 +118,7 @@ const pages: PageMetier[] = [
   {
     slug: "digitalisation", key: "digit", path: r.digit, crumb: "Digitalisation",
     title: "Process digitalisation and automation in Belgium | Clixite",
-    description: "Processes simplified, then tooled: automated workflows, connected data and applied AI, from SMEs to large enterprises, in Belgium and Luxembourg.",
+    description: "Processes simplified, then digitised: automated workflows, connected data and applied AI, from SMEs to large enterprises, in Belgium and Luxembourg.",
     h1: ["Process digitalisation: ", "from paper and double data entry to connected tools."],
     chapo: "Process digitalisation replaces paper, scattered files and double data entry with digital workflows and connected data. Clixite maps and simplifies your processes before automating them, then takes them into production with your teams, from SMEs to large enterprises, in Belgium and Luxembourg.",
     photo: "fibres-45",
@@ -139,7 +139,7 @@ const pages: PageMetier[] = [
       ] },
     ],
     faq: [
-      { q: "Where should you start?", a: "With the most painful and most frequent process. Simplify it before adding tools: automating a muddled process only makes it go faster." },
+      { q: "Where should you start?", a: "Start with the most painful and most frequent process. Simplify it before adding tools: automating a muddled process only makes it go faster." },
       { q: "Do you need to change tools?", a: "Not necessarily. We first make the most of what you already have; a new tool is only justified if it does better at a reasonable cost." },
       { q: "What role does AI play?", a: "Reading documents, sorting requests, drafting replies: AI is genuinely useful there, under human oversight and in line with the GDPR." },
       { q: "Will your teams be able to change the workflows themselves?", a: "Yes. Documentation and training are part of every assignment, so that your teams stay self-sufficient." },

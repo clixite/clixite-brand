@@ -17,7 +17,7 @@ const fde: Fde = {
   },
   origin: {
     h: "Where the model comes from",
-    p: "The model was formalised by Palantir, which distinguishes its product developers from the engineers it deploys with customers, summed up as one customer, many capabilities. AI companies have since adopted it to take their customers from prototype to production, to the point of making it one of the most sought-after profiles in the industry.",
+    p: "The model was formalised by Palantir, which distinguishes its product developers from the engineers it deploys with customers, summed up in the phrase “one customer, many capabilities”. AI companies have since adopted it to take their customers from prototype to production, to the point of making it one of the most sought-after profiles in the industry.",
     src: [{ t: "Palantir, “Dev versus Delta”", href: SOURCES.palantir }, { t: "TechCrunch, 30 July 2026", href: SOURCES.techcrunch }],
     srcLabel: "Sources",
   },

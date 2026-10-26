@@ -9,9 +9,9 @@ const metiers: Metiers = {
   list: [
     {
       slug: "forward-deployed-engineering", key: "fde", href: r.fde, t: "Forward Deployed Engineering", court: "Forward Deployed Engineering",
-      d: "We join your teams to design, build and ship to production the integration, automation or AI agent you need, on your tools and under your security rules. We leave when your teams run the solution on their own.",
+      d: "We join your teams to design and build the integration, automation or AI agent you need and take it into production, using your tools and following your security rules. We leave when your teams run the solution on their own.",
       g: ["A prototype proven on your real data", "A solution in production, monitored and documented", "A complete handover: code, access, documentation, trained teams"],
-      k: "Systems integration, process automation, AI agents, going live, handover",
+      k: "Systems integration, process automation, AI agents, go-live, handover",
       photo: "ingenieurs",
     },
     {
@@ -30,7 +30,7 @@ const metiers: Metiers = {
     },
     {
       slug: "pilotage-de-programmes", key: "pilotage", href: r.pilotage, t: "Programme management", court: "Programme management",
-      d: "Multi-team programmes scoped and kept on track: clear governance, risks followed closely, committees that decide, users on board from day one.",
+      d: "Multi-team programmes scoped and kept on track: clear governance, risks tracked, committees that decide, users on board from day one.",
       g: ["Plan, budget and risks back under control", "Governance and committees that make decisions", "Change management you can measure"],
       k: "PMP, PRINCE2, SAFe, Scrum, ADKAR",
       photo: "salle",
@@ -48,17 +48,17 @@ const metiers: Metiers = {
     title: "Where our services apply.",
     lead: "The same methods, on the topics that matter most in regulated enterprises and SMEs alike.",
     items: [
-      { t: "Procurement and Source-to-Pay", sub: "Fractional CPO, interim, third-party risk",
-        d: "From need to payment: tooled processes, supplier risk under control, procurement leadership on a fractional or interim basis.",
+      { t: "Procurement and Source-to-Pay", sub: "Fractional CPO, interim management, third-party risk",
+        d: "From need to payment: processes backed by the right tools, supplier risk under control, procurement leadership on a fractional or interim basis.",
         href: r.achats, l: "Procurement transformation" },
       { t: "Risk and compliance", sub: "DORA, NIS2, GDPR, AI Act",
         d: "Obligations translated into processes, owners and evidence, in what you build as well as in what you buy.",
         href: `${r.fde}#${a.fdeRegulated}`, l: "FDE in regulated environments" },
       { t: "AI in production", sub: "Agents, automations, integrations",
-        d: "From a prototype that is convincing in a demo to an AI agent that runs on your systems, under human oversight.",
+        d: "From a prototype that looks convincing in a demo to an AI agent that runs on your systems, under human oversight.",
         href: r.fde, l: "Forward Deployed Engineering" },
       { t: "Digital products and SaaS", sub: "Architecture, integrations, launch",
-        d: "The architecture, integrations and go-live of a digital product, until your team can evolve it on its own.",
+        d: "The architecture, integrations and go-live of a digital product, until your team can develop it further on its own.",
         href: r.archi, l: "Solution architecture" },
     ],
   },
