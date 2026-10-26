@@ -21,3 +21,6 @@ clixite-www.zip
 web/dist/
 web/dist-review/
 web/.astro/
+
+# originaux des photos (téléchargés depuis Unsplash, voir web/src/data/photos.registry.json) : seuls les fichiers traités sont versionnés
+web/src/assets/photos/source/

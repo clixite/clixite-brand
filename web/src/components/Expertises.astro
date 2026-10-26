@@ -1,36 +1,23 @@
 ---
-// Les quatre métiers de Clixite, puis les domaines où ils s'appliquent. Utilisé sur l'accueil (h2) et sur /expertises/ (h1).
-interface Props { headingLevel?: "h1" | "h2" }
-const { headingLevel = "h2" } = Astro.props;
-const Heading = headingLevel;
-const Item = headingLevel === "h1" ? "h2" : "h3";
-const pillars = [
-  { t: "Digitalisation", d: "Les processus papier, les doubles saisies et les fichiers éparpillés deviennent des outils reliés qui travaillent pour vos équipes.",
-    g: ["Processus cartographiés et simplifiés avant d'être outillés", "Formulaires, flux et validations automatisés", "Données reliées entre vos outils, tableaux de bord utilisés"], k: "Automatisation, CRM et ERP, données, IA appliquée" },
-  { t: "Forward Deployed Engineering", d: "Nous nous installons dans vos équipes, nous construisons avec elles et nous restons jusqu'à la mise en production. La solution tourne avant notre départ.",
-    g: ["Intégrés à vos équipes, sur site ou à distance", "Prototype, mise en production, puis transfert", "Intégrations et agents IA sous garde-fous"], k: "Intégration, agents IA, mise en production, transfert" },
-  { t: "Pilotage de programmes", d: "Des programmes multi-équipes cadrés et tenus : une gouvernance claire, des risques suivis, des comités qui décident, des utilisateurs embarqués dès le premier jour.",
-    g: ["Plan, budget et risques repris en main", "Gouvernance et comités qui tranchent", "Conduite du changement mesurée"], k: "PMP, PRINCE2, SAFe, Scrum, ADKAR" },
-  { t: "Architecture d'entreprise et de solutions", d: "Savoir ce que vous avez, décider où vous allez et choisir les solutions qui vous y mènent, sans empiler les outils.",
-    g: ["Cartographie des applications, des données et des flux", "Architecture cible et trajectoire en options chiffrées", "Choix de solutions et revues d'architecture indépendantes"], k: "Cartographie, architecture cible, intégration, cloud" },
-];
-const domains = [
-  { t: "Achats et Source-to-Pay", href: "/expertises/transformation-achats/" },
-  { t: "Risques et conformité : DORA, NIS2, RGPD, AI Act" },
-  { t: "IA en production" },
-  { t: "Produits numériques et SaaS" },
-];
+// Les cinq métiers sur l'accueil, le Forward Deployed Engineering et le GEO en tête ; chaque titre mène à sa page.
+import Photo from "./Photo.astro";
+import { METIERS, DOMAINES } from "../data/expertises";
 ---
-<section id="expertises" class:list={["section", "expertises", headingLevel === "h1" && "expertises--page"]} aria-labelledby="exp-title">
+<section id="expertises" class="section expertises" aria-labelledby="exp-title">
   <div class="wrap">
     <div class="exp__head">
-      <Heading id="exp-title" class={headingLevel === "h1" ? "h-display" : "h2"}>Quatre métiers, un même résultat : des solutions qui tournent.</Heading>
-      <p class="lead">Nous intervenons là où une stratégie doit devenir un système qui fonctionne, dans une PME comme dans un groupe régulé.</p>
+      <div class="exp__intro">
+        <h2 id="exp-title" class="h2">Cinq métiers, une même exigence : un résultat qui tourne.</h2>
+        <p class="lead">Nous intervenons là où une stratégie doit devenir un système qui fonctionne, dans une PME comme dans un groupe régulé.</p>
+      </div>
+      <figure class="exp__fig">
+        <Photo name="plan-32" class="exp__img" sizes="(min-width: 900px) 40vw, 100vw" />
+      </figure>
     </div>
     <ul role="list" class="exp__grid">
-      {pillars.map((p) => (
+      {METIERS.map((p) => (
         <li class="exp__pillar">
-          <Item class="h3">{p.t}</Item>
+          <h3 class="h3"><a href={p.href}>{p.t}</a></h3>
           <p class="muted">{p.d}</p>
           <ul class="exp__gets">{p.g.map((x) => <li>{x}</li>)}</ul>
           <p class="exp__k small">{p.k}</p>
@@ -38,21 +25,25 @@ const domains = [
       ))}
     </ul>
     <div class="exp__domains">
-      <p class="exp__dlabel">Ces quatre métiers s'appliquent aussi à</p>
+      <p class="exp__dlabel">Domaines d'application</p>
       <ul role="list">
-        {domains.map((d) => <li>{d.href ? <a href={d.href}>{d.t}</a> : d.t}</li>)}
+        {DOMAINES.map((d) => <li>{d.href ? <a href={d.href}>{d.t}</a> : d.t}</li>)}
       </ul>
     </div>
   </div>
 </section>
 
 <style>
-  .expertises--page { padding-top: var(--clx-space-7); }
-  .exp__head { display: grid; gap: var(--clx-space-5); max-width: 56rem; }
-  .exp__head :is(h1, h2) { text-wrap: balance; }
-  .exp__head .lead { max-width: 52ch; }
-  .exp__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--clx-space-8) var(--clx-space-8); margin-top: var(--clx-space-8); }
+  .exp__head { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: var(--clx-space-8); align-items: end; }
+  .exp__intro { display: grid; gap: var(--clx-space-5); }
+  .exp__intro .lead { max-width: 52ch; }
+  .exp__fig { margin: 0; }
+  .exp__fig :global(.exp__img) { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--clx-radius-panel); }
+  .exp__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--clx-space-8); margin-top: var(--clx-space-8); }
   .exp__pillar { display: grid; gap: var(--clx-space-3); align-content: start; padding-top: var(--clx-space-5); border-top: 2px solid var(--clx-text); }
+  .exp__pillar:nth-child(-n + 2) { border-top-color: var(--clx-accent); }
+  .exp__pillar h3 a { color: var(--clx-text); text-decoration: none; background-image: none; }
+  .exp__pillar h3 a:hover { color: var(--clx-link); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 5px; }
   .exp__pillar p.muted { max-width: 52ch; }
   .exp__gets { margin: var(--clx-space-2) 0 0; padding-left: 1.1rem; display: grid; gap: 0.35rem; }
   .exp__gets li::marker { color: var(--clx-accent); }
@@ -63,8 +54,11 @@ const domains = [
   .exp__domains li { color: var(--clx-text); }
   .exp__domains a { color: var(--clx-text); text-decoration: underline; text-decoration-color: var(--clx-accent); text-decoration-thickness: 2px; text-underline-offset: 5px; }
   @media (max-width: 899px) {
+    .exp__head { grid-template-columns: 1fr; gap: var(--clx-space-6); }
     .exp__grid { grid-template-columns: 1fr; gap: var(--clx-space-7); }
     .exp__domains { grid-template-columns: 1fr; gap: var(--clx-space-3); }
     .exp__domains ul { flex-direction: column; gap: var(--clx-space-2); }
   }
+  /* sur téléphone, les puces restent sur les pages métiers : l'offre arrive plus tôt sous le pouce */
+  @media (max-width: 599px) { .exp__gets, .exp__k { display: none; } }
 </style>

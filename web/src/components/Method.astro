@@ -17,8 +17,8 @@ const steps = [
       <p class="lead">Quatre étapes, chacune avec un livrable que vous gardez, même si vous arrêtez là. Vous décidez de la suivante sur pièces.</p>
     </div>
     <ol role="list" class="method__list">
-      {steps.map((s) => (
-        <li class="method__step">
+      {steps.map((s, i) => (
+        <li class="method__step" style={`--i:${i}`}>
           <div class="method__art" set:html={s.svg} />
           <h3 class="h3">{s.t}</h3>
           <p class="muted">{s.d}</p>
@@ -38,6 +38,24 @@ const steps = [
   .method__step p.muted { margin-top: var(--clx-space-3); margin-bottom: var(--clx-space-4); }
   .method__meta { margin-top: auto !important; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; padding-top: var(--clx-space-3); border-top: 1px solid var(--clx-border); font-weight: 600; }
   .method__out { font-weight: 500; color: var(--clx-text-muted); }
+  /* le X se construit au défilement : une cote turquoise court sur les filets « Livrable », chaque dessin passe du relevé
+     au plein, puis le chant du X tombe à sa place. Repli (mouvement réduit, sans prise en charge) : le dessin, inchangé. */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .method__list { view-timeline: --clx-methode block; }
+      .method__meta { position: relative; }
+      .method__meta::before { content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 2px; background: var(--clx-accent); transform-origin: 0 50%; animation: clx-cote var(--clx-easing-out) both; animation-timeline: --clx-methode; animation-range: cover calc(14% + var(--i) * 8%) cover calc(22% + var(--i) * 8%); }
+      .method__art { animation: clx-pose linear both; animation-timeline: --clx-methode; animation-range: cover calc(10% + var(--i) * 8%) cover calc(22% + var(--i) * 8%); }
+      .method__step:last-child .method__art :global(svg > path:first-of-type) { animation: clx-chant var(--clx-easing-out) both; animation-timeline: --clx-methode; animation-range: cover 44% cover 52%; }
+      @media (max-width: 599px) {
+        .method__step { view-timeline: --clx-etape block; }
+        .method__meta::before, .method__art { animation-timeline: --clx-etape; animation-range: entry 80% cover 45%; }
+        .method__step:last-child .method__art :global(svg > path:first-of-type) { animation-timeline: --clx-etape; animation-range: cover 40% cover 52%; }
+      }
+    }
+  }
+  @keyframes clx-pose { from { opacity: 0.2; } }
+  @keyframes clx-chant { from { opacity: 0; transform: translate(-4.1px, -11.3px); } }
   @media (max-width: 1099px) { .method__list { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--clx-space-8); } }
   @media (max-width: 899px) { .method__head { grid-template-columns: 1fr; gap: var(--clx-space-4); } }
   @media (max-width: 599px) {

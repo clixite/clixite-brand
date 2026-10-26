@@ -1,0 +1,180 @@
+{
+  "_note": "Registre des photos du site. Toutes viennent d'Unsplash, sous licence Unsplash (usage commercial libre, sans attribution obligatoire ; Unsplash+ exclu), vérifiée sur la page de chaque photo le 26 octobre 2026. Les originaux sont téléchargés depuis « telechargement » vers src/assets/photos/source/ (non versionné), puis traités par scripts/build-photos.py. Les crédits sont repris dans les mentions légales.",
+  "licence": {
+    "nom": "Licence Unsplash",
+    "url": "https://unsplash.com/license"
+  },
+  "photos": [
+    {
+      "slug": "plan",
+      "fichier": "1503387837-b154d5074bd2.jpg",
+      "page": "https://unsplash.com/photos/-FPFq_trr2Y",
+      "telechargement": "https://images.unsplash.com/photo-1503387837-b154d5074bd2?w=2400&q=85&fm=jpg",
+      "auteur": "Daniel McCullough",
+      "famille": "le papier",
+      "alt": "Une main trace un plan à la règle sur une grande feuille.",
+      "traitement": "lumiere",
+      "variantes": {
+        "32": {
+          "ratio": "3:2",
+          "x": 0.5,
+          "y": 0.5
+        }
+      }
+    },
+    {
+      "slug": "equipe",
+      "fichier": "1758520145175-aa3b593b81af.jpg",
+      "page": "https://unsplash.com/photos/v6JKMaqAwZE",
+      "telechargement": "https://images.unsplash.com/photo-1758520145175-aa3b593b81af?w=2400&q=85&fm=jpg",
+      "auteur": "Vitaly Gariev",
+      "famille": "chez vous",
+      "alt": "Un plateau de bureau éclairé le soir, vu de l'extérieur : une équipe au travail derrière la grande baie.",
+      "traitement": "tirage",
+      "variantes": {
+        "219": {
+          "ratio": "21:9",
+          "x": 0.5,
+          "y": 0.42,
+          "largeurMax": 2400
+        },
+        "45": {
+          "ratio": "4:5",
+          "x": 0.4,
+          "y": 0.5
+        }
+      }
+    },
+    {
+      "slug": "ingenieurs",
+      "fichier": "1581091226033-d5c48150dbaa.jpg",
+      "page": "https://unsplash.com/photos/bIltCMXIwRE",
+      "telechargement": "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=2400&q=85&fm=jpg",
+      "auteur": "ThisisEngineering",
+      "famille": "chez vous",
+      "alt": "Trois ingénieurs penchés sur un ordinateur portable, au milieu d'un banc d'essai en atelier.",
+      "traitement": "lumiere",
+      "variantes": {
+        "169": {
+          "ratio": "16:9",
+          "x": 0.5,
+          "y": 0.45,
+          "largeurMax": 2400
+        },
+        "45": {
+          "ratio": "4:5",
+          "x": 0.56,
+          "y": 0.5
+        }
+      }
+    },
+    {
+      "slug": "archives",
+      "fichier": "1741795821804-451ccc87aec8.jpg",
+      "page": "https://unsplash.com/photos/eR96tng0pyk",
+      "telechargement": "https://images.unsplash.com/photo-1741795821804-451ccc87aec8?w=2400&q=85&fm=jpg",
+      "auteur": "Zoshua Colah",
+      "famille": "le papier",
+      "alt": "Une longue allée de rayonnages chargés de dossiers et de reliures.",
+      "traitement": "lumiere",
+      "variantes": {
+        "45": {
+          "ratio": "4:5",
+          "x": 0.5,
+          "y": 0.5
+        }
+      }
+    },
+    {
+      "slug": "salle",
+      "fichier": "1462826303086-329426d1aef5.jpg",
+      "page": "https://unsplash.com/photos/0sT9YhNgSEs",
+      "telechargement": "https://images.unsplash.com/photo-1462826303086-329426d1aef5?w=2400&q=85&fm=jpg",
+      "auteur": "Benjamin Child",
+      "famille": "chez vous",
+      "alt": "Une salle de réunion vide, une longue table face à une baie vitrée.",
+      "traitement": "lumiere",
+      "variantes": {
+        "45": {
+          "ratio": "4:5",
+          "x": 0.46,
+          "y": 0.5
+        }
+      }
+    },
+    {
+      "slug": "aiguillage",
+      "fichier": "1552966722-678bbeb9d89a.jpg",
+      "page": "https://unsplash.com/photos/AO3otVvlMU8",
+      "telechargement": "https://images.unsplash.com/photo-1552966722-678bbeb9d89a?w=2400&q=85&fm=jpg",
+      "auteur": "Zane Lee",
+      "famille": "le relief",
+      "alt": "Deux voies ferrées qui se croisent en X, vues d'en haut.",
+      "traitement": "lumiere",
+      "variantes": {
+        "45": {
+          "ratio": "4:5",
+          "x": 0.5,
+          "y": 0.5
+        }
+      }
+    },
+    {
+      "slug": "centre-donnees",
+      "fichier": "1784652852605-6945598f2af3.jpg",
+      "page": "https://unsplash.com/photos/fImCPTZ026U",
+      "telechargement": "https://images.unsplash.com/photo-1784652852605-6945598f2af3?w=2400&q=85&fm=jpg",
+      "auteur": "Tony Marinescu",
+      "famille": "ça tourne",
+      "alt": "Des rangées d'armoires de serveurs dans un centre de données.",
+      "traitement": "tirage",
+      "variantes": {
+        "219": {
+          "ratio": "21:9",
+          "x": 0.5,
+          "y": 0.56,
+          "largeurMax": 2400
+        },
+        "45": {
+          "ratio": "4:5",
+          "x": 0.5,
+          "y": 0.5
+        }
+      }
+    },
+    {
+      "slug": "conteneurs",
+      "fichier": "1494412685616-a5d310fbb07d.jpg",
+      "page": "https://unsplash.com/photos/kyCNGGKCvyw",
+      "telechargement": "https://images.unsplash.com/photo-1494412685616-a5d310fbb07d?w=2400&q=85&fm=jpg",
+      "auteur": "CHUTTERSNAP",
+      "famille": "ça tourne",
+      "alt": "Un terminal portuaire vu du ciel : des conteneurs alignés en rangées et des portiques de levage.",
+      "traitement": "lumiere",
+      "variantes": {
+        "32": {
+          "ratio": "3:2",
+          "x": 0.5,
+          "y": 0.5
+        }
+      }
+    },
+    {
+      "slug": "fibres",
+      "fichier": "1744868562210-fffb7fa882d9.jpg",
+      "page": "https://unsplash.com/photos/yhJVLxcquEY",
+      "telechargement": "https://images.unsplash.com/photo-1744868562210-fffb7fa882d9?w=2400&q=85&fm=jpg",
+      "auteur": "Albert Stoynov",
+      "famille": "ça tourne",
+      "alt": "Des fibres optiques jaunes raccordées une à une sur un panneau de brassage.",
+      "traitement": "lumiere",
+      "variantes": {
+        "45": {
+          "ratio": "4:5",
+          "x": 0.5,
+          "y": 0.5
+        }
+      }
+    }
+  ]
+}

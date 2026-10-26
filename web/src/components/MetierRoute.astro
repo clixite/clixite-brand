@@ -1,0 +1,20 @@
+---
+// Enveloppe commune d'une page métier : métadonnées, JSON-LD (Service, BreadcrumbList, FAQPage) et rendu.
+import Base from "../layouts/Base.astro";
+import MetierPage from "./MetierPage.astro";
+import type { PageMetier } from "../data/pages-metiers";
+import { UPDATED } from "../data/pages-metiers";
+import { breadcrumb, faqPage, service } from "../data/schema";
+import { METIERS } from "../data/expertises";
+interface Props { page: PageMetier }
+const { page } = Astro.props;
+const crumbs = [{ name: "Accueil", href: "/" }, ...(page.path.startsWith("/expertises/") ? [{ name: "Expertises", href: "/expertises/" }] : []), { name: page.crumb, href: page.path }];
+const schema = [
+  service({ path: page.path, name: METIERS.find((m) => m.href === page.path)?.t ?? page.h1[0].replace(/\s*:\s*$/, ""), alternateName: page.alternateName, description: page.chapo, serviceType: page.serviceType }),
+  breadcrumb(crumbs),
+  faqPage(page.faq),
+];
+---
+<Base title={page.title} description={page.description} path={page.path} schema={schema} modified={UPDATED}>
+  <MetierPage page={page} />
+</Base>

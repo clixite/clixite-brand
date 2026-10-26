@@ -1,8 +1,11 @@
 ---
 // L'adresse en clair et un bouton pour la copier : le lien mailto ne fait rien chez qui n'a qu'une messagerie en ligne.
 import { SITE } from "../data/site";
+interface Props { lang?: "fr" | "en" }
+const { lang = "fr" } = Astro.props;
+const L = lang === "en" ? { copy: "Copy address", ok: "Address copied", sel: "Address selected" } : { copy: "Copier l'adresse", ok: "Adresse copiée", sel: "Adresse sélectionnée" };
 ---
-<span class="cm"><a href={`mailto:${SITE.email}`}>{SITE.email}</a> <button type="button" class="cm__btn" data-copy={SITE.email}>Copier l'adresse</button><span class="visually-hidden" aria-live="polite" data-copy-status></span></span>
+<span class="cm"><a href={`mailto:${SITE.email}`}>{SITE.email}</a> <button type="button" class="cm__btn" data-copy={SITE.email} data-ok={L.ok} data-sel={L.sel}>{L.copy}</button><span class="visually-hidden" aria-live="polite" data-copy-status></span></span>
 
 <script>
   document.querySelectorAll<HTMLButtonElement>("[data-copy]").forEach((b) => {
@@ -12,7 +15,7 @@ import { SITE } from "../data/site";
       let ok = false;
       try { await navigator.clipboard.writeText(text); ok = true; } catch { /* presse-papiers refusé : on sélectionne le texte */ }
       if (!ok) { const a = b.previousElementSibling; const r = document.createRange(); if (a) { r.selectNodeContents(a); const s = getSelection(); s?.removeAllRanges(); s?.addRange(r); } }
-      const prev = b.textContent; b.textContent = ok ? "Adresse copiée" : "Adresse sélectionnée"; if (status) status.textContent = b.textContent;
+      const prev = b.textContent; b.textContent = (ok ? b.dataset.ok : b.dataset.sel) ?? ""; if (status) status.textContent = b.textContent;
       setTimeout(() => { b.textContent = prev; }, 1800);
     });
   });

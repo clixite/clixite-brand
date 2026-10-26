@@ -365,3 +365,7 @@ footer .right{font-family:var(--mono);font-size:12px;text-align:right}
 .screen{margin:24px 0 8px}
 .screen img{width:100%;border-radius:10px;border:1px solid var(--brume)}
 .screen figcaption{font-size:13px;color:var(--ardoise);margin-top:10px}
+.screen-photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:560px;margin:16px 0 8px}
+.screen-photos figure{margin:0}
+.screen-photos img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:10px;display:block}
+.screen-photos figcaption{font-size:13px;color:var(--ardoise);margin-top:8px}

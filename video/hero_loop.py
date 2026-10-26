@@ -60,8 +60,8 @@ def build(name, W, H, fmt, crf):
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", master, "-c:v", "libvpx-vp9", "-crf", str(crf + 9), "-b:v", "0",
                     "-deadline", "good", "-cpu-used", "2", "-row-mt", "1", "-g", "48", "-pix_fmt", "yuv420p", *col, webm], check=True)
     os.remove(master)
-    # affiche : la première image du fichier, en WebP
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", out, "-frames:v", "1", "-c:v", "libwebp", "-quality", "84",
+    # affiche : l'image du volume de lignes posé sur le papier (3,8 s), nette et dans la marque, en WebP
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", "3.8", "-i", out, "-frames:v", "1", "-c:v", "libwebp", "-quality", "84",
                     f"{OUT}/{name}.webp"], check=True)
     print("ok", out)
 

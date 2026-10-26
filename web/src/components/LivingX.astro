@@ -1,0 +1,77 @@
+---
+// Le X Interférence vivant (DESIGN.md §6) : il se construit quand il entre à l'écran (repères, tracé, chant, champs,
+// lentille ; l'angle se résout de 14° à 4°), puis respire entre 4° et 6°. Seul l'angle entre les champs change.
+// Au repos (8°) et sans construction en mouvement réduit et sur écran tactile ; en pause hors écran.
+// Une seule instance par page (identifiants SVG).
+import heroX from "../assets/x/hero.svg?raw";
+import geo from "../assets/x/hero.json";
+interface Props { theme?: "papier" | "encre"; class?: string; label?: string }
+const { theme = "papier", class: cls, label } = Astro.props;
+const D = 0.3 * 0.2 * 480; // chant : 0,30 barre à 70°, en unités de la viewBox
+const cdx = (D * Math.cos((70 * Math.PI) / 180)).toFixed(2);
+const cdy = (D * Math.sin((70 * Math.PI) / 180)).toFixed(2);
+const svg = label ? heroX : heroX.replace('role="img" aria-labelledby="hx-title"', 'aria-hidden="true" focusable="false"').replace(/<title id="hx-title">[^<]*<\/title>/, "");
+---
+<div class:list={["lx", `lx--${theme}`, cls]} data-lx style={`--cx:${geo.cx}px; --cy:${geo.cy}px; --cdx:${cdx}px; --cdy:${cdy}px;`} set:html={svg} />
+
+<script>
+  const host = document.querySelector<HTMLElement>("[data-lx]");
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches || matchMedia("(pointer: coarse)").matches;
+  if (host && !still) {
+    host.classList.add("is-armed");
+    let angle = 4, raf = 0, visible = false, started = 0, opened = false;
+    const tick = (now: number) => {
+      raf = 0;
+      if (!visible || document.hidden) return;
+      if (!started) started = now;
+      const breath = 5 - Math.cos(((now - started) / 7000) * Math.PI * 2); // 4° à 6°, période de 7 s
+      angle += (breath - angle) * 0.045;
+      host.style.setProperty("--hx-a", angle.toFixed(3));
+      raf = requestAnimationFrame(tick);
+    };
+    const live = () => { if (!raf && visible) raf = requestAnimationFrame(tick); };
+    new IntersectionObserver(([e]) => {
+      visible = e.isIntersecting;
+      if (visible && !opened) {
+        opened = true;
+        host.classList.add("is-in");
+        setTimeout(() => { host.style.setProperty("--hx-a", "4"); host.classList.add("is-live"); live(); }, 2500);
+      } else if (opened && host.classList.contains("is-live")) live();
+    }, { threshold: 0.35 }).observe(host);
+    document.addEventListener("visibilitychange", live);
+  }
+</script>
+
+<style>
+  @property --hx-a { syntax: "<number>"; inherits: true; initial-value: 8; }
+  .lx { --hx-a: 8; color: var(--clx-text-muted); }
+  .lx :global(svg) { width: 100%; height: auto; overflow: visible; }
+  .lx :global(.hx-guides) { opacity: 0.32; }
+  .lx :global(.hx-labels) { opacity: 0.7; }
+  .lx :global(.hx-outline) { opacity: 0; stroke-dasharray: 1; stroke-dashoffset: 0; }
+  .lx :global(.hx-field), .lx :global(.hx-lens) { transform-box: view-box; transform-origin: var(--cx) var(--cy); }
+  .lx :global(.hx-field-a) { transform: rotate(calc(var(--hx-a) * -0.5deg)); }
+  .lx :global(.hx-field-b) { transform: rotate(calc(var(--hx-a) * 0.5deg)); }
+  /* sur Encre : le chant prend l'Encre teintée, le tracé passe en Papier */
+  .lx--encre :global(.hx-chant) { fill: var(--clx-color-encre-700); }
+  .lx--encre :global(.hx-outline) { stroke: var(--clx-color-papier); }
+
+  /* armé : tout attend l'entrée à l'écran ; puis la construction, une fois */
+  .lx.is-armed:not(.is-in) :global(:is(.hx-guides, .hx-labels, .hx-chant, .hx-face, .hx-field, .hx-lens)) { opacity: 0; }
+  .lx.is-armed:not(.is-in) { --hx-a: 14; }
+  .lx.is-in:not(.is-live) { animation: lx-angle 1300ms var(--clx-easing-out) 1100ms both; }
+  .lx.is-in :global(.hx-guides) { animation: lx-guides 2400ms var(--clx-easing-out) both; }
+  .lx.is-in :global(.hx-labels) { animation: lx-labels 2400ms var(--clx-easing-out) both; }
+  .lx.is-in :global(.hx-outline) { animation: lx-outline 2400ms var(--clx-easing-out) both; }
+  .lx.is-in :global(.hx-chant) { animation: lx-chant 700ms var(--clx-easing-out) 1000ms both; }
+  .lx.is-in :global(.hx-face) { animation: lx-fade 400ms var(--clx-easing-out) 850ms both; }
+  .lx.is-in :global(.hx-field) { animation: lx-fade 700ms var(--clx-easing-out) 1100ms both; }
+  .lx.is-in :global(.hx-lens) { animation: lx-lens 500ms var(--clx-easing-out) 1700ms both; }
+  @keyframes lx-angle { from { --hx-a: 14; } to { --hx-a: 4; } }
+  @keyframes lx-guides { 0% { opacity: 0; } 20% { opacity: 1; } 70% { opacity: 1; } 100% { opacity: 0.32; } }
+  @keyframes lx-labels { 0%, 12% { opacity: 0; } 32% { opacity: 1; } 75% { opacity: 1; } 100% { opacity: 0.7; } }
+  @keyframes lx-outline { 0% { opacity: 1; stroke-dashoffset: 1; } 46% { opacity: 1; stroke-dashoffset: 0; } 66% { opacity: 1; stroke-dashoffset: 0; } 92%, 100% { opacity: 0; stroke-dashoffset: 0; } }
+  @keyframes lx-chant { from { opacity: 0; transform: translate(calc(var(--cdx) * -1), calc(var(--cdy) * -1)); } to { opacity: 1; transform: none; } }
+  @keyframes lx-fade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes lx-lens { from { opacity: 0; transform: scale(0.4); } to { opacity: 1; transform: none; } }
+</style>

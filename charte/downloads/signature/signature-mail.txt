@@ -1,4 +1,4 @@
-<!-- Signature mail Clixite : copier ce bloc dans Outlook, Gmail ou Apple Mail (coller en HTML). Remplacer le GSM. -->
+<!-- Signature mail Clixite : copier ce bloc dans Outlook, Gmail ou Apple Mail (coller en HTML). -->
 <table cellpadding="0" cellspacing="0" border="0" style="font-family: Inter, Arial, Helvetica, sans-serif; color: #0B2239; font-size: 13px; line-height: 18px; border-collapse: collapse;">
   <tr>
     <td style="padding: 0 18px 0 0; vertical-align: middle;">
@@ -9,8 +9,11 @@
       <div style="color: #4B5A6B; margin-top: 2px;">Solutions &amp; Enterprise Architect · Clixite SRL</div>
       <div style="margin-top: 6px;">
         <a href="mailto:nicolas@clixite.be" style="color: #0C7893; text-decoration: none;">nicolas@clixite.be</a>
-        <span style="color: #CDD5DD;">&nbsp;·&nbsp;</span><span style="color: #0B2239;">+32 (0)4xx xx xx xx</span>
-        <span style="color: #CDD5DD;">&nbsp;·&nbsp;</span><a href="https://clixite.be" style="color: #0C7893; text-decoration: none;">clixite.be</a>
+        <span style="color: #CDD5DD;">&nbsp;·&nbsp;</span><a href="https://www.clixite.be" style="color: #0C7893; text-decoration: none;">clixite.be</a>
+      </div>
+      <div style="margin-top: 2px;">
+        <a href="tel:+3210311000" style="color: #0B2239; text-decoration: none;">BE&nbsp;+32&nbsp;10&nbsp;31&nbsp;10&nbsp;00</a>
+        <span style="color: #CDD5DD;">&nbsp;·&nbsp;</span><a href="tel:+35220420202" style="color: #0B2239; text-decoration: none;">LU&nbsp;+352&nbsp;20&nbsp;42&nbsp;02&nbsp;02</a>
       </div>
       <div style="font-family: 'Space Grotesk', Inter, Arial, sans-serif; font-size: 10px; letter-spacing: 1.5px; color: #0C7893; margin-top: 8px; font-weight: 700;">ENTERPRISE &amp; SOLUTION ARCHITECTURE</div>
     </td>

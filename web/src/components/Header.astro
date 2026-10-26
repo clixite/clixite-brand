@@ -1,62 +1,83 @@
 ---
 import wordmark from "../assets/x/wordmark.svg?raw";
-import { bookingHref } from "../data/site";
-const links = [
-  { href: "/expertises/", label: "Expertises" },
-  { href: "/#methode", label: "Méthode" },
-  { href: "/#references", label: "Références" },
-  { href: "/#formats", label: "Travailler ensemble" },
-];
+import { NAV, FDE_PATH_EN } from "../data/site";
+interface Props { lang?: "fr" | "en"; alternates?: { lang: string; path: string }[] }
+const { lang = "fr", alternates = [] } = Astro.props;
+const current = Astro.url.pathname;
+const nav = lang === "en" ? [{ href: FDE_PATH_EN, label: "Forward Deployed Engineering" }, { href: FDE_PATH_EN + "#how", label: "How we work" }] : NAV;
+// lien vers l'autre langue, quand la page existe dans les deux
+const other = alternates.find((a) => !a.lang.startsWith(lang === "en" ? "en" : "fr"));
+const switchLabel = other ? (other.lang.startsWith("en") ? { t: "EN", full: "EN, English version", long: "English version" } : { t: "FR", full: "FR, version française", long: "Version française" }) : null;
+const L = lang === "en" ? { home: "Clixite, home", main: "Main navigation", mobile: "Mobile navigation", menu: "Menu", open: "Open the menu", cta: "Request a conversation", ctaS: "Contact" } : { home: "Clixite, accueil", main: "Navigation principale", mobile: "Navigation mobile", menu: "Menu", open: "Ouvrir le menu", cta: "Demander un échange", ctaS: "Contact" };
+const isCurrent = (href: string) => !href.includes("#") && current === href;
 ---
 <header class="hd">
   <div class="wrap hd__in">
-    <a class="hd__logo" href="/" aria-label="Clixite, accueil">
+    <a class="hd__logo" href="/" aria-label={L.home}>
       <span class="hd__mark" set:html={wordmark} aria-hidden="true" />
     </a>
-    <nav class="hd__nav" aria-label="Navigation principale">
+    <nav class="hd__nav" aria-label={L.main}>
       <ul role="list">
-        {links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+        {nav.map((l) => <li><a href={l.href} aria-current={isCurrent(l.href) ? "page" : undefined}>{l.label}{isCurrent(l.href) && <span class="hd__cur" aria-hidden="true" />}</a></li>)}
+        {switchLabel && other && <li><a href={other.path} hreflang={other.lang} lang={other.lang.slice(0, 2)} class="hd__lang" aria-label={switchLabel.full}>{switchLabel.t}</a></li>}
       </ul>
     </nav>
-    <a class="btn btn--primary btn--small hd__cta" href={bookingHref()}><span class="hd__cta-l">Demander un échange</span><span class="hd__cta-s">Contact</span></a>
-    <details class="hd__menu">
-      <summary aria-label="Ouvrir le menu"><span>Menu</span></summary>
-      <nav aria-label="Navigation mobile">
-        <ul role="list">
-          {links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
-          <li><a href="/#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </details>
+    <a class="btn btn--primary btn--small hd__cta" href="#contact"><span class="hd__cta-l">{L.cta}</span><span class="hd__cta-s">{L.ctaS}</span></a>
+    <button type="button" class="hd__toggle" popovertarget="menu" aria-label={L.open}><span>{L.menu}</span></button>
+    <nav id="menu" class="hd__menu" popover aria-label={L.mobile}>
+      <ul role="list">
+        {nav.map((l) => <li><a href={l.href} aria-current={isCurrent(l.href) ? "page" : undefined}>{l.label}</a></li>)}
+        {switchLabel && other && <li><a href={other.path} hreflang={other.lang} lang={other.lang.slice(0, 2)}>{switchLabel.long}</a></li>}
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
+<script>
+  // menu mobile : popover natif (Échap et clic extérieur le ferment) ; il se referme aussi quand on suit un lien
+  const menu = document.getElementById("menu");
+  menu?.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => { try { menu.hidePopover(); } catch { /* déjà fermé */ } }));
+</script>
+
 <style>
-  .hd { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--clx-bg) 96%, transparent); border-bottom: 1px solid transparent; }
+  .hd { position: sticky; top: 0; z-index: 50; background: var(--clx-bg); border-bottom: 1px solid transparent; }
   @supports (animation-timeline: scroll()) {
     .hd { animation: hd-line linear both; animation-timeline: scroll(root); animation-range: 0 120px; }
     @keyframes hd-line { to { border-bottom-color: var(--clx-border); } }
   }
   @supports not (animation-timeline: scroll()) { .hd { border-bottom-color: var(--clx-border); } }
   .hd__in { display: flex; align-items: center; gap: var(--clx-space-6); min-height: 72px; }
-  .hd__logo { display: inline-flex; color: var(--clx-text); flex: none; border-radius: 4px; }
+  .hd__logo { display: inline-flex; align-items: center; min-height: 44px; color: var(--clx-text); flex: none; border-radius: 4px; }
   .hd__mark :global(svg) { width: 132px; height: auto; }
   .hd__nav { margin-left: auto; }
   .hd__nav ul { display: flex; gap: var(--clx-space-6); }
   .hd__nav a, .hd__menu a { color: var(--clx-text); text-decoration: none; font-weight: 500; font-size: 0.9375rem; padding: 0.5rem 0; }
+  .hd__nav a { position: relative; white-space: nowrap; }
+  @media (max-width: 1279px) { .hd__nav ul { gap: var(--clx-space-5); } .hd__in { gap: var(--clx-space-5); } }
   .hd__nav a:hover { color: var(--clx-link); }
-  .hd__menu { display: none; }
-  @media (max-width: 899px) {
+  .hd__lang { font-family: var(--clx-font-family-data); font-size: 0.8125rem !important; letter-spacing: 0.04em; }
+  /* page courante : un filet turquoise sous le lien */
+  .hd__cur { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--clx-accent); view-transition-name: clx-cur; }
+  .hd__toggle, .hd__menu { display: none; }
+  @media (max-width: 1099px) {
     .hd__in { gap: var(--clx-space-3); min-height: 64px; }
     .hd__mark :global(svg) { width: 112px; }
     .hd__nav { display: none; }
     .hd__cta { margin-left: auto; }
-    .hd__menu { display: block; position: static; }
-    .hd__menu summary { list-style: none; cursor: pointer; min-height: 44px; min-width: 44px; display: grid; place-items: center; border-radius: var(--clx-radius-pill); border: 1px solid var(--clx-border-strong); padding: 0 0.875rem; font-weight: 600; font-size: 0.9375rem; }
-    .hd__menu summary::-webkit-details-marker { display: none; }
-    .hd__menu[open] summary { border-color: var(--clx-text); }
-    .hd__menu nav { position: absolute; left: 0; right: 0; top: 100%; background: var(--clx-bg); border-bottom: 1px solid var(--clx-border); padding: var(--clx-space-3) var(--clx-layout-gutter) var(--clx-space-6); }
-    .hd__menu nav a { display: block; font-size: 1.25rem; font-family: var(--clx-font-family-display); font-weight: 500; padding: 0.75rem 0; }
+    .hd__toggle { display: grid; place-items: center; cursor: pointer; min-height: 44px; min-width: 44px; border-radius: var(--clx-radius-pill); border: 1px solid var(--clx-border-strong); background: transparent; color: var(--clx-text); padding: 0 0.875rem; font: 600 0.9375rem/1 var(--clx-font-family-text); }
+    .hd__toggle:hover { border-color: var(--clx-text); }
+    .hd__menu:popover-open { display: block; }
+    .hd__menu { position: fixed; inset: 64px 0 auto 0; margin: 0; width: auto; max-height: calc(100svh - 64px); overflow: auto; border: 0; border-bottom: 1px solid var(--clx-border); background: var(--clx-bg); color: var(--clx-text); padding: var(--clx-space-3) max(var(--clx-layout-gutter), env(safe-area-inset-right, 0px)) var(--clx-space-6) max(var(--clx-layout-gutter), env(safe-area-inset-left, 0px)); }
+    .hd__menu a { display: block; font-size: 1.25rem; font-family: var(--clx-font-family-display); font-weight: 500; padding: 0.75rem 0; }
+    .hd__menu a[aria-current="page"] { color: var(--clx-link); }
+    .hd__menu::backdrop { background: rgb(11 34 57 / 0.35); }
+  }
+  /* ouverture du menu : un glissement court, sans rebond */
+  @media (prefers-reduced-motion: no-preference) {
+    .hd__menu { transition: opacity 240ms var(--clx-easing-out), translate 240ms var(--clx-easing-out), display 240ms allow-discrete, overlay 240ms allow-discrete; }
+    .hd__menu:popover-open { opacity: 1; translate: 0 0; }
+    @starting-style { .hd__menu:popover-open { opacity: 0; translate: 0 -8px; } }
   }
   .hd__cta-s { display: none; }
   @media (max-width: 479px) { .hd__cta-l { display: none; } .hd__cta-s { display: inline; } .hd__cta { padding: 0 0.875rem; } }

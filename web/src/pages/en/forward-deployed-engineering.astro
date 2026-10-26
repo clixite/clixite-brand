@@ -1,0 +1,27 @@
+---
+import Base from "../../layouts/Base.astro";
+import FdePage from "../../components/FdePage.astro";
+import { FDE, FDE_UPDATED } from "../../data/fde";
+import { FDE_PATH, FDE_PATH_EN, SITE } from "../../data/site";
+import { breadcrumb, faqPage, service } from "../../data/schema";
+const C = FDE.en;
+const schema = [
+  {
+    ...service({
+      path: FDE_PATH_EN, name: "Forward Deployed Engineering", alternateName: ["FDE", "Forward Deployed Engineer"], lang: "en",
+      description: C.chapo, serviceType: ["Forward Deployed Engineering", "Systems integration", "Process automation", "AI in production", "AI agents"],
+    }),
+  },
+  {
+    "@type": "DefinedTerm", "@id": `${SITE.url}${FDE_PATH_EN}#term`, name: "Forward Deployed Engineering", alternateName: "FDE", inLanguage: "en",
+    description: "An engineering model that places engineers inside a client's teams to design, build and ship a solution to production on the client's own systems, then hand it over.",
+    url: `${SITE.url}${FDE_PATH_EN}`,
+  },
+  breadcrumb(C.crumbs),
+  faqPage(C.faq, "en"),
+];
+const alternates = [{ lang: "fr-BE", path: FDE_PATH }, { lang: "en", path: FDE_PATH_EN }];
+---
+<Base title={C.title} description={C.description} path={FDE_PATH_EN} schema={schema} lang="en" alternates={alternates} xDefault={FDE_PATH_EN} modified={FDE_UPDATED}>
+  <FdePage lang="en" />
+</Base>

@@ -1,29 +1,63 @@
 ---
+// Contact, en fin de chaque page : la question de la marque, le X Interférence vivant, le courriel et les deux numéros.
 import { SITE, bookingHref } from "../data/site";
 import CopyMail from "./CopyMail.astro";
+import LivingX from "./LivingX.astro";
+interface Props { lang?: "fr" | "en"; x?: boolean }
+const { lang = "fr", x = true } = Astro.props;
+const T = {
+  fr: {
+    title: ["Quel est votre ", "x", " ?"],
+    lead: "Un premier échange suffit pour le nommer. Vous repartez avec une première piste, même si nous ne travaillons pas ensemble.",
+    cta: "Demander un échange", mail: "Ou écrivez directement à", tel: "Ou appelez",
+    addr: `${SITE.legalName}, ${SITE.address.street}, ${SITE.address.postalCode} ${SITE.address.city}. Rendez-vous à Wavre, chez vous ou en visio.`,
+    labels: { BE: "Belgique", LU: "Luxembourg" } as Record<string, string>,
+  },
+  en: {
+    title: ["What is your ", "x", "?"],
+    lead: "One conversation is enough to name it. You leave with a first way forward, even if we do not end up working together.",
+    cta: "Request a conversation", mail: "Or write directly to", tel: "Or call",
+    addr: `${SITE.legalName}, ${SITE.address.street}, ${SITE.address.postalCode} ${SITE.address.city}, Belgium. We meet in Wavre, at your premises or by video call.`,
+    labels: { BE: "Belgium", LU: "Luxembourg" } as Record<string, string>,
+  },
+}[lang];
 ---
 <section id="contact" class="section final" data-theme="encre" aria-labelledby="final-title">
   <div class="wrap final__in">
-    <h2 id="final-title" class="final__title">Quel est votre <span class="x">x</span>&nbsp;?</h2>
-    <div class="final__body">
-      <p class="lead">Trente minutes suffisent pour le nommer. Vous repartez avec une première piste, même si nous ne travaillons pas ensemble.</p>
+    <div class="final__main">
+      <h2 id="final-title" class="final__title">{T.title[0]}<span class="x">{T.title[1]}</span>{T.title[2]}</h2>
+      <p class="lead final__lead">{T.lead}</p>
       <div class="final__cta">
-        <a class="btn btn--primary" href={bookingHref()}>Demander un échange de 30 min</a>
+        <a class="btn btn--primary" href={bookingHref(lang)}>{T.cta}</a>
       </div>
-      <p class="final__mail">Ou écrivez directement à <CopyMail /></p>
-      <p class="small muted final__addr">{SITE.legalName}, {SITE.address.street}, {SITE.address.postalCode} {SITE.address.city}. Rendez-vous à Wavre, chez vous ou en visio.</p>
+      <p class="final__mail">{T.mail} <CopyMail lang={lang} /></p>
+      <p class="final__mail">{T.tel}</p>
+      <ul role="list" class="final__tel">
+        {SITE.phones.map((p) => <li><a href={`tel:${p.tel}`}><span class="final__country">{T.labels[p.country]}</span> <span class="final__num">{p.display}</span></a></li>)}
+      </ul>
+      <p class="small muted final__addr">{T.addr}</p>
     </div>
+    {x && <LivingX theme="encre" class="final__x" />}
   </div>
 </section>
 
 <style>
-  .final { border-bottom: 1px solid var(--clx-border); }
-  .final__in { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: var(--clx-space-8); align-items: end; }
+  .final { border-bottom: 1px solid var(--clx-border); overflow: hidden; }
+  .final__in { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--clx-space-8); align-items: center; }
   .final__title { font-size: var(--clx-type-display-font-size); line-height: var(--clx-type-display-line-height); letter-spacing: var(--clx-type-display-letter-spacing); font-weight: 700; color: var(--clx-text); }
   .final__title .x { color: var(--clx-accent); }
+  .final__lead { margin-top: var(--clx-space-5); }
   .final__cta { display: flex; flex-wrap: wrap; gap: var(--clx-space-3); margin-top: var(--clx-space-6); }
   .final__mail { margin-top: var(--clx-space-4); color: var(--clx-text-muted); }
+  .final__tel { display: flex; flex-wrap: wrap; gap: var(--clx-space-2) var(--clx-space-6); margin-top: var(--clx-space-2); }
+  .final__tel a { display: inline-flex; align-items: baseline; gap: 0.5rem; min-height: 44px; align-items: center; color: var(--clx-text); text-decoration: none; }
+  .final__num { font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration: underline; text-decoration-color: var(--clx-accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+  .final__tel a:hover .final__num { color: var(--clx-link); }
+  .final__country { color: var(--clx-text-muted); }
   .final__addr { margin-top: var(--clx-space-5); }
-  .final :global(.btn--secondary) { color: var(--clx-text); }
-  @media (max-width: 899px) { .final__in { grid-template-columns: 1fr; gap: var(--clx-space-5); } }
+  .final :global(.final__x) { width: min(100%, 440px); justify-self: end; }
+  @media (max-width: 899px) {
+    .final__in { grid-template-columns: 1fr; gap: var(--clx-space-5); }
+    .final :global(.final__x) { display: none; }
+  }
 </style>

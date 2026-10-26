@@ -84,3 +84,42 @@ a:hover { color: var(--clx-link-hover); }
 .review .av::after { content: "à valider"; font: 500 0.6875rem/1 var(--clx-font-family-data); color: var(--clx-text-muted); margin-left: 0.4em; vertical-align: 0.15em; white-space: nowrap; }
 .review [data-theme="encre"] .av, .review .band-encre .av { background: var(--clx-color-encre-700); outline: 2px solid var(--clx-color-encre-700); }
 
+
+/* ---- Motion (DESIGN.md §6 et §9) : natif, sans librairie, toujours sous garde du mouvement réduit ---- */
+
+/* Transitions entre pages, natives (Chrome 126+, Safari 18.2+ ; ailleurs, navigation directe) :
+   « le relevé », la nouvelle page se déroule sur l'ancienne comme un plan qu'on déplie ; l'en-tête reste en place. */
+@view-transition { navigation: auto; }
+.hd { view-transition-name: clx-hd; }
+::view-transition-group(clx-hd) { animation-duration: var(--clx-duration-quick); }
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) { animation: none; }
+  ::view-transition-new(root) { animation: clx-releve var(--clx-duration-block) var(--clx-easing-out) both; }
+  html:active-view-transition-type(remonte)::view-transition-new(root) { animation-name: clx-releve-haut; }
+  ::view-transition-group(clx-cur) { animation-duration: var(--clx-duration-element); animation-timing-function: var(--clx-easing-out); }
+}
+/* l'état final est écrit : clip-path n'interpole pas d'un inset() vers « none » */
+@keyframes clx-releve { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0); } }
+@keyframes clx-releve-haut { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0); } }
+
+/* Arrivée sur une ancre : la cote turquoise (44 × 4 px, celle des titres du film) se trace au-dessus du titre visé */
+section[id] :is(h1, h2):first-of-type { position: relative; }
+section[id]:target :is(h1, h2):first-of-type::before { content: ""; position: absolute; left: 0; top: -20px; width: 44px; height: 4px; background: var(--clx-accent); transform-origin: 0 50%; }
+@media (prefers-reduced-motion: no-preference) {
+  section[id]:target :is(h1, h2):first-of-type::before { animation: clx-cote var(--clx-duration-element) var(--clx-easing-out) 350ms both; }
+}
+@keyframes clx-cote { from { transform: scaleX(0); } }
+
+/* Photos : cadre au ratio fixe (aucun décalage de mise en page) ; parallaxe légère réservée aux grandes bandes,
+   volet Papier qui se retire sur la photo forte de la page (jamais au-dessus de la ligne de flottaison). */
+.ph { position: relative; overflow: clip; border-radius: var(--clx-radius-panel); background: var(--clx-bg-alt); }
+.ph img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.ph--parallax img { height: 108%; }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .ph--parallax img { animation: clx-parallaxe linear both; animation-timeline: view(); animation-range: cover; }
+    .ph[data-reveal]::after { content: ""; position: absolute; inset: 0; background: var(--clx-bg); transform-origin: 50% 0; animation: clx-volet var(--clx-easing-out) both; animation-timeline: view(); animation-range: entry 10% cover 40%; }
+  }
+}
+@keyframes clx-parallaxe { from { transform: translateY(-7.4%); } to { transform: translateY(0); } }
+@keyframes clx-volet { to { transform: scaleY(0); } }

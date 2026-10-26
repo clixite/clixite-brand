@@ -83,7 +83,7 @@ doc.add_paragraph("[Troisième paragraphe : la prochaine étape, qui fait quoi e
 doc.add_paragraph("Je reste à votre disposition pour en parler de vive voix.")
 doc.add_paragraph("Bien à vous,")
 p = doc.add_paragraph(); p.paragraph_format.space_before = Pt(24); r = p.add_run("Nicolas Simon"); r.bold = True; r.font.name = "Space Grotesk"
-p = doc.add_paragraph(); r = p.add_run("Solutions & Enterprise Architect · Clixite SRL\n+32 (0)4xx xx xx xx · nicolas@clixite.be"); r.font.color.rgb = SLATE; r.font.size = Pt(9.5)
+p = doc.add_paragraph(); r = p.add_run("Solutions & Enterprise Architect · Clixite SRL\n+32 10 31 10 00 · +352 20 42 02 02 · nicolas@clixite.be"); r.font.color.rgb = SLATE; r.font.size = Pt(9.5)
 doc.save("charte/downloads/office/Clixite-papier-a-lettre.docx")
 
 # ---------------------------------------------------------------- offer

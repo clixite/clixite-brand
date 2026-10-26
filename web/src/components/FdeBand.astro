@@ -1,0 +1,77 @@
+---
+// Le métier signature, juste sous les logos : bande Encre, photo « tirage de plan » et champs du X.
+// Sur le dernier tiers de la photo, l'image ne se voit plus qu'à travers un champ de traits Encre ; un champ
+// turquoise filaire le croise. L'angle entre les deux se referme de 14° à 8° au défilement (seul mouvement :
+// une rotation), et reste au repos (8°) en mouvement réduit ou sans prise en charge.
+import Photo from "./Photo.astro";
+import { FDE_PATH } from "../data/site";
+const items = [
+  { t: "Dans vos équipes, pas à côté.", d: "Sur site ou à distance, dans vos outils et à votre rythme. Les décisions se prennent là où le travail se fait." },
+  { t: "En production, pas en PowerPoint.", d: "La mission se mesure à ce qui tourne : une intégration, un processus automatisé, un agent IA utilisé le lundi matin." },
+  { t: "Sous votre contrôle, puis chez vous.", d: "Vos environnements, vos règles de sécurité, des accès nominatifs. À la fin, le code, la documentation et le savoir-faire restent chez vous." },
+];
+// champs : pas de 10 unités, traits Encre à 50 % du pas ; traits turquoise décalés d'un demi-pas
+const P = 10;
+const bars = Array.from({ length: 40 }, (_, k) => (k - 12) * P);
+---
+<section id="fde" class="fde" data-theme="encre" aria-labelledby="fde-title">
+  <div class="fde__media">
+    <Photo name="equipe-219" small="equipe-45" class="fde__img" sizes="100vw" />
+    <svg class="fde__champs" viewBox="0 0 160 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <g class="fde__fa">{bars.map((x) => <rect x={x} y="-200" width={P / 2} height="800" />)}</g>
+      <g class="fde__fb">{bars.map((x) => <line x1={x + P * 0.75} y1="-200" x2={x + P * 0.75} y2="600" />)}</g>
+    </svg>
+  </div>
+  <div class="wrap fde__in">
+    <div class="fde__head">
+      <h2 id="fde-title" class="fde__title">Forward Deployed Engineering.</h2>
+      <p class="fde__lead">Clixite s'installe dans vos équipes pour concevoir, construire et mettre en production vos intégrations, vos automatisations et vos agents IA, puis vous transférer la solution. En Belgique et au Luxembourg, en français, en néerlandais ou en anglais.</p>
+      <a class="btn btn--primary" href={FDE_PATH}>Le Forward Deployed Engineering en détail</a>
+    </div>
+    <ul role="list" class="fde__list">
+      {items.map((i) => (
+        <li>
+          <h3 class="h3">{i.t}</h3>
+          <p>{i.d}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .fde { padding-bottom: var(--clx-layout-section); }
+  .fde__media { position: relative; overflow: hidden; aspect-ratio: 21 / 9; max-height: 640px; width: 100%; view-timeline: --fde block; }
+  .fde__media :global(picture) { display: contents; }
+  .fde__media :global(.fde__img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  /* le dernier tiers, calé sur la grille de 12 colonnes */
+  .fde__champs { position: absolute; top: 0; bottom: 0; right: 0; width: 33.334%; height: 100%; }
+  .fde__fa rect { fill: var(--clx-color-encre); }
+  .fde__fb line { stroke: var(--clx-color-turquoise); stroke-width: 2px; vector-effect: non-scaling-stroke; }
+  .fde__fa, .fde__fb { transform-box: view-box; transform-origin: 50% 50%; }
+  .fde__fa { transform: rotate(-4deg); }
+  .fde__fb { transform: rotate(4deg); }
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .fde__fa { animation: fde-a linear both; animation-timeline: --fde; animation-range: entry 0% cover 55%; }
+      .fde__fb { animation: fde-b linear both; animation-timeline: --fde; animation-range: entry 0% cover 55%; }
+    }
+  }
+  @keyframes fde-a { from { transform: rotate(-7deg); } to { transform: rotate(-4deg); } }
+  @keyframes fde-b { from { transform: rotate(7deg); } to { transform: rotate(4deg); } }
+
+  .fde__in { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: var(--clx-space-8); margin-top: var(--clx-space-8); }
+  .fde__head { display: grid; gap: var(--clx-space-5); align-content: start; justify-items: start; }
+  .fde__title { font-size: var(--clx-type-display-font-size); line-height: var(--clx-type-display-line-height); letter-spacing: var(--clx-type-display-letter-spacing); font-weight: 700; color: var(--clx-text); max-width: 14ch; }
+  .fde__lead { font-size: var(--clx-type-lead-font-size); line-height: var(--clx-type-lead-line-height); color: var(--clx-text); max-width: 46ch; }
+  .fde__list { display: grid; gap: var(--clx-space-6); align-content: start; }
+  .fde__list li { display: grid; gap: var(--clx-space-2); padding-top: var(--clx-space-4); border-top: 1px solid var(--clx-border-strong); }
+  .fde__list p { color: var(--clx-text-muted); max-width: 46ch; }
+  @media (max-width: 899px) {
+    .fde__in { grid-template-columns: 1fr; gap: var(--clx-space-7); margin-top: var(--clx-space-7); }
+  }
+  @media (max-width: 599px) {
+    .fde__media { aspect-ratio: 4 / 3; }
+    .fde__champs { width: 40%; }
+  }
+</style>

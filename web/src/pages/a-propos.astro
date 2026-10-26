@@ -1,0 +1,96 @@
+---
+// Fiche d'identité de l'entreprise (pas du fondateur) : les faits que les moteurs et les assistants doivent retrouver partout à l'identique.
+import Base from "../layouts/Base.astro";
+import Crumbs from "../components/Crumbs.astro";
+import Photo from "../components/Photo.astro";
+import FinalCta from "../components/FinalCta.astro";
+import { SITE } from "../data/site";
+import { METIERS } from "../data/expertises";
+import { breadcrumb } from "../data/schema";
+const crumbs = [{ name: "Accueil", href: "/" }, { name: "À propos", href: "/a-propos/" }];
+const schema = [breadcrumb(crumbs), { "@type": "AboutPage", "@id": `${SITE.url}/a-propos/#about`, url: `${SITE.url}/a-propos/`, about: { "@id": `${SITE.url}/#org` }, mainEntity: { "@id": `${SITE.url}/#org` } }];
+const facts = [
+  ["Raison sociale", `${SITE.legalName}, société à responsabilité limitée de droit belge`],
+  ["Fondée en", SITE.founded],
+  ["Siège", `${SITE.address.street}, ${SITE.address.postalCode} ${SITE.address.city} (${SITE.address.region}, Belgique)`],
+  ["Numéro d'entreprise et TVA", SITE.vat],
+  ["Zone d'intervention", "Belgique et Luxembourg"],
+  ["Langues de travail", "Français, néerlandais, anglais"],
+  ["Téléphones", SITE.phones.map((p) => `${p.label} ${p.display}`).join(" ; ")],
+  ["Courriel", SITE.email],
+  ["Référentiels maîtrisés", "PMP, PRINCE2, AgilePM, SAFe, Scrum, ITIL, ADKAR"],
+];
+const env = ["Télécoms", "banque", "assurance", "construction", "courtage", "PME en croissance"];
+---
+<Base
+  title="À propos de Clixite, conseil et ingénierie depuis 2005"
+  description="Clixite SRL, fondée en 2005 à Wavre : Forward Deployed Engineering, GEO, architecture, pilotage de programmes et digitalisation, en Belgique et au Luxembourg."
+  path="/a-propos/"
+  schema={schema}
+>
+  <Crumbs items={crumbs} />
+  <section class="ap-head" aria-labelledby="ap-title">
+    <div class="wrap ap-head__in">
+      <div class="ap-head__text">
+        <h1 id="ap-title" class="h-display">Conseil et ingénierie, depuis 2005.</h1>
+        <p class="lead">Clixite est une société belge de conseil et d'ingénierie installée à Wavre. Elle exerce cinq métiers, de la cible à la mise en production, pour des PME en croissance comme pour des groupes régulés.</p>
+        <p class="lead">Sa règle tient en une phrase : « Nous résolvons votre <span class="x">x</span>. » Le problème qui bloque, celui que personne n'a encore nommé.</p>
+      </div>
+      <div class="ph ap-head__ph"><Photo name="plan-32" eager sizes="(min-width: 900px) 40vw, 100vw" /></div>
+    </div>
+  </section>
+
+  <section class="section ap-facts band-alt" aria-labelledby="ap-facts">
+    <div class="wrap ap-cols">
+      <h2 id="ap-facts" class="h2">L'entreprise en bref.</h2>
+      <dl class="ap-dl">{facts.map(([t, d]) => <div><dt>{t}</dt><dd>{d}</dd></div>)}</dl>
+    </div>
+  </section>
+
+  <section class="section ap-metiers" aria-labelledby="ap-metiers">
+    <div class="wrap ap-cols">
+      <h2 id="ap-metiers" class="h2">Cinq métiers.</h2>
+      <ul class="ap-list">{METIERS.map((m) => <li><a href={m.href}>{m.t}</a><span class="muted"> {m.k}</span></li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section ap-env band-alt" aria-labelledby="ap-env">
+    <div class="wrap ap-cols">
+      <h2 id="ap-env" class="h2">Des environnements très différents.</h2>
+      <div class="ap-prose">
+        <p class="lead">{env.join(", ")} : en mission, en conseil ou en poste. Les projets, eux, restent confidentiels.</p>
+        <p><a class="link-more" href="/#references">Là où nous avons travaillé</a></p>
+        <p class="muted">L'identité visuelle de Clixite est publiée sur <a href={SITE.charte}>charte.clixite.be</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <FinalCta />
+</Base>
+
+<style>
+  .ap-head { padding-block: var(--clx-space-7) var(--clx-layout-section); }
+  .ap-head__in { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--clx-space-8); align-items: center; }
+  .ap-head__text { display: grid; gap: var(--clx-space-5); }
+  .ap-head__text .lead { max-width: 52ch; }
+  .ap-head__text .x { color: var(--clx-link); }
+  .ap-head__ph { aspect-ratio: 3 / 2; }
+  .ap-cols { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--clx-space-8); align-items: start; }
+  .ap-dl { margin: 0; display: grid; }
+  .ap-dl div { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); gap: var(--clx-space-4); padding-block: var(--clx-space-4); border-top: 1px solid var(--clx-border); }
+  .ap-dl div:last-child { border-bottom: 1px solid var(--clx-border); }
+  .ap-dl dt { color: var(--clx-text-muted); }
+  .ap-dl dd { margin: 0; color: var(--clx-text); }
+  .ap-list { display: grid; gap: 0; padding: 0; list-style: none; }
+  .ap-list li { padding-block: var(--clx-space-4); border-top: 1px solid var(--clx-border); display: grid; gap: var(--clx-space-1); }
+  .ap-list li:last-child { border-bottom: 1px solid var(--clx-border); }
+  .ap-list a { font-family: var(--clx-font-family-display); font-size: 1.25rem; font-weight: 500; color: var(--clx-text); text-decoration-color: var(--clx-accent); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+  .ap-list .muted { font-size: var(--clx-type-small-font-size); }
+  .ap-prose { display: grid; gap: var(--clx-space-4); }
+  /* sur Papier 200, les liens prennent la couleur du texte et un soulignement turquoise (contraste AA) */
+  .ap-env a { color: var(--clx-text); text-decoration-color: var(--clx-accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+  @media (max-width: 899px) {
+    .ap-head__in, .ap-cols { grid-template-columns: 1fr; gap: var(--clx-space-6); }
+    .ap-dl div { grid-template-columns: 1fr; gap: var(--clx-space-1); }
+  }
+</style>

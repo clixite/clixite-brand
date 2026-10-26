@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE, REVIEW, KNOWS_ABOUT } from "../data/site";
+import { METIERS } from "../data/expertises";
 
 interface Props {
   title: string;
@@ -10,10 +11,16 @@ interface Props {
   path?: string;
   schema?: Record<string, unknown>[];
   noindex?: boolean;
+  lang?: "fr" | "en";
+  // versions linguistiques de la même page (hreflang), chemin compris celui de la page elle-même
+  alternates?: { lang: string; path: string }[];
+  xDefault?: string;
+  modified?: string;   // date de dernière mise à jour du contenu (AAAA-MM-JJ)
 }
-const { title, description, path = "/", schema = [], noindex = false } = Astro.props;
+const { title, description, path = "/", schema = [], noindex = false, lang = "fr", alternates = [], xDefault, modified } = Astro.props;
+const htmlLang = lang === "en" ? "en" : "fr-BE";
 const canonical = new URL(path, SITE.url).href;
-const og = new URL("/og-image.jpg", SITE.url).href;
+const og = new URL(lang === "en" ? "/og-image-en.jpg" : "/og-image.jpg", SITE.url).href;
 
 const org = {
   "@type": ["Organization", "ProfessionalService"],
@@ -24,32 +31,56 @@ const org = {
   logo: `${SITE.url}/app-icon-512.png`,
   image: og,
   slogan: "Nous résolvons votre x.",
-  description: "Société de conseil et d'ingénierie à Wavre (Belgique), fondée en 2005 : digitalisation, Forward Deployed Engineering, pilotage de programmes, architecture d'entreprise et de solutions, de la cible à la mise en production, pour les PME et les grands groupes.",
+  description: "Société de conseil et d'ingénierie fondée en 2005 à Wavre (Belgique), active en Belgique et au Luxembourg : Forward Deployed Engineering, GEO (référencement dans les assistants IA), architecture d'entreprise et de solutions, pilotage de programmes et digitalisation, de la cible à la mise en production, pour les PME et les grands groupes.",
   foundingDate: SITE.founded,
   vatID: SITE.vatId,
   email: SITE.email,
+  telephone: SITE.phones[0].tel,
+  contactPoint: SITE.phones.map((p) => ({ "@type": "ContactPoint", contactType: "sales", telephone: p.tel, email: SITE.email, areaServed: p.country, availableLanguage: ["fr", "en", "nl"] })),
   address: { "@type": "PostalAddress", streetAddress: SITE.address.street, postalCode: SITE.address.postalCode, addressLocality: SITE.address.city, addressRegion: SITE.address.region, addressCountry: SITE.address.country },
-  areaServed: [{ "@type": "Country", name: "Belgique" }, { "@type": "Country", name: "Luxembourg" }],
+  areaServed: [
+    { "@type": "Country", name: "Belgique", identifier: "BE", sameAs: "https://www.wikidata.org/wiki/Q31" },
+    { "@type": "Country", name: "Luxembourg", identifier: "LU", sameAs: "https://www.wikidata.org/wiki/Q32" },
+  ],
   identifier: { "@type": "PropertyValue", propertyID: "BCE/KBO", value: "0871.430.776" },
+  iso6523Code: "0208:0871430776",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Métiers de Clixite",
+    itemListElement: METIERS.map((m) => ({ "@type": "Offer", itemOffered: { "@type": "Service", "@id": `${SITE.url}${m.href}#service`, name: m.t, url: `${SITE.url}${m.href}` } })),
+  },
   knowsLanguage: ["fr", "en", "nl"],
   knowsAbout: KNOWS_ABOUT,
   sameAs: [SITE.charte, "https://kbopub.economie.fgov.be/kbopub/toonondernemingps.html?ondernemingsnummer=0871430776"],
 };
-const website = { "@type": "WebSite", "@id": `${SITE.url}/#website`, url: `${SITE.url}/`, name: SITE.name, inLanguage: SITE.locale, publisher: { "@id": `${SITE.url}/#org` } };
-const page = { "@type": "WebPage", "@id": `${canonical}#page`, url: canonical, name: title, description, inLanguage: SITE.locale, isPartOf: { "@id": `${SITE.url}/#website` }, about: { "@id": `${SITE.url}/#org` } };
+const website = { "@type": "WebSite", "@id": `${SITE.url}/#website`, url: `${SITE.url}/`, name: SITE.name, inLanguage: [SITE.locale, "en"], publisher: { "@id": `${SITE.url}/#org` } };
+const page = { "@type": "WebPage", "@id": `${canonical}#page`, url: canonical, name: title, description, inLanguage: htmlLang, isPartOf: { "@id": `${SITE.url}/#website` }, about: { "@id": `${SITE.url}/#org` }, ...(modified ? { dateModified: modified } : {}) };
 const graph = { "@context": "https://schema.org", "@graph": [org, website, page, ...schema] };
 ---
 <!doctype html>
-<html lang="fr-BE" class={REVIEW ? "review" : undefined}>
+<html lang={htmlLang} class={REVIEW ? "review" : undefined}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- transitions entre pages : sens du relevé (vers le haut quand on remonte dans l'arborescence) ; avant tout autre script -->
+    <link rel="expect" href="#contenu" blocking="render" />
+    <script is:inline>
+      addEventListener("pagereveal", (e) => {
+        const vt = e.viewTransition, a = window.navigation && navigation.activation;
+        if (!vt || !a || !a.from) return;
+        const depth = (u) => new URL(u).pathname.split("/").filter(Boolean).length;
+        if (depth(a.entry.url) < depth(a.from.url)) vt.types.add("remonte");
+      });
+    </script>
     <title>{title}</title>
     <meta name="description" content={description} />
     {!noindex && <link rel="canonical" href={canonical} />}
+    {alternates.map((a) => <link rel="alternate" hreflang={a.lang} href={new URL(a.path, SITE.url).href} />)}
+    {xDefault && <link rel="alternate" hreflang="x-default" href={new URL(xDefault, SITE.url).href} />}
     {(REVIEW || noindex) && <meta name="robots" content="noindex, nofollow" />}
     <meta name="theme-color" content="#F6F5F0" />
     <meta name="color-scheme" content="light" />
+    <meta name="format-detection" content="telephone=no" />
     <link rel="preload" href="/fonts/space-grotesk-700-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/inter-400-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -58,7 +89,7 @@ const graph = { "@context": "https://schema.org", "@graph": [org, website, page,
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="fr_BE" />
+    <meta property="og:locale" content={lang === "en" ? "en_GB" : "fr_BE"} />
     <meta property="og:site_name" content="Clixite" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -66,16 +97,16 @@ const graph = { "@context": "https://schema.org", "@graph": [org, website, page,
     <meta property="og:image" content={og} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Nous résolvons votre x. Clixite : digitalisation, Forward Deployed Engineering, pilotage de programmes, architecture d’entreprise et de solutions." />
+    <meta property="og:image:alt" content={lang === "en" ? "We solve your x. Clixite: Forward Deployed Engineering, GEO, enterprise and solution architecture, programme management, digitalisation." : "Nous résolvons votre x. Clixite : Forward Deployed Engineering, GEO, architecture d’entreprise et de solutions, pilotage de programmes, digitalisation."} />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json" set:html={JSON.stringify(graph)} />
   </head>
   <body>
-    <a class="skip" href="#contenu">Aller au contenu</a>
-    <Header />
+    <a class="skip" href="#contenu">{lang === "en" ? "Skip to content" : "Aller au contenu"}</a>
+    <Header lang={lang} alternates={alternates} />
     <main id="contenu" tabindex="-1">
       <slot />
     </main>
-    <Footer />
+    <Footer lang={lang} />
   </body>
 </html>

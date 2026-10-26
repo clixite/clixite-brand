@@ -1,0 +1,6 @@
+---
+import MetierRoute from "../components/MetierRoute.astro";
+import { PAGES } from "../data/pages-metiers";
+const page = PAGES.find((p) => p.slug === "geo")!;
+---
+<MetierRoute page={page} />

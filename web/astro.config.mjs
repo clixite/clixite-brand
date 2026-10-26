@@ -6,7 +6,7 @@ export default defineConfig({
   site: "https://www.clixite.be",
   trailingSlash: "always",
   build: { format: "directory", inlineStylesheets: "always" },
-  integrations: [sitemap({ i18n: { defaultLocale: "fr", locales: { fr: "fr-BE" } } })],
+  integrations: [sitemap({ i18n: { defaultLocale: "fr", locales: { fr: "fr-BE", en: "en" } } })],
   compressHTML: true,
   prefetch: false,
 });

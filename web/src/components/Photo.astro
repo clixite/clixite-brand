@@ -1,0 +1,48 @@
+---
+// Photo traitée (scripts/build-photos.py), déclinée par Astro en AVIF et WebP à plusieurs largeurs.
+// `name` = <slug>-<variante> (ex. « plan-32 »). `small` : variante servie sous 600 px (ex. « equipe-45 »).
+// L'élément <img> porte la classe : c'est lui qu'on cadre (object-fit) et qu'on anime.
+import { getImage } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import registry from "../data/photos.registry.json";
+
+interface Props {
+  name: string;
+  small?: string;
+  sizes?: string;
+  class?: string;
+  eager?: boolean;
+  alt?: string;
+}
+const { name, small, sizes = "(min-width: 1200px) 600px, 100vw", class: cls, eager = false, alt } = Astro.props;
+const files = import.meta.glob<{ default: ImageMetadata }>("../assets/photos/*.jpg", { eager: true });
+const get = (n: string) => {
+  const f = files[`../assets/photos/${n}.jpg`];
+  if (!f) throw new Error(`Photo introuvable : ${n}`);
+  return f.default;
+};
+const entry = registry.photos.find((p) => p.slug === name.replace(/-[^-]+$/, ""));
+const text = alt ?? entry?.alt ?? "";
+
+async function set(meta: ImageMetadata, widths: number[], format: "avif" | "webp" | "jpeg") {
+  const ws = widths.filter((x) => x < meta.width).concat(meta.width > 1600 ? [] : [meta.width]);
+  const list = await Promise.all(ws.map(async (x) => `${(await getImage({ src: meta, width: x, format, quality: format === "avif" ? 60 : 74 })).src} ${x}w`));
+  return list.join(", ");
+}
+const main = get(name);
+const W = [480, 800, 1200, 1600, 2400];
+const mainSets = { avif: await set(main, W, "avif"), webp: await set(main, W, "webp") };
+const fallback = await getImage({ src: main, width: Math.min(1200, main.width), format: "jpeg", quality: 74 });
+let alt2: { meta: ImageMetadata; avif: string; webp: string } | null = null;
+if (small) {
+  const m = get(small);
+  alt2 = { meta: m, avif: await set(m, [480, 800, 1080], "avif"), webp: await set(m, [480, 800, 1080], "webp") };
+}
+---
+<picture>
+  {alt2 && <source media="(max-width: 599px)" type="image/avif" srcset={alt2.avif} sizes="100vw" width={alt2.meta.width} height={alt2.meta.height} />}
+  {alt2 && <source media="(max-width: 599px)" type="image/webp" srcset={alt2.webp} sizes="100vw" width={alt2.meta.width} height={alt2.meta.height} />}
+  <source type="image/avif" srcset={mainSets.avif} sizes={sizes} />
+  <source type="image/webp" srcset={mainSets.webp} sizes={sizes} />
+  <img src={fallback.src} alt={text} width={main.width} height={main.height} loading={eager ? "eager" : "lazy"} decoding={eager ? undefined : "async"} fetchpriority={eager ? "high" : undefined} class={cls} />
+</picture>

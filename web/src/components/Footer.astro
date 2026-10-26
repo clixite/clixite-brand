@@ -1,6 +1,11 @@
 ---
-import { SITE } from "../data/site";
+import { SITE, FDE_PATH, FDE_PATH_EN } from "../data/site";
+import { METIERS } from "../data/expertises";
+interface Props { lang?: "fr" | "en" }
+const { lang = "fr" } = Astro.props;
 const year = new Date().getFullYear();
+const en = lang === "en";
+const labels: Record<string, string> = en ? { BE: "Belgium", LU: "Luxembourg" } : { BE: "Belgique", LU: "Luxembourg" };
 ---
 <footer class="ft" data-theme="encre">
   <div class="wrap ft__in">
@@ -10,36 +15,49 @@ const year = new Date().getFullYear();
     <div class="ft__cols">
       <div>
         <p class="ft__label">Contact</p>
-        <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
-        <p><a href={SITE.linkedin} rel="noopener">LinkedIn</a></p>
-        <p>{SITE.address.street}<br />{SITE.address.postalCode} {SITE.address.city}, Belgique</p>
+        <ul role="list">
+          <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+          {SITE.phones.map((p) => <li>{labels[p.country]}{en ? ":" : "\u00a0:"} <a href={`tel:${p.tel}`} class="ft__tel">{p.display}</a></li>)}
+          <li>{SITE.address.street}<br />{SITE.address.postalCode} {SITE.address.city}, {en ? "Belgium" : "Belgique"}</li>
+        </ul>
       </div>
       <div>
-        <p class="ft__label">Expertises</p>
-        <p><a href="/expertises/">Nos quatre métiers</a></p>
-        <p><a href="/expertises/transformation-achats/">Transformation des achats</a></p>
-        <p><a href="/#formats">Travailler ensemble</a></p>
+        <p class="ft__label">{en ? "Expertise" : "Expertises"}</p>
+        <ul role="list">
+          {en
+            ? <li><a href={FDE_PATH_EN}>Forward Deployed Engineering</a></li>
+            : METIERS.map((m) => <li><a href={m.href}>{m.t}</a></li>)}
+          {!en && <li><a href="/expertises/transformation-achats/">Transformation des achats</a></li>}
+          {en && <li><a href="/" hreflang="fr" lang="fr">Site en français</a></li>}
+        </ul>
       </div>
       <div>
-        <p class="ft__label">Informations</p>
-        <p><a href="/mentions-legales/">Mentions légales et confidentialité</a></p>
-        <p><a href={SITE.charte}>Charte graphique</a></p>
-        <p><a href="/llms.txt">Résumé pour les assistants IA</a></p>
+        <p class="ft__label">{en ? "Information" : "Informations"}</p>
+        <ul role="list">
+          {!en && <li><a href="/a-propos/">À propos de Clixite</a></li>}
+          {!en && <li><a href="/contact/">Contact</a></li>}
+          <li><a href="/mentions-legales/" hreflang={en ? "fr" : undefined}>{en ? "Legal notice and privacy (in French)" : "Mentions légales et confidentialité"}</a></li>
+          <li><a href={SITE.charte}>{en ? "Brand guidelines" : "Charte graphique"}</a></li>
+          <li><a href="/llms.txt">{en ? "Summary for AI assistants" : "Résumé pour les assistants IA"}</a></li>
+          {!en && <li><a href={FDE_PATH_EN} hreflang="en" lang="en">English</a></li>}
+        </ul>
       </div>
     </div>
-    <p class="ft__legal small"><span class="av">{SITE.legalName}, société à responsabilité limitée. Siège : {SITE.address.street}, {SITE.address.postalCode} {SITE.address.city}. BCE et TVA {SITE.vat}, RPM Brabant wallon.</span> © 2005 à {year}.</p>
+    <p class="ft__legal small"><span class="av">{SITE.legalName}, {en ? "private limited company (SRL). Registered office:" : "société à responsabilité limitée. Siège\u00a0:"} {SITE.address.street}, {SITE.address.postalCode} {SITE.address.city}. {en ? "Company and VAT number" : "BCE et TVA"} {SITE.vat}, RPM Brabant wallon.</span> © 2005 {en ? "to" : "à"} {year}.</p>
   </div>
 </footer>
 
 <style>
   .ft { padding-block: var(--clx-space-8) var(--clx-space-7); }
   .ft__in { display: grid; gap: var(--clx-space-8); }
-  .ft__brand img { width: 240px; height: auto; }
+  .ft__brand img { width: 240px; height: auto; margin-left: -4px; }
   .ft__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--clx-space-6); }
-  .ft__cols p + p { margin-top: 0.375rem; }
+  .ft__cols ul { display: grid; gap: 0.25rem; }
+  .ft__cols li { min-height: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 0 0.3em; }
   .ft__label { font-weight: 600; margin-bottom: 0.5rem; }
   .ft a { color: var(--clx-text); text-decoration-color: color-mix(in srgb, currentColor 40%, transparent); }
   .ft a:hover { color: var(--clx-link); }
   .ft__legal { color: var(--clx-text-muted); }
+  .ft__tel { white-space: nowrap; font-variant-numeric: tabular-nums; }
   @media (max-width: 767px) { .ft__cols { grid-template-columns: 1fr; } }
 </style>

@@ -1,0 +1,10 @@
+---
+// Pages métiers sous /expertises/ (architecture, pilotage, digitalisation) ; le FDE et le GEO ont leur page à la racine.
+import MetierRoute from "../../components/MetierRoute.astro";
+import { PAGES } from "../../data/pages-metiers";
+export function getStaticPaths() {
+  return PAGES.filter((p) => p.path.startsWith("/expertises/")).map((p) => ({ params: { slug: p.slug }, props: { page: p } }));
+}
+const { page } = Astro.props;
+---
+<MetierRoute page={page} />

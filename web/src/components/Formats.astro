@@ -1,27 +1,61 @@
 ---
-// Comment travailler ensemble : trois formats, sans prix ni durée (fixés après un premier échange).
-const formats = [
-  { t: "Mission de conseil", d: "Un rôle clair au sein de vos équipes, en direct ou via votre cabinet référencé." },
-  { t: "Forfait à livrable", d: "Un périmètre et un livrable définis, un budget validé avant de commencer." },
-  { t: "Renfort de programme", d: "Une phase critique tenue : reprise d'un programme, mise en production, transfert à vos équipes." },
-];
-const terms = [
-  { t: "Confidentialité", d: "Accord de confidentialité signé avant l'échange si vous le souhaitez." },
-  { t: "Continuité", d: "Documentation au fil de l'eau et transfert prévu dès le départ." },
-  { t: "Propriété", d: "Vos accès, votre code et votre documentation restent chez vous." },
-];
+// Comment travailler ensemble : trois formats en tableau à filets, sans prix ni durée (fixés après un premier échange).
+interface Props { lang?: "fr" | "en" }
+const { lang = "fr" } = Astro.props;
+const sep = lang === "fr" ? "\u00a0:" : ":";
+const T = {
+  fr: {
+    title: "Travailler ensemble.",
+    lead: "Le périmètre, la durée et le budget se fixent ensemble après un premier échange. En Belgique et au Luxembourg, en français, en néerlandais ou en anglais.",
+    cols: ["Format", "Ce que vous obtenez", "Quand le choisir"],
+    rows: [
+      ["Mission de conseil", "Un rôle clair au sein de vos équipes, en direct ou via votre cabinet référencé.", "Quand il faut une expertise présente dans la durée."],
+      ["Forfait à livrable", "Un périmètre, un livrable et un budget validés avant de commencer.", "Quand l'objectif est net : une cible, une intégration, une mise en production."],
+      ["Renfort de programme", "Une phase critique tenue avec votre équipe, en construisant avec elle.", "Pour reprendre un programme, passer en production ou organiser le transfert."],
+    ],
+    terms: [
+      ["Confidentialité", "Accord de confidentialité signé avant l'échange si vous le souhaitez."],
+      ["Continuité", "Documentation au fil de l'eau et transfert prévu dès le départ."],
+      ["Propriété", "Vos accès, votre code et votre documentation restent chez vous."],
+    ],
+  },
+  en: {
+    title: "Working together.",
+    lead: "Scope, duration and budget are set together after a first conversation. In Belgium and Luxembourg, in English, French or Dutch.",
+    cols: ["Format", "What you get", "When to choose it"],
+    rows: [
+      ["Consulting assignment", "A clear role inside your teams, directly or through your preferred supplier.", "When you need expertise on hand over time."],
+      ["Fixed-scope delivery", "A scope, a deliverable and a budget agreed before we start.", "When the goal is clear: a target architecture, an integration, a go-live."],
+      ["Programme reinforcement", "A critical phase held together with your team, building alongside it.", "To recover a programme, go to production or organise the handover."],
+    ],
+    terms: [
+      ["Confidentiality", "A non-disclosure agreement signed before we talk, if you wish."],
+      ["Continuity", "Documentation as we go and a handover planned from day one."],
+      ["Ownership", "Your access, your code and your documentation stay with you."],
+    ],
+  },
+}[lang];
 ---
 <section id="formats" class="section formats" aria-labelledby="formats-title">
   <div class="wrap">
     <div class="formats__head">
-      <h2 id="formats-title" class="h2">Travailler ensemble.</h2>
-      <p class="lead">Le périmètre, la durée et le budget se fixent ensemble après un premier échange. En Belgique et au Luxembourg, en français, en néerlandais ou en anglais.</p>
+      <h2 id="formats-title" class="h2">{T.title}</h2>
+      <p class="lead">{T.lead}</p>
     </div>
-    <ul role="list" class="formats__list">
-      {formats.map((f) => <li class="panel formats__card"><h3 class="h3">{f.t}</h3><p class="muted">{f.d}</p></li>)}
-    </ul>
+    <table class="formats__table">
+      <thead><tr>{T.cols.map((c) => <th scope="col">{c}</th>)}</tr></thead>
+      <tbody>
+        {T.rows.map(([f, g, w]) => (
+          <tr>
+            <th scope="row" class="h3">{f}</th>
+            <td data-label={T.cols[1] + sep}>{g}</td>
+            <td data-label={T.cols[2] + sep}>{w}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
     <dl class="formats__terms small">
-      {terms.map((x) => <div><dt>{x.t}</dt><dd>{x.d}</dd></div>)}
+      {T.terms.map(([t, d]) => <div><dt>{t}</dt><dd>{d}</dd></div>)}
     </dl>
   </div>
 </section>
@@ -29,9 +63,22 @@ const terms = [
 <style>
   .formats__head { display: grid; gap: var(--clx-space-5); max-width: 52rem; }
   .formats__head .lead { max-width: 52ch; }
-  .formats__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--clx-space-5); margin-top: var(--clx-space-8); }
-  .formats__card { display: grid; gap: var(--clx-space-3); align-content: start; padding: var(--clx-space-6); }
+  .formats__table { width: 100%; border-collapse: collapse; margin-top: var(--clx-space-8); text-align: left; }
+  .formats__table thead th { font: 600 var(--clx-type-small-font-size)/1.4 var(--clx-font-family-text); color: var(--clx-text-muted); padding: 0 var(--clx-space-5) var(--clx-space-3) 0; border-bottom: 2px solid var(--clx-text); }
+  .formats__table tbody th, .formats__table td { padding: var(--clx-space-5) var(--clx-space-5) var(--clx-space-5) 0; border-bottom: 1px solid var(--clx-border); vertical-align: top; }
+  .formats__table tbody th { width: 28%; font-weight: 500; }
+  .formats__table td { color: var(--clx-text-muted); max-width: 44ch; }
+  .formats__table td:first-of-type { color: var(--clx-text); }
   .formats__terms { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--clx-space-6); margin-top: var(--clx-space-7); color: var(--clx-text-muted); }
   .formats__terms dt { font-weight: 600; color: var(--clx-text); }
-  @media (max-width: 899px) { .formats__list, .formats__terms { grid-template-columns: 1fr; } .formats__list { max-width: 40rem; } }
+  @media (max-width: 767px) {
+    .formats__table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .formats__table, .formats__table tbody, .formats__table tr, .formats__table th, .formats__table td { display: block; width: auto; }
+    .formats__table tr { padding-block: var(--clx-space-5); border-bottom: 1px solid var(--clx-border); }
+    .formats__table tr:first-child { border-top: 2px solid var(--clx-text); }
+    .formats__table tbody th, .formats__table td { padding: 0; border: 0; width: auto; }
+    .formats__table td { margin-top: var(--clx-space-2); }
+    .formats__table td::before { content: attr(data-label) " "; font-weight: 600; color: var(--clx-text); }
+    .formats__terms { grid-template-columns: 1fr; }
+  }
 </style>

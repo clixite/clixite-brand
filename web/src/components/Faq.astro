@@ -1,0 +1,32 @@
+---
+// Questions fréquentes, réponses toujours visibles (pas d'accordéon : le site n'a aucune bascule de contenu).
+// Le balisage FAQPage est ajouté par la page, à partir de la même liste.
+interface Props { id: string; title?: string; items: { q: string; a: string }[] }
+const { id, title = "Questions fréquentes.", items } = Astro.props;
+---
+<section class="section faq" aria-labelledby={id}>
+  <div class="wrap faq__in">
+    <h2 id={id} class="h2">{title}</h2>
+    <dl class="faq__list">
+      {items.map((f) => (
+        <div class="faq__item">
+          <dt class="h3">{f.q}</dt>
+          <dd class="muted">{f.a}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>
+
+<style>
+  .faq__in { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: var(--clx-space-8); }
+  .faq__in h2 { align-self: start; position: sticky; top: 104px; }
+  .faq__item { border-top: 1px solid var(--clx-border); padding-block: var(--clx-space-5); }
+  .faq__item:last-child { border-bottom: 1px solid var(--clx-border); }
+  .faq__item dt { font-size: 1.25rem; }
+  .faq__item dd { margin: var(--clx-space-3) 0 0; max-width: 62ch; }
+  @media (max-width: 899px) {
+    .faq__in { grid-template-columns: 1fr; gap: var(--clx-space-5); }
+    .faq__in h2 { position: static; }
+  }
+</style>
