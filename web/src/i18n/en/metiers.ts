@@ -1,6 +1,5 @@
-// PROVISOIRE : copie du français, à traduire.
-// Les cinq métiers de Clixite, le Forward Deployed Engineering et le GEO en tête (les plus demandés),
-// puis les domaines d'application. Source unique pour l'accueil, le hub, les pages métiers, le JSON-LD et llms.txt.
+// Clixite's five services, Forward Deployed Engineering and GEO first (the most requested),
+// then the application areas. Single source for the home page, the hub, the service pages, the JSON-LD and llms.txt.
 import type { Metiers } from "../fr/metiers";
 import { routesFor, anchorsFor } from "../routes";
 const r = routesFor("en");
@@ -10,57 +9,57 @@ const metiers: Metiers = {
   list: [
     {
       slug: "forward-deployed-engineering", key: "fde", href: r.fde, t: "Forward Deployed Engineering", court: "Forward Deployed Engineering",
-      d: "Nous nous installons dans vos équipes pour concevoir, construire et mettre en production l'intégration, l'automatisation ou l'agent IA dont vous avez besoin, sur vos outils et selon vos règles de sécurité. Nous partons quand vos équipes exploitent la solution seules.",
-      g: ["Un prototype éprouvé sur vos données réelles", "Une solution en production, surveillée et documentée", "Un transfert complet : code, accès, documentation, équipes formées"],
-      k: "Intégration, automatisation, agents IA, mise en production, transfert",
+      d: "We join your teams to design, build and ship to production the integration, automation or AI agent you need, on your tools and under your security rules. We leave when your teams run the solution on their own.",
+      g: ["A prototype proven on your real data", "A solution in production, monitored and documented", "A complete handover: code, access, documentation, trained teams"],
+      k: "Systems integration, process automation, AI agents, going live, handover",
       photo: "ingenieurs",
     },
     {
-      slug: "geo", key: "geo", href: r.geo, t: "GEO : référencement dans les assistants IA", court: "GEO",
-      d: "Quand vos clients demandent à ChatGPT, Claude, Perplexity, Gemini ou Copilot qui peut les aider, votre entreprise doit faire partie de la réponse. Nous rendons votre offre compréhensible, vérifiable et citable par les moteurs de réponse comme par Google.",
-      g: ["Un audit de votre visibilité dans les assistants IA, question par question", "Des pages, des données structurées et une entité cohérentes, que les moteurs comprennent", "Une présence hors site alignée et un suivi des citations"],
-      k: "GEO, SEO, données structurées, Wikidata, Search Console, Bing Webmaster Tools",
+      slug: "geo", key: "geo", href: r.geo, t: "GEO: visibility in AI assistants", court: "GEO",
+      d: "When your clients ask ChatGPT, Claude, Perplexity, Gemini or Copilot who can help them, your company needs to be part of the answer. We make your offering understandable, verifiable and citable by answer engines as well as by Google.",
+      g: ["An audit of your visibility in AI assistants, question by question", "Consistent pages, structured data and entity details that engines understand", "An aligned off-site presence and citation tracking"],
+      k: "GEO, SEO, structured data, Wikidata, Search Console, Bing Webmaster Tools",
       photo: "archives",
     },
     {
-      slug: "architecture-entreprise-solutions", key: "archi", href: r.archi, t: "Architecture d'entreprise et de solutions", court: "Architecture",
-      d: "Savoir ce que vous avez, décider où vous allez et choisir les solutions qui vous y mènent, sans empiler les outils.",
-      g: ["Cartographie des applications, des données et des flux", "Architecture cible et trajectoire en options chiffrées", "Choix de solutions et revues d'architecture extérieures"],
-      k: "Cartographie, architecture cible, intégration, cloud",
+      slug: "architecture-entreprise-solutions", key: "archi", href: r.archi, t: "Enterprise and solution architecture", court: "Architecture",
+      d: "Know what you have, decide where you are going and choose the solutions that take you there, without piling up tools.",
+      g: ["Mapping of applications, data and flows", "Target architecture and roadmap, as costed options", "Solution selection and external architecture reviews"],
+      k: "IT landscape mapping, target architecture, integration, cloud",
       photo: "aiguillage",
     },
     {
-      slug: "pilotage-de-programmes", key: "pilotage", href: r.pilotage, t: "Pilotage de programmes", court: "Pilotage de programmes",
-      d: "Des programmes multi-équipes cadrés et tenus : une gouvernance claire, des risques suivis, des comités qui décident, des utilisateurs embarqués dès le premier jour.",
-      g: ["Plan, budget et risques repris en main", "Gouvernance et comités qui tranchent", "Conduite du changement mesurée"],
+      slug: "pilotage-de-programmes", key: "pilotage", href: r.pilotage, t: "Programme management", court: "Programme management",
+      d: "Multi-team programmes scoped and kept on track: clear governance, risks followed closely, committees that decide, users on board from day one.",
+      g: ["Plan, budget and risks back under control", "Governance and committees that make decisions", "Change management you can measure"],
       k: "PMP, PRINCE2, SAFe, Scrum, ADKAR",
       photo: "salle",
     },
     {
       slug: "digitalisation", key: "digit", href: r.digit, t: "Digitalisation", court: "Digitalisation",
-      d: "Les processus papier, les doubles saisies et les fichiers éparpillés deviennent des outils reliés qui travaillent pour vos équipes.",
-      g: ["Processus cartographiés et simplifiés avant d'être outillés", "Formulaires, flux et validations automatisés", "Données reliées entre vos outils, tableaux de bord utilisés"],
-      k: "Automatisation, CRM et ERP, données, IA appliquée",
+      d: "Paper processes, double data entry and scattered files become connected tools that work for your teams.",
+      g: ["Processes mapped and simplified before any tool is added", "Automated forms, workflows and approvals", "Data connected across your tools, dashboards that get used"],
+      k: "Process automation, CRM and ERP, data, applied AI",
       photo: "fibres",
     },
   ],
-  // domaines d'application : chacun avec une phrase et la page qui le traite
+  // application areas: each with one sentence and the page that covers it
   domaines: {
-    title: "Là où nos métiers s'appliquent.",
-    lead: "Les mêmes méthodes, sur les sujets qui pèsent le plus dans les entreprises régulées comme dans les PME.",
+    title: "Where our services apply.",
+    lead: "The same methods, on the topics that matter most in regulated enterprises and SMEs alike.",
     items: [
-      { t: "Achats et Source-to-Pay", sub: "Fractional CPO, intérim, risques tiers",
-        d: "Du besoin au paiement : des processus outillés, des risques fournisseurs maîtrisés, une direction des achats à temps partagé ou par intérim.",
-        href: r.achats, l: "La transformation des achats" },
-      { t: "Risques et conformité", sub: "DORA, NIS2, RGPD, AI Act",
-        d: "Des obligations traduites en processus, en responsables et en preuves, dans ce que vous construisez comme dans ce que vous achetez.",
-        href: `${r.fde}#${a.fdeRegulated}`, l: "Le FDE en environnement régulé" },
-      { t: "IA en production", sub: "Agents, automatisations, intégrations",
-        d: "Du prototype qui convainc en démonstration à l'agent IA qui tourne sur vos systèmes, sous contrôle humain.",
-        href: r.fde, l: "Le Forward Deployed Engineering" },
-      { t: "Produits numériques et SaaS", sub: "Architecture, intégrations, lancement",
-        d: "L'architecture, les intégrations et la mise en production d'un produit numérique, jusqu'à ce que votre équipe le fasse évoluer seule.",
-        href: r.archi, l: "L'architecture de solutions" },
+      { t: "Procurement and Source-to-Pay", sub: "Fractional CPO, interim, third-party risk",
+        d: "From need to payment: tooled processes, supplier risk under control, procurement leadership on a fractional or interim basis.",
+        href: r.achats, l: "Procurement transformation" },
+      { t: "Risk and compliance", sub: "DORA, NIS2, GDPR, AI Act",
+        d: "Obligations translated into processes, owners and evidence, in what you build as well as in what you buy.",
+        href: `${r.fde}#${a.fdeRegulated}`, l: "FDE in regulated environments" },
+      { t: "AI in production", sub: "Agents, automations, integrations",
+        d: "From a prototype that is convincing in a demo to an AI agent that runs on your systems, under human oversight.",
+        href: r.fde, l: "Forward Deployed Engineering" },
+      { t: "Digital products and SaaS", sub: "Architecture, integrations, launch",
+        d: "The architecture, integrations and go-live of a digital product, until your team can evolve it on its own.",
+        href: r.archi, l: "Solution architecture" },
     ],
   },
 };

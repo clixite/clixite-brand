@@ -1,60 +1,59 @@
-// PROVISOIRE : copie du français, à traduire.
-// Accueil : film, logos, Forward Deployed Engineering, GEO, métiers, méthode.
+// Home: film, logo's, Forward Deployed Engineering, GEO, expertises, werkwijze.
 import type { Home } from "../fr/home";
 import { routesFor } from "../routes";
 const r = routesFor("nl");
 
 const home: Home = {
-  title: "Forward Deployed Engineering et GEO en Belgique | Clixite",
-  description: "Forward Deployed Engineering, GEO, architecture, programmes et digitalisation : Clixite construit vos solutions dans vos équipes, en Belgique et au Luxembourg.",
+  title: "Forward Deployed Engineering en GEO in België | Clixite",
+  description: "Forward Deployed Engineering, GEO, architectuur, programma's en digitalisering: Clixite bouwt uw oplossingen in uw teams, in België en Luxemburg.",
   hero: {
-    // chapitres de la boucle (11,5 s) : les titres du film, au rythme des plans
+    // hoofdstukken van de lus (11,5 s): de titels van de film, op het ritme van de shots
     story: [
-      { t: "Votre architecture commence sur papier.", from: 0 },
-      { t: "Elle prend du relief.", from: 2.5 },
-      { t: "Elle se pose chez vous.", from: 5.5 },
-      { t: "Et elle tourne.", from: 8.5 },
+      { t: "Uw architectuur begint op papier.", from: 0 },
+      { t: "Ze krijgt diepte.", from: 2.5 },
+      { t: "Ze landt bij u.", from: 5.5 },
+      { t: "En ze draait.", from: 8.5 },
     ],
-    h1: ["Nous résolvons votre ", "x", "."],
-    sub: "Forward Deployed Engineering, GEO, architecture d'entreprise et de solutions, pilotage de programmes, digitalisation. Dans vos équipes, en Belgique et au Luxembourg, jusqu'à la mise en production.",
-    cta2: { t: "Le Forward Deployed Engineering", href: r.fde },
+    h1: ["Wij lossen uw ", "x", " op."],
+    sub: "Forward Deployed Engineering, GEO, enterprise- en solution-architectuur, programmamanagement, digitalisering. In uw teams, in België en Luxemburg, tot in productie.",
+    cta2: { t: "Forward Deployed Engineering", href: r.fde },
   },
   refs: {
-    title: "Là où nous avons travaillé.",
-    note: "Télécoms, banque, assurance, construction, courtage, PME : des environnements très différents, en mission, en conseil ou en poste. Les projets, eux, restent confidentiels.",
+    title: "Waar we gewerkt hebben.",
+    note: "Telecom, bankwezen, verzekeringen, bouw, makelaardij, kmo's: zeer verschillende omgevingen, in opdracht, als consultant of in vaste dienst. De projecten zelf blijven vertrouwelijk.",
   },
   fde: {
     title: "Forward Deployed Engineering.",
-    lead: "Clixite s'installe dans vos équipes pour concevoir, construire et mettre en production vos intégrations, vos automatisations et vos agents IA, puis vous transférer la solution. En Belgique et au Luxembourg, en français, en néerlandais ou en anglais.",
-    btn: "Le Forward Deployed Engineering en détail",
+    lead: "Clixite gaat aan de slag in uw teams om uw integraties, automatiseringen en AI-agents te ontwerpen, te bouwen en in productie te brengen, en draagt de oplossing daarna aan u over. In België en Luxemburg, in het Nederlands, Frans of Engels.",
+    btn: "Forward Deployed Engineering in detail",
     items: [
-      { t: "Dans vos équipes, pas à côté.", d: "Sur site ou à distance, dans vos outils et à votre rythme. Les décisions se prennent là où le travail se fait." },
-      { t: "En production, pas en PowerPoint.", d: "La mission se mesure à ce qui tourne : une intégration, un processus automatisé, un agent IA utilisé le lundi matin." },
-      { t: "Sous votre contrôle, puis chez vous.", d: "Vos environnements, vos règles de sécurité, des accès nominatifs. À la fin, le code, la documentation et le savoir-faire restent chez vous." },
+      { t: "In uw teams, niet ernaast.", d: "Ter plaatse of op afstand, in uw tools en op uw ritme. Beslissingen vallen waar het werk gebeurt." },
+      { t: "In productie, niet in PowerPoint.", d: "De opdracht wordt gemeten aan wat draait: een integratie, een geautomatiseerd proces, een AI-agent die op maandagochtend gebruikt wordt." },
+      { t: "Onder uw controle, daarna bij u.", d: "Uw omgevingen, uw beveiligingsregels, persoonsgebonden toegangsrechten. Op het einde blijven de code, de documentatie en de knowhow bij u." },
     ],
   },
   geo: {
-    title: "GEO : être la réponse des assistants IA.",
-    lead: "Vos clients ne cherchent plus seulement sur Google. Ils demandent à ChatGPT, Claude, Perplexity, Gemini ou Copilot qui peut les aider. Nous travaillons pour que les assistants vous trouvent et vous décrivent juste.",
-    btn: "Le GEO en détail",
+    title: "GEO: het antwoord zijn dat AI-assistenten geven.",
+    lead: "Uw klanten zoeken niet meer alleen op Google. Ze vragen ChatGPT, Claude, Perplexity, Gemini of Copilot wie hen kan helpen. Wij werken eraan dat de assistenten u vinden en u correct beschrijven.",
+    btn: "GEO in detail",
     items: [
-      { t: "Mesurer", d: "Les questions que posent vos clients, testées sur les principaux assistants : qui est cité, et avec quelles informations." },
-      { t: "Structurer", d: "Une entité cohérente, des pages qui répondent et des données structurées fidèles : votre site devient citable." },
-      { t: "Publier et suivre", d: "Fiches d'entreprise, profils, bases ouvertes, mentions tierces, puis des tests réguliers : les assistants croisent leurs sources avant de citer." },
+      { t: "Meten", d: "De vragen die uw klanten stellen, getest op de belangrijkste assistenten: wie wordt vermeld, en met welke informatie." },
+      { t: "Structureren", d: "Een coherente entiteit, pagina's die antwoorden geven en gestructureerde data die klopt: uw site wordt citeerbaar." },
+      { t: "Publiceren en opvolgen", d: "Bedrijfsfiches, profielen, open databanken, vermeldingen bij derden, en daarna regelmatige tests: de assistenten toetsen hun bronnen aan elkaar voor ze iemand vermelden." },
     ],
   },
   expertises: {
-    title: "Cinq métiers, une même exigence : un résultat qui tourne.",
-    lead: "Nous intervenons là où une stratégie doit devenir un système qui fonctionne, dans une PME comme dans un groupe régulé.",
+    title: "Vijf expertises, één maatstaf: een resultaat dat draait.",
+    lead: "Wij gaan aan de slag waar een strategie een werkend systeem moet worden, in een kmo net zo goed als in een gereguleerde groep.",
   },
   method: {
-    title: "Du relevé à la mise en service.",
-    lead: "Quatre étapes, chacune avec un livrable que vous gardez, même si vous arrêtez là. Vous décidez de la suivante sur pièces.",
+    title: "Van opmeting tot ingebruikname.",
+    lead: "Vier stappen, elk met een oplevering die u behoudt, ook als u daar stopt. U beslist over de volgende stap op basis van wat op tafel ligt.",
     steps: [
-      { t: "Relever", d: "Cartographie de vos systèmes, de vos flux, de vos contrats et de vos risques. On mesure avant de dessiner.", out: "Diagnostic" },
-      { t: "Concevoir", d: "L'architecture cible et le chemin pour y aller, en options chiffrées. Ce qu'on garde, ce qu'on remplace, ce qu'on arrête.", out: "Cible et feuille de route" },
-      { t: "Construire", d: "Intégrations, données, automatisations et IA, livrées par incréments courts que vos équipes testent en conditions réelles.", out: "Incréments en production" },
-      { t: "Mettre en service", d: "Déploiement, adoption et transfert. Nous partons quand vos équipes tiennent la solution seules.", out: "Solution exploitée et documentée" },
+      { t: "Opmeten", d: "Uw systemen, stromen, contracten en risico's in kaart gebracht. We meten voor we tekenen.", out: "Diagnose" },
+      { t: "Ontwerpen", d: "De doelarchitectuur en de weg ernaartoe, in becijferde opties. Wat we behouden, wat we vervangen, wat we stopzetten.", out: "Doelarchitectuur en roadmap" },
+      { t: "Bouwen", d: "Integraties, data, automatiseringen en AI, opgeleverd in korte incrementen die uw teams in reële omstandigheden testen.", out: "Incrementen in productie" },
+      { t: "In gebruik nemen", d: "Uitrol, adoptie en overdracht. Wij vertrekken wanneer uw teams de oplossing zelfstandig draaiende houden.", out: "Oplossing in gebruik en gedocumenteerd" },
     ],
   },
 };

@@ -1,14 +1,13 @@
-// PROVISOIRE : copie du français, à traduire.
-// Textes alternatifs des photos (description de ce que montre l'image), par slug du registre data/photos.registry.json.
+// Alternatieve teksten van de foto's (wat de afbeelding toont), per slug uit het register data/photos.registry.json.
 const photos: Record<string, string> = {
-  "plan": "Une main trace un plan à la règle sur une grande feuille.",
-  "equipe": "Un plateau de bureau éclairé le soir, vu de l'extérieur : une équipe au travail derrière la grande baie.",
-  "ingenieurs": "Trois ingénieurs penchés sur un ordinateur portable, au milieu d'un banc d'essai en atelier.",
-  "archives": "Une longue allée de rayonnages chargés de dossiers et de reliures.",
-  "salle": "Une salle de réunion vide, une longue table face à une baie vitrée.",
-  "aiguillage": "Deux voies ferrées qui se croisent en X, vues d'en haut.",
-  "centre-donnees": "Des rangées d'armoires de serveurs dans un centre de données.",
-  "conteneurs": "Un terminal portuaire vu du ciel : des conteneurs alignés en rangées et des portiques de levage.",
-  "fibres": "Des fibres optiques jaunes raccordées une à une sur un panneau de brassage.",
+  "plan": "Een hand tekent met een liniaal een plan op een groot vel papier.",
+  "equipe": "Een verlichte kantoorvloer 's avonds, van buitenaf gezien: een team aan het werk achter de grote glaswand.",
+  "ingenieurs": "Drie ingenieurs gebogen over een laptop, midden in een testopstelling in een werkplaats.",
+  "archives": "Een lange gang tussen rekken vol dossiers en ingebonden mappen.",
+  "salle": "Een lege vergaderzaal, met een lange tafel voor een glazen wand.",
+  "aiguillage": "Twee spoorlijnen die elkaar in een X kruisen, van bovenaf gezien.",
+  "centre-donnees": "Rijen serverkasten in een datacenter.",
+  "conteneurs": "Een containerterminal in een haven, vanuit de lucht: containers in lange rijen en portaalkranen.",
+  "fibres": "Gele glasvezelkabels, één voor één aangesloten op een patchpaneel.",
 };
 export default photos;

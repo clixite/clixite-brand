@@ -28,6 +28,8 @@ Allow: /
 
 Sitemap: https://www.clixite.be/sitemap-index.xml
 
-# Summary for AI assistants (llmstxt.org): https://www.clixite.be/llms.txt
-# Full site text in Markdown: https://www.clixite.be/llms-full.txt
+# Summaries for AI assistants (llmstxt.org), one per language:
+#   https://www.clixite.be/llms.txt (French), https://www.clixite.be/nl/llms.txt (Dutch),
+#   https://www.clixite.be/en/llms.txt (English)
+# Full text in Markdown: /llms-full.txt, /nl/llms-full.txt, /en/llms-full.txt
 # Each page in Markdown: add index.html.md to its address.

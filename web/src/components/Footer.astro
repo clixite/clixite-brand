@@ -35,7 +35,7 @@ const others = (["fr", "nl", "en"] as Lang[]).filter((l) => l !== lang);
           <li><a href={ROUTES.contact[lang]}>{F.contactPage}</a></li>
           <li><a href={ROUTES.legal[lang]}>{F.legal}</a></li>
           <li><a href={SITE.charte}>{F.charte}</a></li>
-          <li><a href="/llms.txt">{F.llms}</a></li>
+          <li><a href={lang === "fr" ? "/llms.txt" : `/${lang}/llms.txt`}>{F.llms}</a></li>
           {others.map((l) => <li><a href={ROUTES.home[l]} hreflang={l} lang={l}>{LANG_NAMES[l].name}</a></li>)}
         </ul>
       </div>
