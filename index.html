@@ -393,6 +393,10 @@ footer .right{font-family:var(--mono);font-size:12px;text-align:right}
 .screen{margin:24px 0 8px}
 .screen img{width:100%;border-radius:10px;border:1px solid var(--brume)}
 .screen figcaption{font-size:13px;color:var(--ardoise);margin-top:10px}
+.screen-photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:560px;margin:16px 0 8px}
+.screen-photos figure{margin:0}
+.screen-photos img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:10px;display:block}
+.screen-photos figcaption{font-size:13px;color:var(--ardoise);margin-top:8px}
 </style>
 </head>
 <body>
@@ -405,7 +409,7 @@ footer .right{font-family:var(--mono);font-size:12px;text-align:right}
 <section class="hero" id="hero" role="region" aria-labelledby="titre">
   <div class="o3d-wrap"><canvas class="o3d" id="hero-3d" aria-label="Mot-marque Clixite en relief, animé"></canvas><img width="680" height="257" class="o3d-fallback" src="downloads/logo/clixite-relief-inverse-transparent.svg" alt="Clixite, Enterprise &amp; Solution Architecture" hidden></div>
   <h1 id="titre">Charte graphique</h1>
-  <p class="lede">Clixite est une société de conseil et d’ingénierie : digitalisation, Forward Deployed Engineering, pilotage de programmes, architecture d’entreprise et de solutions. Cette charte fixe la marque, ses règles et ses fichiers. Elle sert à tout le monde : l’équipe, ses partenaires, un imprimeur, un développeur.</p>
+  <p class="lede">Clixite est une société de conseil et d’ingénierie : Forward Deployed Engineering, GEO (référencement dans les assistants IA), architecture d’entreprise et de solutions, pilotage de programmes, digitalisation. Cette charte fixe la marque, ses règles et ses fichiers. Elle sert à tout le monde : l’équipe, ses partenaires, un imprimeur, un développeur.</p>
   <p class="hint"><span class="mouse">Déplacez le curseur : <b>le relief suit</b>.</span> <button type="button" class="linkbtn" id="hero-replay">Rejouer l’ouverture</button></p>
   <div class="scrolldown" aria-hidden="true"></div>
 </section>
@@ -421,7 +425,7 @@ footer .right{font-family:var(--mono);font-size:12px;text-align:right}
 <!-- ===================================================== 01 PLATEFORME -->
 <section class="chapter" id="plateforme">
   <header><h2><span class="n">01</span>Plateforme de marque</h2>
-  <p class="lede">Clixite existe depuis 2005. Agence de communication pendant dix ans, la société est devenue une maison de conseil et d’ingénierie : digitalisation, Forward Deployed Engineering, pilotage de programmes, architecture d’entreprise et de solutions. Elle relie la stratégie, les systèmes et la conformité, puis livre.</p></header>
+  <p class="lede">Clixite existe depuis 2005. Agence de communication pendant dix ans, la société est devenue une maison de conseil et d’ingénierie : Forward Deployed Engineering, GEO (référencement dans les assistants IA), architecture d’entreprise et de solutions, pilotage de programmes, digitalisation. Elle relie la stratégie, les systèmes et la conformité, puis livre.</p></header>
 
   <h3>L’idée</h3>
   <p class="quote">L’architecte qui relie la stratégie, les systèmes et la conformité. Nous résolvons votre <span class="x">x</span>.</p>
@@ -628,7 +632,7 @@ footer .right{font-family:var(--mono);font-size:12px;text-align:right}
     <li>Slides : fond Encre pour les titres, Papier pour le contenu ; le symbole en haut à droite à 36 px ; numérotation en mono.</li>
     <li>Icônes : trait 1,75 px, coins arrondis, 24 px, en Encre ou Ardoise. Pas d’émoji dans les supports de marque.</li>
     <li>Data viz : séries dans l’ordre turquoise, rose, Signal, Ardoise, Indigo. Deux séries qui se chevauchent prennent l’Indigo.</li>
-    <li>Photos : des lieux et des gens réels, lumière naturelle, légère dominante froide. Jamais de banque d’images « poignée de main ». Le logo monochrome dessus, ou rien.</li>
+    <li>Photos : des lieux et des gens réels, lumière naturelle, légère dominante froide. Jamais de banque d’images « poignée de main ». Le logo monochrome dessus, ou rien. Traitements de l’écran au chapitre 11.</li>
   </ul>
   <div class="icons" aria-hidden="true">
     <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
@@ -659,7 +663,7 @@ footer .right{font-family:var(--mono);font-size:12px;text-align:right}
   </div>
 
   <h3>Signature mail</h3>
-  <p>Copier le bloc ci-dessous dans Outlook, Gmail ou Apple Mail (coller en HTML), puis remplacer le GSM. Le symbole est chargé depuis ce site, donc il reste à jour.</p>
+  <p>Copier le bloc ci-dessous dans Outlook, Gmail ou Apple Mail (coller en HTML). Les numéros belge et luxembourgeois de Clixite y figurent déjà. Le symbole est chargé depuis ce site, donc il reste à jour.</p>
   <div class="sigwrap"><table cellpadding="0" cellspacing="0" border="0" style="font-family: Inter, Arial, Helvetica, sans-serif; color: #0B2239; font-size: 13px; line-height: 18px; border-collapse: collapse;">
   <tr>
     <td style="padding: 0 18px 0 0; vertical-align: middle;">
@@ -670,8 +674,11 @@ footer .right{font-family:var(--mono);font-size:12px;text-align:right}
       <div style="color: #4B5A6B; margin-top: 2px;">Enterprise &amp; Solution Architect, Clixite SRL</div>
       <div style="margin-top: 6px;">
         <a href="mailto:nicolas@clixite.be" style="color: #0C7893; text-decoration: none;">nicolas@clixite.be</a>
-        <span style="color: #CDD5DD;">&nbsp;·&nbsp;</span><span style="color: #0B2239;">+32 (0)4xx xx xx xx</span>
-        <span style="color: #CDD5DD;">&nbsp;·&nbsp;</span><a href="https://clixite.be" style="color: #0C7893; text-decoration: none;">clixite.be</a>
+        <span style="color: #CDD5DD;">&nbsp;·&nbsp;</span><a href="https://www.clixite.be" style="color: #0C7893; text-decoration: none;">clixite.be</a>
+      </div>
+      <div style="margin-top: 2px;">
+        <a href="tel:+3210311000" style="color: #0B2239; text-decoration: none;">BE&nbsp;+32&nbsp;10&nbsp;31&nbsp;10&nbsp;00</a>
+        <span style="color: #CDD5DD;">&nbsp;·&nbsp;</span><a href="tel:+35220420202" style="color: #0B2239; text-decoration: none;">LU&nbsp;+352&nbsp;20&nbsp;42&nbsp;02&nbsp;02</a>
       </div>
       <div style="font-family: 'Space Grotesk', Inter, Arial, sans-serif; font-size: 10px; letter-spacing: 1.5px; color: #0C7893; margin-top: 8px; font-weight: 700;">ENTERPRISE &amp; SOLUTION ARCHITECTURE</div>
     </td>
@@ -797,7 +804,7 @@ footer .right{font-family:var(--mono);font-size:12px;text-align:right}
 <section class="chapter" id="ecran">
   <header><h2><span class="n">11</span>Écran et web</h2>
   <p class="lede">www.clixite.be applique cette charte à l’écran avec le Design System 2.0 : des valeurs au format W3C, des contrastes vérifiés à chaque mise en ligne et des composants documentés. Ces règles valent pour tout site ou produit « by Clixite ».</p></header>
-  <figure class="screen"><img src="apercus/www-hero.webp" width="1440" height="900" loading="lazy" alt="Accueil de www.clixite.be : le film de lancement plein cadre, la promesse et les quatre métiers posés sur une plaque Encre"><figcaption>L’accueil de www.clixite.be, octobre 2026 : le film plein cadre, la promesse sur une plaque Encre.</figcaption></figure>
+  <figure class="screen"><img src="apercus/www-hero.webp" width="1440" height="900" loading="lazy" alt="Accueil de www.clixite.be : le film de lancement plein cadre, la promesse et les cinq métiers posés sur une plaque Encre"><figcaption>L’accueil de www.clixite.be, octobre 2026 : le film plein cadre, la promesse sur une plaque Encre.</figcaption></figure>
   <h3>Le hero de l’accueil</h3>
   <ul class="rules">
     <li>Le film de lancement tourne en boucle, plein cadre, sans titres ni logo : le logo est déjà dans l’en-tête.</li>
@@ -810,12 +817,29 @@ footer .right{font-family:var(--mono);font-size:12px;text-align:right}
   <ul class="rules">
     <li>Sous 240 px de large, le mot-marque se pose sans descripteur (fichiers clixite-maitre-motmarque). Au-dessus, le descripteur est obligatoire.</li>
     <li>Le <em>x</em> en italique Fraunces, deux fois par page au plus : la promesse d’ouverture et l’appel final.</li>
-    <li>Un site d’entreprise : il parle de Clixite et de ses quatre métiers, pas de son fondateur. Aucun projet détaillé, aucun contenu qui change selon le visiteur.</li>
+    <li>Un site d’entreprise : il parle de Clixite et de ses cinq métiers, le Forward Deployed Engineering et le GEO en tête, pas de son fondateur. Aucun projet détaillé, aucun contenu qui change selon le visiteur, aucun accordéon : les questions fréquentes restent visibles.</li>
     <li>Logos « Là où nous avons travaillé » : fichiers officiels, jamais redessinés, teintés par masque CSS et inscrits au registre avec leur source. Ils montrent des environnements de travail, pas des projets. L’accord écrit de chaque entreprise est archivé dès qu’il est obtenu.</li>
     <li>Chaque paire texte et fond est contrôlée à la construction du site : sous 4,5:1, la mise en ligne échoue.</li>
     <li>Espaces insécables et apostrophes courbes se posent automatiquement à la construction.</li>
-    <li>Une seule séquence d’ouverture par page, sur la courbe de la charte, en transform et opacité uniquement.</li>
     <li>Objectifs vérifiés à chaque version : Lighthouse 95 ou plus sur mobile, accessibilité 100, aucun débordement de 320 px aux grands écrans.</li>
+  </ul>
+  <h3>Photos à l’écran</h3>
+  <div class="screen-photos">
+    <figure><img src="apercus/photo-lumiere.webp" width="640" height="800" loading="lazy" alt="Deux voies ferrées qui se croisent en X, traitement lumière"><figcaption>« Lumière », sur Papier</figcaption></figure>
+    <figure><img src="apercus/photo-tirage.webp" width="640" height="800" loading="lazy" alt="Rangées d'armoires de serveurs, traitement tirage de plan"><figcaption>« Tirage de plan », sur Encre</figcaption></figure>
+  </div>
+  <ul class="rules">
+    <li>Chaque photo est un plan coupé du film : le papier, le relief, chez vous, ça tourne. Des lignes parallèles sur au moins un tiers du cadre, aucune pose, aucun regard caméra.</li>
+    <li>Deux traitements, appliqués au fichier et jamais par un filtre CSS. « Lumière » sur Papier : couleurs à 55 %, balance froide, noirs ramenés à l’Encre et blancs au Papier, grain fin. « Tirage de plan » sur Encre : la luminance projetée sur l’Encre, la Brume teintée de turquoise et le Papier, pour que la photo se fonde dans la bande.</li>
+    <li>Cadres au ratio fixe (21:9, 16:9, 3:2, 4:5), rayon 10 px en colonne, aucun rayon en pleine largeur. Jamais de texte sur une photo.</li>
+    <li>Une fois par page au plus, sur Encre : les champs du X sur le dernier tiers d’une photo, dont l’angle se referme au défilement.</li>
+    <li>Photos libres de droits inscrites au registre du site avec leur source et leur auteur, et créditées dans les mentions légales.</li>
+  </ul>
+  <h3>Mouvement à l’écran</h3>
+  <ul class="rules">
+    <li>Natif et sans librairie, toujours désactivé en mouvement réduit, avec un état de repli identique au dessin statique.</li>
+    <li>Chaque mouvement vient du X ou de ses lignes, jamais un fondu générique : la page qui se déroule comme un plan qu’on déplie, la cote turquoise qui se trace au-dessus d’un titre atteint par un lien, les quatre X de la méthode qui se construisent au défilement, les champs du X qui se referment sur une photo, le X Interférence de l’appel final.</li>
+    <li>Transform et opacité uniquement ; deux exceptions, le découpage du changement de page et l’angle du X. Rien ne bouge sur les logos, les listes, les panneaux ni le pied de page.</li>
   </ul>
   <h3>Fichiers du Design System</h3>
   <table class="files"><thead><tr><th scope="col">Fichier</th><th scope="col">Usage</th><th scope="col">Formats</th><th scope="col">Poids</th></tr></thead><tbody><tr><td class="f"><a href="downloads/ds/clixite-tokens-dtcg.json" download>clixite-tokens-dtcg.json</a></td><td>Toutes les valeurs au format W3C Design Tokens</td><td class="f"></td><td class="s">6 Ko</td></tr><tr><td class="f"><a href="downloads/ds/clixite-tokens.css" download>clixite-tokens.css</a></td><td>Variables CSS --clx-*, thèmes Papier et Encre</td><td class="f"></td><td class="s">7 Ko</td></tr><tr><td class="f"><a href="downloads/ds/clixite-contrastes.json" download>clixite-contrastes.json</a></td><td>Les paires texte et fond contrôlées, avec leur ratio</td><td class="f"></td><td class="s">5 Ko</td></tr></tbody></table>
