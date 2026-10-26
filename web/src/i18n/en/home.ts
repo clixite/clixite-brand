@@ -11,7 +11,7 @@ const home: Home = {
     story: [
       { t: "Your architecture starts on paper.", from: 0 },
       { t: "It gains depth.", from: 2.5 },
-      { t: "It settles in with you.", from: 5.5 },
+      { t: "It lands in your organisation.", from: 5.5 },
       { t: "And it runs.", from: 8.5 },
     ],
     h1: ["We solve your ", "x", "."],
@@ -20,7 +20,7 @@ const home: Home = {
   },
   refs: {
     title: "Where we have worked.",
-    note: "Telecoms, banking, insurance, construction, brokerage, SMEs: very different environments, on assignment, in consulting or in-house. The projects themselves stay confidential.",
+    note: "Telecoms, banking, insurance, construction, brokerage, SMEs: very different environments, on assignment, as consultants or in-house. The projects themselves stay confidential.",
   },
   fde: {
     title: "Forward Deployed Engineering.",
@@ -34,16 +34,16 @@ const home: Home = {
   },
   geo: {
     title: "GEO: be the answer AI assistants give.",
-    lead: "Your clients no longer search only on Google. They ask ChatGPT, Claude, Perplexity, Gemini or Copilot who can help them. We work to make sure assistants find you and describe you accurately.",
+    lead: "Your clients no longer just search Google. They ask ChatGPT, Claude, Perplexity, Gemini or Copilot who can help them. We work to help assistants find you and describe you accurately.",
     btn: "GEO in detail",
     items: [
       { t: "Measure", d: "The questions your clients ask, tested on the main assistants: who gets cited, and with what information." },
-      { t: "Structure", d: "A consistent entity, pages that answer and accurate structured data: your site becomes citable." },
+      { t: "Structure", d: "A consistent entity, pages that answer questions and accurate structured data: your site becomes citable." },
       { t: "Publish and monitor", d: "Business listings, profiles, open databases, third-party mentions, then regular tests: assistants cross-check their sources before they cite." },
     ],
   },
   expertises: {
-    title: "Five services, one standard: a result that runs.",
+    title: "Five services, one standard: what we deliver has to run.",
     lead: "We step in where a strategy has to become a working system, in SMEs and regulated groups alike.",
   },
   method: {

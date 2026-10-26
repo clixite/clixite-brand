@@ -18,7 +18,7 @@ const common: Common = {
     main: "Main navigation",
     mobile: "Mobile navigation",
     menu: "Menu",
-    open: "Open the menu",
+    open: "Open menu",
     cta: "Request a conversation",
     ctaShort: "Contact",
     contact: "Contact",
@@ -61,19 +61,19 @@ const common: Common = {
   },
   final: {
     title: ["What is your ", "x", "?"],
-    lead: "One conversation is enough to name it. You leave with a first way forward, even if we do not end up working together.",
+    lead: "One conversation is enough to name it. You leave with a first idea of the way forward, even if we do not end up working together.",
     mail: "Or write directly to",
     tel: "Or call",
     meet: "We meet in Wavre, at your premises or by video call.",
   },
   formats: {
     title: "Working together.",
-    lead: "Scope, duration and budget are set together after a first conversation. In Belgium and Luxembourg, in English, French or Dutch.",
+    lead: "Scope, duration and budget are agreed with you after a first conversation. In Belgium and Luxembourg, in English, French or Dutch.",
     cols: ["Format", "What you get", "When to choose it"],
     rows: [
-      ["Consulting assignment", "A clear role inside your teams, directly or through your preferred supplier.", "When you need expertise on hand over time."],
+      ["Consulting assignment", "A clear role inside your teams, directly or through your preferred supplier.", "When you need expertise in place for the longer term."],
       ["Fixed-scope delivery", "A scope, a deliverable and a budget agreed before we start.", "When the goal is clear: a target architecture, an integration, a go-live."],
-      ["Programme reinforcement", "A critical phase held together with your team, building alongside it.", "To recover a programme, go to production or organise the handover."],
+      ["Programme reinforcement", "A critical phase seen through with your team, building alongside it.", "To recover a programme, go live or organise the handover."],
     ],
     terms: [
       ["Confidentiality", "A non-disclosure agreement signed before we talk, if you wish."],
@@ -90,7 +90,7 @@ const common: Common = {
   markdown: "Markdown version",
   notFound: {
     title: "Page not found | Clixite",
-    description: "This page does not exist, or no longer does.",
+    description: "This page does not exist or is no longer available.",
   },
 };
 export default common;
