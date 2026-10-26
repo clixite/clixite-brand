@@ -1,15 +1,17 @@
 ---
 // Domaines d'application : quatre entrées, chacune avec une phrase et la page qui la traite (aucune entrée sans lien).
 // Sur Papier 200 dans l'accueil ; sur Encre, sous la bande photo, dans le hub des expertises.
-import { DOMAINES } from "../data/expertises";
+import { t, langOf } from "../i18n";
 interface Props { encre?: boolean; id?: string }
 const { encre = false, id = "domaines" } = Astro.props;
+const D = t(langOf(Astro.url.pathname)).metiers.domaines;
+const DOMAINES = D.items;
 ---
 <section id={id} class:list={["section", "dom", !encre && "band-alt"]} data-theme={encre ? "encre" : undefined} aria-labelledby={`${id}-title`}>
   <div class="wrap">
     <div class="dom__head">
-      <h2 id={`${id}-title`} class="h2">Là où nos métiers s'appliquent.</h2>
-      <p class="lead">Les mêmes méthodes, sur les sujets qui pèsent le plus dans les entreprises régulées comme dans les PME.</p>
+      <h2 id={`${id}-title`} class="h2">{D.title}</h2>
+      <p class="lead">{D.lead}</p>
     </div>
     <ul role="list" class="dom__grid">
       {DOMAINES.map((d) => (

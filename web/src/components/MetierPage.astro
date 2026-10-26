@@ -1,5 +1,5 @@
 ---
-// Page métier générique (GEO, architecture, pilotage, digitalisation). Contenu : src/data/pages-metiers.ts.
+// Page métier générique (GEO, architecture, pilotage, digitalisation). Contenu : src/i18n/<langue>/pages.ts.
 import Crumbs from "./Crumbs.astro";
 import Photo from "./Photo.astro";
 import Faq from "./Faq.astro";
@@ -8,13 +8,16 @@ import e1 from "../assets/x/etape-1.svg?raw";
 import e2 from "../assets/x/etape-2.svg?raw";
 import e3 from "../assets/x/etape-3.svg?raw";
 import e4 from "../assets/x/etape-4.svg?raw";
-import type { PageMetier } from "../data/pages-metiers";
-import { METIERS } from "../data/expertises";
+import type { PageMetier } from "../i18n/fr/pages";
+import { t, langOf, ROUTES } from "../i18n";
 interface Props { page: PageMetier }
 const { page: P } = Astro.props;
+const lang = langOf(Astro.url.pathname);
+const { common, metiers } = t(lang);
 const arts = [e1, e2, e3, e4];
-const others = METIERS.filter((m) => m.href !== P.path);
-const crumbs = [{ name: "Accueil", href: "/" }, ...(P.path.startsWith("/expertises/") ? [{ name: "Expertises", href: "/expertises/" }] : []), { name: P.crumb, href: P.path }];
+const others = metiers.list.filter((m) => m.key !== P.key);
+// le GEO est à la racine de chaque langue ; les autres métiers sous les expertises
+const crumbs = [{ name: common.crumbs.home, href: ROUTES.home[lang] }, ...(P.key !== "geo" ? [{ name: common.crumbs.expertises, href: ROUTES.expertises[lang] }] : []), { name: P.crumb, href: P.path }];
 ---
 <Crumbs items={crumbs} />
 
@@ -24,9 +27,9 @@ const crumbs = [{ name: "Accueil", href: "/" }, ...(P.path.startsWith("/expertis
       <h1 id="mp-title" class="mp-head__title"><span class="mp-head__term">{P.h1[0]}</span><span class="mp-head__claim">{P.h1[1]}</span></h1>
       <p class="mp-head__chapo">{P.chapo}</p>
       <div class="mp-head__cta">
-        <a class="btn btn--primary" href="#contact">Demander un échange</a>
+        <a class="btn btn--primary" href="#contact">{common.cta}</a>
       </div>
-      <p class="small muted"><time datetime="2026-10-26">Mis à jour le 26 octobre 2026</time></p>
+      <p class="small muted"><time datetime="2026-10-26">{common.updated}</time></p>
     </div>
     <div class="ph mp-head__ph" style={`view-transition-name: ph-${P.slug}; view-transition-class: clx-morph clx-morph-ph`}><Photo name={P.photo} eager sizes="(min-width: 900px) 40vw, 100vw" /></div>
   </div>
@@ -42,7 +45,7 @@ const crumbs = [{ name: "Accueil", href: "/" }, ...(P.path.startsWith("/expertis
       {b.kind === "prose" && (
         <div class="mp-prose">
           {b.p?.map((x) => <p>{x}</p>)}
-          {b.src && <p class="small muted">Source{b.src.length > 1 ? "s" : ""}{" :"} {b.src.map((s, i) => <>{i > 0 && ", "}<a href={s.href} rel="noopener">{s.t}</a></>)}.</p>}
+          {b.src && <p class="small muted">{b.src.length > 1 ? common.sources : common.source}{common.colon} {b.src.map((s, i) => <>{i > 0 && ", "}<a href={s.href} rel="noopener">{s.t}</a></>)}.</p>}
           {b.link && <p><a class="link-more" href={b.link.href}>{b.link.t}</a></p>}
         </div>
       )}
@@ -56,7 +59,7 @@ const crumbs = [{ name: "Accueil", href: "/" }, ...(P.path.startsWith("/expertis
               <div class="mp-step__art" set:html={arts[i % 4]} />
               <h3 class="h3">{s.t}</h3>
               <p class="muted">{s.d}</p>
-              <p class="mp-step__out small"><span>Livrable</span> <span>{s.out}</span></p>
+              <p class="mp-step__out small"><span>{common.deliverable}</span> <span>{s.out}</span></p>
             </li>
           ))}
         </ol>
@@ -69,7 +72,7 @@ const crumbs = [{ name: "Accueil", href: "/" }, ...(P.path.startsWith("/expertis
 
 <section class="section section--tight mp-others" aria-labelledby="mp-others">
   <div class="wrap">
-    <h2 id="mp-others" class="h3">Nos autres métiers</h2>
+    <h2 id="mp-others" class="h3">{common.others}</h2>
     <ul role="list" class="mp-others__list">{others.map((m) => <li><a href={m.href}>{m.t}</a></li>)}</ul>
   </div>
 </section>

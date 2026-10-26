@@ -1,0 +1,133 @@
+// PROVISOIRE : copie du français, à traduire.
+// Hub des métiers, transformation des achats, à propos, contact, mentions légales et page introuvable.
+import type { Autres } from "../fr/pages-autres";
+import { routesFor, anchorsFor } from "../routes";
+const r = routesFor("nl");
+const a = anchorsFor("nl");
+
+const autres: Autres = {
+  hub: {
+    title: "Nos cinq métiers de conseil et d'ingénierie | Clixite",
+    description: "Forward Deployed Engineering, GEO, architecture d'entreprise et de solutions, pilotage de programmes, digitalisation : comment Clixite intervient chez vous.",
+    h1: "Cinq métiers, une même exigence : un résultat qui tourne.",
+    lead: "Nous intervenons là où une stratégie doit devenir un système qui fonctionne, dans une PME comme dans un groupe régulé, en Belgique et au Luxembourg.",
+    listLabel: "Les métiers",
+    more: "en détail",
+    catalog: "Métiers de Clixite",
+  },
+  achats: {
+    title: "Transformation des achats et Source-to-Pay | Clixite",
+    description: "Source-to-Pay, Fractional CPO, intérim, risques tiers et DORA : Clixite structure vos achats, de la PME au groupe régulé, en Belgique et au Luxembourg.",
+    crumb: "Transformation des achats",
+    h1: "Des achats qui pèsent dans les décisions.",
+    lead: "Transformation des achats, du besoin au paiement : processus Source-to-Pay outillés, risques fournisseurs maîtrisés, une direction des achats disponible à temps partagé ou par intérim. Pour les PME qui structurent leurs achats comme pour les groupes régulés.",
+    cta: "Parler de vos achats",
+    cta2: "Voir les formules",
+    scopeTitle: "Ce que nous prenons en charge.",
+    scope: [
+      { t: "Source-to-Pay, du besoin au paiement", d: "Du besoin au paiement : sourcing, appels d'offres, contrats, commandes, réception et factures. Des processus simples, outillés quand le volume le justifie, avec SAP Ariba ou l'outil qui convient à votre taille, et intégrés à votre ERP.", av: false },
+      { t: "Direction des achats à temps partagé", d: "Un Fractional CPO présent au rythme que vous fixez : feuille de route, pilotage des appels d'offres stratégiques, montée en compétence de l'équipe. Les pratiques des grands comptes, à la taille de votre entreprise.", av: true },
+      { t: "Direction des achats par intérim", d: "Une prise de fonction quand le poste est vacant ou en transformation. On stabilise, on décide, on prépare l'arrivée du titulaire.", av: true },
+      { t: "Risques tiers et conformité", d: "Cartographie et suivi des fournisseurs critiques, registre d'information DORA, exigences NIS2 sur la chaîne d'approvisionnement, clauses contractuelles et plans de sortie.", av: false },
+    ],
+    offersTitle: "Trois formules, un même niveau d'exigence.",
+    offersLead: "Le périmètre, la durée et le budget se fixent ensemble après un premier échange. Vous hésitez entre les formules ?",
+    offersLink: "Un premier échange suffit pour la choisir",
+    offers: [
+      { t: "Diagnostic achats", d: "Cartographie des dépenses, maturité des processus, risques fournisseurs et gains rapides chiffrés.", l: "Demander le diagnostic" },
+      { t: "Fractional CPO", d: "Une direction des achats présente, une feuille de route tenue, des appels d'offres pilotés.", l: "Parler d'un Fractional CPO" },
+      { t: "Intérim de direction", d: "La fonction tenue et transformée pendant la vacance du poste, puis transmise.", l: "Parler d'un intérim" },
+    ],
+    faq: [
+      { q: "Qu'est-ce qu'un Fractional CPO ?", a: "Un directeur des achats expérimenté qui travaille pour votre entreprise à temps partagé, au rythme que vous fixez. Vous accédez à une expertise de grand groupe sans créer un poste à temps plein, et vous ajustez la présence selon la charge." },
+      { q: "Le Source-to-Pay est-il utile pour une PME ?", a: "Oui, à condition de commencer par les processus avant les outils. Une PME gagne surtout en visibilité sur ses dépenses, en conditions négociées et en temps de traitement des factures. L'outil vient ensuite, dimensionné à vos volumes." },
+      { q: "En quoi le règlement DORA concerne-t-il les achats ?", a: "Depuis le 17 janvier 2025, DORA impose aux entités financières de l'Union de tenir un registre d'information sur leurs prestataires de services TIC, d'évaluer leurs risques de concentration et d'inscrire des clauses précises dans les contrats. Les achats sont en première ligne pour collecter ces données et négocier ces clauses." },
+      { q: "Clixite travaille-t-elle aussi en néerlandais et en anglais ?", a: "Oui. Les missions se déroulent en français, en néerlandais ou en anglais, selon vos équipes et vos fournisseurs, partout en Belgique et au Luxembourg." },
+    ],
+    schema: {
+      name: "Transformation des achats",
+      description: "Transformation des achats, du besoin au paiement : processus Source-to-Pay outillés, risques fournisseurs maîtrisés, direction des achats à temps partagé ou par intérim, pour les PME comme pour les groupes régulés.",
+      serviceType: ["Source-to-Pay", "Fractional CPO", "Direction des achats par intérim", "Gestion des risques tiers", "Conformité DORA des achats"],
+    },
+  },
+  about: {
+    title: "À propos de Clixite, conseil et ingénierie depuis 2005",
+    description: "Clixite SRL, fondée en 2005 à Wavre : Forward Deployed Engineering, GEO, architecture, pilotage de programmes et digitalisation, en Belgique et au Luxembourg.",
+    crumb: "À propos",
+    h1: "Conseil et ingénierie, depuis 2005.",
+    lead: "Clixite est une société belge de conseil et d'ingénierie installée à Wavre. Elle exerce cinq métiers, de la cible à la mise en production, pour des PME en croissance comme pour des groupes régulés.",
+    rule: ["Sa règle tient en une phrase : « Nous résolvons votre ", "x", ". » Le problème qui bloque, celui que personne n'a encore nommé."],
+    factsTitle: "L'entreprise en bref.",
+    facts: {
+      legal: "Raison sociale",
+      legalValue: "société à responsabilité limitée de droit belge",
+      founded: "Fondée en",
+      seat: "Siège",
+      region: "Brabant wallon, Belgique",
+      vat: "Numéro d'entreprise et TVA",
+      area: "Zone d'intervention",
+      areaValue: "Belgique et Luxembourg",
+      langs: "Langues de travail",
+      langsValue: "Français, néerlandais, anglais",
+      phones: "Téléphones",
+      email: "Courriel",
+      frameworks: "Référentiels maîtrisés",
+    },
+    metiersTitle: "Cinq métiers.",
+    envTitle: "Des environnements très différents.",
+    env: "Télécoms, banque, assurance, construction, courtage, PME en croissance : en mission, en conseil ou en poste. Les projets, eux, restent confidentiels.",
+    envLink: { t: "Là où nous avons travaillé", href: `${r.home}#${a.refs}` },
+    charte: "L'identité visuelle de Clixite est publiée sur",
+  },
+  contact: {
+    title: "Contact : Wavre, Belgique et Luxembourg | Clixite",
+    description: "Appelez le +32 10 31 10 00 ou le +352 20 42 02 02, ou écrivez à nicolas@clixite.be. Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre.",
+    h1: ["Quel est votre ", "x", " ?"],
+    lead: "Un premier échange suffit pour le nommer. Vous repartez avec une première piste, même si nous ne travaillons pas ensemble.",
+    email: "Courriel",
+    address: "Adresse",
+    meet: "Rendez-vous",
+    meetValue: "À Wavre, chez vous ou en visio, en français, en néerlandais ou en anglais.",
+    cta: "Demander un échange par courriel",
+  },
+  legal: {
+    title: "Mentions légales et confidentialité | Clixite",
+    description: "Éditeur du site, hébergement, propriété intellectuelle et protection des données personnelles sur www.clixite.be.",
+    h1: "Mentions légales et confidentialité.",
+    editor: {
+      h: "Éditeur",
+      company: "société à responsabilité limitée. Siège :",
+      vat: "Numéro d'entreprise et TVA :",
+      publisher: "Responsable de la publication :",
+      contact: "Contact :",
+      or: "ou",
+    },
+    hosting: {
+      h: "Hébergement",
+      p: "Le site est servi par un serveur privé virtuel administré par Clixite et loué à Hostinger International Ltd, dans un centre de données situé dans l'Union européenne.",
+    },
+    ip: {
+      h: "Propriété intellectuelle",
+      p: "Les textes, le logo et les illustrations de Clixite sont protégés. Leur reproduction demande un accord écrit. Les logos des organisations citées appartiennent à leurs titulaires respectifs.",
+    },
+    photos: {
+      h: "Crédits photographiques",
+      p: ["Les photographies proviennent d'Unsplash, sous ", "licence Unsplash", ", et ont été recadrées et étalonnées aux couleurs de Clixite. Elles illustrent nos métiers et ne montrent ni nos clients ni nos projets."],
+    },
+    data: {
+      h: "Vos données personnelles",
+      cookies: "Ce site ne dépose aucun cookie, n'utilise aucun outil de mesure d'audience et ne charge aucune ressource externe : les polices sont hébergées sur notre propre serveur. Il garde un seul réglage dans votre navigateur, si vous mettez le film d'accueil en pause : ce choix reste sur votre appareil et ne nous est jamais transmis.",
+      logs: "Le serveur conserve des journaux techniques (adresse IP, date, page demandée) pendant une durée limitée, pour la sécurité du service (intérêt légitime).",
+      mail: "Si vous nous écrivez, nous utilisons votre nom, votre adresse électronique et le contenu du message pour vous répondre et, si vous le demandez, pour préparer une proposition (mesures précontractuelles prises à votre demande). Ces données ne sont ni vendues ni cédées. Responsable du traitement :",
+      rights: "Vous pouvez demander l'accès à vos données, leur rectification, leur effacement, la limitation du traitement ou vous y opposer, en écrivant à",
+      complaint: "Vous pouvez aussi introduire une plainte auprès de l'Autorité de protection des données, rue de la Presse 35, 1000 Bruxelles",
+      dpa: { t: "autoriteprotectiondonnees.be", href: "https://www.autoriteprotectiondonnees.be/" },
+    },
+  },
+  notFound: {
+    h1: ["Ce ", "x", "-là reste introuvable."],
+    lead: "La page demandée n'existe pas ou a changé d'adresse.",
+    back: "Revenir à l'accueil",
+  },
+};
+export default autres;

@@ -1,12 +1,30 @@
 ---
+// Page introuvable : une seule page pour les trois langues (le serveur la sert pour toute adresse inconnue).
 import Base from "../layouts/Base.astro";
 import FinalCta from "../components/FinalCta.astro";
+import { t, ROUTES, LANG_NAMES, type Lang } from "../i18n";
+const fr = t("fr");
+const N = fr.autres.notFound;
+const others = (["nl", "en"] as Lang[]).map((l) => ({ l, ...t(l).autres.notFound, name: LANG_NAMES[l].name }));
 ---
-<Base title="Page introuvable | Clixite" description="Cette page n'existe pas ou plus." path="/404/" noindex>
-  <section class="section"><div class="wrap stack" style="--stack: 1.5rem">
-    <h1 class="h-display">Ce <span class="x">x</span>-là reste introuvable.</h1>
-    <p class="lead">La page demandée n'existe pas ou a changé d'adresse.</p>
-    <p><a class="btn btn--primary" href="/">Revenir à l'accueil</a></p>
+<Base title={fr.common.notFound.title} description={fr.common.notFound.description} noindex>
+  <section class="section nf"><div class="wrap nf__in">
+    <h1 class="h-display">{N.h1[0]}<span class="x">{N.h1[1]}</span>{N.h1[2]}</h1>
+    <p class="lead">{N.lead}</p>
+    <p><a class="btn btn--primary" href={ROUTES.home.fr}>{N.back}</a></p>
+    <ul role="list" class="nf__langs">
+      {others.map((o) => (
+        <li lang={o.l}><p>{o.lead}</p><a class="link-more" href={ROUTES.home[o.l]} hreflang={o.l}>{o.back}</a></li>
+      ))}
+    </ul>
   </div></section>
   <FinalCta x={false} />
 </Base>
+
+<style>
+  .nf__in { display: grid; gap: var(--clx-space-5); justify-items: start; }
+  .nf__langs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--clx-space-6); margin-top: var(--clx-space-6); padding-top: var(--clx-space-5); border-top: 1px solid var(--clx-border); width: 100%; max-width: 48rem; }
+  .nf__langs li { display: grid; gap: var(--clx-space-2); align-content: start; }
+  .nf__langs p { color: var(--clx-text-muted); }
+  @media (max-width: 599px) { .nf__langs { grid-template-columns: 1fr; } }
+</style>

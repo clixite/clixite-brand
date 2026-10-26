@@ -2,23 +2,22 @@
 // Le deuxième métier mis en avant : le GEO. Bande Papier, photo « lumière » (les rayonnages : le corpus que lisent
 // les assistants), un volet qui se retire quand la photo entre à l'écran. Aucun faux écran d'assistant.
 import Photo from "./Photo.astro";
-import { GEO_PATH } from "../data/site";
-const items = [
-  { t: "Mesurer", d: "Les questions que posent vos clients, testées sur les principaux assistants : qui est cité, et avec quelles informations." },
-  { t: "Structurer", d: "Une entité cohérente, des pages qui répondent et des données structurées fidèles : votre site devient citable." },
-  { t: "Publier et suivre", d: "Fiches d'entreprise, profils, bases ouvertes, mentions tierces, puis des tests réguliers : les assistants croisent leurs sources avant de citer." },
-];
+import { t, langOf, ROUTES } from "../i18n";
+const lang = langOf(Astro.url.pathname);
+const B = t(lang).home.geo;
+const items = B.items;
+const GEO_PATH = ROUTES.geo[lang];
 ---
 <section id="geo" class="section geo" aria-labelledby="geo-title">
   <div class="wrap geo__in">
     <div class="ph geo__ph" data-reveal data-vt="ph-geo" data-vt-href={GEO_PATH} data-vt-class="clx-morph clx-morph-ph"><Photo name="archives-45" sizes="(min-width: 900px) 38vw, 100vw" /></div>
     <div class="geo__text">
-      <h2 id="geo-title" class="geo__title">GEO : être la réponse des assistants IA.</h2>
-      <p class="lead geo__lead">Vos clients ne cherchent plus seulement sur Google. Ils demandent à ChatGPT, Claude, Perplexity, Gemini ou Copilot qui peut les aider. Nous travaillons pour que les assistants vous trouvent et vous décrivent juste.</p>
+      <h2 id="geo-title" class="geo__title">{B.title}</h2>
+      <p class="lead geo__lead">{B.lead}</p>
       <ol role="list" class="geo__list">
         {items.map((i) => <li><h3 class="h3">{i.t}</h3><p class="muted">{i.d}</p></li>)}
       </ol>
-      <a class="btn btn--secondary" href={GEO_PATH}>Le GEO en détail</a>
+      <a class="btn btn--secondary" href={GEO_PATH}>{B.btn}</a>
     </div>
   </div>
 </section>

@@ -1,11 +1,13 @@
 ---
 // Ce qu'en disent les clients. Rien ne s'affiche tant que src/data/quotes.ts est vide.
 import { QUOTES } from "../data/quotes";
+import { t, langOf } from "../i18n";
+const title = t(langOf(Astro.url.pathname)).common.quotesTitle;
 ---
 {QUOTES.length > 0 && (
   <section class="section quotes" aria-labelledby="quotes-title">
     <div class="wrap">
-      <h2 id="quotes-title" class="h2">Ce qu'en disent nos clients.</h2>
+      <h2 id="quotes-title" class="h2">{title}</h2>
       <ul role="list" class="quotes__list">
         {QUOTES.map((x) => (
           <li>

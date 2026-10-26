@@ -1,34 +1,40 @@
 ---
 import wordmark from "../assets/x/wordmark.svg?raw";
-import { NAV, FDE_PATH_EN } from "../data/site";
-interface Props { lang?: "fr" | "en"; alternates?: { lang: string; path: string }[] }
-const { lang = "fr", alternates = [] } = Astro.props;
+import { t, langOf, ROUTES, LANG_NAMES, type Lang } from "../i18n";
+interface Props { alternates?: { lang: string; path: string; code: Lang }[] }
+const { alternates = [] } = Astro.props;
 const current = Astro.url.pathname;
-const nav = lang === "en" ? [{ href: FDE_PATH_EN, label: "Forward Deployed Engineering" }, { href: FDE_PATH_EN + "#how", label: "How we work" }] : NAV;
-// lien vers l'autre langue, quand la page existe dans les deux
-const other = alternates.find((a) => !a.lang.startsWith(lang === "en" ? "en" : "fr"));
-const switchLabel = other ? (other.lang.startsWith("en") ? { t: "EN", full: "EN, English version", long: "English version" } : { t: "FR", full: "FR, version française", long: "Version française" }) : null;
-const L = lang === "en" ? { home: "Clixite, home", main: "Main navigation", mobile: "Mobile navigation", menu: "Menu", open: "Open the menu", cta: "Request a conversation", ctaS: "Contact" } : { home: "Clixite, accueil", main: "Navigation principale", mobile: "Navigation mobile", menu: "Menu", open: "Ouvrir le menu", cta: "Demander un échange", ctaS: "Contact" };
+const lang = langOf(current);
+const L = t(lang).common.header;
+const nav = L.nav;
+// les trois langues : vers la même page traduite quand elle existe, sinon vers l'accueil de la langue
+const langs = (["fr", "nl", "en"] as Lang[]).map((code) => ({ code, href: alternates.find((a) => a.code === code)?.path ?? ROUTES.home[code], ...LANG_NAMES[code] }));
 const isCurrent = (href: string) => !href.includes("#") && current === href;
 ---
 <header class="hd">
   <div class="wrap hd__in">
-    <a class="hd__logo" href="/" aria-label={L.home}>
+    <a class="hd__logo" href={ROUTES.home[lang]} aria-label={L.home}>
       <span class="hd__mark" set:html={wordmark} aria-hidden="true" />
     </a>
     <nav class="hd__nav" aria-label={L.main}>
       <ul role="list">
         {nav.map((l) => <li><a href={l.href} aria-current={isCurrent(l.href) ? "page" : undefined}>{l.label}{isCurrent(l.href) && <span class="hd__cur" aria-hidden="true" />}</a></li>)}
-        {switchLabel && other && <li><a href={other.path} hreflang={other.lang} lang={other.lang.slice(0, 2)} class="hd__lang" aria-label={switchLabel.full}>{switchLabel.t}</a></li>}
       </ul>
     </nav>
-    <a class="btn btn--primary btn--small hd__cta" href="#contact"><span class="hd__cta-l">{L.cta}</span><span class="hd__cta-s">{L.ctaS}</span></a>
+    <ul role="list" class="hd__langs" aria-label={L.languages}>
+      {langs.map((x) => (
+        <li>{x.code === lang
+          ? <span class="hd__lang is-on" aria-current="true"><abbr title={x.name}>{x.short}</abbr></span>
+          : <a class="hd__lang" href={x.href} hreflang={x.code} lang={x.code} aria-label={`${x.short}, ${x.name}`}>{x.short}</a>}</li>
+      ))}
+    </ul>
+    <a class="btn btn--primary btn--small hd__cta" href="#contact"><span class="hd__cta-l">{L.cta}</span><span class="hd__cta-s">{L.ctaShort}</span></a>
     <button type="button" class="hd__toggle" popovertarget="menu" aria-label={L.open}><span>{L.menu}</span></button>
     <nav id="menu" class="hd__menu" popover aria-label={L.mobile}>
       <ul role="list">
         {nav.map((l) => <li><a href={l.href} aria-current={isCurrent(l.href) ? "page" : undefined}>{l.label}</a></li>)}
-        {switchLabel && other && <li><a href={other.path} hreflang={other.lang} lang={other.lang.slice(0, 2)}>{switchLabel.long}</a></li>}
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact">{L.contact}</a></li>
+        <li class="hd__menu-langs"><ul role="list" aria-label={L.languages}>{langs.map((x) => <li>{x.code === lang ? <span aria-current="true">{x.name}</span> : <a href={x.href} hreflang={x.code} lang={x.code}>{x.name}</a>}</li>)}</ul></li>
       </ul>
     </nav>
   </div>
@@ -56,14 +62,20 @@ const isCurrent = (href: string) => !href.includes("#") && current === href;
   .hd__nav a { position: relative; white-space: nowrap; }
   @media (max-width: 1279px) { .hd__nav ul { gap: var(--clx-space-5); } .hd__in { gap: var(--clx-space-5); } }
   .hd__nav a:hover { color: var(--clx-link); }
-  .hd__lang { font-family: var(--clx-font-family-data); font-size: 0.8125rem !important; letter-spacing: 0.04em; }
+  /* langues : trois codes, la langue courante soulignée ; les autres sont des liens vers la même page traduite */
+  .hd__langs { display: flex; gap: 0.125rem; margin-left: calc(var(--clx-space-2) * -1); }
+  .hd__lang { display: inline-grid; place-items: center; min-width: 32px; min-height: 44px; font: 600 0.8125rem/1 var(--clx-font-family-text); letter-spacing: 0.04em; color: var(--clx-text-muted); text-decoration: none; position: relative; }
+  .hd__lang abbr { text-decoration: none; }
+  a.hd__lang:hover { color: var(--clx-text); }
+  .hd__lang.is-on { color: var(--clx-text); }
+  .hd__lang.is-on::after { content: ""; position: absolute; left: 25%; right: 25%; bottom: 10px; height: 2px; background: var(--clx-accent); }
   /* page courante : un filet turquoise sous le lien */
   .hd__cur { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--clx-accent); view-transition-name: clx-cur; }
   .hd__toggle, .hd__menu { display: none; }
-  @media (max-width: 1099px) {
+  @media (max-width: 1199px) {
     .hd__in { gap: var(--clx-space-3); min-height: 64px; }
     .hd__mark :global(svg) { width: 112px; }
-    .hd__nav { display: none; }
+    .hd__nav, .hd__langs { display: none; }
     .hd__cta { margin-left: auto; }
     .hd__toggle { display: grid; place-items: center; cursor: pointer; min-height: 44px; min-width: 44px; border-radius: var(--clx-radius-pill); border: 1px solid var(--clx-border-strong); background: transparent; color: var(--clx-text); padding: 0 0.875rem; font: 600 0.9375rem/1 var(--clx-font-family-text); }
     .hd__toggle:hover { border-color: var(--clx-text); }
@@ -71,6 +83,10 @@ const isCurrent = (href: string) => !href.includes("#") && current === href;
     .hd__menu { position: fixed; inset: 64px 0 auto 0; margin: 0; width: auto; max-height: calc(100svh - 64px); overflow: auto; border: 0; border-bottom: 1px solid var(--clx-border); background: var(--clx-bg); color: var(--clx-text); padding: var(--clx-space-3) max(var(--clx-layout-gutter), env(safe-area-inset-right, 0px)) var(--clx-space-6) max(var(--clx-layout-gutter), env(safe-area-inset-left, 0px)); }
     .hd__menu a { display: block; font-size: 1.25rem; font-family: var(--clx-font-family-display); font-weight: 500; padding: 0.75rem 0; }
     .hd__menu a[aria-current="page"] { color: var(--clx-link); }
+    .hd__menu-langs { margin-top: var(--clx-space-4); padding-top: var(--clx-space-4); border-top: 1px solid var(--clx-border); }
+    .hd__menu-langs ul { display: flex; flex-wrap: wrap; gap: var(--clx-space-5); }
+    .hd__menu-langs a, .hd__menu-langs span { font-family: var(--clx-font-family-text); font-size: 1rem; font-weight: 500; padding: 0.75rem 0; display: block; }
+    .hd__menu-langs span { color: var(--clx-text-muted); }
     .hd__menu::backdrop { background: rgb(11 34 57 / 0.35); }
   }
   /* ouverture du menu : un glissement court, sans rebond */

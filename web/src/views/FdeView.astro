@@ -1,0 +1,23 @@
+---
+// Page pilier Forward Deployed Engineering : métadonnées, JSON-LD (Service, DefinedTerm, BreadcrumbList, FAQPage) et rendu.
+import Base from "../layouts/Base.astro";
+import FdePage from "../components/FdePage.astro";
+import { SITE } from "../data/site";
+import { breadcrumb, faqPage, service } from "../data/schema";
+import { t, langOf, ROUTES, HREFLANG, UPDATED } from "../i18n";
+const lang = langOf(Astro.url.pathname);
+const { fde: C, common } = t(lang);
+const path = ROUTES.fde[lang];
+const schema = [
+  {
+    ...service({ path, name: "Forward Deployed Engineering", alternateName: C.schema.alternateName, description: C.chapo, serviceType: C.schema.serviceType, lang: HREFLANG[lang], areas: common.countries }),
+    subjectOf: { "@id": `${SITE.url}${path}#page` },
+  },
+  { "@type": "DefinedTerm", "@id": `${SITE.url}${path}#terme`, name: "Forward Deployed Engineering", alternateName: "FDE", inLanguage: HREFLANG[lang], description: C.schema.term, url: `${SITE.url}${path}` },
+  breadcrumb([{ name: common.crumbs.home, href: ROUTES.home[lang] }, { name: "Forward Deployed Engineering", href: path }]),
+  faqPage(C.faq, HREFLANG[lang]),
+];
+---
+<Base title={C.title} description={C.description} page="fde" schema={schema} modified={UPDATED}>
+  <FdePage />
+</Base>

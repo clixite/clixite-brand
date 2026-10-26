@@ -4,12 +4,10 @@
 // turquoise filaire le croise. L'angle entre les deux se referme de 14° à 8° au défilement (seul mouvement :
 // une rotation), et reste au repos (8°) en mouvement réduit ou sans prise en charge.
 import Photo from "./Photo.astro";
-import { FDE_PATH } from "../data/site";
-const items = [
-  { t: "Dans vos équipes, pas à côté.", d: "Sur site ou à distance, dans vos outils et à votre rythme. Les décisions se prennent là où le travail se fait." },
-  { t: "En production, pas en PowerPoint.", d: "La mission se mesure à ce qui tourne : une intégration, un processus automatisé, un agent IA utilisé le lundi matin." },
-  { t: "Sous votre contrôle, puis chez vous.", d: "Vos environnements, vos règles de sécurité, des accès nominatifs. À la fin, le code, la documentation et le savoir-faire restent chez vous." },
-];
+import { t, langOf, ROUTES } from "../i18n";
+const lang = langOf(Astro.url.pathname);
+const B = t(lang).home.fde;
+const items = B.items;
 // champs : pas de 10 unités, traits Encre à 50 % du pas ; traits turquoise décalés d'un demi-pas
 const P = 10;
 const bars = Array.from({ length: 40 }, (_, k) => (k - 12) * P);
@@ -24,9 +22,9 @@ const bars = Array.from({ length: 40 }, (_, k) => (k - 12) * P);
   </div>
   <div class="wrap fde__in">
     <div class="fde__head">
-      <h2 id="fde-title" class="fde__title">Forward Deployed Engineering.</h2>
-      <p class="fde__lead">Clixite s'installe dans vos équipes pour concevoir, construire et mettre en production vos intégrations, vos automatisations et vos agents IA, puis vous transférer la solution. En Belgique et au Luxembourg, en français, en néerlandais ou en anglais.</p>
-      <a class="btn btn--primary" href={FDE_PATH}>Le Forward Deployed Engineering en détail</a>
+      <h2 id="fde-title" class="fde__title">{B.title}</h2>
+      <p class="fde__lead">{B.lead}</p>
+      <a class="btn btn--primary" href={ROUTES.fde[lang]}>{B.btn}</a>
     </div>
     <ul role="list" class="fde__list">
       {items.map((i) => (

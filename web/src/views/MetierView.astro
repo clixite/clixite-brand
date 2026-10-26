@@ -1,0 +1,20 @@
+---
+// Page métier (GEO, architecture, pilotage, digitalisation) : métadonnées, JSON-LD (Service, BreadcrumbList, FAQPage) et rendu.
+import Base from "../layouts/Base.astro";
+import MetierPage from "../components/MetierPage.astro";
+import { breadcrumb, faqPage, service } from "../data/schema";
+import { t, langOf, ROUTES, HREFLANG, UPDATED, type RouteKey } from "../i18n";
+interface Props { page: RouteKey }
+const lang = langOf(Astro.url.pathname);
+const { pages, metiers, common } = t(lang);
+const page = pages.find((p) => p.key === Astro.props.page)!;
+const crumbs = [{ name: common.crumbs.home, href: ROUTES.home[lang] }, ...(page.key !== "geo" ? [{ name: common.crumbs.expertises, href: ROUTES.expertises[lang] }] : []), { name: page.crumb, href: page.path }];
+const schema = [
+  service({ path: page.path, name: metiers.list.find((m) => m.key === page.key)?.t ?? page.crumb, alternateName: page.alternateName, description: page.chapo, serviceType: page.serviceType, lang: HREFLANG[lang], areas: common.countries }),
+  breadcrumb(crumbs),
+  faqPage(page.faq, HREFLANG[lang]),
+];
+---
+<Base title={page.title} description={page.description} page={page.key} schema={schema} modified={UPDATED}>
+  <MetierPage page={page} />
+</Base>

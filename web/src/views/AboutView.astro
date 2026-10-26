@@ -5,36 +5,35 @@ import Crumbs from "../components/Crumbs.astro";
 import Photo from "../components/Photo.astro";
 import FinalCta from "../components/FinalCta.astro";
 import { SITE } from "../data/site";
-import { METIERS } from "../data/expertises";
 import { breadcrumb } from "../data/schema";
-const crumbs = [{ name: "Accueil", href: "/" }, { name: "À propos", href: "/a-propos/" }];
-const schema = [breadcrumb(crumbs), { "@type": "AboutPage", "@id": `${SITE.url}/a-propos/#about`, url: `${SITE.url}/a-propos/`, about: { "@id": `${SITE.url}/#org` }, mainEntity: { "@id": `${SITE.url}/#org` } }];
+import { t, langOf, ROUTES } from "../i18n";
+const lang = langOf(Astro.url.pathname);
+const { common, metiers, autres } = t(lang);
+const A = autres.about;
+const F = A.facts;
+const path = ROUTES.about[lang];
+const crumbs = [{ name: common.crumbs.home, href: ROUTES.home[lang] }, { name: A.crumb, href: path }];
+const schema = [breadcrumb(crumbs), { "@type": "AboutPage", "@id": `${SITE.url}${path}#about`, url: `${SITE.url}${path}`, about: { "@id": `${SITE.url}/#org` }, mainEntity: { "@id": `${SITE.url}/#org` } }];
 const facts = [
-  ["Raison sociale", `${SITE.legalName}, société à responsabilité limitée de droit belge`],
-  ["Fondée en", SITE.founded],
-  ["Siège", `${SITE.address.street}, ${SITE.address.postalCode} ${SITE.address.city} (${SITE.address.region}, Belgique)`],
-  ["Numéro d'entreprise et TVA", SITE.vat],
-  ["Zone d'intervention", "Belgique et Luxembourg"],
-  ["Langues de travail", "Français, néerlandais, anglais"],
-  ["Téléphones", SITE.phones.map((p) => `${p.label} ${p.display}`).join(" ; ")],
-  ["Courriel", SITE.email],
-  ["Référentiels maîtrisés", "PMP, PRINCE2, AgilePM, SAFe, Scrum, ITIL, ADKAR"],
+  [F.legal, `${SITE.legalName}, ${F.legalValue}`],
+  [F.founded, SITE.founded],
+  [F.seat, `${SITE.address.street}, ${SITE.address.postalCode} ${SITE.address.city} (${F.region})`],
+  [F.vat, SITE.vat],
+  [F.area, F.areaValue],
+  [F.langs, F.langsValue],
+  [F.phones, SITE.phones.map((p) => `${common.countries[p.country]} ${p.display}`).join(" ; ")],
+  [F.email, SITE.email],
+  [F.frameworks, "PMP, PRINCE2, AgilePM, SAFe, Scrum, ITIL, ADKAR"],
 ];
-const env = ["Télécoms", "banque", "assurance", "construction", "courtage", "PME en croissance"];
 ---
-<Base
-  title="À propos de Clixite, conseil et ingénierie depuis 2005"
-  description="Clixite SRL, fondée en 2005 à Wavre : Forward Deployed Engineering, GEO, architecture, pilotage de programmes et digitalisation, en Belgique et au Luxembourg."
-  path="/a-propos/"
-  schema={schema}
->
+<Base title={A.title} description={A.description} page="about" schema={schema}>
   <Crumbs items={crumbs} />
   <section class="ap-head" aria-labelledby="ap-title">
     <div class="wrap ap-head__in">
       <div class="ap-head__text">
-        <h1 id="ap-title" class="h-display">Conseil et ingénierie, depuis 2005.</h1>
-        <p class="lead">Clixite est une société belge de conseil et d'ingénierie installée à Wavre. Elle exerce cinq métiers, de la cible à la mise en production, pour des PME en croissance comme pour des groupes régulés.</p>
-        <p class="lead">Sa règle tient en une phrase : « Nous résolvons votre <span class="x">x</span>. » Le problème qui bloque, celui que personne n'a encore nommé.</p>
+        <h1 id="ap-title" class="h-display">{A.h1}</h1>
+        <p class="lead">{A.lead}</p>
+        <p class="lead">{A.rule[0]}<span class="x">{A.rule[1]}</span>{A.rule[2]}</p>
       </div>
       <div class="ph ap-head__ph"><Photo name="plan-32" eager sizes="(min-width: 900px) 40vw, 100vw" /></div>
     </div>
@@ -42,25 +41,25 @@ const env = ["Télécoms", "banque", "assurance", "construction", "courtage", "P
 
   <section class="section ap-facts band-alt" aria-labelledby="ap-facts">
     <div class="wrap ap-cols">
-      <h2 id="ap-facts" class="h2">L'entreprise en bref.</h2>
-      <dl class="ap-dl">{facts.map(([t, d]) => <div><dt>{t}</dt><dd>{d}</dd></div>)}</dl>
+      <h2 id="ap-facts" class="h2">{A.factsTitle}</h2>
+      <dl class="ap-dl">{facts.map(([dt, dd]) => <div><dt>{dt}</dt><dd>{dd}</dd></div>)}</dl>
     </div>
   </section>
 
   <section class="section ap-metiers" aria-labelledby="ap-metiers">
     <div class="wrap ap-cols">
-      <h2 id="ap-metiers" class="h2">Cinq métiers.</h2>
-      <ul class="ap-list">{METIERS.map((m) => <li><a href={m.href}>{m.t}</a><span class="muted"> {m.k}</span></li>)}</ul>
+      <h2 id="ap-metiers" class="h2">{A.metiersTitle}</h2>
+      <ul class="ap-list">{metiers.list.map((m) => <li><a href={m.href}>{m.t}</a><span class="muted"> {m.k}</span></li>)}</ul>
     </div>
   </section>
 
   <section class="section ap-env band-alt" aria-labelledby="ap-env">
     <div class="wrap ap-cols">
-      <h2 id="ap-env" class="h2">Des environnements très différents.</h2>
+      <h2 id="ap-env" class="h2">{A.envTitle}</h2>
       <div class="ap-prose">
-        <p class="lead">{env.join(", ")} : en mission, en conseil ou en poste. Les projets, eux, restent confidentiels.</p>
-        <p><a class="link-more" href="/#references">Là où nous avons travaillé</a></p>
-        <p class="muted">L'identité visuelle de Clixite est publiée sur <a href={SITE.charte}>charte.clixite.be</a>.</p>
+        <p class="lead">{A.env}</p>
+        <p><a class="link-more" href={A.envLink.href}>{A.envLink.t}</a></p>
+        <p class="muted">{A.charte} <a href={SITE.charte}>charte.clixite.be</a>.</p>
       </div>
     </div>
   </section>

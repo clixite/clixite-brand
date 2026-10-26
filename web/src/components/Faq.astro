@@ -1,8 +1,9 @@
 ---
 // Questions fréquentes, réponses toujours visibles (pas d'accordéon : le site n'a aucune bascule de contenu).
 // Le balisage FAQPage est ajouté par la page, à partir de la même liste.
+import { t, langOf } from "../i18n";
 interface Props { id: string; title?: string; items: { q: string; a: string }[] }
-const { id, title = "Questions fréquentes.", items } = Astro.props;
+const { id, title = t(langOf(Astro.url.pathname)).common.faqTitle, items } = Astro.props;
 ---
 <section class="section faq" aria-labelledby={id}>
   <div class="wrap faq__in">

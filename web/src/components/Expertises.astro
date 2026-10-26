@@ -1,14 +1,17 @@
 ---
 // Les cinq métiers sur l'accueil, le Forward Deployed Engineering et le GEO en tête ; chaque titre mène à sa page.
 import Photo from "./Photo.astro";
-import { METIERS } from "../data/expertises";
+import { t, langOf } from "../i18n";
+const lang = langOf(Astro.url.pathname);
+const { home, metiers } = t(lang);
+const METIERS = metiers.list;
 ---
 <section id="expertises" class="section expertises" aria-labelledby="exp-title">
   <div class="wrap">
     <div class="exp__head">
       <div class="exp__intro">
-        <h2 id="exp-title" class="h2">Cinq métiers, une même exigence : un résultat qui tourne.</h2>
-        <p class="lead">Nous intervenons là où une stratégie doit devenir un système qui fonctionne, dans une PME comme dans un groupe régulé.</p>
+        <h2 id="exp-title" class="h2">{home.expertises.title}</h2>
+        <p class="lead">{home.expertises.lead}</p>
       </div>
       <figure class="exp__fig">
         <Photo name="plan-32" class="exp__img" sizes="(min-width: 900px) 40vw, 100vw" />

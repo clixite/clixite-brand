@@ -5,6 +5,7 @@
 import { getImage } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import registry from "../data/photos.registry.json";
+import { t, langOf } from "../i18n";
 
 interface Props {
   name: string;
@@ -22,7 +23,8 @@ const get = (n: string) => {
   return f.default;
 };
 const entry = registry.photos.find((p) => p.slug === name.replace(/-[^-]+$/, ""));
-const text = alt ?? entry?.alt ?? "";
+const slug = name.replace(/-[^-]+$/, "");
+const text = alt ?? t(langOf(Astro.url.pathname)).photos[slug] ?? entry?.alt ?? "";
 
 async function set(meta: ImageMetadata, widths: number[], format: "avif" | "webp" | "jpeg") {
   const ws = widths.filter((x) => x < meta.width).concat(meta.width > 1600 ? [] : [meta.width]);

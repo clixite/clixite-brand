@@ -3,14 +3,11 @@
 // Le texte se pose sur une plaque Encre, comme les titres du film ; les quatre phrases du film défilent en synchronisation.
 // Boucle sans titres ni logo (video/hero_loop.py) : large, moyenne et verticale, en H.264 et en VP9.
 // Le film arrive après l'affichage, jamais en mouvement réduit ni en économie de données ; il reste toujours en pause possible.
-import { FDE_PATH } from "../data/site";
-// chapitres de la boucle (11,5 s) : les titres du film, au rythme des plans
-const STORY = [
-  { t: "Votre architecture commence sur papier.", from: 0 },
-  { t: "Elle prend du relief.", from: 2.5 },
-  { t: "Elle se pose chez vous.", from: 5.5 },
-  { t: "Et elle tourne.", from: 8.5 },
-];
+import { t, langOf } from "../i18n";
+const lang = langOf(Astro.url.pathname);
+const { home, common } = t(lang);
+const H = home.hero;
+const STORY = H.story;
 ---
 <section class="hero" data-theme="encre" aria-labelledby="hero-title">
   <div class="hero__media" aria-hidden="true">
@@ -22,9 +19,9 @@ const STORY = [
       data-hero-video data-wide="/video/hero-1920" data-mid="/video/hero-1280" data-tall="/video/hero-720x1280"></video>
   </div>
 
-  <button type="button" class="hero__pause" data-hero-pause aria-pressed="false" hidden>
-    <svg class="hero__pause-i" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path class="i-pause" d="M2 1h3v10H2zM7 1h3v10H7z" /><path class="i-play" d="M2.5 1l8.5 5-8.5 5z" /></svg><span data-hero-pause-l>Pause</span>
-    <span class="visually-hidden"> du film de fond</span>
+  <button type="button" class="hero__pause" data-hero-pause aria-pressed="false" data-l-pause={common.film.pause} data-l-play={common.film.play} hidden>
+    <svg class="hero__pause-i" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path class="i-pause" d="M2 1h3v10H2zM7 1h3v10H7z" /><path class="i-play" d="M2.5 1l8.5 5-8.5 5z" /></svg><span data-hero-pause-l>{common.film.pause}</span>
+    <span class="visually-hidden">{common.film.hint}</span>
   </button>
 
   <div class="wrap hero__in">
@@ -32,12 +29,12 @@ const STORY = [
       <p class="hero__story" aria-hidden="true" data-story>
         {STORY.map((s, i) => <span class:list={["hero__chap", { "is-on": i === 0 }]} data-from={s.from}>{s.t}</span>)}
       </p>
-      <h1 id="hero-title" class="hero__title"><span class="hero__line">Nous résolvons votre <span class="x">x</span>.</span></h1>
-      <p class="hero__sub">Forward Deployed Engineering, GEO, architecture d'entreprise et de solutions, pilotage de programmes, digitalisation. Dans vos équipes, en Belgique et au Luxembourg, jusqu'à la mise en production.</p>
+      <h1 id="hero-title" class="hero__title"><span class="hero__line">{H.h1[0]}<span class="x">{H.h1[1]}</span>{H.h1[2]}</span></h1>
+      <p class="hero__sub">{H.sub}</p>
 
       <div class="hero__cta">
-        <a class="btn btn--primary" href="#contact">Demander un échange</a>
-        <a class="btn btn--secondary" href={FDE_PATH}>Le Forward Deployed Engineering</a>
+        <a class="btn btn--primary" href="#contact">{common.cta}</a>
+        <a class="btn btn--secondary" href={H.cta2.href}>{H.cta2.t}</a>
       </div>
     </div>
   </div>
@@ -65,7 +62,7 @@ const STORY = [
     };
     const sync = () => {
       btn.setAttribute("aria-pressed", String(paused));
-      label.textContent = paused ? "Lecture" : "Pause";
+      label.textContent = (paused ? btn.dataset.lPlay : btn.dataset.lPause) ?? "";
       btn.classList.toggle("is-paused", paused);
       if (!v.src) return;
       if (paused || !inView || document.hidden) v.pause(); else v.play().catch(() => { /* lecture refusée : l'affiche reste */ });

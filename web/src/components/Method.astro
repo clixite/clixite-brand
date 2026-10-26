@@ -3,18 +3,17 @@ import e1 from "../assets/x/etape-1.svg?raw";
 import e2 from "../assets/x/etape-2.svg?raw";
 import e3 from "../assets/x/etape-3.svg?raw";
 import e4 from "../assets/x/etape-4.svg?raw";
-const steps = [
-  { svg: e1, t: "Relever", d: "Cartographie de vos systèmes, de vos flux, de vos contrats et de vos risques. On mesure avant de dessiner.", out: "Diagnostic" },
-  { svg: e2, t: "Concevoir", d: "L'architecture cible et le chemin pour y aller, en options chiffrées. Ce qu'on garde, ce qu'on remplace, ce qu'on arrête.", out: "Cible et feuille de route" },
-  { svg: e3, t: "Construire", d: "Intégrations, données, automatisations et IA, livrées par incréments courts que vos équipes testent en conditions réelles.", out: "Incréments en production" },
-  { svg: e4, t: "Mettre en service", d: "Déploiement, adoption et transfert. Nous partons quand vos équipes tiennent la solution seules.", out: "Solution exploitée et documentée" },
-];
+import { t, langOf, ANCHORS } from "../i18n";
+const lang = langOf(Astro.url.pathname);
+const { home, common } = t(lang);
+const svgs = [e1, e2, e3, e4];
+const steps = home.method.steps.map((s, i) => ({ ...s, svg: svgs[i] }));
 ---
-<section id="methode" class="section method" aria-labelledby="method-title">
+<section id={ANCHORS.method[lang]} class="section method" aria-labelledby="method-title">
   <div class="wrap">
     <div class="method__head">
-      <h2 id="method-title" class="h2">Du relevé à la mise en service.</h2>
-      <p class="lead">Quatre étapes, chacune avec un livrable que vous gardez, même si vous arrêtez là. Vous décidez de la suivante sur pièces.</p>
+      <h2 id="method-title" class="h2">{home.method.title}</h2>
+      <p class="lead">{home.method.lead}</p>
     </div>
     <ol role="list" class="method__list">
       {steps.map((s, i) => (
@@ -22,7 +21,7 @@ const steps = [
           <div class="method__art" set:html={s.svg} />
           <h3 class="h3">{s.t}</h3>
           <p class="muted">{s.d}</p>
-          <p class="method__meta small"><span>Livrable</span> <span class="method__out">{s.out}</span></p>
+          <p class="method__meta small"><span>{common.deliverable}</span> <span class="method__out">{s.out}</span></p>
         </li>
       ))}
     </ol>

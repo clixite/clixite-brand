@@ -1,5 +1,5 @@
 ---
-// Page pilier Forward Deployed Engineering (français et anglais, même structure). Contenu : src/data/fde.ts.
+// Page pilier Forward Deployed Engineering (même structure dans les trois langues). Contenu : src/i18n/<langue>/fde.ts.
 import Crumbs from "./Crumbs.astro";
 import Photo from "./Photo.astro";
 import Formats from "./Formats.astro";
@@ -9,16 +9,15 @@ import e1 from "../assets/x/etape-1.svg?raw";
 import e2 from "../assets/x/etape-2.svg?raw";
 import e3 from "../assets/x/etape-3.svg?raw";
 import e4 from "../assets/x/etape-4.svg?raw";
-import { FDE } from "../data/fde";
-import { METIERS } from "../data/expertises";
-interface Props { lang: "fr" | "en" }
-const { lang } = Astro.props;
-const C = FDE[lang];
+import { t, langOf, ROUTES, ANCHORS } from "../i18n";
+const lang = langOf(Astro.url.pathname);
+const { fde: C, common, metiers } = t(lang);
 const arts = [e1, e2, e3, e4];
-const others = METIERS.filter((m) => m.slug !== "forward-deployed-engineering");
-const anchor = lang === "en" ? "how" : "methode-fde";
+const others = metiers.list.filter((m) => m.key !== "fde");
+const anchor = ANCHORS.fdeMethod[lang];
+const crumbs = [{ name: common.crumbs.home, href: ROUTES.home[lang] }, { name: "Forward Deployed Engineering", href: ROUTES.fde[lang] }];
 ---
-<Crumbs items={C.crumbs} label={lang === "en" ? "Breadcrumb" : "Fil d'Ariane"} />
+<Crumbs items={crumbs} />
 
 <section class="fp-head" aria-labelledby="fp-title">
   <div class="wrap fp-head__in">
@@ -33,7 +32,7 @@ const anchor = lang === "en" ? "how" : "methode-fde";
     </div>
   </div>
   <div class="wrap">
-    <div class="ph ph--parallax fp-head__ph" style="view-transition-name: ph-forward-deployed-engineering; view-transition-class: clx-morph clx-morph-ph"><Photo name="ingenieurs-169" small="ingenieurs-45" eager sizes="(min-width: 1360px) 1280px, 100vw" alt={lang === "en" ? "Three engineers leaning over a laptop on a test bench in a workshop." : undefined} /></div>
+    <div class="ph ph--parallax fp-head__ph" style="view-transition-name: ph-forward-deployed-engineering; view-transition-class: clx-morph clx-morph-ph"><Photo name="ingenieurs-169" small="ingenieurs-45" eager sizes="(min-width: 1360px) 1280px, 100vw" /></div>
   </div>
 </section>
 
@@ -44,7 +43,7 @@ const anchor = lang === "en" ? "how" : "methode-fde";
       {C.what.p.map((p) => <p>{p}</p>)}
       <h3 class="h3 fp-sub">{C.origin.h}</h3>
       <p>{C.origin.p}</p>
-      <p class="small muted fp-src">{C.origin.srcLabel}{lang === "fr" ? " :" : ":"} {C.origin.src.map((s, i) => <>{i > 0 && ", "}<a href={s.href} rel="noopener">{s.t}</a></>)}.</p>
+      <p class="small muted fp-src">{C.origin.srcLabel}{common.colon} {C.origin.src.map((s, i) => <>{i > 0 && ", "}<a href={s.href} rel="noopener">{s.t}</a></>)}.</p>
     </div>
   </div>
 </section>
@@ -85,7 +84,7 @@ const anchor = lang === "en" ? "how" : "methode-fde";
           {C.compare.rows.map(([n, ...cells], r) => (
             <tr class={r === 0 ? "is-fde" : undefined}>
               <th scope="row">{n}</th>
-              {cells.map((c, i) => <td data-label={C.compare.cols[i + 1] + (lang === "fr" ? " :" : ":")}>{c}</td>)}
+              {cells.map((c, i) => <td data-label={C.compare.cols[i + 1] + common.colon}>{c}</td>)}
             </tr>
           ))}
         </tbody>
@@ -95,14 +94,14 @@ const anchor = lang === "en" ? "how" : "methode-fde";
   </div>
 </section>
 
-<section id="environnement-regule" class="section fp-reg" aria-labelledby="fp-reg">
+<section id={ANCHORS.fdeRegulated[lang]} class="section fp-reg" aria-labelledby="fp-reg">
   <div class="wrap">
     <div class="fp-reg__head">
       <h2 id="fp-reg" class="h2">{C.regulated.h}</h2>
       <p class="lead">{C.regulated.lead}</p>
     </div>
     <div class="fp-reg__body">
-      <div class="ph fp-reg__ph" data-reveal><Photo name="centre-donnees-45" sizes="(min-width: 900px) 34vw, 100vw" alt={lang === "en" ? "Rows of server cabinets in a data centre." : undefined} /></div>
+      <div class="ph fp-reg__ph" data-reveal><Photo name="centre-donnees-45" sizes="(min-width: 900px) 34vw, 100vw" /></div>
       <dl class="fp-reg__list">
         {C.regulated.items.map((x) => <div><dt class="h3">{x.t}</dt><dd class="muted">{x.d}</dd></div>)}
       </dl>
@@ -117,20 +116,18 @@ const anchor = lang === "en" ? "how" : "methode-fde";
   </div>
 </section>
 
-<Formats lang={lang} />
+<Formats />
 
 <Faq id="fp-faq" title={C.faqTitle} items={C.faq} />
 
-{lang === "fr" && (
-  <section class="section section--tight fp-others" aria-labelledby="fp-others">
-    <div class="wrap">
-      <h2 id="fp-others" class="h3">{C.others}</h2>
-      <ul role="list" class="fp-others__list">{others.map((m) => <li><a href={m.href}>{m.t}</a></li>)}</ul>
-    </div>
-  </section>
-)}
+<section class="section section--tight fp-others" aria-labelledby="fp-others">
+  <div class="wrap">
+    <h2 id="fp-others" class="h3">{common.others}</h2>
+    <ul role="list" class="fp-others__list">{others.map((m) => <li><a href={m.href}>{m.t}</a></li>)}</ul>
+  </div>
+</section>
 
-<FinalCta lang={lang} />
+<FinalCta />
 
 <style>
   .fp-head { padding-block: var(--clx-space-7) var(--clx-layout-section); }

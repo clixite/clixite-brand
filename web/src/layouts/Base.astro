@@ -3,24 +3,26 @@ import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE, REVIEW, KNOWS_ABOUT } from "../data/site";
-import { METIERS } from "../data/expertises";
+import { t, langOf, ROUTES, HREFLANG, OG_LOCALE, X_DEFAULT, LANGS, alternatesOf, type RouteKey } from "../i18n";
 
 interface Props {
   title: string;
   description: string;
-  path?: string;
+  page?: RouteKey;     // clé de la page (src/i18n/routes.ts) : adresse, versions linguistiques et hreflang
   schema?: Record<string, unknown>[];
   noindex?: boolean;
-  lang?: "fr" | "en";
-  // versions linguistiques de la même page (hreflang), chemin compris celui de la page elle-même
-  alternates?: { lang: string; path: string }[];
-  xDefault?: string;
   modified?: string;   // date de dernière mise à jour du contenu (AAAA-MM-JJ)
 }
-const { title, description, path = "/", schema = [], noindex = false, lang = "fr", alternates = [], xDefault, modified } = Astro.props;
-const htmlLang = lang === "en" ? "en" : "fr-BE";
+const { title, description, page: key, schema = [], noindex = false, modified } = Astro.props;
+const lang = langOf(Astro.url.pathname);
+const C = t(lang).common;
+const M = t(lang).metiers.list;
+const htmlLang = HREFLANG[lang];
+const path = key ? ROUTES[key][lang] : Astro.url.pathname;
 const canonical = new URL(path, SITE.url).href;
-const og = new URL(lang === "en" ? "/og-image-en.jpg" : "/og-image.jpg", SITE.url).href;
+const alternates = key ? alternatesOf(key) : [];
+const xDefault = key ? ROUTES[key][X_DEFAULT] : undefined;
+const og = new URL({ fr: "/og-image.jpg", nl: "/og-image-nl.jpg", en: "/og-image-en.jpg" }[lang], SITE.url).href;
 
 const org = {
   "@type": ["Organization", "ProfessionalService"],
@@ -30,32 +32,32 @@ const org = {
   url: `${SITE.url}/`,
   logo: `${SITE.url}/app-icon-512.png`,
   image: og,
-  slogan: "Nous résolvons votre x.",
-  description: "Société de conseil et d'ingénierie fondée en 2005 à Wavre (Belgique), active en Belgique et au Luxembourg : Forward Deployed Engineering, GEO (référencement dans les assistants IA), architecture d'entreprise et de solutions, pilotage de programmes et digitalisation, de la cible à la mise en production, pour les PME et les grands groupes.",
+  slogan: C.slogan,
+  description: C.orgDescription,
   foundingDate: SITE.founded,
   vatID: SITE.vatId,
   email: SITE.email,
   telephone: SITE.phones[0].tel,
-  contactPoint: SITE.phones.map((p) => ({ "@type": "ContactPoint", contactType: "sales", telephone: p.tel, email: SITE.email, areaServed: p.country, availableLanguage: ["fr", "en", "nl"] })),
+  contactPoint: SITE.phones.map((p) => ({ "@type": "ContactPoint", contactType: "sales", telephone: p.tel, email: SITE.email, areaServed: p.country, availableLanguage: ["fr", "nl", "en"] })),
   address: { "@type": "PostalAddress", streetAddress: SITE.address.street, postalCode: SITE.address.postalCode, addressLocality: SITE.address.city, addressRegion: SITE.address.region, addressCountry: SITE.address.country },
   areaServed: [
-    { "@type": "Country", name: "Belgique", identifier: "BE", sameAs: "https://www.wikidata.org/wiki/Q31" },
-    { "@type": "Country", name: "Luxembourg", identifier: "LU", sameAs: "https://www.wikidata.org/wiki/Q32" },
+    { "@type": "Country", name: C.countries.BE, identifier: "BE", sameAs: "https://www.wikidata.org/wiki/Q31" },
+    { "@type": "Country", name: C.countries.LU, identifier: "LU", sameAs: "https://www.wikidata.org/wiki/Q32" },
   ],
   identifier: { "@type": "PropertyValue", propertyID: "BCE/KBO", value: "0871.430.776" },
   iso6523Code: "0208:0871430776",
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Métiers de Clixite",
-    itemListElement: METIERS.map((m) => ({ "@type": "Offer", itemOffered: { "@type": "Service", "@id": `${SITE.url}${m.href}#service`, name: m.t, url: `${SITE.url}${m.href}` } })),
+    name: C.catalog,
+    itemListElement: M.map((m) => ({ "@type": "Offer", itemOffered: { "@type": "Service", "@id": `${SITE.url}${m.href}#service`, name: m.t, url: `${SITE.url}${m.href}` } })),
   },
-  knowsLanguage: ["fr", "en", "nl"],
+  knowsLanguage: ["fr", "nl", "en"],
   knowsAbout: KNOWS_ABOUT,
   sameAs: [SITE.charte, "https://kbopub.economie.fgov.be/kbopub/toonondernemingps.html?ondernemingsnummer=0871430776"],
 };
-const website = { "@type": "WebSite", "@id": `${SITE.url}/#website`, url: `${SITE.url}/`, name: SITE.name, inLanguage: [SITE.locale, "en"], publisher: { "@id": `${SITE.url}/#org` } };
-const page = { "@type": "WebPage", "@id": `${canonical}#page`, url: canonical, name: title, description, inLanguage: htmlLang, isPartOf: { "@id": `${SITE.url}/#website` }, about: { "@id": `${SITE.url}/#org` }, ...(modified ? { dateModified: modified } : {}) };
-const graph = { "@context": "https://schema.org", "@graph": [org, website, page, ...schema] };
+const website = { "@type": "WebSite", "@id": `${SITE.url}/#website`, url: `${SITE.url}/`, name: SITE.name, inLanguage: LANGS.map((l) => HREFLANG[l]), publisher: { "@id": `${SITE.url}/#org` } };
+const webpage = { "@type": "WebPage", "@id": `${canonical}#page`, url: canonical, name: title, description, inLanguage: htmlLang, isPartOf: { "@id": `${SITE.url}/#website` }, about: { "@id": `${SITE.url}/#org` }, ...(modified ? { dateModified: modified } : {}) };
+const graph = { "@context": "https://schema.org", "@graph": [org, website, webpage, ...schema] };
 ---
 <!doctype html>
 <html lang={htmlLang} class={REVIEW ? "review" : undefined}>
@@ -98,9 +100,9 @@ const graph = { "@context": "https://schema.org", "@graph": [org, website, page,
     <title>{title}</title>
     <meta name="description" content={description} />
     {!noindex && <link rel="canonical" href={canonical} />}
-    {alternates.map((a) => <link rel="alternate" hreflang={a.lang} href={new URL(a.path, SITE.url).href} />)}
-    {xDefault && <link rel="alternate" hreflang="x-default" href={new URL(xDefault, SITE.url).href} />}
-    {!noindex && <link rel="alternate" type="text/markdown" href={`${canonical}index.html.md`} title={lang === "en" ? "Markdown version" : "Version Markdown"} />}
+    {!noindex && alternates.map((a) => <link rel="alternate" hreflang={a.lang} href={new URL(a.path, SITE.url).href} />)}
+    {!noindex && xDefault && <link rel="alternate" hreflang="x-default" href={new URL(xDefault, SITE.url).href} />}
+    {!noindex && <link rel="alternate" type="text/markdown" href={`${canonical}index.html.md`} title={C.markdown} />}
     {(REVIEW || noindex) && <meta name="robots" content="noindex, nofollow" />}
     <meta name="theme-color" content="#F6F5F0" />
     <meta name="color-scheme" content="light" />
@@ -113,7 +115,8 @@ const graph = { "@context": "https://schema.org", "@graph": [org, website, page,
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content={lang === "en" ? "en_GB" : "fr_BE"} />
+    <meta property="og:locale" content={OG_LOCALE[lang]} />
+    {alternates.filter((a) => a.code !== lang).map((a) => <meta property="og:locale:alternate" content={OG_LOCALE[a.code]} />)}
     <meta property="og:site_name" content="Clixite" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -121,16 +124,16 @@ const graph = { "@context": "https://schema.org", "@graph": [org, website, page,
     <meta property="og:image" content={og} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={lang === "en" ? "We solve your x. Clixite: Forward Deployed Engineering, GEO, enterprise and solution architecture, programme management, digitalisation." : "Nous résolvons votre x. Clixite : Forward Deployed Engineering, GEO, architecture d’entreprise et de solutions, pilotage de programmes, digitalisation."} />
+    <meta property="og:image:alt" content={C.ogAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json" set:html={JSON.stringify(graph)} />
   </head>
   <body>
-    <a class="skip" href="#contenu">{lang === "en" ? "Skip to content" : "Aller au contenu"}</a>
-    <Header lang={lang} alternates={alternates} />
+    <a class="skip" href="#contenu">{C.skip}</a>
+    <Header alternates={alternates} />
     <main id="contenu" tabindex="-1">
       <slot />
     </main>
-    <Footer lang={lang} />
+    <Footer />
   </body>
 </html>

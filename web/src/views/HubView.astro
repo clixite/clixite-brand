@@ -1,38 +1,38 @@
 ---
 // Hub des métiers : le X construit en ouverture, puis une rangée photo et texte par métier, et le lien vers chaque page.
-import Base from "../../layouts/Base.astro";
-import Crumbs from "../../components/Crumbs.astro";
-import LivingX from "../../components/LivingX.astro";
-import Photo from "../../components/Photo.astro";
-import Formats from "../../components/Formats.astro";
-import Domaines from "../../components/Domaines.astro";
-import FinalCta from "../../components/FinalCta.astro";
-import { METIERS } from "../../data/expertises";
-import { breadcrumb } from "../../data/schema";
-const crumbs = [{ name: "Accueil", href: "/" }, { name: "Expertises", href: "/expertises/" }];
+import Base from "../layouts/Base.astro";
+import Crumbs from "../components/Crumbs.astro";
+import LivingX from "../components/LivingX.astro";
+import Photo from "../components/Photo.astro";
+import Formats from "../components/Formats.astro";
+import Domaines from "../components/Domaines.astro";
+import FinalCta from "../components/FinalCta.astro";
+import { SITE } from "../data/site";
+import { breadcrumb } from "../data/schema";
+import { t, langOf, ROUTES } from "../i18n";
+const lang = langOf(Astro.url.pathname);
+const { metiers, common, autres } = t(lang);
+const H = autres.hub;
+const METIERS = metiers.list;
+const crumbs = [{ name: common.crumbs.home, href: ROUTES.home[lang] }, { name: common.crumbs.expertises, href: ROUTES.expertises[lang] }];
 const schema = [
   breadcrumb(crumbs),
-  { "@type": "ItemList", name: "Métiers de Clixite", itemListElement: METIERS.map((m, i) => ({ "@type": "ListItem", position: i + 1, name: m.t, url: new URL(m.href, "https://www.clixite.be").href })) },
+  { "@type": "ItemList", name: H.catalog, itemListElement: METIERS.map((m, i) => ({ "@type": "ListItem", position: i + 1, name: m.t, url: new URL(m.href, SITE.url).href })) },
 ];
 ---
-<Base
-  title="Nos cinq métiers de conseil et d'ingénierie | Clixite"
-  description="Forward Deployed Engineering, GEO, architecture d'entreprise et de solutions, pilotage de programmes, digitalisation : comment Clixite intervient chez vous."
-  path="/expertises/"
-  schema={schema}
->
+<Base title={H.title} description={H.description} page="expertises" schema={schema}>
   <Crumbs items={crumbs} />
   <section class="hub-head" aria-labelledby="hub-title">
     <div class="wrap hub-head__in">
       <div class="hub-head__text">
-        <h1 id="hub-title" class="h-display">Cinq métiers, une même exigence : un résultat qui tourne.</h1>
-        <p class="lead">Nous intervenons là où une stratégie doit devenir un système qui fonctionne, dans une PME comme dans un groupe régulé, en Belgique et au Luxembourg.</p>
+        <h1 id="hub-title" class="h-display">{H.h1}</h1>
+        <p class="lead">{H.lead}</p>
       </div>
       <LivingX class="hub-head__x" />
     </div>
   </section>
 
-  <section class="section hub" aria-label="Les métiers">
+  <section class="section hub" aria-label={H.listLabel}>
     <div class="wrap">
       <ol role="list" class="hub__list">
         {METIERS.map((m) => (
@@ -43,7 +43,7 @@ const schema = [
               <p class="lead">{m.d}</p>
               <ul class="hub__gets">{m.g.map((x) => <li>{x}</li>)}</ul>
               <p class="small hub__k">{m.k}</p>
-              <a class="link-more" href={m.href}>{`${m.court} en détail`}</a>
+              <a class="link-more" href={m.href}>{`${m.court} ${H.more}`}</a>
             </div>
           </li>
         ))}

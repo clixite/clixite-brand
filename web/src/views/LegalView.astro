@@ -1,0 +1,55 @@
+---
+// Mentions légales et confidentialité.
+import Base from "../layouts/Base.astro";
+import FinalCta from "../components/FinalCta.astro";
+import { SITE } from "../data/site";
+import registry from "../data/photos.registry.json";
+import { t, langOf } from "../i18n";
+const lang = langOf(Astro.url.pathname);
+const { common, autres, photos } = t(lang);
+const L = autres.legal;
+---
+<Base title={L.title} description={L.description} page="legal">
+  <article class="section legal">
+    <div class="wrap legal__in">
+      <h1 class="h-display legal__title">{L.h1}</h1>
+      <div class="legal__body stack" style="--stack: 2.5rem">
+        <section aria-labelledby="l-editeur">
+          <h2 id="l-editeur" class="h3">{L.editor.h}</h2>
+          <p class="av">{SITE.legalName}, {L.editor.company} {SITE.address.street}, {SITE.address.postalCode} {SITE.address.city}, {common.country}. {L.editor.vat} {SITE.vat}, {common.footer.rpm}. {L.editor.publisher} {SITE.founder.name}. {L.editor.contact} <a href={`mailto:${SITE.email}`}>{SITE.email}</a>, {SITE.phones.map((p, i) => <>{i > 0 && ` ${L.editor.or} `}<a href={`tel:${p.tel}`}>{p.display}</a> ({common.countries[p.country]})</>)}.</p>
+        </section>
+        <section aria-labelledby="l-hebergement">
+          <h2 id="l-hebergement" class="h3">{L.hosting.h}</h2>
+          <p class="av">{L.hosting.p}</p>
+        </section>
+        <section aria-labelledby="l-pi">
+          <h2 id="l-pi" class="h3">{L.ip.h}</h2>
+          <p>{L.ip.p}</p>
+        </section>
+        <section aria-labelledby="l-photos">
+          <h2 id="l-photos" class="h3">{L.photos.h}</h2>
+          <p>{L.photos.p[0]}<a href={registry.licence.url}>{L.photos.p[1]}</a>{L.photos.p[2]}</p>
+          <ul class="credits">{registry.photos.map((p) => <li><a href={p.page} rel="noopener">{(photos[p.slug] ?? p.alt).replace(/\.$/, "")}</a>, {p.auteur}</li>)}</ul>
+        </section>
+        <section aria-labelledby="l-donnees">
+          <h2 id="l-donnees" class="h3">{L.data.h}</h2>
+          <p>{L.data.cookies}</p>
+          <p class="av">{L.data.logs}</p>
+          <p>{L.data.mail} {SITE.legalName}.</p>
+          <p>{L.data.rights} <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. {L.data.complaint} (<a href={L.data.dpa.href}>{L.data.dpa.t}</a>).</p>
+        </section>
+      </div>
+    </div>
+  </article>
+  <FinalCta x={false} />
+</Base>
+
+<style>
+  .legal__in { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--clx-space-8); align-items: start; }
+  .legal__title { font-size: var(--clx-type-h2-font-size); }
+  .legal__body p { max-width: 62ch; margin-top: var(--clx-space-3); color: var(--clx-text-muted); }
+  .legal__body h2 { color: var(--clx-text); }
+  .credits { margin: var(--clx-space-3) 0 0; padding-left: 1.1rem; display: grid; gap: 0.35rem; color: var(--clx-text-muted); max-width: 62ch; }
+  .credits a { color: var(--clx-text-muted); }
+  @media (max-width: 899px) { .legal__in { grid-template-columns: 1fr; gap: var(--clx-space-6); } }
+</style>

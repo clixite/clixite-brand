@@ -1,0 +1,31 @@
+---
+// Toutes les pages du site, dans les trois langues, à partir de la table des adresses (src/i18n/routes.ts).
+import HomeView from "../views/HomeView.astro";
+import FdeView from "../views/FdeView.astro";
+import MetierView from "../views/MetierView.astro";
+import HubView from "../views/HubView.astro";
+import AchatsView from "../views/AchatsView.astro";
+import AboutView from "../views/AboutView.astro";
+import ContactView from "../views/ContactView.astro";
+import LegalView from "../views/LegalView.astro";
+import { LANGS, ROUTES, type RouteKey } from "../i18n";
+
+export function getStaticPaths() {
+  return LANGS.flatMap((lang) =>
+    (Object.keys(ROUTES) as RouteKey[]).map((key) => {
+      const path = ROUTES[key][lang].replace(/^\/|\/$/g, "");
+      return { params: { path: path || undefined }, props: { key } };
+    }),
+  );
+}
+const { key } = Astro.props as { key: RouteKey };
+const metier = key === "geo" || key === "archi" || key === "pilotage" || key === "digit";
+---
+{key === "home" && <HomeView />}
+{key === "fde" && <FdeView />}
+{metier && <MetierView page={key} />}
+{key === "expertises" && <HubView />}
+{key === "achats" && <AchatsView />}
+{key === "about" && <AboutView />}
+{key === "contact" && <ContactView />}
+{key === "legal" && <LegalView />}

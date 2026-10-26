@@ -1,3 +1,5 @@
+import { t, type Lang } from "../i18n";
+
 // Données de référence du site. Tout ce qui n'est pas confirmé par Nicolas porte `aValider: true`
 // et s'affiche surligné dans la prévisualisation (PUBLIC_REVIEW=1), jamais en production.
 export const SITE = {
@@ -30,25 +32,12 @@ export const SITE = {
 
 export const REVIEW = import.meta.env.PUBLIC_REVIEW === "1";
 
-// page pilier du Forward Deployed Engineering, premier métier mis en avant (à la racine : c'est l'offre principale)
-export const FDE_PATH = "/forward-deployed-engineering/";
-export const FDE_PATH_EN = "/en/forward-deployed-engineering/";
-// GEO (Generative Engine Optimization) : deuxième métier mis en avant
-export const GEO_PATH = "/geo-referencement-ia/";
+// adresses des pages : src/i18n/routes.ts
 
-export const NAV = [
-  { href: FDE_PATH, label: "Forward Deployed Engineering" },
-  { href: GEO_PATH, label: "GEO" },
-  { href: "/expertises/", label: "Expertises" },
-  { href: "/#methode", label: "Méthode" },
-  { href: "/#references", label: "Références" },
-];
-
-export const bookingHref = (lang: "fr" | "en" = "fr") =>
-  SITE.bookingsUrl ||
-  (lang === "en"
-    ? `mailto:${SITE.email}?subject=${encodeURIComponent("First conversation with Clixite")}&body=${encodeURIComponent("Hello,\n\nOur challenge, in two sentences:\n\n\nAvailability:\n")}`
-    : `mailto:${SITE.email}?subject=${encodeURIComponent("Premier échange avec Clixite")}&body=${encodeURIComponent("Bonjour,\n\nNotre enjeu, en deux phrases :\n\n\nDisponibilités :\n")}`);
+export const bookingHref = (lang: Lang = "fr") => {
+  const b = t(lang).common.booking;
+  return SITE.bookingsUrl || `mailto:${SITE.email}?subject=${encodeURIComponent(b.subject)}&body=${encodeURIComponent(b.body)}`;
+};
 
 // thèmes de compétence (JSON-LD knowsAbout) : le FDE en tête ; les règlements européens pointent vers leur texte officiel
 export const KNOWS_ABOUT: (string | Record<string, string>)[] = [

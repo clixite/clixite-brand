@@ -1,9 +1,8 @@
 ---
 // L'adresse en clair et un bouton pour la copier : le lien mailto ne fait rien chez qui n'a qu'une messagerie en ligne.
 import { SITE } from "../data/site";
-interface Props { lang?: "fr" | "en" }
-const { lang = "fr" } = Astro.props;
-const L = lang === "en" ? { copy: "Copy address", ok: "Address copied", sel: "Address selected" } : { copy: "Copier l'adresse", ok: "Adresse copiée", sel: "Adresse sélectionnée" };
+import { t, langOf } from "../i18n";
+const L = t(langOf(Astro.url.pathname)).common.copy;
 ---
 <span class="cm"><a href={`mailto:${SITE.email}`}>{SITE.email}</a> <button type="button" class="cm__btn" data-copy={SITE.email} data-ok={L.ok} data-sel={L.sel}>{L.copy}</button><span class="visually-hidden" aria-live="polite" data-copy-status></span></span>
 

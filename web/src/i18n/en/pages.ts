@@ -1,42 +1,14 @@
+// PROVISOIRE : copie du français, à traduire.
 // Contenu des pages métiers (GEO, architecture, pilotage, digitalisation), rendues par components/MetierPage.astro.
 // Vouvoiement, aucun chiffre, prix, durée ni détail de projet ; rien d'invérifiable. Les FAQ visibles alimentent le balisage FAQPage.
-import { FDE_PATH, GEO_PATH } from "./site";
+import type { PageMetier } from "../fr/pages";
+import { routesFor } from "../routes";
+import { SOURCES } from "../sources";
+const r = routesFor("en");
 
-export interface Bloc {
-  id: string;
-  h: string;
-  kind: "prose" | "list" | "defs" | "steps" | "note";
-  lead?: string;
-  p?: string[];
-  items?: string[];
-  defs?: { t: string; d: string }[];
-  steps?: { t: string; d: string; out: string }[];
-  src?: { t: string; href: string }[];
-  link?: { t: string; href: string };
-  band?: boolean;     // fond Papier 200
-  encre?: boolean;    // bande Encre
-}
-
-export interface PageMetier {
-  slug: string;
-  path: string;
-  title: string;
-  description: string;
-  crumb: string;
-  h1: [string, string];
-  chapo: string;
-  photo: string;
-  serviceType: string[];
-  alternateName?: string[];
-  blocs: Bloc[];
-  faq: { q: string; a: string }[];
-}
-
-export const UPDATED = "2026-10-26";
-
-export const PAGES: PageMetier[] = [
+const pages: PageMetier[] = [
   {
-    slug: "geo", path: GEO_PATH, crumb: "GEO",
+    slug: "geo", key: "geo", path: r.geo, crumb: "GEO",
     title: "GEO : référencement dans ChatGPT et les assistants IA | Clixite",
     description: "Le GEO rend votre entreprise compréhensible et citable par ChatGPT, Claude, Perplexity et Google : audit, structuration et suivi, en Belgique et au Luxembourg.",
     h1: ["GEO : ", "être la réponse que donnent les assistants IA."],
@@ -48,7 +20,7 @@ export const PAGES: PageMetier[] = [
       { id: "geo-seo", h: "GEO et SEO : quelle différence ?", kind: "prose", p: [
         "Le SEO vise une position dans une liste de liens. Le GEO vise une place dans la réponse que rédige l'assistant, avec une citation de votre site.",
         "Les deux se complètent. Les moteurs de réponse s'appuient largement sur des pages déjà bien référencées, mais ils lisent autrement : ils cherchent des définitions nettes, des faits vérifiables et des sources qui se confirment entre elles.",
-      ], src: [{ t: "Aggarwal et al., « GEO: Generative Engine Optimization », 2023", href: "https://arxiv.org/abs/2311.09735" }] },
+      ], src: [{ t: "Aggarwal et al., « GEO: Generative Engine Optimization », 2023", href: SOURCES.geoPaper }] },
       { id: "geo-criteres", h: "Ce qui fait qu'un assistant vous cite", kind: "defs", band: true, lead: "Ce que l'on sait aujourd'hui, et que nous mesurons pour chaque client.", defs: [
         { t: "Une entité sans ambiguïté", d: "Le même nom, la même adresse, les mêmes métiers partout : registre des entreprises, site, LinkedIn, annuaires, Wikidata." },
         { t: "Des pages qui répondent", d: "Une définition en quelques phrases, des questions fréquentes visibles, des comparaisons honnêtes, des pages datées." },
@@ -82,7 +54,7 @@ export const PAGES: PageMetier[] = [
     ],
   },
   {
-    slug: "architecture-entreprise-solutions", path: "/expertises/architecture-entreprise-solutions/", crumb: "Architecture d'entreprise et de solutions",
+    slug: "architecture-entreprise-solutions", key: "archi", path: r.archi, crumb: "Architecture d'entreprise et de solutions",
     title: "Architecture d'entreprise et de solutions | Clixite",
     description: "Cartographie du système d'information, architecture cible, trajectoire en options et choix de solutions, jusqu'à la mise en production. Belgique et Luxembourg.",
     h1: ["Architecture d'entreprise et de solutions : ", "décider où va votre système d'information."],
@@ -105,7 +77,7 @@ export const PAGES: PageMetier[] = [
       ] },
       { id: "archi-suite", h: "De la cible à la mise en production", kind: "prose", p: [
         "Une cible n'a de valeur que si elle se construit. Quand elle est validée, nous pouvons la mettre en œuvre avec vos équipes, en Forward Deployed Engineering, et piloter le programme qui la porte.",
-      ], link: { t: "Le Forward Deployed Engineering", href: FDE_PATH } },
+      ], link: { t: "Le Forward Deployed Engineering", href: r.fde } },
     ],
     faq: [
       { q: "Quelle différence entre architecture d'entreprise et architecture de solutions ?", a: "La première décide de l'ensemble : métiers, données, applications, technologies, et la trajectoire entre aujourd'hui et la cible. La seconde conçoit une solution précise dans ce cadre, jusqu'aux intégrations et à la sécurité." },
@@ -115,7 +87,7 @@ export const PAGES: PageMetier[] = [
     ],
   },
   {
-    slug: "pilotage-de-programmes", path: "/expertises/pilotage-de-programmes/", crumb: "Pilotage de programmes",
+    slug: "pilotage-de-programmes", key: "pilotage", path: r.pilotage, crumb: "Pilotage de programmes",
     title: "Pilotage de programmes et conduite du changement | Clixite",
     description: "Gouvernance, planning, budget, risques et adoption : vos programmes multi-équipes tenus jusqu'à la mise en service, en Belgique et au Luxembourg.",
     h1: ["Pilotage de programmes : ", "des programmes multi-équipes tenus jusqu'à la mise en service."],
@@ -145,7 +117,7 @@ export const PAGES: PageMetier[] = [
     ],
   },
   {
-    slug: "digitalisation", path: "/expertises/digitalisation/", crumb: "Digitalisation",
+    slug: "digitalisation", key: "digit", path: r.digit, crumb: "Digitalisation",
     title: "Digitalisation des processus et automatisation | Clixite",
     description: "Processus simplifiés puis outillés, flux automatisés, données reliées et IA appliquée, de la PME au grand groupe, en Belgique et au Luxembourg.",
     h1: ["Digitalisation des processus : ", "du papier et des doubles saisies à des outils reliés."],
@@ -175,3 +147,4 @@ export const PAGES: PageMetier[] = [
     ],
   },
 ];
+export default pages;

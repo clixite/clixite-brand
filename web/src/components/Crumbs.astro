@@ -1,7 +1,8 @@
 ---
 // Fil d'Ariane visible ; le BreadcrumbList JSON-LD est construit par la page avec la même liste.
+import { t, langOf } from "../i18n";
 interface Props { items: { name: string; href?: string }[]; label?: string }
-const { items, label = "Fil d'Ariane" } = Astro.props;
+const { items, label = t(langOf(Astro.url.pathname)).common.crumbs.label } = Astro.props;
 ---
 <nav class="wrap crumbs small" aria-label={label}>
   <ol role="list">

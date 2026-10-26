@@ -3,6 +3,9 @@
 // Équilibrage optique : surface visuelle constante, corrigée par la densité d'encre mesurée par scripts/build-clients.mjs.
 // Ce ne sont pas des références de projets : aucun projet n'est détaillé.
 import clients from "../data/clients.json";
+import { t, langOf, ANCHORS } from "../i18n";
+const lang = langOf(Astro.url.pathname);
+const R = t(lang).home.refs;
 interface Logo { id: string; name: string; group: string; aspect: number; density: number }
 const BASE = 40;      // hauteur de référence d'un logo carré, en px
 const REF_DENSITY = 0.4;
@@ -14,11 +17,11 @@ const size = (l: Logo) => {
 };
 const logos = clients as Logo[];
 ---
-<section id="references" class="refs" aria-labelledby="refs-title">
+<section id={ANCHORS.refs[lang]} class="refs" aria-labelledby="refs-title">
   <div class="wrap">
     <div class="refs__head">
-      <h2 id="refs-title" class="refs__title">Là où nous avons travaillé.</h2>
-      <p class="refs__note">Télécoms, banque, assurance, construction, courtage, PME : des environnements très différents, en mission, en conseil ou en poste. Les projets, eux, restent confidentiels.</p>
+      <h2 id="refs-title" class="refs__title">{R.title}</h2>
+      <p class="refs__note">{R.note}</p>
     </div>
     <ul role="list" class="refs__list">
       {logos.map((l) => {

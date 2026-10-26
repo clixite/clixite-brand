@@ -1,11 +1,11 @@
 ---
-import { SITE, FDE_PATH, FDE_PATH_EN } from "../data/site";
-import { METIERS } from "../data/expertises";
-interface Props { lang?: "fr" | "en" }
-const { lang = "fr" } = Astro.props;
+import { SITE } from "../data/site";
+import { t, langOf, ROUTES, LANG_NAMES, type Lang } from "../i18n";
+const lang = langOf(Astro.url.pathname);
+const { common: C, metiers } = t(lang);
+const F = C.footer;
 const year = new Date().getFullYear();
-const en = lang === "en";
-const labels: Record<string, string> = en ? { BE: "Belgium", LU: "Luxembourg" } : { BE: "Belgique", LU: "Luxembourg" };
+const others = (["fr", "nl", "en"] as Lang[]).filter((l) => l !== lang);
 ---
 <footer class="ft" data-theme="encre">
   <div class="wrap ft__in">
@@ -14,36 +14,33 @@ const labels: Record<string, string> = en ? { BE: "Belgium", LU: "Luxembourg" } 
     </div>
     <div class="ft__cols">
       <div>
-        <p class="ft__label">Contact</p>
+        <p class="ft__label">{F.contact}</p>
         <ul role="list">
           <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
-          {SITE.phones.map((p) => <li>{labels[p.country]}{en ? ":" : "\u00a0:"} <a href={`tel:${p.tel}`} class="ft__tel">{p.display}</a></li>)}
-          <li>{SITE.address.street}<br />{SITE.address.postalCode} {SITE.address.city}, {en ? "Belgium" : "Belgique"}</li>
+          {SITE.phones.map((p) => <li>{C.countries[p.country]}{C.colon} <a href={`tel:${p.tel}`} class="ft__tel">{p.display}</a></li>)}
+          <li>{SITE.address.street}<br />{SITE.address.postalCode} {SITE.address.city}, {C.country}</li>
         </ul>
       </div>
       <div>
-        <p class="ft__label">{en ? "Expertise" : "Expertises"}</p>
+        <p class="ft__label">{F.expertise}</p>
         <ul role="list">
-          {en
-            ? <li><a href={FDE_PATH_EN}>Forward Deployed Engineering</a></li>
-            : METIERS.map((m) => <li><a href={m.href}>{m.t}</a></li>)}
-          {!en && <li><a href="/expertises/transformation-achats/">Transformation des achats</a></li>}
-          {en && <li><a href="/" hreflang="fr" lang="fr">Site en français</a></li>}
+          {metiers.list.map((m) => <li><a href={m.href}>{m.t}</a></li>)}
+          <li><a href={ROUTES.achats[lang]}>{F.achats}</a></li>
         </ul>
       </div>
       <div>
-        <p class="ft__label">{en ? "Information" : "Informations"}</p>
+        <p class="ft__label">{F.info}</p>
         <ul role="list">
-          {!en && <li><a href="/a-propos/">À propos de Clixite</a></li>}
-          {!en && <li><a href="/contact/">Contact</a></li>}
-          <li><a href="/mentions-legales/" hreflang={en ? "fr" : undefined}>{en ? "Legal notice and privacy (in French)" : "Mentions légales et confidentialité"}</a></li>
-          <li><a href={SITE.charte}>{en ? "Brand guidelines" : "Charte graphique"}</a></li>
-          <li><a href="/llms.txt">{en ? "Summary for AI assistants" : "Résumé pour les assistants IA"}</a></li>
-          {!en && <li><a href={FDE_PATH_EN} hreflang="en" lang="en">English</a></li>}
+          <li><a href={ROUTES.about[lang]}>{F.about}</a></li>
+          <li><a href={ROUTES.contact[lang]}>{F.contactPage}</a></li>
+          <li><a href={ROUTES.legal[lang]}>{F.legal}</a></li>
+          <li><a href={SITE.charte}>{F.charte}</a></li>
+          <li><a href="/llms.txt">{F.llms}</a></li>
+          {others.map((l) => <li><a href={ROUTES.home[l]} hreflang={l} lang={l}>{LANG_NAMES[l].name}</a></li>)}
         </ul>
       </div>
     </div>
-    <p class="ft__legal small"><span class="av">{SITE.legalName}, {en ? "private limited company (SRL). Registered office:" : "société à responsabilité limitée. Siège\u00a0:"} {SITE.address.street}, {SITE.address.postalCode} {SITE.address.city}. {en ? "Company and VAT number" : "BCE et TVA"} {SITE.vat}, RPM Brabant wallon.</span> © 2005 {en ? "to" : "à"} {year}.</p>
+    <p class="ft__legal small"><span class="av">{SITE.legalName}, {F.legalLine} {SITE.address.street}, {SITE.address.postalCode} {SITE.address.city}. {F.vat} {SITE.vat}, {F.rpm}.</span> {F.since} {year}.</p>
   </div>
 </footer>
 

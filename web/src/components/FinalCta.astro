@@ -3,24 +3,12 @@
 import { SITE, bookingHref } from "../data/site";
 import CopyMail from "./CopyMail.astro";
 import LivingX from "./LivingX.astro";
-interface Props { lang?: "fr" | "en"; x?: boolean }
-const { lang = "fr", x = true } = Astro.props;
-const T = {
-  fr: {
-    title: ["Quel est votre ", "x", " ?"],
-    lead: "Un premier échange suffit pour le nommer. Vous repartez avec une première piste, même si nous ne travaillons pas ensemble.",
-    cta: "Demander un échange", mail: "Ou écrivez directement à", tel: "Ou appelez",
-    addr: `${SITE.legalName}, ${SITE.address.street}, ${SITE.address.postalCode} ${SITE.address.city}. Rendez-vous à Wavre, chez vous ou en visio.`,
-    labels: { BE: "Belgique", LU: "Luxembourg" } as Record<string, string>,
-  },
-  en: {
-    title: ["What is your ", "x", "?"],
-    lead: "One conversation is enough to name it. You leave with a first way forward, even if we do not end up working together.",
-    cta: "Request a conversation", mail: "Or write directly to", tel: "Or call",
-    addr: `${SITE.legalName}, ${SITE.address.street}, ${SITE.address.postalCode} ${SITE.address.city}, Belgium. We meet in Wavre, at your premises or by video call.`,
-    labels: { BE: "Belgium", LU: "Luxembourg" } as Record<string, string>,
-  },
-}[lang];
+import { t, langOf } from "../i18n";
+interface Props { x?: boolean }
+const { x = true } = Astro.props;
+const lang = langOf(Astro.url.pathname);
+const C = t(lang).common;
+const T = { ...C.final, cta: C.cta, labels: C.countries, addr: `${SITE.legalName}, ${SITE.address.street}, ${SITE.address.postalCode} ${SITE.address.city}, ${C.country}. ${C.final.meet}` };
 ---
 <section id="contact" class="section final" data-theme="encre" aria-labelledby="final-title">
   <div class="wrap final__in">
@@ -30,7 +18,7 @@ const T = {
       <div class="final__cta">
         <a class="btn btn--primary" href={bookingHref(lang)}>{T.cta}</a>
       </div>
-      <p class="final__mail">{T.mail} <CopyMail lang={lang} /></p>
+      <p class="final__mail">{T.mail} <CopyMail /></p>
       <p class="final__mail">{T.tel}</p>
       <ul role="list" class="final__tel">
         {SITE.phones.map((p) => <li><a href={`tel:${p.tel}`}><span class="final__country">{T.labels[p.country]}</span> <span class="final__num">{p.display}</span></a></li>)}
