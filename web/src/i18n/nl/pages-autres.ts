@@ -74,7 +74,7 @@ const autres: Autres = {
     },
     metiersTitle: "Vijf expertises.",
     envTitle: "Zeer verschillende omgevingen.",
-    env: "Telecom, bankwezen, verzekeringen, bouw, makelaardij, groeiende kmo's: in opdracht, als consultant of in vaste dienst. De projecten zelf blijven vertrouwelijk.",
+    env: "Telecom, bankwezen, verzekeringen, farmaceutische industrie, bouw, luchtvaart, distributie, groeiende kmo's: in opdracht, als consultant of in vaste dienst. De projecten zelf blijven vertrouwelijk.",
     envLink: { t: "Waar we gewerkt hebben", href: `${r.home}#${a.refs}` },
     charte: "De visuele identiteit van Clixite staat op",
   },

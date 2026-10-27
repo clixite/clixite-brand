@@ -74,7 +74,7 @@ const autres: Autres = {
     },
     metiersTitle: "Five services.",
     envTitle: "Very different environments.",
-    env: "Telecoms, banking, insurance, construction, brokerage, growing SMEs: on assignment, as consultants or in-house. The projects themselves stay confidential.",
+    env: "Telecoms, banking, insurance, pharmaceuticals, construction, aviation, distribution, growing SMEs: on assignment, as consultants or in-house. The projects themselves stay confidential.",
     envLink: { t: "Where we have worked", href: `${r.home}#${a.refs}` },
     charte: "Clixite's visual identity is published at",
   },

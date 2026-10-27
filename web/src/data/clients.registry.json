@@ -1,5 +1,5 @@
 {
-  "$note": "Registre des logos du bandeau « Là où nous avons travaillé ». Fichiers officiels ou repris du site Duonexia, jamais redessinés. 'verified' : empreinte SHA-256 identique au fichier de la source. 'autorisation' : décision de publication ; l'accord écrit du client est archivé dès qu'il est obtenu.",
+  "$note": "Registre des logos du bandeau « Là où nous avons travaillé ». Fichiers officiels, repris du site Duonexia ou de reproductions publiques fidèles, jamais redessinés (seule exception : Twin Square, revectorisé à la demande de Nicolas Simon d'après le logo qu'il a fourni). 'verified' : empreinte SHA-256 identique au fichier de la source. 'autorisation' : décision de publication ; l'accord écrit du client est archivé dès qu'il est obtenu. 'echelle' : correction optique facultative, appliquée après l'équilibrage automatique (logos pleins ou très fins).",
   "logos": [
     {
       "id": "proximus",
@@ -7,6 +7,15 @@
       "file": "proximus-group.svg",
       "group": "references",
       "source": "https://www.proximus.com (dam/jcr:e466a577-8e43-4a26-aa53-809b293efa24/proximus-logo-header.svg)",
+      "verified": true,
+      "autorisation": "publication décidée par Nicolas Simon le 26 octobre 2026"
+    },
+    {
+      "id": "orange",
+      "name": "Orange",
+      "file": "orange.svg",
+      "group": "references",
+      "source": "duonexia.com/logos/orange.svg (fichier publié sur le site Duonexia, Clixite SRL), identique octet pour octet le 26 octobre 2026",
       "verified": true,
       "autorisation": "publication décidée par Nicolas Simon le 26 octobre 2026"
     },
@@ -38,6 +47,34 @@
       "autorisation": "publication décidée par Nicolas Simon le 26 octobre 2026"
     },
     {
+      "id": "boehringer-ingelheim",
+      "name": "Boehringer Ingelheim",
+      "file": "boehringer-ingelheim.svg",
+      "group": "references",
+      "source": "Wikimedia Commons, Boehringer_Ingelheim_Logo_RGB_Dark_Green.svg, repris du portail de marque officiel brand.boehringer-ingelheim.com (le site boehringer-ingelheim.com refuse le téléchargement automatisé)",
+      "verified": true,
+      "autorisation": "publication décidée par Nicolas Simon le 27 octobre 2026"
+    },
+    {
+      "id": "astrazeneca",
+      "name": "AstraZeneca",
+      "file": "astrazeneca.svg",
+      "group": "references",
+      "source": "Wikipédia (en), fichier AstraZeneca.svg, reproduction vectorielle du logo officiel (astrazeneca.be ne publie qu'une image PNG et refuse le téléchargement automatisé)",
+      "verified": true,
+      "autorisation": "publication décidée par Nicolas Simon le 27 octobre 2026"
+    },
+    {
+      "id": "ucb",
+      "name": "UCB",
+      "file": "ucb.svg",
+      "group": "references",
+      "source": "https://www.ucb.com (themes/custom/ucb_premier/logo.svg) : symbole extrait du fichier officiel, tracés inchangés, sans le slogan",
+      "verified": false,
+      "autorisation": "publication décidée par Nicolas Simon le 27 octobre 2026",
+      "echelle": 0.78
+    },
+    {
       "id": "eiffage",
       "name": "Eiffage",
       "file": "eiffage.svg",
@@ -47,31 +84,24 @@
       "autorisation": "publication décidée par Nicolas Simon le 26 octobre 2026"
     },
     {
-      "id": "marsh",
-      "name": "Marsh",
-      "file": "marsh.svg",
+      "id": "twin-square",
+      "name": "Twin Square",
+      "file": "twin-square.svg",
       "group": "references",
-      "source": "duonexia.com/logos/marsh.svg (fichier publié sur le site Duonexia, Clixite SRL), identique octet pour octet le 26 octobre 2026",
-      "verified": true,
-      "autorisation": "publication décidée par Nicolas Simon le 26 octobre 2026"
+      "source": "Revectorisé le 27 octobre 2026 d'après le logo fourni par Nicolas Simon : lettres en Montserrat posées sur les mesures du logo d'origine, W et avion redessinés",
+      "verified": false,
+      "autorisation": "publication décidée par Nicolas Simon le 27 octobre 2026",
+      "echelle": 1.15
     },
     {
-      "id": "actito",
-      "name": "Actito",
-      "file": "actito.svg",
+      "id": "the-depot",
+      "name": "The Depot",
+      "file": "the-depot.svg",
       "group": "references",
-      "source": "duonexia.com/logos/actito.svg (fichier publié sur le site Duonexia, Clixite SRL), identique octet pour octet le 26 octobre 2026",
+      "source": "https://www.thedepot.be (static/svg/logo-the-depot.svg, logo d'en-tête)",
       "verified": true,
-      "autorisation": "publication décidée par Nicolas Simon le 26 octobre 2026"
-    },
-    {
-      "id": "orange",
-      "name": "Orange",
-      "file": "orange.svg",
-      "group": "references",
-      "source": "duonexia.com/logos/orange.svg (fichier publié sur le site Duonexia, Clixite SRL), identique octet pour octet le 26 octobre 2026",
-      "verified": true,
-      "autorisation": "publication décidée par Nicolas Simon le 26 octobre 2026"
+      "autorisation": "publication décidée par Nicolas Simon le 27 octobre 2026",
+      "echelle": 0.9
     },
     {
       "id": "tero",

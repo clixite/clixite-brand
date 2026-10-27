@@ -20,7 +20,7 @@ const home: Home = {
   },
   refs: {
     title: "Where we have worked.",
-    note: "Telecoms, banking, insurance, construction, brokerage, SMEs: very different environments, on assignment, as consultants or in-house. The projects themselves stay confidential.",
+    note: "Telecoms, banking, insurance, pharmaceuticals, construction, aviation, distribution, SMEs: very different environments, on assignment, as consultants or in-house. The projects themselves stay confidential.",
   },
   fde: {
     title: "Forward Deployed Engineering.",

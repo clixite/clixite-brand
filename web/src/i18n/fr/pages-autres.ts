@@ -73,7 +73,7 @@ const autres = {
     },
     metiersTitle: "Cinq métiers.",
     envTitle: "Des environnements très différents.",
-    env: "Télécoms, banque, assurance, construction, courtage, PME en croissance : en mission, en conseil ou en poste. Les projets, eux, restent confidentiels.",
+    env: "Télécoms, banque, assurance, industrie pharmaceutique, construction, aviation, distribution, PME en croissance : en mission, en conseil ou en poste. Les projets, eux, restent confidentiels.",
     envLink: { t: "Là où nous avons travaillé", href: `${r.home}#${a.refs}` },
     charte: "L'identité visuelle de Clixite est publiée sur",
   },

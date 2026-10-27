@@ -6,13 +6,13 @@ import clients from "../data/clients.json";
 import { t, langOf, ANCHORS } from "../i18n";
 const lang = langOf(Astro.url.pathname);
 const R = t(lang).home.refs;
-interface Logo { id: string; name: string; group: string; aspect: number; density: number }
+interface Logo { id: string; name: string; group: string; aspect: number; density: number; echelle?: number }
 const BASE = 40;      // hauteur de référence d'un logo carré, en px
 const REF_DENSITY = 0.4;
 const size = (l: Logo) => {
   let h = BASE / Math.sqrt(l.aspect) * 1.6;
   h *= Math.pow(REF_DENSITY / l.density, 0.3);
-  h = Math.max(24, Math.min(60, h));
+  h = Math.max(24, Math.min(60, h)) * (l.echelle ?? 1);
   return { h: Math.round(h), w: Math.round(h * l.aspect) };
 };
 const logos = clients as Logo[];
@@ -41,8 +41,10 @@ const logos = clients as Logo[];
   .refs__head { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: var(--clx-space-7); align-items: baseline; }
   .refs__title { font-size: var(--clx-type-h3-font-size); line-height: 1.2; font-weight: 500; letter-spacing: -0.01em; }
   .refs__note { color: var(--clx-text-muted); max-width: 60ch; }
-  .refs__list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: center; justify-items: center; gap: var(--clx-space-7) var(--clx-space-6); margin-top: var(--clx-space-8); }
-  .refs__list li { display: grid; place-items: center; min-height: 64px; width: 100%; }
+  /* rangées centrées : le nombre de logos par rangée suit la largeur (7, 5, 3 puis 2), la dernière rangée reste au centre */
+  .refs__list { --n: 7; --g: var(--clx-space-6); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: var(--clx-space-7) var(--g); margin-top: var(--clx-space-8); }
+  .refs__list li { display: grid; grid-template-columns: minmax(0, 1fr); place-items: center; min-height: 64px; flex: 0 0 calc((100% - (var(--n) - 1) * var(--g)) / var(--n)); min-width: 0; }
+  @media (max-width: 1099px) { .refs__list { --n: 5; } }
   .refs__logo {
     display: block; max-width: 100%; background-color: var(--clx-text-muted);
     -webkit-mask: var(--src) center / contain no-repeat; mask: var(--src) center / contain no-repeat;
@@ -50,7 +52,8 @@ const logos = clients as Logo[];
   @media (forced-colors: active) { .refs__logo { background-color: CanvasText; forced-color-adjust: none; } }
   @media (max-width: 899px) {
     .refs__head { grid-template-columns: 1fr; gap: var(--clx-space-3); }
-    .refs__list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--clx-space-6) var(--clx-space-5); margin-top: var(--clx-space-7); }
+    .refs__list { --g: var(--clx-space-5); row-gap: var(--clx-space-6); margin-top: var(--clx-space-7); }
   }
-  @media (max-width: 479px) { .refs__list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 699px) { .refs__list { --n: 3; } }
+  @media (max-width: 479px) { .refs__list { --n: 2; } }
 </style>

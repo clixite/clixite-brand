@@ -19,7 +19,7 @@ const home = {
   },
   refs: {
     title: "Là où nous avons travaillé.",
-    note: "Télécoms, banque, assurance, construction, courtage, PME : des environnements très différents, en mission, en conseil ou en poste. Les projets, eux, restent confidentiels.",
+    note: "Télécoms, banque, assurance, industrie pharmaceutique, construction, aviation, distribution, PME : des environnements très différents, en mission, en conseil ou en poste. Les projets, eux, restent confidentiels.",
   },
   fde: {
     title: "Forward Deployed Engineering.",
