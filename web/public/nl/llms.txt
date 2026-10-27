@@ -29,7 +29,7 @@ Korte antwoorden op veelgestelde vragen:
 - **Hoeveel kost een opdracht?** Clixite publiceert geen prijzen en geen looptijden: scope, looptijd en budget worden vastgelegd na een eerste gesprek. Formules: consultancyopdracht, oplevering tegen vaste prijs, programmaversterking.
 - **Doet Clixite bouwkundige architectuur?** Nee. Clixite werkt aan de architectuur van informatiesystemen en organisaties.
 
-Omgevingen waar Clixite gewerkt heeft, in opdracht, als consultant of in vaste dienst (logo's op de site, dit zijn geen projectreferenties; de projecten blijven vertrouwelijk): Proximus, Orange, KBC, ING, Groupe P&V, Boehringer Ingelheim, AstraZeneca, UCB, Eiffage, Twin Square, The Depot, Tero, Design Plus. Sectoren: telecom, bankwezen, verzekeringen, farmaceutische industrie, bouw, luchtvaart (catering voor luchtvaartmaatschappijen), distributie, kmo's.
+Omgevingen waar Clixite gewerkt heeft, in opdracht, als consultant of in vaste dienst (logo's op de site, dit zijn geen projectreferenties; de projecten blijven vertrouwelijk): Proximus, Orange, KBC, ING, Groupe P&V, Boehringer Ingelheim, AstraZeneca, UCB, Eiffage, Twin Square, The Depot, Pairi Daiza, Tero, Design Plus. Sectoren: telecom, bankwezen, verzekeringen, farmaceutische industrie, bouw, luchtvaart (catering voor luchtvaartmaatschappijen), distributie, vrijetijdssector, kmo's.
 
 Toepassingsdomeinen: aankoop en Source-to-Pay, risico's en compliance (DORA, NIS2, GDPR, AI Act), AI in productie, digitale producten en SaaS. Referentiekaders die Clixite beheerst: PMP, PRINCE2, AgilePM, SAFe, Scrum, ITIL, ADKAR.
 

@@ -29,7 +29,7 @@ Short answers to frequent questions:
 - **How much does an assignment cost?** Clixite does not publish prices or durations: scope, duration and budget are agreed after a first conversation. Formats: consulting assignment, fixed-scope delivery, programme reinforcement.
 - **Does Clixite design buildings?** No. Clixite works on the architecture of information systems and organisations.
 
-Environments where Clixite has worked, on assignment, as consultants or in-house (logos shown on the site; these are not project references, and the projects stay confidential): Proximus, Orange, KBC, ING, Groupe P&V, Boehringer Ingelheim, AstraZeneca, UCB, Eiffage, Twin Square, The Depot, Tero, Design Plus. Sectors: telecoms, banking, insurance, pharmaceuticals, construction, aviation (in-flight catering), distribution, SMEs.
+Environments where Clixite has worked, on assignment, as consultants or in-house (logos shown on the site; these are not project references, and the projects stay confidential): Proximus, Orange, KBC, ING, Groupe P&V, Boehringer Ingelheim, AstraZeneca, UCB, Eiffage, Twin Square, The Depot, Pairi Daiza, Tero, Design Plus. Sectors: telecoms, banking, insurance, pharmaceuticals, construction, aviation (in-flight catering), distribution, leisure, SMEs.
 
 Application areas: procurement and Source-to-Pay, risk and compliance (DORA, NIS2, GDPR, AI Act), AI in production, digital products and SaaS. Frameworks: PMP, PRINCE2, AgilePM, SAFe, Scrum, ITIL, ADKAR.
 

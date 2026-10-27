@@ -29,7 +29,7 @@ Réponses courtes aux questions fréquentes :
 - **Combien coûte une mission ?** Clixite ne publie ni prix ni durées : le périmètre, la durée et le budget se fixent après un premier échange. Formats : mission de conseil, forfait à livrable, renfort de programme.
 - **Clixite fait-elle de l'architecture du bâtiment ?** Non. Clixite fait de l'architecture des systèmes d'information et des organisations.
 
-Environnements où Clixite a travaillé, en mission, en conseil ou en poste (logos affichés sur le site, ce ne sont pas des références de projets ; les projets restent confidentiels) : Proximus, Orange, KBC, ING, Groupe P&V, Boehringer Ingelheim, AstraZeneca, UCB, Eiffage, Twin Square, The Depot, Tero, Design Plus. Secteurs : télécoms, banque, assurance, industrie pharmaceutique, construction, aviation (catering aérien), distribution, PME.
+Environnements où Clixite a travaillé, en mission, en conseil ou en poste (logos affichés sur le site, ce ne sont pas des références de projets ; les projets restent confidentiels) : Proximus, Orange, KBC, ING, Groupe P&V, Boehringer Ingelheim, AstraZeneca, UCB, Eiffage, Twin Square, The Depot, Pairi Daiza, Tero, Design Plus. Secteurs : télécoms, banque, assurance, industrie pharmaceutique, construction, aviation (catering aérien), distribution, loisirs, PME.
 
 Domaines d'application : achats et Source-to-Pay, risques et conformité (DORA, NIS2, RGPD, AI Act), IA en production, produits numériques et SaaS. Référentiels maîtrisés : PMP, PRINCE2, AgilePM, SAFe, Scrum, ITIL, ADKAR.
 

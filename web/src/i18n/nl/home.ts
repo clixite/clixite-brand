@@ -20,7 +20,7 @@ const home: Home = {
   },
   refs: {
     title: "Waar we gewerkt hebben.",
-    note: "Telecom, bankwezen, verzekeringen, farmaceutische industrie, bouw, luchtvaart, distributie, kmo's: zeer verschillende omgevingen, in opdracht, als consultant of in vaste dienst. De projecten zelf blijven vertrouwelijk.",
+    note: "Telecom, bankwezen, verzekeringen, farmaceutische industrie, bouw, luchtvaart, distributie, vrijetijdssector, kmo's: zeer verschillende omgevingen, in opdracht, als consultant of in vaste dienst. De projecten zelf blijven vertrouwelijk.",
   },
   fde: {
     title: "Forward Deployed Engineering.",

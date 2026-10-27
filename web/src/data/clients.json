@@ -146,6 +146,19 @@
     "bytes": 1605
   },
   {
+    "id": "pairi-daiza",
+    "name": "Pairi Daiza",
+    "file": "pairi-daiza.svg",
+    "group": "references",
+    "source": "https://www.pairidaiza.eu (assets/images/logo.avif, logo d'en-tête) : image officielle intégrée telle quelle dans un SVG, le site ne publiant aucun fichier vectoriel",
+    "verified": false,
+    "autorisation": "publication décidée par Nicolas Simon le 27 octobre 2026",
+    "aspect": 2.799,
+    "density": 0.066,
+    "sha256Source": "37fef4652f7782ef36d3b321b0d0405cd41c4d8d0365de53a67ecd88986062e6",
+    "bytes": 6635
+  },
+  {
     "id": "tero",
     "name": "Tero",
     "file": "tero.svg",

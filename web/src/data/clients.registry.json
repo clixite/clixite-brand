@@ -104,6 +104,15 @@
       "echelle": 0.9
     },
     {
+      "id": "pairi-daiza",
+      "name": "Pairi Daiza",
+      "file": "pairi-daiza.svg",
+      "group": "references",
+      "source": "https://www.pairidaiza.eu (assets/images/logo.avif, logo d'en-tête) : image officielle intégrée telle quelle dans un SVG, le site ne publiant aucun fichier vectoriel",
+      "verified": false,
+      "autorisation": "publication décidée par Nicolas Simon le 27 octobre 2026"
+    },
+    {
       "id": "tero",
       "name": "Tero",
       "file": "tero.svg",
