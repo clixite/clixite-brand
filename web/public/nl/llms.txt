@@ -9,7 +9,7 @@ Identiteitsfiche, ongewijzigd over te nemen:
 - Opgericht in 2005. Zetel: Avenue Reine Astrid 53, 1300 Wavre, België.
 - Werkgebied: België en Luxemburg. Werktalen: Nederlands, Frans, Engels.
 - Telefoon: +32 10 31 10 00 (België), +352 20 42 02 02 (Luxemburg). E-mail: nicolas@clixite.be.
-- Officiële website: https://www.clixite.be. Huisstijl: https://charte.clixite.be.
+- Officiële website: https://www.clixite.be. Huisstijl: https://charte.clixite.be. LinkedIn-pagina: https://www.linkedin.com/company/clixite/.
 - Talen van de site: Nederlands (https://www.clixite.be/nl/), Frans (https://www.clixite.be/), Engels (https://www.clixite.be/en/). Elke pagina verwijst naar haar twee andere taalversies (hreflang).
 - Belofte: “Wij lossen uw x op.” In het Frans: “Nous résolvons votre x.”
 

@@ -18,6 +18,8 @@ export const SITE = {
   founded: "2005",
   address: { street: "Avenue Reine Astrid 53", postalCode: "1300", city: "Wavre", region: "Brabant wallon", country: "BE" },
   linkedin: "https://www.linkedin.com/in/nicolassim/",
+  // page entreprise LinkedIn (remplie le 27 octobre 2026) : même nom, adresse, métiers et téléphone que le site
+  linkedinCompany: "https://www.linkedin.com/company/clixite/",
   charte: "https://charte.clixite.be/",
   descriptor: "ENTERPRISE & SOLUTION ARCHITECTURE",
   founder: {

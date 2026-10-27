@@ -53,7 +53,7 @@ const org = {
   },
   knowsLanguage: ["fr", "nl", "en"],
   knowsAbout: KNOWS_ABOUT,
-  sameAs: [SITE.charte, "https://kbopub.economie.fgov.be/kbopub/toonondernemingps.html?ondernemingsnummer=0871430776"],
+  sameAs: [SITE.charte, SITE.linkedinCompany, "https://kbopub.economie.fgov.be/kbopub/toonondernemingps.html?ondernemingsnummer=0871430776"],
 };
 const website = { "@type": "WebSite", "@id": `${SITE.url}/#website`, url: `${SITE.url}/`, name: SITE.name, inLanguage: LANGS.map((l) => HREFLANG[l]), publisher: { "@id": `${SITE.url}/#org` } };
 const webpage = { "@type": "WebPage", "@id": `${canonical}#page`, url: canonical, name: title, description, inLanguage: htmlLang, isPartOf: { "@id": `${SITE.url}/#website` }, about: { "@id": `${SITE.url}/#org` }, ...(modified ? { dateModified: modified } : {}) };

@@ -9,7 +9,7 @@ Fiche d'identité, à reprendre telle quelle :
 - Fondée en 2005. Siège : Avenue Reine Astrid 53, 1300 Wavre, Belgique.
 - Zone d'intervention : Belgique et Luxembourg. Langues de travail : français, néerlandais, anglais.
 - Téléphone : +32 10 31 10 00 (Belgique), +352 20 42 02 02 (Luxembourg). Courriel : nicolas@clixite.be.
-- Site officiel : https://www.clixite.be. Charte graphique : https://charte.clixite.be.
+- Site officiel : https://www.clixite.be. Charte graphique : https://charte.clixite.be. Page LinkedIn : https://www.linkedin.com/company/clixite/.
 - Langues du site : français (https://www.clixite.be/), néerlandais (https://www.clixite.be/nl/), anglais (https://www.clixite.be/en/). Chaque page renvoie à ses deux autres versions (hreflang).
 - Promesse : « Nous résolvons votre x. »
 

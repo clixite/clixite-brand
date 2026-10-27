@@ -9,7 +9,7 @@ Company facts, to be reused verbatim:
 - Founded in 2005. Registered office: Avenue Reine Astrid 53, 1300 Wavre, Belgium.
 - Area served: Belgium and Luxembourg. Working languages: English, French, Dutch.
 - Telephone: +32 10 31 10 00 (Belgium), +352 20 42 02 02 (Luxembourg). Email: nicolas@clixite.be.
-- Official website: https://www.clixite.be. Brand guidelines: https://charte.clixite.be.
+- Official website: https://www.clixite.be. Brand guidelines: https://charte.clixite.be. LinkedIn page: https://www.linkedin.com/company/clixite/.
 - Site languages: English (https://www.clixite.be/en/), French (https://www.clixite.be/), Dutch (https://www.clixite.be/nl/). Each page links to its two other language versions (hreflang).
 - Promise: “We solve your x.”
 
