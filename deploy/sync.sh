@@ -2,7 +2,10 @@
 # Synchronise les branches `site` et `www` du dépôt public clixite/clixite-brand vers /www/<branche>,
 # et dépose la configuration nginx et Traefik. Tourne dans le conteneur clixite-sync (alpine).
 set -e
-REPO="clixite/clixite-brand"; RAW="https://raw.githubusercontent.com/$REPO/main/deploy"
+REPO="clixite/clixite-brand"
+# les fichiers de configuration sont lus via l'API GitHub (contenu brut) :
+# raw.githubusercontent.com peut servir une version en cache plusieurs minutes après un push.
+API="https://api.github.com/repos/$REPO/contents/deploy"
 mkdir -p /www /state
 for b in site www; do
   head=$(curl -fsSL -H "Accept: application/vnd.github.sha" "https://api.github.com/repos/$REPO/commits/$b" 2>/dev/null || true)
@@ -20,6 +23,6 @@ for b in site www; do
 done
 [ -d /stack/nginx.conf ] && rm -rf /stack/nginx.conf   # reliquat du premier déploiement (Docker avait créé un dossier)
 mkdir -p /stack/conf.d
-curl -fsSL -o /stack/conf.d/clixite.conf.new "$RAW/nginx.conf" && mv /stack/conf.d/clixite.conf.new /stack/conf.d/clixite.conf
-curl -fsSL -o /traefik-config/clixite-sites.yml.new "$RAW/traefik-clixite.yml" && mv /traefik-config/clixite-sites.yml.new /traefik-config/clixite-sites.yml
+curl -fsSL -H "Accept: application/vnd.github.raw" -o /stack/conf.d/clixite.conf.new "$API/nginx.conf?ref=main&v=$(date +%s)" && mv /stack/conf.d/clixite.conf.new /stack/conf.d/clixite.conf
+curl -fsSL -H "Accept: application/vnd.github.raw" -o /traefik-config/clixite-sites.yml.new "$API/traefik-clixite.yml?ref=main&v=$(date +%s)" && mv /traefik-config/clixite-sites.yml.new /traefik-config/clixite-sites.yml
 echo "sync ok $(date -u +%FT%TZ)"
