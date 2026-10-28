@@ -5,11 +5,11 @@ const a = anchorsFor("fr");
 
 const autres = {
   hub: {
-    title: "Nos cinq métiers de conseil et d'ingénierie | Clixite",
+    title: "Nos cinq expertises de conseil et d'ingénierie | Clixite",
     description: "Forward Deployed Engineering, GEO, architecture d'entreprise et de solutions, pilotage de programmes, digitalisation : comment Clixite intervient chez vous.",
-    h1: "Cinq métiers, une même exigence : un résultat qui tourne.",
+    h1: "Cinq expertises, une même exigence : un résultat qui tourne.",
     lead: "Nous intervenons là où une stratégie doit devenir un système qui fonctionne, dans une PME comme dans un groupe régulé, en Belgique et au Luxembourg.",
-    listLabel: "Les métiers",
+    listLabel: "Les expertises",
     more: "en détail",
     catalog: "Métiers de Clixite",
   },
@@ -53,7 +53,7 @@ const autres = {
     description: "Clixite SRL, fondée en 2005 à Wavre : Forward Deployed Engineering, GEO, architecture, pilotage de programmes et digitalisation, en Belgique et au Luxembourg.",
     crumb: "À propos",
     h1: "Conseil et ingénierie, depuis 2005.",
-    lead: "Clixite est une société belge de conseil et d'ingénierie installée à Wavre. Elle exerce cinq métiers, de la cible à la mise en production, pour des PME en croissance comme pour des groupes régulés.",
+    lead: "Clixite est une société belge de conseil et d'ingénierie installée à Wavre. Elle exerce cinq expertises, de la cible à la mise en production, et une offre dédiée à la transformation des achats, pour des PME en croissance comme pour des groupes régulés.",
     rule: ["Sa règle tient en une phrase : « Nous résolvons votre ", "x", ". » Le problème qui bloque, celui que personne n'a encore nommé."],
     factsTitle: "L'entreprise en bref.",
     facts: {
@@ -69,17 +69,25 @@ const autres = {
       langsValue: "Français, néerlandais, anglais",
       phones: "Téléphones",
       email: "Courriel",
-      frameworks: "Référentiels maîtrisés",
+      frameworks: "Certifications de Nicolas Simon",
     },
-    metiersTitle: "Cinq métiers.",
+    metiersTitle: "Cinq expertises.",
     envTitle: "Des environnements très différents.",
     env: "Télécoms, banque, assurance, industrie pharmaceutique, construction, aviation, distribution, loisirs, PME en croissance : en mission, en conseil ou en poste. Les projets, eux, restent confidentiels.",
     envLink: { t: "Là où nous avons travaillé", href: `${r.home}#${a.refs}` },
     charte: "L'identité visuelle de Clixite est publiée sur",
+    // Bloc « Qui vous répond » (AboutView) : personne réelle, sans photo, lien LinkedIn vérifiable.
+    who: {
+      title: "Qui vous répond.",
+      lead: "Nicolas Simon est le fondateur de Clixite. C'est lui qui lit les messages envoyés depuis ce site et qui y répond, en français, en néerlandais ou en anglais.",
+      link: "Profil LinkedIn de Nicolas Simon",
+      certs: "Certifications",
+      langs: "Langues de travail",
+    },
   },
   contact: {
     title: "Contact : Wavre, Belgique et Luxembourg | Clixite",
-    description: "Appelez le +32 10 31 10 00 ou le +352 20 42 02 02, ou écrivez à nicolas@clixite.be. Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre.",
+    description: "Un premier échange de 45 minutes, sans engagement. Écrivez à nicolas@clixite.be ou appelez le +32 10 31 10 00. Wavre, Belgique et Luxembourg.",
     h1: ["Quel est votre ", "x", " ?"],
     lead: "Un premier échange suffit pour le nommer. Vous repartez avec une première piste, même si nous ne travaillons pas ensemble.",
     email: "Courriel",
@@ -87,6 +95,16 @@ const autres = {
     meet: "Rendez-vous",
     meetValue: "À Wavre, chez vous ou en visio, en français, en néerlandais ou en anglais.",
     cta: "Demander un échange par courriel",
+    detailsTitle: "Nos coordonnées.",
+    // trois étapes factuelles : aucun délai de réponse chiffré n'est promis
+    nextTitle: "Ce qui se passe ensuite.",
+    nextLead: "Trois étapes, sans engagement.",
+    steps: [
+      { t: "Vous écrivez.", d: "Deux phrases sur votre enjeu, ou un appel. Une adresse et un numéro suffisent, il n'y a pas de formulaire." },
+      { t: "Nous répondons personnellement.", d: "Nicolas Simon lit votre message et vous répond lui-même." },
+      { t: "Premier échange de 45 minutes.", d: "Sans engagement, à Wavre, chez vous ou en visio, en français, en néerlandais ou en anglais." },
+    ],
+    nextNote: "Un accord de confidentialité peut être signé avant l'échange si vous le souhaitez.",
   },
   legal: {
     title: "Mentions légales et confidentialité | Clixite",

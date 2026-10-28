@@ -1,5 +1,5 @@
 // Text shared by every page (header, footer, contact, ways of working, labels), in British English.
-// Clixite voice: address the reader as "you", short sentences, no long dashes, no figures, prices or durations.
+// Clixite voice: address the reader as "you", short sentences, no long dashes, no prices or durations; the only figures are verifiable (founding, certifications, logos).
 import type { Common } from "../fr/common";
 import { routesFor, anchorsFor } from "../routes";
 const r = routesFor("en");
@@ -33,7 +33,7 @@ const common: Common = {
   },
   footer: {
     contact: "Contact",
-    expertise: "Expertise",
+    expertise: "Expertise and offers",
     info: "Information",
     achats: "Procurement transformation",
     about: "About Clixite",
@@ -48,7 +48,7 @@ const common: Common = {
   },
   crumbs: { label: "Breadcrumb", home: "Home", expertises: "Expertise" },
   faqTitle: "Frequently asked questions.",
-  others: "Our other services",
+  others: "Our other expertise areas",
   deliverable: "Deliverable",
   updated: "Updated 26 October 2026",
   cta: "Request a conversation",
@@ -85,7 +85,7 @@ const common: Common = {
   film: { pause: "Pause", play: "Play", hint: " the background video" },
   // company description in the structured data (JSON-LD), in the language of the page
   orgDescription: "Consulting and engineering company founded in 2005 in Wavre (Belgium), working in Belgium and Luxembourg: Forward Deployed Engineering, GEO (visibility in AI assistants), enterprise and solution architecture, programme management and digitalisation, from target to production, for SMEs and large enterprises.",
-  catalog: "Clixite services",
+  catalog: "Clixite expertise areas",
   slogan: "We solve your x.",
   markdown: "Markdown version",
   notFound: {

@@ -11,8 +11,21 @@ import Method from "../components/Method.astro";
 import Formats from "../components/Formats.astro";
 import Quotes from "../components/Quotes.astro";
 import FinalCta from "../components/FinalCta.astro";
+import { SITE } from "../data/site";
 import { t, langOf } from "../i18n";
 const { home } = t(langOf(Astro.url.pathname));
+// Bloc « Preuves » : uniquement des faits vérifiables (fondation et ancienneté calculée dans data/site.ts,
+// certifications du fondateur, 14 logos de data/clients.json, langues, zone, engagements déjà publiés).
+// TODO(contenu) : ajouter des cas clients anonymisés et des citations avec accord écrit, puis des chiffres de résultat vérifiables.
+const P = home.proofs.facts;
+const facts = [
+  [P.founded, P.foundedValue.replace("{years}", String(SITE.yearsActive))],
+  [P.certifications, P.certificationsValue],
+  [P.logos, P.logosValue],
+  [P.languages, P.languagesValue],
+  [P.area, P.areaValue],
+  [P.commitments, P.commitmentsValue],
+];
 ---
 <Base title={home.title} description={home.description} page="home">
   <Hero />
@@ -22,7 +35,33 @@ const { home } = t(langOf(Astro.url.pathname));
   <Expertises />
   <Domaines />
   <Method />
+  <section id="preuves" class="section band-alt" aria-labelledby="preuves-title">
+    <div class="wrap pf">
+      <div class="pf__head">
+        <h2 id="preuves-title" class="h2">{home.proofs.title}</h2>
+        <p class="lead">{home.proofs.lead}</p>
+      </div>
+      <dl class="pf__list">
+        {facts.map(([dt, dd]) => <div><dt>{dt}</dt><dd>{dd}</dd></div>)}
+      </dl>
+    </div>
+  </section>
   <Formats />
   <Quotes />
   <FinalCta />
 </Base>
+
+<style>
+  .pf { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--clx-space-8); align-items: start; }
+  .pf__head { display: grid; gap: var(--clx-space-5); }
+  .pf__head .lead { max-width: 46ch; }
+  .pf__list { margin: 0; display: grid; }
+  .pf__list div { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); gap: var(--clx-space-4); padding-block: var(--clx-space-4); border-top: 1px solid var(--clx-border); }
+  .pf__list div:last-child { border-bottom: 1px solid var(--clx-border); }
+  .pf__list dt { color: var(--clx-text-muted); }
+  .pf__list dd { margin: 0; }
+  @media (max-width: 899px) {
+    .pf { grid-template-columns: 1fr; gap: var(--clx-space-6); }
+    .pf__list div { grid-template-columns: 1fr; gap: var(--clx-space-1); }
+  }
+</style>

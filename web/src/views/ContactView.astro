@@ -1,5 +1,6 @@
 ---
 // Contact : téléphones, courriel, adresse ; aucun formulaire (le courriel prérempli suffit et ne stocke rien).
+// Puis « Ce qui se passe ensuite » : trois étapes factuelles, sans promesse de délai de réponse chiffré.
 import Base from "../layouts/Base.astro";
 import Crumbs from "../components/Crumbs.astro";
 import CopyMail from "../components/CopyMail.astro";
@@ -21,6 +22,7 @@ const schema = [breadcrumb(crumbs), { "@type": "ContactPage", "@id": `${SITE.url
       <div class="ct__main">
         <h1 id="ct-title" class="ct__title">{K.h1[0]}<span class="x">{K.h1[1]}</span>{K.h1[2]}</h1>
         <p class="lead ct__lead">{K.lead}</p>
+        <h2 class="ct__h2">{K.detailsTitle}</h2>
         <dl class="ct__list">
           {SITE.phones.map((p) => (
             <div><dt>{common.countries[p.country]}</dt><dd><a class="ct__num" href={`tel:${p.tel}`}>{p.display}</a></dd></div>
@@ -35,6 +37,25 @@ const schema = [breadcrumb(crumbs), { "@type": "ContactPage", "@id": `${SITE.url
       <LivingX theme="encre" class="ct__x" />
     </div>
   </section>
+
+  <section class="section ct-next" aria-labelledby="ct-next-title">
+    <div class="wrap">
+      <div class="ct-next__head">
+        <h2 id="ct-next-title" class="h2">{K.nextTitle}</h2>
+        <p class="lead">{K.nextLead}</p>
+      </div>
+      <ol role="list" class="ct-next__steps">
+        {K.steps.map((s, i) => (
+          <li class="ct-next__step">
+            <span class="ct-next__n" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+            <h3 class="h3">{s.t}</h3>
+            <p class="muted">{s.d}</p>
+          </li>
+        ))}
+      </ol>
+      <p class="small muted ct-next__note">{K.nextNote}</p>
+    </div>
+  </section>
 </Base>
 
 <style>
@@ -43,6 +64,7 @@ const schema = [breadcrumb(crumbs), { "@type": "ContactPage", "@id": `${SITE.url
   .ct__main { display: grid; gap: var(--clx-space-6); justify-items: start; }
   .ct__title { font-size: var(--clx-type-display-font-size); line-height: var(--clx-type-display-line-height); letter-spacing: var(--clx-type-display-letter-spacing); font-weight: 700; }
   .ct__title .x { color: var(--clx-accent); }
+  .ct__h2 { font-size: var(--clx-type-h3-font-size); line-height: 1.2; margin-top: var(--clx-space-2); }
   .ct__list { display: grid; margin: 0; width: 100%; max-width: 40rem; }
   .ct__list div { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: var(--clx-space-4); padding-block: var(--clx-space-4); border-top: 1px solid var(--clx-border-strong); }
   .ct__list div:last-child { border-bottom: 1px solid var(--clx-border-strong); }
@@ -51,9 +73,18 @@ const schema = [breadcrumb(crumbs), { "@type": "ContactPage", "@id": `${SITE.url
   .ct__num { color: var(--clx-text); font-family: var(--clx-font-family-display); font-size: 1.5rem; font-weight: 500; font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration-color: var(--clx-accent); text-decoration-thickness: 2px; text-underline-offset: 6px; }
   .ct__num:hover { color: var(--clx-link); }
   .ct :global(.ct__x) { width: min(100%, 420px); justify-self: end; }
+  .ct-next__head { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--clx-space-7); align-items: end; }
+  .ct-next__head .lead { max-width: 52ch; }
+  .ct-next__steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--clx-space-6); margin-top: var(--clx-space-8); }
+  .ct-next__step { display: flex; flex-direction: column; gap: var(--clx-space-3); padding-top: var(--clx-space-5); border-top: 2px solid var(--clx-text); }
+  .ct-next__step:first-child { border-top-color: var(--clx-accent); }
+  .ct-next__n { font-family: var(--clx-font-family-data); font-size: var(--clx-type-small-font-size); color: var(--clx-text-muted); font-variant-numeric: tabular-nums; }
+  .ct-next__note { margin-top: var(--clx-space-7); max-width: 60ch; }
   @media (max-width: 899px) {
     .ct__in { grid-template-columns: 1fr; }
     .ct :global(.ct__x) { display: none; }
     .ct__list div { grid-template-columns: 1fr; gap: var(--clx-space-1); }
+    .ct-next__head { grid-template-columns: 1fr; gap: var(--clx-space-4); }
+    .ct-next__steps { grid-template-columns: 1fr; gap: var(--clx-space-5); margin-top: var(--clx-space-7); }
   }
 </style>

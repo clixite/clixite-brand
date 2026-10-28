@@ -1,5 +1,5 @@
 // Contenu des pages métiers (GEO, architecture, pilotage, digitalisation), rendues par components/MetierPage.astro.
-// Vouvoiement, aucun chiffre, prix, durée ni détail de projet ; rien d'invérifiable. Les FAQ visibles alimentent le balisage FAQPage.
+// Vouvoiement ; aucun prix, aucun délai, aucun détail de projet ; seuls des faits vérifiables (dates, certifications, sources). Les FAQ visibles alimentent le balisage FAQPage.
 import { routesFor, type RouteKey } from "../routes";
 import { SOURCES } from "../sources";
 const r = routesFor("fr");

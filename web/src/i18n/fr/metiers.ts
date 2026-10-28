@@ -1,5 +1,6 @@
-// Les cinq métiers de Clixite, le Forward Deployed Engineering et le GEO en tête (les plus demandés),
-// puis les domaines d'application. Source unique pour l'accueil, le hub, les pages métiers, le JSON-LD et llms.txt.
+// Les cinq expertises de Clixite, le Forward Deployed Engineering et le GEO en tête (les plus demandés),
+// puis les domaines d'application (dont la transformation des achats, présentée comme une offre).
+// Source unique pour l'accueil, le hub, les pages d'expertise, le JSON-LD et llms.txt.
 import { routesFor, anchorsFor } from "../routes";
 const r = routesFor("fr");
 const a = anchorsFor("fr");
@@ -44,7 +45,7 @@ const metiers = {
   ],
   // domaines d'application : chacun avec une phrase et la page qui le traite
   domaines: {
-    title: "Là où nos métiers s'appliquent.",
+    title: "Là où nos expertises s'appliquent.",
     lead: "Les mêmes méthodes, sur les sujets qui pèsent le plus dans les entreprises régulées comme dans les PME.",
     items: [
       { t: "Achats et Source-to-Pay", sub: "Fractional CPO, intérim, risques tiers",

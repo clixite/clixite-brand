@@ -1,5 +1,5 @@
 // Content of the service pages (GEO, architecture, programme management, digitalisation), rendered by components/MetierPage.astro.
-// Address the reader as "you"; no figures, prices, durations or project details; nothing unverifiable. The visible FAQs feed the FAQPage markup.
+// Address the reader as "you"; no prices, durations or project details; verifiable facts only (dates, certifications, sources). The visible FAQs feed the FAQPage markup.
 import type { PageMetier } from "../fr/pages";
 import { routesFor } from "../routes";
 import { SOURCES } from "../sources";

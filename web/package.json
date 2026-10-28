@@ -5,7 +5,7 @@
   "type": "module",
   "description": "www.clixite.be, refonte 2030 (Astro, Design System 2.0)",
   "scripts": {
-    "tokens": "node ../ds/build-tokens.mjs && cp ../ds/dist/tokens.css src/styles/tokens.css",
+    "tokens": "node ../ds/build-tokens.mjs && node -e \"require('node:fs').copyFileSync('../ds/dist/tokens.css','src/styles/tokens.css')\"",
     "clients": "node scripts/build-clients.mjs",
     "x": "python3 scripts/gen_x.py",
     "prebuild": "npm run tokens",

@@ -6,13 +6,13 @@ const a = anchorsFor("en");
 
 const autres: Autres = {
   hub: {
-    title: "Consulting and engineering: our five services | Clixite",
+    title: "Consulting and engineering: five expertise areas | Clixite",
     description: "Forward Deployed Engineering, GEO, enterprise and solution architecture, programme management, digitalisation: how Clixite works inside your organisation.",
-    h1: "Five services, one standard: what we deliver has to run.",
+    h1: "Five expertise areas, one standard: what we deliver has to run.",
     lead: "We step in where a strategy has to become a working system, in SMEs and regulated groups alike, in Belgium and Luxembourg.",
-    listLabel: "Our services",
+    listLabel: "Our expertise areas",
     more: "in detail",
-    catalog: "Clixite services",
+    catalog: "Clixite expertise areas",
   },
   achats: {
     title: "Procurement transformation and Source-to-Pay | Clixite",
@@ -54,7 +54,7 @@ const autres: Autres = {
     description: "Clixite SRL, founded in 2005 in Wavre: Forward Deployed Engineering, GEO, architecture, programme management and digitalisation, in Belgium and Luxembourg.",
     crumb: "About",
     h1: "Consulting and engineering since 2005.",
-    lead: "Clixite is a Belgian consulting and engineering company based in Wavre. It offers five services, from target to production, for growing SMEs and regulated groups alike.",
+    lead: "Clixite is a Belgian consulting and engineering company based in Wavre. It offers five expertise areas, from target to production, and a dedicated procurement transformation offer, for growing SMEs and regulated groups alike.",
     rule: ["Its rule fits in one sentence: “We solve your ", "x", ".” The problem that holds things up, the one no one has named yet."],
     factsTitle: "The company at a glance.",
     facts: {
@@ -70,17 +70,25 @@ const autres: Autres = {
       langsValue: "English, French, Dutch",
       phones: "Telephone",
       email: "Email",
-      frameworks: "Framework expertise",
+      frameworks: "Nicolas Simon's certifications",
     },
-    metiersTitle: "Five services.",
+    metiersTitle: "Five expertise areas.",
     envTitle: "Very different environments.",
     env: "Telecoms, banking, insurance, pharmaceuticals, construction, aviation, distribution, leisure, growing SMEs: on assignment, as consultants or in-house. The projects themselves stay confidential.",
     envLink: { t: "Where we have worked", href: `${r.home}#${a.refs}` },
     charte: "Clixite's visual identity is published at",
+    // "Who replies to you" block (AboutView): a real person, no photo, verifiable LinkedIn link.
+    who: {
+      title: "Who replies to you.",
+      lead: "Nicolas Simon founded Clixite. He reads the messages sent from this site and replies to them, in English, French or Dutch.",
+      link: "Nicolas Simon on LinkedIn",
+      certs: "Certifications",
+      langs: "Working languages",
+    },
   },
   contact: {
     title: "Contact us: Wavre, Belgium and Luxembourg | Clixite",
-    description: "Call +32 10 31 10 00 or +352 20 42 02 02, or write to nicolas@clixite.be. Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, Belgium.",
+    description: "A first 45-minute conversation, with no commitment. Write to nicolas@clixite.be or call +32 10 31 10 00. We reply personally, from Wavre in Belgium.",
     h1: ["What is your ", "x", "?"],
     lead: "One conversation is enough to name it. You leave with a first idea of the way forward, even if we do not end up working together.",
     email: "Email",
@@ -88,6 +96,16 @@ const autres: Autres = {
     meet: "Meetings",
     meetValue: "In Wavre, at your premises or by video call, in English, French or Dutch.",
     cta: "Request a conversation by email",
+    detailsTitle: "Our details.",
+    // three factual steps: no numbered response time is promised
+    nextTitle: "What happens next.",
+    nextLead: "Three steps, with no commitment.",
+    steps: [
+      { t: "You write.", d: "Two sentences about your challenge, or a call. An address and a number are enough, there is no form." },
+      { t: "We reply personally.", d: "Nicolas Simon reads your message and replies to it himself." },
+      { t: "A first 45-minute conversation.", d: "With no commitment, in Wavre, at your premises or by video call, in English, French or Dutch." },
+    ],
+    nextNote: "A non-disclosure agreement can be signed before we talk if you wish.",
   },
   legal: {
     title: "Legal notice and privacy for www.clixite.be | Clixite",

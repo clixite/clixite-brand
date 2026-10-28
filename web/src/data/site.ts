@@ -16,6 +16,8 @@ export const SITE = {
   vat: "BE 0871.430.776",
   vatId: "BE0871430776",
   founded: "2005",
+  // années révolues au 1er janvier de l'année de construction (fondée en 2005 : 20 en 2026), pour le bloc « Preuves » de l'accueil
+  yearsActive: new Date().getFullYear() - 2006,
   address: { street: "Avenue Reine Astrid 53", postalCode: "1300", city: "Wavre", region: "Brabant wallon", country: "BE" },
   linkedin: "https://www.linkedin.com/in/nicolassim/",
   // page entreprise LinkedIn (remplie le 27 octobre 2026) : même nom, adresse, métiers et téléphone que le site

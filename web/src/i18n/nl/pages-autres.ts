@@ -54,7 +54,7 @@ const autres: Autres = {
     description: "Clixite SRL, opgericht in 2005 in Waver: Forward Deployed Engineering, GEO, architectuur, programmamanagement en digitalisering, in België en Luxemburg.",
     crumb: "Over Clixite",
     h1: "Consultancy en engineering, sinds 2005.",
-    lead: "Clixite is een Belgisch consultancy- en engineeringbedrijf, gevestigd in Waver. Het bedrijf bundelt vijf expertises, van doelarchitectuur tot productie, voor groeiende kmo's en voor gereguleerde groepen.",
+    lead: "Clixite is een Belgisch consultancy- en engineeringbedrijf, gevestigd in Waver. Het bedrijf bundelt vijf expertises, van doelarchitectuur tot productie, en een aanbod voor aankooptransformatie, voor groeiende kmo's en voor gereguleerde groepen.",
     rule: ["De regel van Clixite past in één zin: “Wij lossen uw ", "x", " op.” Het probleem waarop alles vastloopt en dat nog niemand bij naam heeft genoemd."],
     factsTitle: "Het bedrijf in het kort.",
     facts: {
@@ -70,17 +70,25 @@ const autres: Autres = {
       langsValue: "Nederlands, Frans, Engels",
       phones: "Telefoonnummers",
       email: "E-mail",
-      frameworks: "Referentiekaders die wij beheersen",
+      frameworks: "Certificeringen van Nicolas Simon",
     },
     metiersTitle: "Vijf expertises.",
     envTitle: "Zeer verschillende omgevingen.",
     env: "Telecom, bankwezen, verzekeringen, farmaceutische industrie, bouw, luchtvaart, distributie, vrijetijdssector, groeiende kmo's: in opdracht, als consultant of in vaste dienst. De projecten zelf blijven vertrouwelijk.",
     envLink: { t: "Waar we gewerkt hebben", href: `${r.home}#${a.refs}` },
     charte: "De visuele identiteit van Clixite staat op",
+    // Blok « Wie u antwoordt » (AboutView): echte persoon, zonder foto, verifieerbare LinkedIn-link.
+    who: {
+      title: "Wie u antwoordt.",
+      lead: "Nicolas Simon is de oprichter van Clixite. Hij leest de berichten die via deze site binnenkomen en beantwoordt ze, in het Nederlands, Frans of Engels.",
+      link: "LinkedIn-profiel van Nicolas Simon",
+      certs: "Certificeringen",
+      langs: "Werktalen",
+    },
   },
   contact: {
     title: "Contact en afspraak: Waver, België en Luxemburg | Clixite",
-    description: "Bel +32 10 31 10 00 of +352 20 42 02 02, of schrijf naar nicolas@clixite.be. Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, België.",
+    description: "Een eerste gesprek van 45 minuten, zonder verplichting. Schrijf naar nicolas@clixite.be of bel +32 10 31 10 00. Waver, België en Luxemburg, in uw taal.",
     h1: ["Wat is uw ", "x", "?"],
     lead: "Een eerste gesprek volstaat om hem te benoemen. U krijgt een eerste aanzet mee, ook als we daarna niet samenwerken.",
     email: "E-mail",
@@ -88,6 +96,16 @@ const autres: Autres = {
     meet: "Afspraak",
     meetValue: "In Waver, bij u of via videogesprek, in het Nederlands, Frans of Engels.",
     cta: "Een gesprek aanvragen per e-mail",
+    detailsTitle: "Onze contactgegevens.",
+    // drie feitelijke stappen: geen enkele antwoordtermijn in cijfers
+    nextTitle: "Wat er daarna gebeurt.",
+    nextLead: "Drie stappen, zonder verplichting.",
+    steps: [
+      { t: "U schrijft.", d: "Twee zinnen over uw uitdaging, of een telefoontje. Een adres en een nummer volstaan, er is geen formulier." },
+      { t: "Wij antwoorden persoonlijk.", d: "Nicolas Simon leest uw bericht en beantwoordt het zelf." },
+      { t: "Een eerste gesprek van 45 minuten.", d: "Zonder verplichting, in Waver, bij u of via videogesprek, in het Nederlands, Frans of Engels." },
+    ],
+    nextNote: "Als u dat wenst, ondertekenen we voor het gesprek een geheimhoudingsovereenkomst.",
   },
   legal: {
     title: "Juridische informatie en privacy op www.clixite.be | Clixite",

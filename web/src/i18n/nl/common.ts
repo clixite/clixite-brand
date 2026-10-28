@@ -1,5 +1,5 @@
 // Gemeenschappelijke teksten voor alle pagina's (kop, voettekst, contact, samenwerkingsvormen, labels).
-// Clixite-stijl: u-vorm, korte zinnen, geen gedachtestreepjes, geen cijfers, prijzen of looptijden.
+// Clixite-stijl: u-vorm, korte zinnen, geen gedachtestreepjes, geen prijzen of looptijden; de enige cijfers zijn verifieerbaar (oprichting, certificeringen, logo's).
 import type { Common } from "../fr/common";
 import { routesFor, anchorsFor } from "../routes";
 const r = routesFor("nl");
@@ -33,7 +33,7 @@ const common: Common = {
   },
   footer: {
     contact: "Contact",
-    expertise: "Expertises",
+    expertise: "Expertises en aanbod",
     info: "Informatie",
     achats: "Aankooptransformatie",
     about: "Over Clixite",

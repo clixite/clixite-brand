@@ -1,5 +1,5 @@
 // Inhoud van de expertisepagina's (GEO, architectuur, programmamanagement, digitalisering), weergegeven door components/MetierPage.astro.
-// U-vorm, geen cijfers, prijzen, looptijden of projectdetails; niets onverifieerbaars. De zichtbare FAQ voeden de FAQPage-markup.
+// U-vorm; geen prijzen, looptijden of projectdetails; alleen verifieerbare feiten (data, certificeringen, bronnen). De zichtbare FAQ voeden de FAQPage-markup.
 import type { PageMetier } from "../fr/pages";
 import { routesFor } from "../routes";
 import { SOURCES } from "../sources";

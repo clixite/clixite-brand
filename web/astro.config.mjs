@@ -8,7 +8,7 @@ const SITE = "https://www.clixite.be";
 export default defineConfig({
   site: SITE,
   trailingSlash: "always",
-  build: { format: "directory", inlineStylesheets: "always" },
+  build: { format: "directory", inlineStylesheets: "never" },
   integrations: [sitemap({
     // chaque adresse avec ses versions en français, néerlandais et anglais (slugs traduits : table src/i18n/routes.ts)
     serialize(item) {
@@ -18,8 +18,10 @@ export default defineConfig({
       return item;
     },
     // date de la dernière révision du contenu : à avancer à chaque mise à jour réelle des textes
-    lastmod: new Date("2026-10-26"),
+    lastmod: new Date(),
   })],
+  // CSP script-src 'self' : aucun script ne doit être inliné dans le HTML
+  vite: { build: { assetsInlineLimit: 0 } },
   compressHTML: true,
   prefetch: false,
 });

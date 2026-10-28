@@ -1,5 +1,5 @@
 ---
-// Fiche d'identité de l'entreprise (pas du fondateur) : les faits que les moteurs et les assistants doivent retrouver partout à l'identique.
+// Fiche d'identité de l'entreprise et de la personne qui répond : les faits que les moteurs et les assistants doivent retrouver partout à l'identique.
 import Base from "../layouts/Base.astro";
 import Crumbs from "../components/Crumbs.astro";
 import Photo from "../components/Photo.astro";
@@ -14,6 +14,7 @@ const F = A.facts;
 const path = ROUTES.about[lang];
 const crumbs = [{ name: common.crumbs.home, href: ROUTES.home[lang] }, { name: A.crumb, href: path }];
 const schema = [breadcrumb(crumbs), { "@type": "AboutPage", "@id": `${SITE.url}${path}#about`, url: `${SITE.url}${path}`, about: { "@id": `${SITE.url}/#org` }, mainEntity: { "@id": `${SITE.url}/#org` } }];
+// aucune donnée inventée : les faits viennent de data/site.ts (fondation, siège, TVA, zone, langues, certifications)
 const facts = [
   [F.legal, `${SITE.legalName}, ${F.legalValue}`],
   [F.founded, SITE.founded],
@@ -23,7 +24,7 @@ const facts = [
   [F.langs, F.langsValue],
   [F.phones, SITE.phones.map((p) => `${common.countries[p.country]} ${p.display}`).join(lang === "fr" ? "\u00a0; " : "; ")],
   [F.email, SITE.email],
-  [F.frameworks, "PMP, PRINCE2, AgilePM, SAFe, Scrum, ITIL, ADKAR"],
+  [F.frameworks, SITE.founder.certifications.join(", ")],
 ];
 ---
 <Base title={A.title} description={A.description} page="about" schema={schema}>
@@ -36,6 +37,22 @@ const facts = [
         <p class="lead">{A.rule[0]}<span class="x">{A.rule[1]}</span>{A.rule[2]}</p>
       </div>
       <div class="ph ap-head__ph"><Photo name="plan-32" eager sizes="(min-width: 900px) 40vw, 100vw" /></div>
+    </div>
+  </section>
+
+  <section class="section ap-who" aria-labelledby="ap-who-title">
+    <div class="wrap ap-cols">
+      <div class="ap-prose">
+        <h2 id="ap-who-title" class="h2">{A.who.title}</h2>
+        <p class="lead">{A.who.lead}</p>
+        <p class="ap-who__name">{SITE.founder.name}</p>
+        <p class="muted">{SITE.founder.jobTitle}</p>
+        <p><a class="link-more" href={SITE.linkedin} rel="me">{A.who.link}</a></p>
+      </div>
+      <dl class="ap-dl">
+        <div><dt>{A.who.certs}</dt><dd>{SITE.founder.certifications.join(", ")}</dd></div>
+        <div><dt>{A.who.langs}</dt><dd>{F.langsValue}</dd></div>
+      </dl>
     </div>
   </section>
 
@@ -75,6 +92,7 @@ const facts = [
   .ap-head__text .x { color: var(--clx-link); }
   .ap-head__ph { aspect-ratio: 3 / 2; }
   .ap-cols { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--clx-space-8); align-items: start; }
+  .ap-who__name { font-family: var(--clx-font-family-display); font-size: 1.375rem; font-weight: 500; letter-spacing: -0.01em; }
   .ap-dl { margin: 0; display: grid; }
   .ap-dl div { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); gap: var(--clx-space-4); padding-block: var(--clx-space-4); border-top: 1px solid var(--clx-border); }
   .ap-dl div:last-child { border-bottom: 1px solid var(--clx-border); }

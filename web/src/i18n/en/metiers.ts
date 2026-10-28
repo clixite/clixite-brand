@@ -1,5 +1,6 @@
-// Clixite's five services, Forward Deployed Engineering and GEO first (the most requested),
-// then the application areas. Single source for the home page, the hub, the service pages, the JSON-LD and llms.txt.
+// Clixite's five expertise areas, Forward Deployed Engineering and GEO first (the most requested),
+// then the application areas (including procurement transformation, presented as an offer).
+// Single source for the home page, the hub, the expertise pages, the JSON-LD and llms.txt.
 import type { Metiers } from "../fr/metiers";
 import { routesFor, anchorsFor } from "../routes";
 const r = routesFor("en");
@@ -45,7 +46,7 @@ const metiers: Metiers = {
   ],
   // application areas: each with one sentence and the page that covers it
   domaines: {
-    title: "Where our services apply.",
+    title: "Where our expertise areas apply.",
     lead: "The same methods, on the topics that matter most in regulated enterprises and SMEs alike.",
     items: [
       { t: "Procurement and Source-to-Pay", sub: "Fractional CPO, interim management, third-party risk",

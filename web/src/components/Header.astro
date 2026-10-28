@@ -29,7 +29,7 @@ const isCurrent = (href: string) => !href.includes("#") && current === href;
       ))}
     </ul>
     <a class="btn btn--primary btn--small hd__cta" href="#contact"><span class="hd__cta-l">{L.cta}</span><span class="hd__cta-s">{L.ctaShort}</span></a>
-    <button type="button" class="hd__toggle" popovertarget="menu" aria-label={L.open}><span>{L.menu}</span></button>
+    <button type="button" class="hd__toggle" popovertarget="menu" aria-controls="menu" aria-expanded="false" aria-label={L.open}><span>{L.menu}</span></button>
     <nav id="menu" class="hd__menu" popover aria-label={L.mobile}>
       <ul role="list">
         {nav.map((l) => <li><a href={l.href} aria-current={isCurrent(l.href) ? "page" : undefined}>{l.label}</a></li>)}
@@ -41,9 +41,95 @@ const isCurrent = (href: string) => !href.includes("#") && current === href;
 </header>
 
 <script>
-  // menu mobile : popover natif (Échap et clic extérieur le ferment) ; il se referme aussi quand on suit un lien
+  // menu mobile : popover natif (Échap et clic extérieur le ferment) ; il se referme aussi quand on suit un lien.
+  // Tant qu'il est ouvert, main et footer sont inert : le focus clavier ne peut plus atterrir sur un élément recouvert
+  // (WCAG 2.2 SC 2.4.11), la tabulation reste dans le panneau et le focus revient au déclencheur à la fermeture.
   const menu = document.getElementById("menu");
-  menu?.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => { try { menu.hidePopover(); } catch { /* déjà fermé */ } }));
+  const toggle = document.querySelector<HTMLButtonElement>(".hd__toggle");
+  if (menu && toggle) {
+    const behind = [document.querySelector("main"), document.querySelector("footer")];
+    const links = [...menu.querySelectorAll<HTMLAnchorElement>("a[href]")];
+    const last = links[links.length - 1];
+    let closingByLink = false;
+    // le fond (contenu et pied de page) sort de l'ordre de tabulation et de l'arbre des lecteurs d'écran
+    const setBackgroundInert = (open: boolean) => behind.forEach((n) => { if (n) n.inert = open; });
+    // état du panneau (le sélecteur n'est reconnu que là où popover est pris en charge)
+    const isOpen = () => { try { return menu.matches(":popover-open"); } catch { return false; } };
+
+    menu.addEventListener("toggle", (e) => {
+      const open = e.newState === "open";
+      setBackgroundInert(open);
+      toggle.setAttribute("aria-expanded", String(open));
+      if (open) requestAnimationFrame(() => links[0]?.focus());
+      // Échap, clic extérieur ou bouton : le focus revient au déclencheur (sauf si un lien vient d'être suivi)
+      else if (!closingByLink) toggle.focus();
+      closingByLink = false;
+    });
+
+    // le panneau forme une boucle avec son bouton : du dernier lien, Tab revient au bouton, puis au premier lien
+    menu.addEventListener("keydown", (e) => {
+      if (e.key === "Tab" && !e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        toggle.focus();
+      }
+    });
+
+    // suivre un lien referme le panneau sans reprendre le focus : la cible du lien le reçoit (gestion des ancres ci-dessous).
+    // L'inertie du fond est retirée tout de suite, sans attendre la tâche "toggle" : le focus de la cible serait refusé.
+    links.forEach((a) => a.addEventListener("click", () => {
+      if (!isOpen()) return;
+      closingByLink = true;
+      menu.hidePopover();
+      setBackgroundInert(false);
+    }));
+
+    // liens internes (#contact, #methode, #references) : la cible reçoit le focus pour que l'indicateur reste visible.
+    // Le défilement est celui de l'ancre (scroll-padding-top de global.css dégage l'en-tête collant).
+    const focusHash = (hash: string) => {
+      if (hash.length < 2) return;
+      let id = hash.slice(1);
+      try { id = decodeURIComponent(id); } catch { /* hash non encodé : on garde la valeur brute */ }
+      const target = document.getElementById(id);
+      if (!target) return;
+      // le panneau mobile peut être en cours de fermeture : on lève l'inertie du fond tout de suite, sinon le focus
+      // de la cible serait refusé puis repris par le déclencheur
+      if (target.closest("[inert]")) {
+        closingByLink = true;
+        setBackgroundInert(false);
+      }
+      target.setAttribute("tabindex", "-1");
+      target.focus({ preventScroll: true });
+    };
+    document.addEventListener("click", (e) => {
+      if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      const a = e.target instanceof Element ? e.target.closest<HTMLAnchorElement>('a[href^="#"]') : null;
+      if (!a) return;
+      // ancre activée hors du panneau alors qu'il est encore ouvert (lien d'en-tête au clavier) : on le referme d'abord
+      if (isOpen() && !menu.contains(a)) {
+        closingByLink = true;
+        menu.hidePopover();
+        setBackgroundInert(false);
+      }
+      focusHash(a.getAttribute("href") ?? "");
+    });
+    // retour depuis le cache (bfcache) : l'état du panneau peut être restauré sans événement "toggle"
+    addEventListener("pageshow", () => {
+      const open = isOpen();
+      setBackgroundInert(open);
+      toggle.setAttribute("aria-expanded", String(open));
+    });
+    // le panneau n'existe qu'en dessous de 1200 px : au-delà, il faut le refermer, sinon le fond resterait inerte
+    const narrow = matchMedia("(max-width: 1199px)");
+    narrow.addEventListener("change", () => {
+      if (narrow.matches || !isOpen()) return;
+      closingByLink = true; // le déclencheur est masqué à cette largeur : pas de retour de focus
+      menu.hidePopover();
+      setBackgroundInert(false);
+      toggle.setAttribute("aria-expanded", "false");
+    });
+    // arrivée avec une ancre dans l'URL (/contact/#… ou lien depuis une autre page)
+    if (location.hash) focusHash(location.hash);
+  }
 </script>
 
 <style>
@@ -68,9 +154,12 @@ const isCurrent = (href: string) => !href.includes("#") && current === href;
   .hd__lang abbr { text-decoration: none; }
   a.hd__lang:hover { color: var(--clx-text); }
   .hd__lang.is-on { color: var(--clx-text); }
-  .hd__lang.is-on::after { content: ""; position: absolute; left: 25%; right: 25%; bottom: 10px; height: 2px; background: var(--clx-accent); }
-  /* page courante : un filet turquoise sous le lien */
-  .hd__cur { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--clx-accent); view-transition-name: clx-cur; }
+  /* état courant (langue, page) : le filet passe de --clx-accent à --clx-link.
+     Contraste calculé selon WCAG 2.x : --clx-link #0C7893 sur --clx-bg #F6F5F0 = 4,67:1 (seuil SC 1.4.11 : 3:1) ;
+     sur Encre, --clx-link #19B3D9 sur #0B2239 = 6,52:1. L'ancien filet en --clx-accent #19B3D9 n'atteignait que 2,27:1 sur Papier. */
+  .hd__lang.is-on::after { content: ""; position: absolute; left: 25%; right: 25%; bottom: 10px; height: 2px; background: var(--clx-link); }
+  /* page courante : un filet sous le lien */
+  .hd__cur { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--clx-link); view-transition-name: clx-cur; }
   .hd__toggle, .hd__menu { display: none; }
   @media (max-width: 1199px) {
     .hd__in { gap: var(--clx-space-3); min-height: 64px; }

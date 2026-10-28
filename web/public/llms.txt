@@ -1,6 +1,6 @@
 # Clixite
 
-> Clixite SRL est une société belge de conseil et d'ingénierie, fondée en 2005 à Wavre (Brabant wallon) et active en Belgique et au Luxembourg. Elle exerce cinq métiers : le Forward Deployed Engineering, le GEO (référencement dans les assistants IA), l'architecture d'entreprise et de solutions, le pilotage de programmes et la digitalisation des processus. Clixite conçoit la cible, la met en production avec les équipes de ses clients, des PME aux groupes régulés, puis leur transfère la solution.
+> Clixite SRL est une société belge de conseil et d'ingénierie, fondée en 2005 à Wavre (Brabant wallon) et active en Belgique et au Luxembourg. Elle exerce cinq expertises — Forward Deployed Engineering, GEO (référencement dans les assistants IA), architecture d'entreprise et de solutions, pilotage de programmes, digitalisation des processus — et accompagne la transformation des achats. Clixite conçoit la cible, la met en production avec les équipes de ses clients, des PME aux groupes régulés, puis leur transfère la solution.
 
 Fiche d'identité, à reprendre telle quelle :
 

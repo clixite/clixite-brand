@@ -7,15 +7,22 @@ const L = t(langOf(Astro.url.pathname)).common.copy;
 <span class="cm"><a href={`mailto:${SITE.email}`}>{SITE.email}</a> <button type="button" class="cm__btn" data-copy={SITE.email} data-ok={L.ok} data-sel={L.sel}>{L.copy}</button><span class="visually-hidden" aria-live="polite" data-copy-status></span></span>
 
 <script>
+  // script Astro traité et bundlé (pas de is:inline) : il peut être servi en fichier externe sous CSP script-src 'self'
   document.querySelectorAll<HTMLButtonElement>("[data-copy]").forEach((b) => {
     const status = b.parentElement?.querySelector<HTMLElement>("[data-copy-status]");
+    const initial = b.textContent ?? "";
+    let reset: number | undefined;
     b.addEventListener("click", async () => {
       const text = b.dataset.copy ?? "";
       let ok = false;
       try { await navigator.clipboard.writeText(text); ok = true; } catch { /* presse-papiers refusé : on sélectionne le texte */ }
       if (!ok) { const a = b.previousElementSibling; const r = document.createRange(); if (a) { r.selectNodeContents(a); const s = getSelection(); s?.removeAllRanges(); s?.addRange(r); } }
-      const prev = b.textContent; b.textContent = (ok ? b.dataset.ok : b.dataset.sel) ?? ""; if (status) status.textContent = b.textContent;
-      setTimeout(() => { b.textContent = prev; }, 1800);
+      const message = (ok ? b.dataset.ok : b.dataset.sel) ?? "";
+      b.textContent = message;
+      if (status) status.textContent = message;
+      // un second clic rapide ne doit pas figer le libellé sur « Adresse copiée » : le minuteur est unique
+      window.clearTimeout(reset);
+      reset = window.setTimeout(() => { b.textContent = initial; if (status) status.textContent = ""; }, 1800);
     });
   });
 </script>

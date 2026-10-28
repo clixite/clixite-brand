@@ -1,8 +1,9 @@
 ---
 // Hero cinéma : le film de lancement en boucle, plein cadre et bien visible.
 // Le texte se pose sur une plaque Encre, comme les titres du film ; les quatre phrases du film défilent en synchronisation.
-// Boucle sans titres ni logo (video/hero_loop.py) : large, moyenne et verticale, en H.264 et en VP9.
-// Le film arrive après l'affichage, jamais en mouvement réduit ni en économie de données ; il reste toujours en pause possible.
+// Boucle sans titres ni logo (video/hero_loop.py) : large (1280, 1920 sur écran retina) et verticale, en H.264 et en VP9.
+// Le film arrive après une intention (défilement, clic, touche) ou 6 s de calme, jamais en mouvement réduit
+// ni en économie de données ; il reste toujours en pause possible.
 import { t, langOf } from "../i18n";
 const lang = langOf(Astro.url.pathname);
 const { home, common } = t(lang);
@@ -16,7 +17,7 @@ const STORY = H.story;
       <img class="hero__poster" src="/video/hero-1920.webp" alt="" width="1920" height="1080" fetchpriority="high" />
     </picture>
     <video class="hero__video" muted playsinline loop preload="none" disablepictureinpicture disableRemotePlayback tabindex="-1"
-      data-hero-video data-wide="/video/hero-1920" data-mid="/video/hero-1280" data-tall="/video/hero-720x1280"></video>
+      data-hero-video data-wide="/video/hero-1280" data-wide-retina="/video/hero-1920" data-tall="/video/hero-720x1280"></video>
   </div>
 
   <button type="button" class="hero__pause" data-hero-pause aria-pressed="false" data-l-pause={common.film.pause} data-l-play={common.film.play} hidden>
@@ -42,23 +43,28 @@ const STORY = H.story;
 </section>
 
 <script>
-  // film : chargé quand la page est prête, mis en pause hors écran, onglet caché ou sur demande
+  // film : chargé après une intention (défilement, clic, touche) ou 6 s d'inactivité, puis mis en pause
+  // hors écran, onglet caché ou sur demande ; l'affiche WebP couvre l'attente (preload="none").
   const hero = document.querySelector<HTMLElement>(".hero");
   const v = document.querySelector<HTMLVideoElement>("[data-hero-video]");
   const btn = document.querySelector<HTMLButtonElement>("[data-hero-pause]");
   const label = btn?.querySelector<HTMLElement>("[data-hero-pause-l]");
   const chaps = [...document.querySelectorAll<HTMLElement>(".hero__chap")];
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData === true;
+  const net = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
+  const saveData = net?.saveData === true;
+  // réseau lent : l'affiche reste seule, le film n'arrive que sur intention explicite
+  const slow = /(^|-)2g$|(^|-)3g$/.test(net?.effectiveType ?? "");
   if (hero && v && btn && label && !reduce && !saveData) {
-    let paused = false, inView = true, shown = 0;
+    let paused = false, inView = true, shown = 0, loaded = false;
+    let timer: number | undefined;
     try { paused = localStorage.getItem("clx-film") === "pause"; } catch { /* stockage indisponible */ }
-    // H.264 partout où il est lu nativement, VP9 sinon (Chromium sans codecs propriétaires)
-    const ext = v.canPlayType('video/mp4; codecs="avc1.640028"') === "probably" ? ".mp4"
-      : v.canPlayType('video/webm; codecs="vp9"') ? ".webm" : ".mp4";
+    // VP9 d'abord (≈ 30 % plus léger), H.264 en repli là où le WebM n'est pas lu (Safari < 14.1)
+    const ext = v.canPlayType('video/webm; codecs="vp9"') ? ".webm" : ".mp4";
     const pick = () => {
       if (matchMedia("(max-aspect-ratio: 4/5)").matches) return v.dataset.tall! + ext;
-      return (innerWidth * Math.min(devicePixelRatio || 1, 2) > 1100 ? v.dataset.wide! : v.dataset.mid!) + ext;
+      // plafond 1280 pour un décor : le 1920 n'est servi qu'aux écrans retina, où il apporte encore du détail
+      return ((devicePixelRatio || 1) >= 2 ? v.dataset.wideRetina! : v.dataset.wide!) + ext;
     };
     const sync = () => {
       btn.setAttribute("aria-pressed", String(paused));
@@ -74,16 +80,19 @@ const STORY = H.story;
       if (i !== shown) { chaps[shown].classList.remove("is-on"); chaps[i].classList.add("is-on"); shown = i; }
     };
     const load = () => {
+      if (loaded) return;
+      loaded = true;
+      clearTimeout(timer);
       v.src = pick();
       v.addEventListener("playing", () => { v.classList.add("is-on"); hero.classList.add("has-film"); }, { once: true });
       v.addEventListener("timeupdate", story);
       btn.hidden = false;
       sync();
     };
-    const idle = (window as Window & { requestIdleCallback?: (f: () => void) => void }).requestIdleCallback ?? ((f: () => void) => setTimeout(f, 800));
-    // sur mobile, le film attend que la page soit au calme (processeur et réseau plus modestes)
-    const later = () => (matchMedia("(pointer: coarse)").matches ? setTimeout(() => idle(load), 1800) : idle(load));
-    if (document.readyState === "complete") later(); else addEventListener("load", later, { once: true });
+    // le film part à la première intention (défilement, clic, touche) ou après 6 s de calme
+    const intent = () => load();
+    for (const type of ["scroll", "pointerdown", "click", "keydown"]) addEventListener(type, intent, { once: true, passive: true });
+    if (!slow) timer = window.setTimeout(load, 6000);
     btn.addEventListener("click", () => {
       paused = !paused;
       try { localStorage.setItem("clx-film", paused ? "pause" : "lecture"); } catch { /* stockage indisponible */ }

@@ -7,7 +7,7 @@ export const LANGS: Lang[] = ["fr", "nl", "en"];
 export const HREFLANG: Record<Lang, string> = { fr: "fr-BE", nl: "nl-BE", en: "en" };
 export const OG_LOCALE: Record<Lang, string> = { fr: "fr_BE", nl: "nl_BE", en: "en_GB" };
 // version proposée aux langues que le site ne couvre pas
-export const X_DEFAULT: Lang = "en";
+export const X_DEFAULT: Lang = "fr";
 
 export type RouteKey = "home" | "fde" | "geo" | "expertises" | "archi" | "pilotage" | "digit" | "achats" | "about" | "contact" | "legal";
 

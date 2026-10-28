@@ -1,21 +1,23 @@
-// Home: film, logo's, Forward Deployed Engineering, GEO, expertises, werkwijze.
+// Home: film, logo's, Forward Deployed Engineering, GEO, expertises, werkwijze, bewijzen.
 import type { Home } from "../fr/home";
 import { routesFor } from "../routes";
 const r = routesFor("nl");
 
 const home: Home = {
-  title: "Forward Deployed Engineering en GEO in België | Clixite",
-  description: "Forward Deployed Engineering, GEO, architectuur, programma's en digitalisering: Clixite bouwt uw oplossingen in uw teams, in België en Luxemburg.",
+  title: "Clixite: consultancy en engineering in Waver sinds 2005",
+  description: "Consultancy en engineering in Waver sinds 2005. Clixite ontwerpt, bouwt en brengt de systemen van Belgische en Luxemburgse bedrijven in productie.",
   hero: {
-    // hoofdstukken van de lus (11,5 s): de titels van de film, op het ritme van de shots
+    // hoofdstukken van de lus (11,5 s): de signatuur opent, daarna de titels van de film op het ritme van de shots
     story: [
-      { t: "Uw architectuur begint op papier.", from: 0 },
-      { t: "Ze krijgt diepte.", from: 2.5 },
-      { t: "Ze landt bij u.", from: 5.5 },
-      { t: "En ze draait.", from: 8.5 },
+      { t: "Wij lossen uw x op.", from: 0 },
+      { t: "Uw architectuur begint op papier.", from: 2 },
+      { t: "Ze krijgt diepte.", from: 4.5 },
+      { t: "Ze landt bij u.", from: 7 },
+      { t: "En ze draait.", from: 9.5 },
     ],
-    h1: ["Wij lossen uw ", "x", " op."],
-    sub: "Forward Deployed Engineering, GEO, enterprise- en solution-architectuur, programmamanagement, digitalisering. In uw teams, in België en Luxemburg, tot in productie.",
+    // de hoofdtitel zegt wat we doen; de « x » blijft de signatuur van de site (hoofdstukken van de film, afsluiting)
+    h1: ["Wij bouwen uw ", "oplossing", " in uw teams, tot in productie."],
+    sub: "Consultancy en engineering sinds 2005. We ontwerpen, bouwen en brengen uw systemen in productie, in uw teams, in België en Luxemburg.",
     cta2: { t: "Forward Deployed Engineering", href: r.fde },
   },
   refs: {
@@ -55,6 +57,28 @@ const home: Home = {
       { t: "Bouwen", d: "Integraties, data, automatiseringen en AI, opgeleverd in korte incrementen die uw teams in de praktijk testen.", out: "Incrementen in productie" },
       { t: "In gebruik nemen", d: "Uitrol, adoptie en overdracht. Wij vertrekken wanneer uw teams de oplossing zelfstandig draaiende houden.", out: "Oplossing in gebruik en gedocumenteerd" },
     ],
+  },
+  // Blok « Bewijzen » (HomeView): uitsluitend controleerbare feiten. De 7 certificeringen komen uit
+  // SITE.founder.certifications (site.ts) en de 14 getoonde logo's uit data/clients.json.
+  // TODO(inhoud): geanonimiseerde klantcases en citaten publiceren na schriftelijke toestemming, daarna verifieerbare resultaatcijfers.
+  // Geen enkele case, getuigenis of percentage wordt hier verzonnen.
+  proofs: {
+    title: "Wat controleerbaar is.",
+    lead: "De projecten blijven vertrouwelijk. Dit zijn de feiten die u kunt controleren, en de engagementen die we schriftelijk aangaan.",
+    facts: {
+      founded: "Opgericht in",
+      foundedValue: "2005, dus {years} jaar activiteit.",
+      certifications: "Zeven certificeringen van de oprichter",
+      certificationsValue: "PMP, PRINCE2, AgilePM, SAFe, Scrum, ITIL v3, ADKAR.",
+      logos: "Vermelde organisaties",
+      logosValue: "Veertien organisaties waarvan het logo op deze pagina staat, in opdracht, als consultant of in vaste dienst.",
+      languages: "Werktalen",
+      languagesValue: "Nederlands, Frans, Engels.",
+      area: "Werkgebied",
+      areaValue: "België en Luxemburg.",
+      commitments: "Engagementen",
+      commitmentsValue: "Geheimhoudingsovereenkomst voor het gesprek als u dat wenst, doorlopende documentatie, en de code, de toegangsrechten en de documentatie blijven bij u.",
+    },
   },
 };
 export default home;

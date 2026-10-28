@@ -1,20 +1,22 @@
-// Accueil : film, logos, Forward Deployed Engineering, GEO, métiers, méthode.
+// Accueil : film, logos, Forward Deployed Engineering, GEO, expertises, méthode, preuves.
 import { routesFor } from "../routes";
 const r = routesFor("fr");
 
 const home = {
-  title: "Forward Deployed Engineering et GEO en Belgique | Clixite",
-  description: "Forward Deployed Engineering, GEO, architecture, programmes et digitalisation : Clixite construit vos solutions dans vos équipes, en Belgique et au Luxembourg.",
+  title: "Clixite, conseil et ingénierie à Wavre depuis 2005",
+  description: "Conseil et ingénierie à Wavre depuis 2005. Clixite conçoit, construit et met en production les systèmes des entreprises belges et luxembourgeoises.",
   hero: {
-    // chapitres de la boucle (11,5 s) : les titres du film, au rythme des plans
+    // chapitres de la boucle (11,5 s) : la signature ouvre, puis les titres du film au rythme des plans
     story: [
-      { t: "Votre architecture commence sur papier.", from: 0 },
-      { t: "Elle prend du relief.", from: 2.5 },
-      { t: "Elle se pose chez vous.", from: 5.5 },
-      { t: "Et elle tourne.", from: 8.5 },
+      { t: "Nous résolvons votre x.", from: 0 },
+      { t: "Votre architecture commence sur papier.", from: 2 },
+      { t: "Elle prend du relief.", from: 4.5 },
+      { t: "Elle se pose chez vous.", from: 7 },
+      { t: "Et elle tourne.", from: 9.5 },
     ],
-    h1: ["Nous résolvons votre ", "x", "."],
-    sub: "Forward Deployed Engineering, GEO, architecture d'entreprise et de solutions, pilotage de programmes, digitalisation. Dans vos équipes, en Belgique et au Luxembourg, jusqu'à la mise en production.",
+    // le titre principal dit ce que nous faisons ; le « x » reste la signature du site (chapitres du film, clôture)
+    h1: ["Nous construisons votre ", "solution", " dans vos équipes, jusqu'en production."],
+    sub: "Conseil et ingénierie depuis 2005. Nous concevons, construisons et mettons en production vos systèmes, dans vos équipes, en Belgique et au Luxembourg.",
     cta2: { t: "Le Forward Deployed Engineering", href: r.fde },
   },
   refs: {
@@ -42,7 +44,7 @@ const home = {
     ],
   },
   expertises: {
-    title: "Cinq métiers, une même exigence : un résultat qui tourne.",
+    title: "Cinq expertises, une même exigence : un résultat qui tourne.",
     lead: "Nous intervenons là où une stratégie doit devenir un système qui fonctionne, dans une PME comme dans un groupe régulé.",
   },
   method: {
@@ -54,6 +56,28 @@ const home = {
       { t: "Construire", d: "Intégrations, données, automatisations et IA, livrées par incréments courts que vos équipes testent en conditions réelles.", out: "Incréments en production" },
       { t: "Mettre en service", d: "Déploiement, adoption et transfert. Nous partons quand vos équipes tiennent la solution seules.", out: "Solution exploitée et documentée" },
     ],
+  },
+  // Bloc « Preuves » (HomeView) : uniquement des faits vérifiables. Les 7 certifications viennent de
+  // SITE.founder.certifications (site.ts) et les 14 logos affichés de data/clients.json.
+  // TODO(contenu) : publier des cas clients anonymisés et des citations avec accord écrit, puis des chiffres de résultat vérifiables.
+  // Aucun cas client, aucun témoignage et aucun pourcentage ne sont inventés ici.
+  proofs: {
+    title: "Ce qui est vérifiable.",
+    lead: "Les projets restent confidentiels. Voici les faits que vous pouvez vérifier, et les engagements que nous prenons par écrit.",
+    facts: {
+      founded: "Fondée en",
+      foundedValue: "2005, soit {years} ans d'activité.",
+      certifications: "Sept certifications du fondateur",
+      certificationsValue: "PMP, PRINCE2, AgilePM, SAFe, Scrum, ITIL v3, ADKAR.",
+      logos: "Organisations citées",
+      logosValue: "Quatorze organisations dont les logos sont affichés sur cette page, en mission, en conseil ou en poste.",
+      languages: "Langues de travail",
+      languagesValue: "Français, néerlandais, anglais.",
+      area: "Zone d'intervention",
+      areaValue: "Belgique et Luxembourg.",
+      commitments: "Engagements",
+      commitmentsValue: "Accord de confidentialité avant l'échange si vous le souhaitez, documentation au fil de l'eau, et le code, les accès et la documentation restent chez vous.",
+    },
   },
 };
 export type Home = typeof home;

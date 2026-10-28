@@ -1,5 +1,5 @@
 // Textes communs à toutes les pages (en-tête, pied de page, contact, formats de collaboration, libellés).
-// Rédaction Clixite : vouvoiement, phrases courtes, aucun tiret long, aucun chiffre ni prix ni durée.
+// Rédaction Clixite : vouvoiement, phrases courtes, aucun tiret long, aucun prix ni délai ; les seuls chiffres publiés sont vérifiables (fondation, certifications, logos).
 import { routesFor, anchorsFor } from "../routes";
 const r = routesFor("fr");
 const a = anchorsFor("fr");
@@ -32,7 +32,7 @@ const common = {
   },
   footer: {
     contact: "Contact",
-    expertise: "Expertises",
+    expertise: "Expertises et offres",
     info: "Informations",
     achats: "Transformation des achats",
     about: "À propos de Clixite",
@@ -47,7 +47,7 @@ const common = {
   },
   crumbs: { label: "Fil d'Ariane", home: "Accueil", expertises: "Expertises" },
   faqTitle: "Questions fréquentes.",
-  others: "Nos autres métiers",
+  others: "Nos autres expertises",
   deliverable: "Livrable",
   updated: "Mis à jour le 26 octobre 2026",
   cta: "Demander un échange",
@@ -84,7 +84,7 @@ const common = {
   film: { pause: "Pause", play: "Lecture", hint: " du film de fond" },
   // description de l'entreprise dans les données structurées (JSON-LD), dans la langue de la page
   orgDescription: "Société de conseil et d'ingénierie fondée en 2005 à Wavre (Belgique), active en Belgique et au Luxembourg : Forward Deployed Engineering, GEO (référencement dans les assistants IA), architecture d'entreprise et de solutions, pilotage de programmes et digitalisation, de la cible à la mise en production, pour les PME et les grands groupes.",
-  catalog: "Métiers de Clixite",
+  catalog: "Expertises de Clixite",
   slogan: "Nous résolvons votre x.",
   markdown: "Version Markdown",
   notFound: {

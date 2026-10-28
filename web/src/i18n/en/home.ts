@@ -1,21 +1,23 @@
-// Home page: film, logos, Forward Deployed Engineering, GEO, services, method.
+// Home page: film, logos, Forward Deployed Engineering, GEO, expertise areas, method, proof.
 import type { Home } from "../fr/home";
 import { routesFor } from "../routes";
 const r = routesFor("en");
 
 const home: Home = {
-  title: "Forward Deployed Engineering and GEO in Belgium | Clixite",
-  description: "Forward Deployed Engineering, GEO, architecture, programmes and digitalisation: Clixite builds your solutions inside your teams, in Belgium and Luxembourg.",
+  title: "Clixite: consulting and engineering in Wavre since 2005",
+  description: "Consulting and engineering in Wavre since 2005. Clixite designs, builds and ships the systems of Belgian and Luxembourg companies to production.",
   hero: {
-    // chapters of the loop (11.5 s): the film's captions, in time with the shots
+    // chapters of the loop (11.5 s): the signature opens, then the film's captions in time with the shots
     story: [
-      { t: "Your architecture starts on paper.", from: 0 },
-      { t: "It gains depth.", from: 2.5 },
-      { t: "It lands in your organisation.", from: 5.5 },
-      { t: "And it runs.", from: 8.5 },
+      { t: "We solve your x.", from: 0 },
+      { t: "Your architecture starts on paper.", from: 2 },
+      { t: "It gains depth.", from: 4.5 },
+      { t: "It lands in your organisation.", from: 7 },
+      { t: "And it runs.", from: 9.5 },
     ],
-    h1: ["We solve your ", "x", "."],
-    sub: "Forward Deployed Engineering, GEO, enterprise and solution architecture, programme management, digitalisation. Inside your teams, in Belgium and Luxembourg, all the way to production.",
+    // the main title says what we do; the "x" remains the site's signature (film chapters, closing block)
+    h1: ["We build your ", "solution", " inside your teams, all the way to production."],
+    sub: "Consulting and engineering since 2005. We design, build and ship your systems to production, inside your teams, in Belgium and Luxembourg.",
     cta2: { t: "Forward Deployed Engineering", href: r.fde },
   },
   refs: {
@@ -43,7 +45,7 @@ const home: Home = {
     ],
   },
   expertises: {
-    title: "Five services, one standard: what we deliver has to run.",
+    title: "Five expertise areas, one standard: what we deliver has to run.",
     lead: "We step in where a strategy has to become a working system, in SMEs and regulated groups alike.",
   },
   method: {
@@ -55,6 +57,28 @@ const home: Home = {
       { t: "Build", d: "Integrations, data, automations and AI, delivered in short increments that your teams test in real conditions.", out: "Increments in production" },
       { t: "Go live", d: "Deployment, adoption and handover. We leave when your teams run the solution on their own.", out: "Solution in operation and documented" },
     ],
+  },
+  // "Proof" block (HomeView): verifiable facts only. The 7 certifications come from
+  // SITE.founder.certifications (site.ts) and the 14 displayed logos from data/clients.json.
+  // TODO(content): publish anonymised client cases and quotations with written consent, then verifiable outcome figures.
+  // No case, testimonial or percentage is invented here.
+  proofs: {
+    title: "What you can check.",
+    lead: "Projects stay confidential. These are the facts you can check, and the commitments we make in writing.",
+    facts: {
+      founded: "Founded",
+      foundedValue: "2005, so {years} years of activity.",
+      certifications: "Founder's seven certifications",
+      certificationsValue: "PMP, PRINCE2, AgilePM, SAFe, Scrum, ITIL v3, ADKAR.",
+      logos: "Organisations cited",
+      logosValue: "Fourteen organisations whose logos appear on this page, on assignment, as consultants or in-house.",
+      languages: "Working languages",
+      languagesValue: "English, French, Dutch.",
+      area: "Area served",
+      areaValue: "Belgium and Luxembourg.",
+      commitments: "Commitments",
+      commitmentsValue: "A non-disclosure agreement before we talk if you wish, documentation as we go, and the code, access and documentation stay with you.",
+    },
   },
 };
 export default home;
