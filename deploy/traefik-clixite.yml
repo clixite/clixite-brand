@@ -5,6 +5,10 @@ http:
       rule: "Host(`www.clixite.be`) || Host(`clixite.be`)"
       entryPoints: [websecure]
       service: clixite-sites
+      middlewares:
+        # compression à la sortie de nginx (Brotli/zstd/gzip selon Accept-Encoding) ;
+        # nginx ne compresse plus lui-même (gzip désactivé dans deploy/nginx.conf)
+        - clixite-compress
       priority: 100
       tls:
         certResolver: le
@@ -12,9 +16,16 @@ http:
       rule: "Host(`charte.clixite.be`)"
       entryPoints: [websecure]
       service: clixite-sites
+      middlewares:
+        - clixite-compress
       priority: 100
       tls:
         certResolver: le
+  middlewares:
+    # Traefik v3 : compress: {} active gzip, Brotli et Zstandard (Brotli prioritaire
+    # pour les navigateurs qui l'annoncent) ; les corps déjà compressés sont ignorés.
+    clixite-compress:
+      compress: {}
   services:
     clixite-sites:
       loadBalancer:
