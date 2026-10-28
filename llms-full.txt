@@ -1,0 +1,1033 @@
+# Clixite : contenu complet du site www.clixite.be (français)
+
+> Toutes les pages françaises de www.clixite.be, en Markdown, dans l'ordre de lecture conseillé. Chaque page commence par son adresse canonique : citez cette adresse. Le sommaire est dans https://www.clixite.be/llms.txt ; les versions néerlandaise et anglaise sont dans https://www.clixite.be/nl/llms-full.txt et https://www.clixite.be/en/llms-full.txt.
+
+* * *
+
+Titre : Clixite, conseil et ingénierie à Wavre depuis 2005
+Source : https://www.clixite.be/
+Langue : français (Belgique)
+Mise à jour : 2026-10-26
+Éditeur : Clixite SRL, Wavre, Belgique (BCE 0871.430.776)
+Résumé : Conseil et ingénierie à Wavre depuis 2005. Clixite conçoit, construit et met en production les systèmes des entreprises belges et luxembourgeoises.
+
+# Nous construisons votre solution dans vos équipes, jusqu’en production.
+
+Conseil et ingénierie depuis 2005\. Nous concevons, construisons et mettons en production vos systèmes, dans vos équipes, en Belgique et au Luxembourg.
+
+## Là où nous avons travaillé.
+
+Télécoms, banque, assurance, industrie pharmaceutique, construction, aviation, distribution, loisirs, PME : des environnements très différents, en mission, en conseil ou en poste. Les projets, eux, restent confidentiels.
+
+- Proximus
+- Orange
+- KBC
+- ING
+- Groupe P&V
+- Boehringer Ingelheim
+- AstraZeneca
+- UCB
+- Eiffage
+- Twin Square
+- The Depot
+- Pairi Daiza
+- Tero
+- Design Plus
+
+## Forward Deployed Engineering.
+
+Clixite s’installe dans vos équipes pour concevoir, construire et mettre en production vos intégrations, vos automatisations et vos agents IA, puis vous transférer la solution. En Belgique et au Luxembourg, en français, en néerlandais ou en anglais.
+
+- **Dans vos équipes, pas à côté.**
+Sur site ou à distance, dans vos outils et à votre rythme. Les décisions se prennent là où le travail se fait.
+- **En production, pas en PowerPoint.**
+La mission se mesure à ce qui tourne : une intégration, un processus automatisé, un agent IA utilisé le lundi matin.
+- **Sous votre contrôle, puis chez vous.**
+Vos environnements, vos règles de sécurité, des accès nominatifs. À la fin, le code, la documentation et le savoir-faire restent chez vous.
+
+## GEO : être la réponse des assistants IA.
+
+Vos clients ne cherchent plus seulement sur Google. Ils demandent à ChatGPT, Claude, Perplexity, Gemini ou Copilot qui peut les aider. Nous travaillons pour que les assistants vous trouvent et vous décrivent juste.
+
+1. **Mesurer**
+Les questions que posent vos clients, testées sur les principaux assistants : qui est cité, et avec quelles informations.
+2. **Structurer**
+Une entité cohérente, des pages qui répondent et des données structurées fidèles : votre site devient citable.
+3. **Publier et suivre**
+Fiches d’entreprise, profils, bases ouvertes, mentions tierces, puis des tests réguliers : les assistants croisent leurs sources avant de citer.
+
+## Cinq expertises, une même exigence : un résultat qui tourne.
+
+Nous intervenons là où une stratégie doit devenir un système qui fonctionne, dans une PME comme dans un groupe régulé.
+
+- **[Forward Deployed Engineering](https://www.clixite.be/forward-deployed-engineering/)**
+Nous nous installons dans vos équipes pour concevoir, construire et mettre en production l’intégration, l’automatisation ou l’agent IA dont vous avez besoin, sur vos outils et selon vos règles de sécurité. Nous partons quand vos équipes exploitent la solution seules.
+
+  - Un prototype éprouvé sur vos données réelles
+  - Une solution en production, surveillée et documentée
+  - Un transfert complet : code, accès, documentation, équipes formées
+Intégration, automatisation, agents IA, mise en production, transfert
+- **[GEO : référencement dans les assistants IA](https://www.clixite.be/geo-referencement-ia/)**
+Quand vos clients demandent à ChatGPT, Claude, Perplexity, Gemini ou Copilot qui peut les aider, votre entreprise doit faire partie de la réponse. Nous rendons votre offre compréhensible, vérifiable et citable par les moteurs de réponse comme par Google.
+
+  - Un audit de votre visibilité dans les assistants IA, question par question
+  - Des pages, des données structurées et une entité cohérentes, que les moteurs comprennent
+  - Une présence hors site alignée et un suivi des citations
+GEO, SEO, données structurées, Wikidata, Search Console, Bing Webmaster Tools
+- **[Architecture d’entreprise et de solutions](https://www.clixite.be/expertises/architecture-entreprise-solutions/)**
+Savoir ce que vous avez, décider où vous allez et choisir les solutions qui vous y mènent, sans empiler les outils.
+
+  - Cartographie des applications, des données et des flux
+  - Architecture cible et trajectoire en options chiffrées
+  - Choix de solutions et revues d’architecture extérieures
+Cartographie, architecture cible, intégration, cloud
+- **[Pilotage de programmes](https://www.clixite.be/expertises/pilotage-de-programmes/)**
+Des programmes multi-équipes cadrés et tenus : une gouvernance claire, des risques suivis, des comités qui décident, des utilisateurs embarqués dès le premier jour.
+
+  - Plan, budget et risques repris en main
+  - Gouvernance et comités qui tranchent
+  - Conduite du changement mesurée
+PMP, PRINCE2, SAFe, Scrum, ADKAR
+- **[Digitalisation](https://www.clixite.be/expertises/digitalisation/)**
+Les processus papier, les doubles saisies et les fichiers éparpillés deviennent des outils reliés qui travaillent pour vos équipes.
+
+  - Processus cartographiés et simplifiés avant d’être outillés
+  - Formulaires, flux et validations automatisés
+  - Données reliées entre vos outils, tableaux de bord utilisés
+Automatisation, CRM et ERP, données, IA appliquée
+
+## Là où nos expertises s’appliquent.
+
+Les mêmes méthodes, sur les sujets qui pèsent le plus dans les entreprises régulées comme dans les PME.
+
+- **Achats et Source-to-Pay**
+Fractional CPO, intérim, risques tiers
+Du besoin au paiement : des processus outillés, des risques fournisseurs maîtrisés, une direction des achats à temps partagé ou par intérim.
+[La transformation des achats](https://www.clixite.be/expertises/transformation-achats/)
+- **Risques et conformité**
+DORA, NIS2, RGPD, AI Act
+Des obligations traduites en processus, en responsables et en preuves, dans ce que vous construisez comme dans ce que vous achetez.
+[Le FDE en environnement régulé](https://www.clixite.be/forward-deployed-engineering/#environnement-regule)
+- **IA en production**
+Agents, automatisations, intégrations
+Du prototype qui convainc en démonstration à l’agent IA qui tourne sur vos systèmes, sous contrôle humain.
+[Le Forward Deployed Engineering](https://www.clixite.be/forward-deployed-engineering/)
+- **Produits numériques et SaaS**
+Architecture, intégrations, lancement
+L’architecture, les intégrations et la mise en production d’un produit numérique, jusqu’à ce que votre équipe le fasse évoluer seule.
+[L’architecture de solutions](https://www.clixite.be/expertises/architecture-entreprise-solutions/)
+
+## Du relevé à la mise en service.
+
+Quatre étapes, chacune avec un livrable que vous gardez, même si vous arrêtez là. Vous décidez de la suivante sur pièces.
+
+1. **Relever**
+Cartographie de vos systèmes, de vos flux, de vos contrats et de vos risques. On mesure avant de dessiner.
+Livrable : Diagnostic
+2. **Concevoir**
+L’architecture cible et le chemin pour y aller, en options chiffrées. Ce qu’on garde, ce qu’on remplace, ce qu’on arrête.
+Livrable : Cible et feuille de route
+3. **Construire**
+Intégrations, données, automatisations et IA, livrées par incréments courts que vos équipes testent en conditions réelles.
+Livrable : Incréments en production
+4. **Mettre en service**
+Déploiement, adoption et transfert. Nous partons quand vos équipes tiennent la solution seules.
+Livrable : Solution exploitée et documentée
+
+## Ce qui est vérifiable.
+
+Les projets restent confidentiels. Voici les faits que vous pouvez vérifier, et les engagements que nous prenons par écrit.
+
+**Fondée en**
+2005, soit 20 ans d’activité.
+
+**Sept certifications du fondateur**
+PMP, PRINCE2, AgilePM, SAFe, Scrum, ITIL v3, ADKAR.
+
+**Organisations citées**
+Quatorze organisations dont les logos sont affichés sur cette page, en mission, en conseil ou en poste.
+
+**Langues de travail**
+Français, néerlandais, anglais.
+
+**Zone d’intervention**
+Belgique et Luxembourg.
+
+**Engagements**
+Accord de confidentialité avant l’échange si vous le souhaitez, documentation au fil de l’eau, et le code, les accès et la documentation restent chez vous.
+
+## Travailler ensemble.
+
+Le périmètre, la durée et le budget se fixent ensemble après un premier échange. En Belgique et au Luxembourg, en français, en néerlandais ou en anglais.
+
+| Format               | Ce que vous obtenez                                                             | Quand le choisir                                                               |
+| -------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| Mission de conseil   | Un rôle clair au sein de vos équipes, en direct ou via votre cabinet référencé. | Quand il faut une expertise présente dans la durée.                            |
+| Forfait à livrable   | Un périmètre, un livrable et un budget validés avant de commencer.              | Quand l’objectif est net : une cible, une intégration, une mise en production. |
+| Renfort de programme | Une phase critique tenue avec votre équipe, en construisant avec elle.          | Pour reprendre un programme, passer en production ou organiser le transfert.   |
+
+**Confidentialité**
+Accord de confidentialité signé avant l’échange si vous le souhaitez.
+
+**Continuité**
+Documentation au fil de l’eau et transfert prévu dès le départ.
+
+**Propriété**
+Vos accès, votre code et votre documentation restent chez vous.
+
+## Quel est votre x ?
+
+Un premier échange suffit pour le nommer. Vous repartez avec une première piste, même si nous ne travaillons pas ensemble.
+
+Ou écrivez directement à [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Ou appelez
+
+- [Belgique +32 10 31 10 00](tel:+3210311000)
+- [Luxembourg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, Belgique. Rendez-vous à Wavre, chez vous ou en visio.
+
+* * *
+
+Titre : Forward Deployed Engineering, Belgique et Luxembourg | Clixite
+Source : https://www.clixite.be/forward-deployed-engineering/
+Langue : français (Belgique)
+Mise à jour : 2026-10-26
+Éditeur : Clixite SRL, Wavre, Belgique (BCE 0871.430.776)
+Résumé : Des ingénieurs intégrés à vos équipes conçoivent et mettent en production vos intégrations, automatisations et agents IA, puis vous transfèrent tout.
+
+# Forward Deployed Engineering : construire dans vos équipes, jusqu’à la production.
+
+Le Forward Deployed Engineering (FDE) consiste à installer des ingénieurs dans les équipes d’un client pour concevoir, construire et mettre en production une solution sur ses systèmes, puis la lui transférer. En Belgique et au Luxembourg, Clixite applique ce modèle aux intégrations, aux automatisations et à l’IA, dans le cadre de DORA, NIS2, du RGPD et de l’AI Act.
+
+Mis à jour le 26 octobre 2026
+
+## Qu’est-ce que le Forward Deployed Engineering ?
+
+Un Forward Deployed Engineer est un ingénieur placé chez le client, au plus près de ceux qui utilisent le système. Il comprend le métier, conçoit, code, intègre et déploie, puis transfère ce qu’il a construit. Le terme reste en anglais, en français comme en néerlandais ; on parle parfois d’ingénieur déployé chez le client.
+
+Ce n’est ni un conseil qui s’arrête à la recommandation, ni une régie qui exécute des tâches : le Forward Deployed Engineer porte un résultat défini avec vous, une solution qui tourne dans votre environnement.
+
+### D’où vient le modèle
+
+Le modèle a été formalisé par Palantir, qui distingue ses développeurs produit de ses ingénieurs déployés chez le client, résumés par une formule : un client, de nombreuses capacités. Depuis, les acteurs de l’intelligence artificielle l’ont repris pour faire passer leurs clients du prototype à la production, au point d’en faire l’un des profils les plus recherchés du secteur.
+
+Sources : [Palantir, « Dev versus Delta »](https://blog.palantir.com/dev-versus-delta-demystifying-engineering-roles-at-palantir-ad44c2a6e87), [TechCrunch, 30 juillet 2026](https://techcrunch.com/2026/07/30/forward-deployed-engineers-are-the-AI-industrys-latest-talent-obsession/).
+
+## Quand faire appel à un Forward Deployed Engineer
+
+- Un prototype d’IA fonctionne en démonstration mais n’est jamais passé en production.
+- Vos systèmes ne se parlent pas : ERP, CRM, outil achats et données métier sont à relier de façon fiable.
+- Un processus encore manuel doit être automatisé sans casser ce qui tourne.
+- Un programme a pris du retard et il faut des mains autant que des comités.
+- Votre environnement est régulé et rien ne doit sortir de chez vous.
+- Votre équipe doit monter en compétence, jusqu’à créer sa propre capacité FDE.
+
+## Notre méthode, en quatre temps
+
+Chaque temps livre quelque chose que vous gardez. Vous décidez du suivant sur pièces.
+
+1. **S’installer**
+Accès, environnements, règles de sécurité et interlocuteurs : nous travaillons dans vos outils et avec vos équipes dès le départ.
+Livrable : Cadre de travail validé
+2. **Construire**
+Un prototype sur vos données réelles, testé avec ceux qui l’utiliseront et amélioré par incréments courts.
+Livrable : Prototype éprouvé
+3. **Mettre en production**
+Sécurité, surveillance, documentation et procédures d’exploitation : la solution entre en production selon vos règles.
+Livrable : Solution en production
+4. **Transférer**
+Code, accès, documentation et formation : nous partons quand vos équipes exploitent et font évoluer la solution seules.
+Livrable : Équipes autonomes
+
+## FDE, conseil ou régie : quelle différence ?
+
+|                              | Rôle                                             | Ce que vous recevez                                   | Fin de la mission                                                |
+| ---------------------------- | ------------------------------------------------ | ----------------------------------------------------- | ---------------------------------------------------------------- |
+| Forward Deployed Engineering | Construit et met en production dans vos équipes. | Une solution en production, documentée et transférée. | Quand vos équipes l’exploitent seules.                           |
+| Conseil classique            | Analyse et recommande.                           | Un rapport, une cible, une feuille de route.          | À la remise du livrable.                                         |
+| ESN ou régie                 | Exécute les tâches que vous dirigez.             | Du temps, en obligation de moyens.                    | À l’échéance du contrat ; le transfert n’est pas prévu d’office. |
+
+La différence tient au mandat, pas au contrat : un Forward Deployed Engineer peut être engagé en mission comme au forfait.
+
+## Le Forward Deployed Engineering en environnement régulé
+
+Banques, assurances, entités essentielles : DORA, NIS2, le RGPD et l’AI Act s’appliquent aussi à ce que l’on construit. Le cadre se pose dès le départ.
+
+**Vos environnements**
+Rien n’est construit hors de votre périmètre sans accord écrit.
+
+**Des accès nominatifs**
+Tracés, limités au nécessaire, retirés à la fin de la mission.
+
+**Vos données restent chez vous**
+L’usage d’outils d’IA se décide avec vous, outil par outil.
+
+**Une documentation prête pour l’audit**
+Architecture, choix, risques, procédures d’exploitation.
+
+**L’IA sous contrôle humain**
+Supervision, journalisation et documentation, comme l’exige l’AI Act pour les systèmes concernés.
+
+## Ce que vous gardez
+
+Le code, les accès, la documentation et des équipes formées. Et si vous le souhaitez, l’organisation de votre propre équipe FDE interne : rôles, méthodes, recrutement.
+
+## Travailler ensemble.
+
+Le périmètre, la durée et le budget se fixent ensemble après un premier échange. En Belgique et au Luxembourg, en français, en néerlandais ou en anglais.
+
+| Format               | Ce que vous obtenez                                                             | Quand le choisir                                                               |
+| -------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| Mission de conseil   | Un rôle clair au sein de vos équipes, en direct ou via votre cabinet référencé. | Quand il faut une expertise présente dans la durée.                            |
+| Forfait à livrable   | Un périmètre, un livrable et un budget validés avant de commencer.              | Quand l’objectif est net : une cible, une intégration, une mise en production. |
+| Renfort de programme | Une phase critique tenue avec votre équipe, en construisant avec elle.          | Pour reprendre un programme, passer en production ou organiser le transfert.   |
+
+**Confidentialité**
+Accord de confidentialité signé avant l’échange si vous le souhaitez.
+
+**Continuité**
+Documentation au fil de l’eau et transfert prévu dès le départ.
+
+**Propriété**
+Vos accès, votre code et votre documentation restent chez vous.
+
+## Questions fréquentes sur le Forward Deployed Engineering.
+
+**Qu’est-ce qu’un Forward Deployed Engineer ?**
+Un ingénieur intégré aux équipes d’un client, qui transforme un besoin en solution en service. Il comprend le métier, conçoit, code, intègre, déploie, puis transfère. Le modèle a été formalisé par Palantir.
+
+**Quelle différence avec un consultant ?**
+Le consultant recommande, le Forward Deployed Engineer construit. Sa mission se termine quand vos équipes exploitent la solution, pas à la remise d’un rapport.
+
+**Est-ce de la régie sous un autre nom ?**
+Non. En régie, vous dirigez une ressource tâche par tâche. Le Forward Deployed Engineer porte un résultat défini avec vous : une solution en production, documentée et transférée.
+
+**Faut-il un projet d’intelligence artificielle ?**
+Non. Le modèle vaut aussi pour relier des systèmes, automatiser un processus ou reprendre un programme. L’IA n’est qu’un des cas les plus fréquents.
+
+**Est-ce compatible avec DORA, NIS2, le RGPD et l’AI Act ?**
+Oui, si le cadre est posé au départ : vos environnements, vos règles de sécurité, des accès nominatifs et des données qui restent chez vous.
+
+**Que garde l’entreprise à la fin ?**
+Le code, les accès, la documentation et des équipes formées pour exploiter et faire évoluer la solution.
+
+**Où et en quelles langues intervenez-vous ?**
+En Belgique et au Luxembourg, en français, en néerlandais ou en anglais, sur site ou à distance.
+
+## Nos autres expertises
+
+- [GEO : référencement dans les assistants IA](https://www.clixite.be/geo-referencement-ia/)
+- [Architecture d’entreprise et de solutions](https://www.clixite.be/expertises/architecture-entreprise-solutions/)
+- [Pilotage de programmes](https://www.clixite.be/expertises/pilotage-de-programmes/)
+- [Digitalisation](https://www.clixite.be/expertises/digitalisation/)
+
+## Quel est votre x ?
+
+Un premier échange suffit pour le nommer. Vous repartez avec une première piste, même si nous ne travaillons pas ensemble.
+
+Ou écrivez directement à [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Ou appelez
+
+- [Belgique +32 10 31 10 00](tel:+3210311000)
+- [Luxembourg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, Belgique. Rendez-vous à Wavre, chez vous ou en visio.
+
+* * *
+
+Titre : GEO : référencement dans ChatGPT et les assistants IA | Clixite
+Source : https://www.clixite.be/geo-referencement-ia/
+Langue : français (Belgique)
+Mise à jour : 2026-10-26
+Éditeur : Clixite SRL, Wavre, Belgique (BCE 0871.430.776)
+Résumé : Le GEO rend votre entreprise compréhensible et citable par ChatGPT, Claude, Perplexity et Google : audit, structuration et suivi, en Belgique et au Luxembourg.
+
+# GEO : être la réponse que donnent les assistants IA.
+
+Le GEO (Generative Engine Optimization) consiste à rendre une entreprise compréhensible, vérifiable et citable par les moteurs de réponse : ChatGPT, Claude, Perplexity, Gemini, Copilot et les aperçus IA de Google. Clixite mesure votre visibilité, structure vos contenus et vos données, et corrige ce qui empêche les assistants de vous citer, en Belgique et au Luxembourg.
+
+Mis à jour le 26 octobre 2026
+
+## GEO et SEO : quelle différence ?
+
+Le SEO vise une position dans une liste de liens. Le GEO vise une place dans la réponse que rédige l’assistant, avec une citation de votre site.
+
+Les deux se complètent. Les moteurs de réponse s’appuient largement sur des pages déjà bien référencées, mais ils lisent autrement : ils cherchent des définitions nettes, des faits vérifiables et des sources qui se confirment entre elles.
+
+Source : [Aggarwal et al., « GEO: Generative Engine Optimization », 2023](https://arxiv.org/abs/2311.09735).
+
+## Ce qui fait qu’un assistant vous cite
+
+Ce que l’on sait aujourd’hui, et que nous mesurons pour chaque client.
+
+**Une entité sans ambiguïté**
+Le même nom, la même adresse, les mêmes métiers partout : registre des entreprises, site, LinkedIn, annuaires, Wikidata.
+
+**Des pages qui répondent**
+Une définition en quelques phrases, des questions fréquentes visibles, des comparaisons honnêtes, des pages datées.
+
+**Des données structurées fidèles**
+Un balisage schema.org qui décrit exactement ce que la page affiche, et un site lisible par les robots des assistants.
+
+**Des mentions ailleurs que chez vous**
+Presse, annuaires professionnels, bases ouvertes : les assistants croisent leurs sources avant de citer.
+
+## Notre démarche, en quatre temps
+
+Chaque temps livre quelque chose que vous gardez.
+
+1. **Mesurer**
+Les questions que posent vos clients, testées sur les principaux assistants : qui est cité, avec quelles informations, venues d’où.
+Livrable : Audit de visibilité IA
+2. **Structurer**
+Entité, données structurées, pages définitionnelles, questions fréquentes, règles pour les robots : le site devient lisible et citable.
+Livrable : Site prêt pour les moteurs de réponse
+3. **Publier**
+Contenus de référence, fiches d’entreprise, profils professionnels, Wikidata : votre présence hors site se met en cohérence.
+Livrable : Présence tierce alignée
+4. **Suivre**
+Search Console, Bing Webmaster Tools et tests réguliers des assistants : on mesure les citations et on corrige.
+Livrable : Tableau de suivi
+
+## Ce que personne ne peut garantir
+
+Aucun prestataire ne peut garantir une position dans Google ni une citation par un assistant : les modèles changent, leurs sources aussi.
+
+Ce à quoi nous nous engageons, c’est un travail mesurable : un site explorable, des données valides et cohérentes, une présence alignée, et des tests réguliers pour voir ce qui bouge. Ce site en est l’application : entité décrite en données structurées, pages définitionnelles, questions fréquentes visibles, résumé pour les assistants.
+
+## Pour qui
+
+- Les PME et les cabinets dont les clients se renseignent seuls avant d’appeler.
+- Les groupes qui veulent que les assistants décrivent correctement leurs offres, leurs marques et leurs obligations.
+- Les éditeurs de logiciels et de services dont le nom doit sortir quand on demande une solution à un assistant.
+- Toute entreprise présente en plusieurs langues : les assistants répondent dans la langue de la question.
+
+## Questions fréquentes.
+
+**Qu’est-ce que le GEO ?**
+Le Generative Engine Optimization rend une entreprise compréhensible, vérifiable et citable par les moteurs de réponse, comme ChatGPT, Claude, Perplexity, Gemini, Copilot et les aperçus IA de Google.
+
+**Le SEO est-il encore utile ?**
+Oui. Les moteurs de réponse s’appuient en grande partie sur l’index des moteurs de recherche. Un bon référencement reste la base ; le GEO ajoute ce qui rend un contenu citable.
+
+**Peut-on garantir d’être cité par ChatGPT ?**
+Non, et méfiez-vous de qui le promet. On peut en revanche mesurer votre visibilité, corriger ce qui vous dessert et suivre l’évolution des citations.
+
+**Le fichier llms.txt suffit-il ?**
+Non. Il aide certains outils à résumer un site, mais les principaux assistants le lisent peu à ce jour. Nous le mettons en place sans en attendre de miracle.
+
+**Faut-il refaire son site ?**
+Rarement. La plupart des corrections portent sur le contenu, les données structurées et la présence hors site.
+
+**En quelles langues travaillez-vous ?**
+En français, en néerlandais et en anglais. Les assistants répondent dans la langue de la question : il faut exister dans chacune.
+
+## Nos autres expertises
+
+- [Forward Deployed Engineering](https://www.clixite.be/forward-deployed-engineering/)
+- [Architecture d’entreprise et de solutions](https://www.clixite.be/expertises/architecture-entreprise-solutions/)
+- [Pilotage de programmes](https://www.clixite.be/expertises/pilotage-de-programmes/)
+- [Digitalisation](https://www.clixite.be/expertises/digitalisation/)
+
+## Quel est votre x ?
+
+Un premier échange suffit pour le nommer. Vous repartez avec une première piste, même si nous ne travaillons pas ensemble.
+
+Ou écrivez directement à [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Ou appelez
+
+- [Belgique +32 10 31 10 00](tel:+3210311000)
+- [Luxembourg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, Belgique. Rendez-vous à Wavre, chez vous ou en visio.
+
+* * *
+
+Titre : Architecture d’entreprise et de solutions | Clixite
+Source : https://www.clixite.be/expertises/architecture-entreprise-solutions/
+Langue : français (Belgique)
+Mise à jour : 2026-10-26
+Éditeur : Clixite SRL, Wavre, Belgique (BCE 0871.430.776)
+Résumé : Cartographie du système d'information, architecture cible, trajectoire en options et choix de solutions, jusqu'à la mise en production. Belgique et Luxembourg.
+
+# Architecture d’entreprise et de solutions : décider où va votre système d’information.
+
+L’architecture d’entreprise relie la stratégie au système d’information : ce que vous avez, ce que vous visez et le chemin entre les deux. L’architecture de solutions choisit et dessine les outils qui y mènent. Clixite fait les deux, de la cartographie à la mise en production, pour les PME comme pour les groupes régulés, en Belgique et au Luxembourg.
+
+Mis à jour le 26 octobre 2026
+
+## Quand faire appel à nous
+
+- Vos applications se sont empilées et plus personne n’a la vue d’ensemble.
+- Un grand choix approche : ERP, CRM, outil achats, cloud, plateforme de données.
+- Une fusion, une scission ou une réorganisation rebat les cartes.
+- Un régulateur ou un auditeur demande une vue claire de vos systèmes et de vos fournisseurs critiques.
+- Un projet d’IA doit trouver sa place dans l’existant.
+
+## Ce que vous obtenez
+
+**Une cartographie**
+Applications, données, flux, contrats et fournisseurs critiques, sur une carte que vos équipes savent lire.
+
+**Une architecture cible**
+Principes, briques, intégrations et sécurité : ce vers quoi vous allez, et pourquoi.
+
+**Une trajectoire en options**
+Ce qu’on garde, ce qu’on remplace, ce qu’on arrête ; chaque option avec ses coûts, ses risques et ses dépendances.
+
+**Des revues d’architecture extérieures**
+Un regard extérieur et argumenté sur un choix de solution ou un dossier d’architecture, avant que la décision ne coûte cher.
+
+## De la cible à la mise en production
+
+Une cible n’a de valeur que si elle se construit. Quand elle est validée, nous pouvons la mettre en œuvre avec vos équipes, en Forward Deployed Engineering, et piloter le programme qui la porte.
+
+[Le Forward Deployed Engineering](https://www.clixite.be/forward-deployed-engineering/)
+
+## Questions fréquentes.
+
+**Quelle différence entre architecture d’entreprise et architecture de solutions ?**
+La première décide de l’ensemble : métiers, données, applications, technologies, et la trajectoire entre aujourd’hui et la cible. La seconde conçoit une solution précise dans ce cadre, jusqu’aux intégrations et à la sécurité.
+
+**Une PME a-t-elle besoin d’architecture d’entreprise ?**
+Oui, à sa mesure. Une carte claire de vos outils et de vos flux évite les achats redondants et prépare la croissance. Pour une PME, l’exercice tient en quelques livrables courts.
+
+**Suivez-vous un cadre méthodologique ?**
+Nous reprenons les notions des cadres reconnus quand elles servent, sans imposer de formalisme lourd : un livrable d’architecture doit être lu et utilisé par vos équipes.
+
+**Pouvez-vous aussi construire la cible ?**
+Oui, en Forward Deployed Engineering : nous intégrons vos équipes pour mettre en production ce qui a été décidé, puis nous transférons.
+
+## Nos autres expertises
+
+- [Forward Deployed Engineering](https://www.clixite.be/forward-deployed-engineering/)
+- [GEO : référencement dans les assistants IA](https://www.clixite.be/geo-referencement-ia/)
+- [Pilotage de programmes](https://www.clixite.be/expertises/pilotage-de-programmes/)
+- [Digitalisation](https://www.clixite.be/expertises/digitalisation/)
+
+## Quel est votre x ?
+
+Un premier échange suffit pour le nommer. Vous repartez avec une première piste, même si nous ne travaillons pas ensemble.
+
+Ou écrivez directement à [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Ou appelez
+
+- [Belgique +32 10 31 10 00](tel:+3210311000)
+- [Luxembourg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, Belgique. Rendez-vous à Wavre, chez vous ou en visio.
+
+* * *
+
+Titre : Pilotage de programmes et conduite du changement | Clixite
+Source : https://www.clixite.be/expertises/pilotage-de-programmes/
+Langue : français (Belgique)
+Mise à jour : 2026-10-26
+Éditeur : Clixite SRL, Wavre, Belgique (BCE 0871.430.776)
+Résumé : Gouvernance, planning, budget, risques et adoption : vos programmes multi-équipes tenus jusqu'à la mise en service, en Belgique et au Luxembourg.
+
+# Pilotage de programmes : des programmes multi-équipes tenus jusqu’à la mise en service.
+
+Le pilotage de programmes coordonne plusieurs projets qui servent un même objectif : gouvernance, planning, budget, risques et conduite du changement. Clixite lance ou reprend vos programmes de transformation, en Belgique et au Luxembourg, avec des référentiels reconnus (PMP, PRINCE2, SAFe, Scrum, ADKAR) et une règle : les décisions se prennent sur pièces.
+
+Mis à jour le 26 octobre 2026
+
+## Quand faire appel à nous
+
+- Un programme a pris du retard ou son budget dérive.
+- Plusieurs équipes et plusieurs fournisseurs doivent avancer au même rythme.
+- Les comités se réunissent mais ne décident pas.
+- Une mise en production critique approche.
+- Les utilisateurs n’adoptent pas ce qui a été livré.
+
+## Ce que vous obtenez
+
+**Un diagnostic de reprise**
+Où en est vraiment le programme : périmètre, planning, budget, risques et dépendances.
+
+**Une gouvernance qui décide**
+Des comités, des rôles et des règles d’arbitrage clairs, des tableaux de bord qui servent la décision.
+
+**Un plan tenu**
+Des jalons, des dépendances et des risques suivis de près, avec chaque équipe et chaque fournisseur.
+
+**Un changement mesuré**
+Formation, communication et adoption suivies avec des indicateurs définis au départ.
+
+## Questions fréquentes.
+
+**Pouvez-vous reprendre un programme en cours ?**
+Oui, c’est fréquent : un diagnostic, un plan de reprise et des arbitrages clairs, puis un pilotage au plus près des équipes.
+
+**Méthodes itératives ou cycle en V ?**
+Les deux, selon la nature du programme et vos contraintes : SAFe et Scrum pour le produit et le logiciel, PRINCE2 ou PMP pour les programmes très gouvernés, souvent un mélange assumé.
+
+**Travaillez-vous avec nos fournisseurs et nos intégrateurs ?**
+Oui. Nous coordonnons les équipes internes et les fournisseurs, avec des engagements clairs pour chacun.
+
+**Comment mesurez-vous l’adoption ?**
+Avec des indicateurs définis au départ : usage réel, demandes de support, qualité des données saisies, retours des utilisateurs.
+
+## Nos autres expertises
+
+- [Forward Deployed Engineering](https://www.clixite.be/forward-deployed-engineering/)
+- [GEO : référencement dans les assistants IA](https://www.clixite.be/geo-referencement-ia/)
+- [Architecture d’entreprise et de solutions](https://www.clixite.be/expertises/architecture-entreprise-solutions/)
+- [Digitalisation](https://www.clixite.be/expertises/digitalisation/)
+
+## Quel est votre x ?
+
+Un premier échange suffit pour le nommer. Vous repartez avec une première piste, même si nous ne travaillons pas ensemble.
+
+Ou écrivez directement à [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Ou appelez
+
+- [Belgique +32 10 31 10 00](tel:+3210311000)
+- [Luxembourg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, Belgique. Rendez-vous à Wavre, chez vous ou en visio.
+
+* * *
+
+Titre : Digitalisation des processus et automatisation | Clixite
+Source : https://www.clixite.be/expertises/digitalisation/
+Langue : français (Belgique)
+Mise à jour : 2026-10-26
+Éditeur : Clixite SRL, Wavre, Belgique (BCE 0871.430.776)
+Résumé : Processus simplifiés puis outillés, flux automatisés, données reliées et IA appliquée, de la PME au grand groupe, en Belgique et au Luxembourg.
+
+# Digitalisation des processus : du papier et des doubles saisies à des outils reliés.
+
+La digitalisation des processus remplace le papier, les fichiers éparpillés et les doubles saisies par des flux outillés et des données reliées. Clixite cartographie et simplifie vos processus avant de les automatiser, puis les met en production avec vos équipes, des PME aux grands groupes, en Belgique et au Luxembourg.
+
+Mis à jour le 26 octobre 2026
+
+## Quand faire appel à nous
+
+- Un processus tourne encore sur papier, sur Excel ou par courriel.
+- Les mêmes données sont saisies plusieurs fois dans plusieurs outils.
+- Les validations se perdent entre les boîtes de réception.
+- Les tableaux de bord existent mais personne ne s’en sert.
+- Vous voulez utiliser l’IA sans savoir par où commencer.
+
+## Ce que vous obtenez
+
+**Des processus simplifiés**
+Cartographiés, débarrassés des étapes inutiles, avec des règles claires, avant d’être outillés.
+
+**Des flux automatisés**
+Formulaires, validations, notifications et intégrations avec votre CRM et votre ERP.
+
+**Des données reliées**
+Une seule saisie, des référentiels propres et des tableaux de bord utilisés.
+
+**De l’IA appliquée**
+Là où elle fait gagner du temps, sous contrôle humain et dans le respect du RGPD.
+
+## Questions fréquentes.
+
+**Par où commencer ?**
+Par le processus le plus pénible et le plus fréquent. On le simplifie avant de l’outiller : automatiser un processus confus ne fait que l’accélérer.
+
+**Faut-il changer d’outils ?**
+Pas forcément. Nous exploitons d’abord ce que vous avez ; un nouvel outil ne se justifie que s’il fait mieux à un coût raisonnable.
+
+**Quelle place pour l’IA ?**
+Lire des documents, classer des demandes, préparer des réponses : l’IA rend de vrais services, sous contrôle humain et dans le respect du RGPD.
+
+**Vos équipes pourront-elles faire évoluer les flux ?**
+Oui. La documentation et la formation font partie de chaque mission, pour que vos équipes restent autonomes.
+
+## Nos autres expertises
+
+- [Forward Deployed Engineering](https://www.clixite.be/forward-deployed-engineering/)
+- [GEO : référencement dans les assistants IA](https://www.clixite.be/geo-referencement-ia/)
+- [Architecture d’entreprise et de solutions](https://www.clixite.be/expertises/architecture-entreprise-solutions/)
+- [Pilotage de programmes](https://www.clixite.be/expertises/pilotage-de-programmes/)
+
+## Quel est votre x ?
+
+Un premier échange suffit pour le nommer. Vous repartez avec une première piste, même si nous ne travaillons pas ensemble.
+
+Ou écrivez directement à [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Ou appelez
+
+- [Belgique +32 10 31 10 00](tel:+3210311000)
+- [Luxembourg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, Belgique. Rendez-vous à Wavre, chez vous ou en visio.
+
+* * *
+
+Titre : Transformation des achats et Source-to-Pay | Clixite
+Source : https://www.clixite.be/expertises/transformation-achats/
+Langue : français (Belgique)
+Mise à jour : 2026-10-26
+Éditeur : Clixite SRL, Wavre, Belgique (BCE 0871.430.776)
+Résumé : Source-to-Pay, Fractional CPO, intérim, risques tiers et DORA : Clixite structure vos achats, de la PME au groupe régulé, en Belgique et au Luxembourg.
+
+# Des achats qui pèsent dans les décisions.
+
+Transformation des achats, du besoin au paiement : processus Source-to-Pay outillés, risques fournisseurs maîtrisés, une direction des achats disponible à temps partagé ou par intérim. Pour les PME qui structurent leurs achats comme pour les groupes régulés.
+
+## Ce que nous prenons en charge.
+
+- **Source-to-Pay, du besoin au paiement**
+Du besoin au paiement : sourcing, appels d’offres, contrats, commandes, réception et factures. Des processus simples, outillés quand le volume le justifie, avec SAP Ariba ou l’outil qui convient à votre taille, et intégrés à votre ERP.
+- **Direction des achats à temps partagé**
+Un Fractional CPO présent au rythme que vous fixez : feuille de route, pilotage des appels d’offres stratégiques, montée en compétence de l’équipe. Les pratiques des grands comptes, à la taille de votre entreprise.
+- **Direction des achats par intérim**
+Une prise de fonction quand le poste est vacant ou en transformation. On stabilise, on décide, on prépare l’arrivée du titulaire.
+- **Risques tiers et conformité**
+Cartographie et suivi des fournisseurs critiques, registre d’information DORA, exigences NIS2 sur la chaîne d’approvisionnement, clauses contractuelles et plans de sortie.
+
+## Trois formules, un même niveau d’exigence.
+
+Le périmètre, la durée et le budget se fixent ensemble après un premier échange. Vous hésitez entre les formules ? [Un premier échange suffit pour la choisir](https://www.clixite.be/expertises/transformation-achats/#contact).
+
+- **Diagnostic achats**
+Cartographie des dépenses, maturité des processus, risques fournisseurs et gains rapides chiffrés.
+[Demander le diagnostic](https://www.clixite.be/expertises/transformation-achats/#contact)
+- **Fractional CPO**
+Une direction des achats présente, une feuille de route tenue, des appels d’offres pilotés.
+[Parler d’un Fractional CPO](https://www.clixite.be/expertises/transformation-achats/#contact)
+- **Intérim de direction**
+La fonction tenue et transformée pendant la vacance du poste, puis transmise.
+[Parler d’un intérim](https://www.clixite.be/expertises/transformation-achats/#contact)
+
+## Questions fréquentes.
+
+**Qu’est-ce qu’un Fractional CPO ?**
+Un directeur des achats expérimenté qui travaille pour votre entreprise à temps partagé, au rythme que vous fixez. Vous accédez à une expertise de grand groupe sans créer un poste à temps plein, et vous ajustez la présence selon la charge.
+
+**Le Source-to-Pay est-il utile pour une PME ?**
+Oui, à condition de commencer par les processus avant les outils. Une PME gagne surtout en visibilité sur ses dépenses, en conditions négociées et en temps de traitement des factures. L’outil vient ensuite, dimensionné à vos volumes.
+
+**En quoi le règlement DORA concerne‑t‑il les achats ?**
+Depuis le 17 janvier 2025, DORA impose aux entités financières de l’Union de tenir un registre d’information sur leurs prestataires de services TIC, d’évaluer leurs risques de concentration et d’inscrire des clauses précises dans les contrats. Les achats sont en première ligne pour collecter ces données et négocier ces clauses.
+
+**Clixite travaille-t-elle aussi en néerlandais et en anglais ?**
+Oui. Les missions se déroulent en français, en néerlandais ou en anglais, selon vos équipes et vos fournisseurs, partout en Belgique et au Luxembourg.
+
+## Quel est votre x ?
+
+Un premier échange suffit pour le nommer. Vous repartez avec une première piste, même si nous ne travaillons pas ensemble.
+
+Ou écrivez directement à [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Ou appelez
+
+- [Belgique +32 10 31 10 00](tel:+3210311000)
+- [Luxembourg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, Belgique. Rendez-vous à Wavre, chez vous ou en visio.
+
+* * *
+
+Titre : Nos cinq expertises de conseil et d’ingénierie | Clixite
+Source : https://www.clixite.be/expertises/
+Langue : français (Belgique)
+Mise à jour : 2026-10-26
+Éditeur : Clixite SRL, Wavre, Belgique (BCE 0871.430.776)
+Résumé : Forward Deployed Engineering, GEO, architecture d'entreprise et de solutions, pilotage de programmes, digitalisation : comment Clixite intervient chez vous.
+
+# Cinq expertises, une même exigence : un résultat qui tourne.
+
+Nous intervenons là où une stratégie doit devenir un système qui fonctionne, dans une PME comme dans un groupe régulé, en Belgique et au Luxembourg.
+
+1. ## [Forward Deployed Engineering](https://www.clixite.be/forward-deployed-engineering/)
+Nous nous installons dans vos équipes pour concevoir, construire et mettre en production l’intégration, l’automatisation ou l’agent IA dont vous avez besoin, sur vos outils et selon vos règles de sécurité. Nous partons quand vos équipes exploitent la solution seules.
+
+  - Un prototype éprouvé sur vos données réelles
+  - Une solution en production, surveillée et documentée
+  - Un transfert complet : code, accès, documentation, équipes formées
+Intégration, automatisation, agents IA, mise en production, transfert
+[Forward Deployed Engineering en détail](https://www.clixite.be/forward-deployed-engineering/)
+2. ## [GEO : référencement dans les assistants IA](https://www.clixite.be/geo-referencement-ia/)
+Quand vos clients demandent à ChatGPT, Claude, Perplexity, Gemini ou Copilot qui peut les aider, votre entreprise doit faire partie de la réponse. Nous rendons votre offre compréhensible, vérifiable et citable par les moteurs de réponse comme par Google.
+
+  - Un audit de votre visibilité dans les assistants IA, question par question
+  - Des pages, des données structurées et une entité cohérentes, que les moteurs comprennent
+  - Une présence hors site alignée et un suivi des citations
+GEO, SEO, données structurées, Wikidata, Search Console, Bing Webmaster Tools
+[GEO en détail](https://www.clixite.be/geo-referencement-ia/)
+3. ## [Architecture d’entreprise et de solutions](https://www.clixite.be/expertises/architecture-entreprise-solutions/)
+Savoir ce que vous avez, décider où vous allez et choisir les solutions qui vous y mènent, sans empiler les outils.
+
+  - Cartographie des applications, des données et des flux
+  - Architecture cible et trajectoire en options chiffrées
+  - Choix de solutions et revues d’architecture extérieures
+Cartographie, architecture cible, intégration, cloud
+[Architecture en détail](https://www.clixite.be/expertises/architecture-entreprise-solutions/)
+4. ## [Pilotage de programmes](https://www.clixite.be/expertises/pilotage-de-programmes/)
+Des programmes multi-équipes cadrés et tenus : une gouvernance claire, des risques suivis, des comités qui décident, des utilisateurs embarqués dès le premier jour.
+
+  - Plan, budget et risques repris en main
+  - Gouvernance et comités qui tranchent
+  - Conduite du changement mesurée
+PMP, PRINCE2, SAFe, Scrum, ADKAR
+[Pilotage de programmes en détail](https://www.clixite.be/expertises/pilotage-de-programmes/)
+5. ## [Digitalisation](https://www.clixite.be/expertises/digitalisation/)
+Les processus papier, les doubles saisies et les fichiers éparpillés deviennent des outils reliés qui travaillent pour vos équipes.
+
+  - Processus cartographiés et simplifiés avant d’être outillés
+  - Formulaires, flux et validations automatisés
+  - Données reliées entre vos outils, tableaux de bord utilisés
+Automatisation, CRM et ERP, données, IA appliquée
+[Digitalisation en détail](https://www.clixite.be/expertises/digitalisation/)
+
+## Là où nos expertises s’appliquent.
+
+Les mêmes méthodes, sur les sujets qui pèsent le plus dans les entreprises régulées comme dans les PME.
+
+- **Achats et Source-to-Pay**
+Fractional CPO, intérim, risques tiers
+Du besoin au paiement : des processus outillés, des risques fournisseurs maîtrisés, une direction des achats à temps partagé ou par intérim.
+[La transformation des achats](https://www.clixite.be/expertises/transformation-achats/)
+- **Risques et conformité**
+DORA, NIS2, RGPD, AI Act
+Des obligations traduites en processus, en responsables et en preuves, dans ce que vous construisez comme dans ce que vous achetez.
+[Le FDE en environnement régulé](https://www.clixite.be/forward-deployed-engineering/#environnement-regule)
+- **IA en production**
+Agents, automatisations, intégrations
+Du prototype qui convainc en démonstration à l’agent IA qui tourne sur vos systèmes, sous contrôle humain.
+[Le Forward Deployed Engineering](https://www.clixite.be/forward-deployed-engineering/)
+- **Produits numériques et SaaS**
+Architecture, intégrations, lancement
+L’architecture, les intégrations et la mise en production d’un produit numérique, jusqu’à ce que votre équipe le fasse évoluer seule.
+[L’architecture de solutions](https://www.clixite.be/expertises/architecture-entreprise-solutions/)
+
+## Travailler ensemble.
+
+Le périmètre, la durée et le budget se fixent ensemble après un premier échange. En Belgique et au Luxembourg, en français, en néerlandais ou en anglais.
+
+| Format               | Ce que vous obtenez                                                             | Quand le choisir                                                               |
+| -------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| Mission de conseil   | Un rôle clair au sein de vos équipes, en direct ou via votre cabinet référencé. | Quand il faut une expertise présente dans la durée.                            |
+| Forfait à livrable   | Un périmètre, un livrable et un budget validés avant de commencer.              | Quand l’objectif est net : une cible, une intégration, une mise en production. |
+| Renfort de programme | Une phase critique tenue avec votre équipe, en construisant avec elle.          | Pour reprendre un programme, passer en production ou organiser le transfert.   |
+
+**Confidentialité**
+Accord de confidentialité signé avant l’échange si vous le souhaitez.
+
+**Continuité**
+Documentation au fil de l’eau et transfert prévu dès le départ.
+
+**Propriété**
+Vos accès, votre code et votre documentation restent chez vous.
+
+## Quel est votre x ?
+
+Un premier échange suffit pour le nommer. Vous repartez avec une première piste, même si nous ne travaillons pas ensemble.
+
+Ou écrivez directement à [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Ou appelez
+
+- [Belgique +32 10 31 10 00](tel:+3210311000)
+- [Luxembourg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, Belgique. Rendez-vous à Wavre, chez vous ou en visio.
+
+* * *
+
+Titre : À propos de Clixite, conseil et ingénierie depuis 2005
+Source : https://www.clixite.be/a-propos/
+Langue : français (Belgique)
+Mise à jour : 2026-10-26
+Éditeur : Clixite SRL, Wavre, Belgique (BCE 0871.430.776)
+Résumé : Clixite SRL, fondée en 2005 à Wavre : Forward Deployed Engineering, GEO, architecture, pilotage de programmes et digitalisation, en Belgique et au Luxembourg.
+
+# Conseil et ingénierie, depuis 2005.
+
+Clixite est une société belge de conseil et d’ingénierie installée à Wavre. Elle exerce cinq expertises, de la cible à la mise en production, et une offre dédiée à la transformation des achats, pour des PME en croissance comme pour des groupes régulés.
+
+Sa règle tient en une phrase : « Nous résolvons votre x. » Le problème qui bloque, celui que personne n’a encore nommé.
+
+## Qui vous répond.
+
+Nicolas Simon est le fondateur de Clixite. C’est lui qui lit les messages envoyés depuis ce site et qui y répond, en français, en néerlandais ou en anglais.
+
+Nicolas Simon
+
+Enterprise & Solution Architect, Forward Deployed Engineer
+
+[Profil LinkedIn de Nicolas Simon](https://www.linkedin.com/in/nicolassim/)
+
+**Certifications**
+PMP, PRINCE2, AgilePM, SAFe, Scrum, ITIL v3, ADKAR
+
+**Langues de travail**
+Français, néerlandais, anglais
+
+## L’entreprise en bref.
+
+**Raison sociale**
+Clixite SRL, société à responsabilité limitée de droit belge
+
+**Fondée en**
+2005
+
+**Siège**
+Avenue Reine Astrid 53, 1300 Wavre (Brabant wallon, Belgique)
+
+**Numéro d’entreprise et TVA**
+BE 0871.430.776
+
+**Zone d’intervention**
+Belgique et Luxembourg
+
+**Langues de travail**
+Français, néerlandais, anglais
+
+**Téléphones**
+Belgique +32 10 31 10 00 ; Luxembourg +352 20 42 02 02
+
+**Courriel**
+nicolas@clixite.be
+
+**Certifications de Nicolas Simon**
+PMP, PRINCE2, AgilePM, SAFe, Scrum, ITIL v3, ADKAR
+
+## Cinq expertises.
+
+- [Forward Deployed Engineering](https://www.clixite.be/forward-deployed-engineering/) Intégration, automatisation, agents IA, mise en production, transfert
+- [GEO : référencement dans les assistants IA](https://www.clixite.be/geo-referencement-ia/) GEO, SEO, données structurées, Wikidata, Search Console, Bing Webmaster Tools
+- [Architecture d’entreprise et de solutions](https://www.clixite.be/expertises/architecture-entreprise-solutions/) Cartographie, architecture cible, intégration, cloud
+- [Pilotage de programmes](https://www.clixite.be/expertises/pilotage-de-programmes/) PMP, PRINCE2, SAFe, Scrum, ADKAR
+- [Digitalisation](https://www.clixite.be/expertises/digitalisation/) Automatisation, CRM et ERP, données, IA appliquée
+
+## Des environnements très différents.
+
+Télécoms, banque, assurance, industrie pharmaceutique, construction, aviation, distribution, loisirs, PME en croissance : en mission, en conseil ou en poste. Les projets, eux, restent confidentiels.
+
+[Là où nous avons travaillé](https://www.clixite.be/#references)
+
+L’identité visuelle de Clixite est publiée sur [charte.clixite.be](https://charte.clixite.be/).
+
+## Quel est votre x ?
+
+Un premier échange suffit pour le nommer. Vous repartez avec une première piste, même si nous ne travaillons pas ensemble.
+
+Ou écrivez directement à [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Ou appelez
+
+- [Belgique +32 10 31 10 00](tel:+3210311000)
+- [Luxembourg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, Belgique. Rendez-vous à Wavre, chez vous ou en visio.
+
+* * *
+
+Titre : Contact : Wavre, Belgique et Luxembourg | Clixite
+Source : https://www.clixite.be/contact/
+Langue : français (Belgique)
+Mise à jour : 2026-10-26
+Éditeur : Clixite SRL, Wavre, Belgique (BCE 0871.430.776)
+Résumé : Un premier échange de 45 minutes, sans engagement. Écrivez à nicolas@clixite.be ou appelez le +32 10 31 10 00. Wavre, Belgique et Luxembourg.
+
+# Quel est votre x ?
+
+Un premier échange suffit pour le nommer. Vous repartez avec une première piste, même si nous ne travaillons pas ensemble.
+
+## Nos coordonnées.
+
+**Belgique**
+[+32 10 31 10 00](tel:+3210311000)
+
+**Luxembourg**
+[+352 20 42 02 02](tel:+35220420202)
+
+**Courriel**
+[nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+**Adresse**
+Clixite SRL
+Avenue Reine Astrid 53
+1300 Wavre, Belgique
+
+**Rendez-vous**
+À Wavre, chez vous ou en visio, en français, en néerlandais ou en anglais.
+
+BCE et TVA BE 0871.430.776.
+
+## Ce qui se passe ensuite.
+
+Trois étapes, sans engagement.
+
+1. **Vous écrivez.**
+Deux phrases sur votre enjeu, ou un appel. Une adresse et un numéro suffisent, il n’y a pas de formulaire.
+2. **Nous répondons personnellement.**
+Nicolas Simon lit votre message et vous répond lui-même.
+3. **Premier échange de 45 minutes.**
+Sans engagement, à Wavre, chez vous ou en visio, en français, en néerlandais ou en anglais.
+
+Un accord de confidentialité peut être signé avant l’échange si vous le souhaitez.
+
+* * *
+
+Titre : Mentions légales et confidentialité | Clixite
+Source : https://www.clixite.be/mentions-legales/
+Langue : français (Belgique)
+Mise à jour : 2026-10-26
+Éditeur : Clixite SRL, Wavre, Belgique (BCE 0871.430.776)
+Résumé : Éditeur du site, hébergement, propriété intellectuelle et protection des données personnelles sur www.clixite.be.
+
+# Mentions légales et confidentialité.
+
+## Éditeur
+
+Clixite SRL, société à responsabilité limitée. Siège : Avenue Reine Astrid 53, 1300 Wavre, Belgique. Numéro d’entreprise et TVA : BE 0871.430.776, RPM Brabant wallon. Responsable de la publication : Nicolas Simon. Contact : [nicolas@clixite.be](mailto:nicolas@clixite.be), [+32 10 31 10 00](tel:+3210311000) (Belgique) ou [+352 20 42 02 02](tel:+35220420202) (Luxembourg).
+
+## Hébergement
+
+Le site est servi par un serveur privé virtuel administré par Clixite et loué à Hostinger International Ltd, dans un centre de données situé dans l’Union européenne.
+
+## Propriété intellectuelle
+
+Les textes, le logo et les illustrations de Clixite sont protégés. Leur reproduction demande un accord écrit. Les logos des organisations citées appartiennent à leurs titulaires respectifs.
+
+## Crédits photographiques
+
+Les photographies proviennent d’Unsplash, sous [licence Unsplash](https://unsplash.com/license), et ont été recadrées et étalonnées aux couleurs de Clixite. Elles illustrent nos métiers et ne montrent ni nos clients ni nos projets.
+
+- [Une main trace un plan à la règle sur une grande feuille](https://unsplash.com/photos/-FPFq%5Ftrr2Y), Daniel McCullough
+- [Un plateau de bureau éclairé le soir, vu de l’extérieur : une équipe au travail derrière la grande baie](https://unsplash.com/photos/v6JKMaqAwZE), Vitaly Gariev
+- [Trois ingénieurs penchés sur un ordinateur portable, au milieu d’un banc d’essai en atelier](https://unsplash.com/photos/bIltCMXIwRE), ThisisEngineering
+- [Une longue allée de rayonnages chargés de dossiers et de reliures](https://unsplash.com/photos/eR96tng0pyk), Zoshua Colah
+- [Une salle de réunion vide, une longue table face à une baie vitrée](https://unsplash.com/photos/0sT9YhNgSEs), Benjamin Child
+- [Deux voies ferrées qui se croisent en X, vues d’en haut](https://unsplash.com/photos/AO3otVvlMU8), Zane Lee
+- [Des rangées d’armoires de serveurs dans un centre de données](https://unsplash.com/photos/fImCPTZ026U), Tony Marinescu
+- [Un terminal portuaire vu du ciel : des conteneurs alignés en rangées et des portiques de levage](https://unsplash.com/photos/kyCNGGKCvyw), CHUTTERSNAP
+- [Des fibres optiques jaunes raccordées une à une sur un panneau de brassage](https://unsplash.com/photos/yhJVLxcquEY), Albert Stoynov
+
+## Vos données personnelles
+
+Ce site ne dépose aucun cookie, n’utilise aucun outil de mesure d’audience et ne charge aucune ressource externe : les polices sont hébergées sur notre propre serveur. Il garde un seul réglage dans votre navigateur, si vous mettez le film d’accueil en pause : ce choix reste sur votre appareil et ne nous est jamais transmis.
+
+Le serveur conserve des journaux techniques (adresse IP, date, page demandée) pendant une durée limitée, pour la sécurité du service (intérêt légitime).
+
+Si vous nous écrivez, nous utilisons votre nom, votre adresse électronique et le contenu du message pour vous répondre et, si vous le demandez, pour préparer une proposition (mesures précontractuelles prises à votre demande). Ces données ne sont ni vendues ni cédées. Responsable du traitement : Clixite SRL.
+
+Vous pouvez demander l’accès à vos données, leur rectification, leur effacement, la limitation du traitement ou vous y opposer, en écrivant à [nicolas@clixite.be](mailto:nicolas@clixite.be). Vous pouvez aussi introduire une plainte auprès de l’Autorité de protection des données, rue de la Presse 35, 1000 Bruxelles ([autoriteprotectiondonnees.be](https://www.autoriteprotectiondonnees.be/)).
+
+## Quel est votre x ?
+
+Un premier échange suffit pour le nommer. Vous repartez avec une première piste, même si nous ne travaillons pas ensemble.
+
+Ou écrivez directement à [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Ou appelez
+
+- [Belgique +32 10 31 10 00](tel:+3210311000)
+- [Luxembourg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, Belgique. Rendez-vous à Wavre, chez vous ou en visio.

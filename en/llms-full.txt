@@ -1,0 +1,1033 @@
+# Clixite: full content of www.clixite.be (English)
+
+> All English pages of www.clixite.be, in Markdown, in the recommended reading order. Each page starts with its canonical address: cite that address. The summary is at https://www.clixite.be/en/llms.txt.
+
+* * *
+
+Title: Clixite: consulting and engineering in Wavre since 2005
+Source: https://www.clixite.be/en/
+Language: English
+Updated: 2026-10-26
+Publisher: Clixite SRL, Wavre, Belgium (company number 0871.430.776)
+Summary: Consulting and engineering in Wavre since 2005. Clixite designs, builds and ships the systems of Belgian and Luxembourg companies to production.
+
+# We build your solution inside your teams, all the way to production.
+
+Consulting and engineering since 2005\. We design, build and ship your systems to production, inside your teams, in Belgium and Luxembourg.
+
+## Where we have worked.
+
+Telecoms, banking, insurance, pharmaceuticals, construction, aviation, distribution, leisure, SMEs: very different environments, on assignment, as consultants or in-house. The projects themselves stay confidential.
+
+- Proximus
+- Orange
+- KBC
+- ING
+- Groupe P&V
+- Boehringer Ingelheim
+- AstraZeneca
+- UCB
+- Eiffage
+- Twin Square
+- The Depot
+- Pairi Daiza
+- Tero
+- Design Plus
+
+## Forward Deployed Engineering.
+
+Clixite joins your teams to design, build and ship your integrations, automations and AI agents to production, then hands the solution over to you. In Belgium and Luxembourg, in English, French or Dutch.
+
+- **Inside your teams, not alongside them.**
+On site or remotely, in your tools and at your pace. Decisions are made where the work gets done.
+- **In production, not in PowerPoint.**
+The assignment is measured by what runs: an integration, an automated process, an AI agent in use on Monday morning.
+- **Under your control, then in your hands.**
+Your environments, your security rules, named access. At the end, the code, the documentation and the know-how stay with you.
+
+## GEO: be the answer AI assistants give.
+
+Your clients no longer just search Google. They ask ChatGPT, Claude, Perplexity, Gemini or Copilot who can help them. We work to help assistants find you and describe you accurately.
+
+1. **Measure**
+The questions your clients ask, tested on the main assistants: who gets cited, and with what information.
+2. **Structure**
+A consistent entity, pages that answer questions and accurate structured data: your site becomes citable.
+3. **Publish and monitor**
+Business listings, profiles, open databases, third-party mentions, then regular tests: assistants cross-check their sources before they cite.
+
+## Five expertise areas, one standard: what we deliver has to run.
+
+We step in where a strategy has to become a working system, in SMEs and regulated groups alike.
+
+- **[Forward Deployed Engineering](https://www.clixite.be/en/forward-deployed-engineering/)**
+We join your teams to design and build the integration, automation or AI agent you need and take it into production, using your tools and following your security rules. We leave when your teams run the solution on their own.
+
+  - A prototype proven on your real data
+  - A solution in production, monitored and documented
+  - A complete handover: code, access, documentation, trained teams
+Systems integration, process automation, AI agents, go-live, handover
+- **[GEO: visibility in AI assistants](https://www.clixite.be/en/generative-engine-optimization/)**
+When your clients ask ChatGPT, Claude, Perplexity, Gemini or Copilot who can help them, your company needs to be part of the answer. We make your offering understandable, verifiable and citable by answer engines as well as by Google.
+
+  - An audit of your visibility in AI assistants, question by question
+  - Consistent pages, structured data and entity details that engines understand
+  - An aligned off-site presence and citation tracking
+GEO, SEO, structured data, Wikidata, Search Console, Bing Webmaster Tools
+- **[Enterprise and solution architecture](https://www.clixite.be/en/expertise/enterprise-solution-architecture/)**
+Know what you have, decide where you are going and choose the solutions that take you there, without piling up tools.
+
+  - Mapping of applications, data and flows
+  - Target architecture and roadmap, as costed options
+  - Solution selection and external architecture reviews
+IT landscape mapping, target architecture, integration, cloud
+- **[Programme management](https://www.clixite.be/en/expertise/programme-management/)**
+Multi-team programmes scoped and kept on track: clear governance, risks tracked, committees that decide, users on board from day one.
+
+  - Plan, budget and risks back under control
+  - Governance and committees that make decisions
+  - Change management you can measure
+PMP, PRINCE2, SAFe, Scrum, ADKAR
+- **[Digitalisation](https://www.clixite.be/en/expertise/digitalisation/)**
+Paper processes, double data entry and scattered files become connected tools that work for your teams.
+
+  - Processes mapped and simplified before any tool is added
+  - Automated forms, workflows and approvals
+  - Data connected across your tools, dashboards that get used
+Process automation, CRM and ERP, data, applied AI
+
+## Where our expertise areas apply.
+
+The same methods, on the topics that matter most in regulated enterprises and SMEs alike.
+
+- **Procurement and Source-to-Pay**
+Fractional CPO, interim management, third-party risk
+From need to payment: processes backed by the right tools, supplier risk under control, procurement leadership on a fractional or interim basis.
+[Procurement transformation](https://www.clixite.be/en/expertise/procurement-transformation/)
+- **Risk and compliance**
+DORA, NIS2, GDPR, AI Act
+Obligations translated into processes, owners and evidence, in what you build as well as in what you buy.
+[FDE in regulated environments](https://www.clixite.be/en/forward-deployed-engineering/#regulated-environments)
+- **AI in production**
+Agents, automations, integrations
+From a prototype that looks convincing in a demo to an AI agent that runs on your systems, under human oversight.
+[Forward Deployed Engineering](https://www.clixite.be/en/forward-deployed-engineering/)
+- **Digital products and SaaS**
+Architecture, integrations, launch
+The architecture, integrations and go-live of a digital product, until your team can develop it further on its own.
+[Solution architecture](https://www.clixite.be/en/expertise/enterprise-solution-architecture/)
+
+## From discovery to go-live.
+
+Four stages, each with a deliverable you keep, even if you stop there. You decide on the next one based on evidence.
+
+1. **Discover**
+A map of your systems, flows, contracts and risks. We measure before we draw.
+Deliverable: Assessment
+2. **Design**
+The target architecture and the path to get there, as costed options. What we keep, what we replace, what we stop.
+Deliverable: Target architecture and roadmap
+3. **Build**
+Integrations, data, automations and AI, delivered in short increments that your teams test in real conditions.
+Deliverable: Increments in production
+4. **Go live**
+Deployment, adoption and handover. We leave when your teams run the solution on their own.
+Deliverable: Solution in operation and documented
+
+## What you can check.
+
+Projects stay confidential. These are the facts you can check, and the commitments we make in writing.
+
+**Founded**
+2005, so 20 years of activity.
+
+**Founder’s seven certifications**
+PMP, PRINCE2, AgilePM, SAFe, Scrum, ITIL v3, ADKAR.
+
+**Organisations cited**
+Fourteen organisations whose logos appear on this page, on assignment, as consultants or in-house.
+
+**Working languages**
+English, French, Dutch.
+
+**Area served**
+Belgium and Luxembourg.
+
+**Commitments**
+A non-disclosure agreement before we talk if you wish, documentation as we go, and the code, access and documentation stay with you.
+
+## Working together.
+
+Scope, duration and budget are agreed with you after a first conversation. In Belgium and Luxembourg, in English, French or Dutch.
+
+| Format                  | What you get                                                                 | When to choose it                                                         |
+| ----------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Consulting assignment   | A clear role inside your teams, directly or through your preferred supplier. | When you need expertise in place for the longer term.                     |
+| Fixed-scope delivery    | A scope, a deliverable and a budget agreed before we start.                  | When the goal is clear: a target architecture, an integration, a go-live. |
+| Programme reinforcement | A critical phase seen through with your team, building alongside it.         | To recover a programme, go live or organise the handover.                 |
+
+**Confidentiality**
+A non-disclosure agreement signed before we talk, if you wish.
+
+**Continuity**
+Documentation as we go and a handover planned from day one.
+
+**Ownership**
+Your access, your code and your documentation stay with you.
+
+## What is your x?
+
+One conversation is enough to name it. You leave with a first idea of the way forward, even if we do not end up working together.
+
+Or write directly to [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Or call
+
+- [Belgium +32 10 31 10 00](tel:+3210311000)
+- [Luxembourg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, Belgium. We meet in Wavre, at your premises or by video call.
+
+* * *
+
+Title: Forward Deployed Engineering, Belgium and Luxembourg | Clixite
+Source: https://www.clixite.be/en/forward-deployed-engineering/
+Language: English
+Updated: 2026-10-26
+Publisher: Clixite SRL, Wavre, Belgium (company number 0871.430.776)
+Summary: Engineers embedded in your teams design, build and ship your integrations, automations and AI agents to production, then hand everything over to you.
+
+# Forward Deployed Engineering: building inside your teams, all the way to production.
+
+Forward Deployed Engineering (FDE) means placing engineers inside a client’s teams to design, build and ship a solution to production on the client’s own systems, then hand it over. In Belgium and Luxembourg, Clixite applies this model to integrations, automation and AI, within the frameworks of DORA, NIS2, the GDPR and the AI Act.
+
+Updated 26 October 2026
+
+## What is Forward Deployed Engineering?
+
+A Forward Deployed Engineer is an engineer placed with the client, close to the people who use the system. They understand the business, design, code, integrate and deploy, then hand over what they built.
+
+It is neither consulting that stops at a recommendation nor staffing that executes tasks: the Forward Deployed Engineer owns an outcome defined with you, a solution running in your environment.
+
+### Where the model comes from
+
+The model was formalised by Palantir, which distinguishes its product developers from the engineers it deploys with customers, summed up in the phrase “one customer, many capabilities”. AI companies have since adopted it to take their customers from prototype to production, to the point of making it one of the most sought-after profiles in the industry.
+
+Sources: [Palantir, “Dev versus Delta”](https://blog.palantir.com/dev-versus-delta-demystifying-engineering-roles-at-palantir-ad44c2a6e87), [TechCrunch, 30 July 2026](https://techcrunch.com/2026/07/30/forward-deployed-engineers-are-the-AI-industrys-latest-talent-obsession/).
+
+## When to bring in a Forward Deployed Engineer
+
+- An AI prototype works in a demo but has never reached production.
+- Your systems do not talk to each other: ERP, CRM, procurement tools and business data need reliable connections.
+- A manual process must be automated without breaking what already runs.
+- A programme is late and needs hands as much as steering committees.
+- Your environment is regulated and nothing may leave your premises.
+- Your team needs to build skills, up to creating its own FDE capability.
+
+## How we work, in four stages
+
+Each stage delivers something you keep. You decide on the next one based on evidence.
+
+1. **Settle in**
+Access, environments, security rules and contacts: we work in your tools and with your teams from the start.
+Deliverable: Agreed working framework
+2. **Build**
+A prototype on your real data, tested with the people who will use it and improved in short increments.
+Deliverable: Proven prototype
+3. **Go to production**
+Security, monitoring, documentation and runbooks: the solution goes live according to your rules.
+Deliverable: Solution in production
+4. **Hand over**
+Code, access, documentation and training: we leave when your teams run and evolve the solution on their own.
+Deliverable: Self-sufficient teams
+
+## FDE, consulting or staffing: what is the difference?
+
+|                              | Role                                              | What you receive                                      | End of the assignment                             |
+| ---------------------------- | ------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------- |
+| Forward Deployed Engineering | Builds and ships to production inside your teams. | A solution in production, documented and handed over. | When your teams run it on their own.              |
+| Traditional consulting       | Analyses and recommends.                          | A report, a target, a roadmap.                        | When the deliverable is handed in.                |
+| IT services or staffing      | Executes the tasks you direct.                    | Time, on a best-efforts basis.                        | When the contract ends; handover is not built in. |
+
+The difference lies in the mandate, not the contract: a Forward Deployed Engineer can be engaged on a time-and-materials or a fixed-scope basis.
+
+## Forward Deployed Engineering in regulated environments
+
+Banks, insurers, essential entities: DORA, NIS2, the GDPR and the AI Act also apply to what gets built. The framework is set from the start.
+
+**Your environments**
+Nothing is built outside your perimeter without written agreement.
+
+**Named access**
+Logged, limited to what is needed, removed at the end of the assignment.
+
+**Your data stays with you**
+The use of AI tools is decided with you, tool by tool.
+
+**Audit-ready documentation**
+Architecture, decisions, risks, operating procedures.
+
+**AI under human oversight**
+Oversight, logging and documentation, as the AI Act requires for the systems in scope.
+
+## What you keep
+
+The code, the access, the documentation and trained teams. And if you wish, the set-up of your own internal FDE team: roles, methods, hiring.
+
+## Working together.
+
+Scope, duration and budget are agreed with you after a first conversation. In Belgium and Luxembourg, in English, French or Dutch.
+
+| Format                  | What you get                                                                 | When to choose it                                                         |
+| ----------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Consulting assignment   | A clear role inside your teams, directly or through your preferred supplier. | When you need expertise in place for the longer term.                     |
+| Fixed-scope delivery    | A scope, a deliverable and a budget agreed before we start.                  | When the goal is clear: a target architecture, an integration, a go-live. |
+| Programme reinforcement | A critical phase seen through with your team, building alongside it.         | To recover a programme, go live or organise the handover.                 |
+
+**Confidentiality**
+A non-disclosure agreement signed before we talk, if you wish.
+
+**Continuity**
+Documentation as we go and a handover planned from day one.
+
+**Ownership**
+Your access, your code and your documentation stay with you.
+
+## Frequently asked questions about Forward Deployed Engineering.
+
+**What is a Forward Deployed Engineer?**
+An engineer embedded in a client’s teams who turns a need into a working service. They understand the business, design, code, integrate, deploy, then hand over. The model was formalised by Palantir.
+
+**How is it different from a consultant?**
+A consultant recommends; a Forward Deployed Engineer builds. The assignment ends when your teams run the solution, not when a report is delivered.
+
+**Is it staffing under another name?**
+No. With staffing, you direct a resource task by task. A Forward Deployed Engineer owns an outcome defined with you: a solution in production, documented and handed over.
+
+**Do I need an artificial intelligence project?**
+No. The model also works for connecting systems, automating a process or recovering a programme. AI is simply one of the most common cases.
+
+**Is it compatible with DORA, NIS2, the GDPR and the AI Act?**
+Yes, provided the framework is set from the start: your environments, your security rules, named access and data that stays with you.
+
+**What does the company keep at the end?**
+The code, the access, the documentation and teams trained to run and evolve the solution.
+
+**Where and in which languages do you work?**
+In Belgium and Luxembourg, in English, French or Dutch, on site or remotely.
+
+## Our other expertise areas
+
+- [GEO: visibility in AI assistants](https://www.clixite.be/en/generative-engine-optimization/)
+- [Enterprise and solution architecture](https://www.clixite.be/en/expertise/enterprise-solution-architecture/)
+- [Programme management](https://www.clixite.be/en/expertise/programme-management/)
+- [Digitalisation](https://www.clixite.be/en/expertise/digitalisation/)
+
+## What is your x?
+
+One conversation is enough to name it. You leave with a first idea of the way forward, even if we do not end up working together.
+
+Or write directly to [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Or call
+
+- [Belgium +32 10 31 10 00](tel:+3210311000)
+- [Luxembourg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, Belgium. We meet in Wavre, at your premises or by video call.
+
+* * *
+
+Title: GEO: visibility in ChatGPT and AI assistants | Clixite
+Source: https://www.clixite.be/en/generative-engine-optimization/
+Language: English
+Updated: 2026-10-26
+Publisher: Clixite SRL, Wavre, Belgium (company number 0871.430.776)
+Summary: GEO makes your company understandable and citable by ChatGPT, Claude, Perplexity and Google: audit, structuring and monitoring, in Belgium and Luxembourg.
+
+# GEO: be the answer AI assistants give.
+
+Generative Engine Optimization (GEO) means making a company understandable, verifiable and citable by answer engines: ChatGPT, Claude, Perplexity, Gemini, Copilot and Google’s AI Overviews. Clixite measures your visibility, structures your content and data, and fixes what stops assistants from citing you, in Belgium and Luxembourg.
+
+Updated 26 October 2026
+
+## GEO and SEO: what is the difference?
+
+SEO aims for a position in a list of links. GEO aims for a place in the answer the assistant writes, with your site cited as a source.
+
+The two complement each other. Answer engines rely heavily on pages that already rank well, but they read differently: they look for clear definitions, verifiable facts and sources that confirm one another.
+
+Source: [Aggarwal et al., “GEO: Generative Engine Optimization”, 2023](https://arxiv.org/abs/2311.09735).
+
+## What makes an assistant cite you
+
+What is known today, and what we measure for every client.
+
+**An unambiguous entity**
+The same name, the same address, the same services everywhere: company register, website, LinkedIn, directories, Wikidata.
+
+**Pages that answer questions**
+A definition in a few sentences, visible frequently asked questions, honest comparisons, dated pages.
+
+**Accurate structured data**
+schema.org markup that describes exactly what the page displays, and a site that assistants’ crawlers can read.
+
+**Mentions beyond your own site**
+Press, professional directories, open databases: assistants cross-check their sources before they cite.
+
+## Our approach, in four stages
+
+Each stage delivers something you keep.
+
+1. **Measure**
+The questions your clients ask, tested on the main assistants: who gets cited, with what information, and from where.
+Deliverable: AI visibility audit
+2. **Structure**
+Entity, structured data, definition pages, frequently asked questions, rules for crawlers: the site becomes readable and citable.
+Deliverable: A site ready for answer engines
+3. **Publish**
+Reference content, business listings, professional profiles, Wikidata: your off-site presence becomes consistent.
+Deliverable: Aligned third-party presence
+4. **Monitor**
+Search Console, Bing Webmaster Tools and regular tests of the assistants: we measure citations and make corrections.
+Deliverable: Tracking dashboard
+
+## What no one can guarantee
+
+No provider can guarantee a position in Google or a citation by an assistant: the models change, and so do their sources.
+
+What we commit to is measurable work: a crawlable site, valid and consistent data, an aligned presence, and regular tests to see what moves. This site puts it into practice: an entity described in structured data, definition pages, visible frequently asked questions, a summary for assistants.
+
+## Who it is for
+
+- SMEs and professional firms whose clients do their own research before they call.
+- Groups that want assistants to describe their offerings, brands and obligations correctly.
+- Software and service providers whose name must come up when someone asks an assistant for a solution.
+- Any company that operates in several languages: assistants answer in the language of the question.
+
+## Frequently asked questions.
+
+**What is GEO?**
+Generative Engine Optimization (GEO) makes a company understandable, verifiable and citable by answer engines such as ChatGPT, Claude, Perplexity, Gemini, Copilot and Google’s AI Overviews.
+
+**Is SEO still useful?**
+Yes. Answer engines rely largely on search engine indexes. Good SEO remains the foundation; GEO adds what makes content citable.
+
+**Can anyone guarantee that ChatGPT will cite you?**
+No, and be wary of anyone who promises it. What you can do is measure your visibility, fix what works against you and track how citations change over time.
+
+**Is an llms.txt file enough?**
+No. It helps some tools summarise a site, but so far the main assistants rarely read it. We set it up without expecting miracles.
+
+**Do you need to rebuild your website?**
+Rarely. Most fixes concern content, structured data and off-site presence.
+
+**Which languages do you work in?**
+We work in English, French and Dutch. Assistants answer in the language of the question: you need to be present in each one.
+
+## Our other expertise areas
+
+- [Forward Deployed Engineering](https://www.clixite.be/en/forward-deployed-engineering/)
+- [Enterprise and solution architecture](https://www.clixite.be/en/expertise/enterprise-solution-architecture/)
+- [Programme management](https://www.clixite.be/en/expertise/programme-management/)
+- [Digitalisation](https://www.clixite.be/en/expertise/digitalisation/)
+
+## What is your x?
+
+One conversation is enough to name it. You leave with a first idea of the way forward, even if we do not end up working together.
+
+Or write directly to [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Or call
+
+- [Belgium +32 10 31 10 00](tel:+3210311000)
+- [Luxembourg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, Belgium. We meet in Wavre, at your premises or by video call.
+
+* * *
+
+Title: Enterprise and solution architecture in Belgium | Clixite
+Source: https://www.clixite.be/en/expertise/enterprise-solution-architecture/
+Language: English
+Updated: 2026-10-26
+Publisher: Clixite SRL, Wavre, Belgium (company number 0871.430.776)
+Summary: IT landscape mapping, target architecture, roadmap options and solution selection, all the way to production. In Belgium and Luxembourg.
+
+# Enterprise and solution architecture: decide where your IT landscape is heading.
+
+Enterprise architecture links strategy to information systems: what you have, what you are aiming for and the path between the two. Solution architecture selects and designs the tools that get you there. Clixite does both, from mapping to production, for SMEs and regulated groups alike, in Belgium and Luxembourg.
+
+Updated 26 October 2026
+
+## When to bring us in
+
+- Your applications have piled up and no one has the full picture any more.
+- A major choice is coming up: ERP, CRM, procurement tool, cloud, data platform.
+- A merger, a demerger or a reorganisation redraws the map.
+- A regulator or an auditor asks for a clear view of your systems and your critical suppliers.
+- An AI project has to find its place in the existing landscape.
+
+## What you get
+
+**A landscape map**
+Applications, data, flows, contracts and critical suppliers, on a map your teams can read.
+
+**A target architecture**
+Principles, building blocks, integrations and security: where you are heading, and why.
+
+**A roadmap with options**
+What we keep, what we replace, what we stop; each option with its costs, risks and dependencies.
+
+**External architecture reviews**
+An outside, well-argued view of a solution choice or an architecture document, before the decision becomes expensive.
+
+## From target to production
+
+A target only has value if it gets built. Once it is approved, we can implement it with your teams, through Forward Deployed Engineering, and manage the programme that delivers it.
+
+[Forward Deployed Engineering](https://www.clixite.be/en/forward-deployed-engineering/)
+
+## Frequently asked questions.
+
+**What is the difference between enterprise architecture and solution architecture?**
+Enterprise architecture decides on the whole picture: business, data, applications, technology, and the path from today to the target. Solution architecture designs a specific solution within that framework, down to integrations and security.
+
+**Does an SME need enterprise architecture?**
+Yes, at its own scale. A clear map of your tools and flows avoids redundant purchases and prepares for growth. For an SME, the exercise fits into a few short deliverables.
+
+**Do you follow a specific framework?**
+We draw on the concepts of recognised frameworks when they help, without imposing heavy formalism: an architecture deliverable has to be read and used by your teams.
+
+**Can you also build the target?**
+Yes, through Forward Deployed Engineering: we join your teams to take what has been decided into production, then hand it over.
+
+## Our other expertise areas
+
+- [Forward Deployed Engineering](https://www.clixite.be/en/forward-deployed-engineering/)
+- [GEO: visibility in AI assistants](https://www.clixite.be/en/generative-engine-optimization/)
+- [Programme management](https://www.clixite.be/en/expertise/programme-management/)
+- [Digitalisation](https://www.clixite.be/en/expertise/digitalisation/)
+
+## What is your x?
+
+One conversation is enough to name it. You leave with a first idea of the way forward, even if we do not end up working together.
+
+Or write directly to [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Or call
+
+- [Belgium +32 10 31 10 00](tel:+3210311000)
+- [Luxembourg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, Belgium. We meet in Wavre, at your premises or by video call.
+
+* * *
+
+Title: Programme management and change management | Clixite
+Source: https://www.clixite.be/en/expertise/programme-management/
+Language: English
+Updated: 2026-10-26
+Publisher: Clixite SRL, Wavre, Belgium (company number 0871.430.776)
+Summary: Governance, planning, budget, risk and adoption: your multi-team programmes kept on track through to go-live, in Belgium and Luxembourg.
+
+# Programme management: multi-team programmes kept on track through to go-live.
+
+Programme management coordinates several projects that serve a single objective, covering governance, planning, budget, risk and change management. Clixite launches or takes over your transformation programmes in Belgium and Luxembourg, with recognised frameworks (PMP, PRINCE2, SAFe, Scrum, ADKAR) and one rule: decisions are made on the evidence.
+
+Updated 26 October 2026
+
+## When to bring us in
+
+- A programme has fallen behind or its budget is drifting.
+- Several teams and several suppliers have to move at the same pace.
+- Committees meet but do not decide.
+- A critical go-live is approaching.
+- Users are not adopting what has been delivered.
+
+## What you get
+
+**A recovery assessment**
+Where the programme really stands: scope, schedule, budget, risks and dependencies.
+
+**Governance that decides**
+Clear committees, roles and decision rules, and dashboards that support decisions.
+
+**A plan that holds**
+Milestones, dependencies and risks followed closely, with every team and every supplier.
+
+**Change you can measure**
+Training, communication and adoption tracked against indicators defined at the start.
+
+## Frequently asked questions.
+
+**Can you take over a programme already under way?**
+Yes, this is common: an assessment, a recovery plan and clear trade-off decisions, then programme management close to the teams.
+
+**Iterative methods or the V-model?**
+Both, depending on the nature of the programme and your constraints: SAFe and Scrum for product and software, PRINCE2 or PMP for heavily governed programmes, often a deliberate mix.
+
+**Do you work with our suppliers and integrators?**
+Yes. We coordinate internal teams and suppliers, with clear commitments for each of them.
+
+**How do you measure adoption?**
+With indicators defined at the start: actual usage, support requests, quality of the data entered, user feedback.
+
+## Our other expertise areas
+
+- [Forward Deployed Engineering](https://www.clixite.be/en/forward-deployed-engineering/)
+- [GEO: visibility in AI assistants](https://www.clixite.be/en/generative-engine-optimization/)
+- [Enterprise and solution architecture](https://www.clixite.be/en/expertise/enterprise-solution-architecture/)
+- [Digitalisation](https://www.clixite.be/en/expertise/digitalisation/)
+
+## What is your x?
+
+One conversation is enough to name it. You leave with a first idea of the way forward, even if we do not end up working together.
+
+Or write directly to [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Or call
+
+- [Belgium +32 10 31 10 00](tel:+3210311000)
+- [Luxembourg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, Belgium. We meet in Wavre, at your premises or by video call.
+
+* * *
+
+Title: Process digitalisation and automation in Belgium | Clixite
+Source: https://www.clixite.be/en/expertise/digitalisation/
+Language: English
+Updated: 2026-10-26
+Publisher: Clixite SRL, Wavre, Belgium (company number 0871.430.776)
+Summary: Processes simplified, then digitised: automated workflows, connected data and applied AI, from SMEs to large enterprises, in Belgium and Luxembourg.
+
+# Process digitalisation: from paper and double data entry to connected tools.
+
+Process digitalisation replaces paper, scattered files and double data entry with digital workflows and connected data. Clixite maps and simplifies your processes before automating them, then takes them into production with your teams, from SMEs to large enterprises, in Belgium and Luxembourg.
+
+Updated 26 October 2026
+
+## When to bring us in
+
+- A process still runs on paper, in Excel or by email.
+- The same data is entered several times in several tools.
+- Approvals get lost between inboxes.
+- Dashboards exist but nobody uses them.
+- You want to use AI but do not know where to start.
+
+## What you get
+
+**Simplified processes**
+Mapped, stripped of unnecessary steps, with clear rules, before any tool is added.
+
+**Automated workflows**
+Forms, approvals, notifications and integrations with your CRM and your ERP.
+
+**Connected data**
+Data entered once, clean master data and dashboards that get used.
+
+**Applied AI**
+Where it saves time, under human oversight and in line with the GDPR.
+
+## Frequently asked questions.
+
+**Where should you start?**
+Start with the most painful and most frequent process. Simplify it before adding tools: automating a muddled process only makes it go faster.
+
+**Do you need to change tools?**
+Not necessarily. We first make the most of what you already have; a new tool is only justified if it does better at a reasonable cost.
+
+**What role does AI play?**
+Reading documents, sorting requests, drafting replies: AI is genuinely useful there, under human oversight and in line with the GDPR.
+
+**Will your teams be able to change the workflows themselves?**
+Yes. Documentation and training are part of every assignment, so that your teams stay self-sufficient.
+
+## Our other expertise areas
+
+- [Forward Deployed Engineering](https://www.clixite.be/en/forward-deployed-engineering/)
+- [GEO: visibility in AI assistants](https://www.clixite.be/en/generative-engine-optimization/)
+- [Enterprise and solution architecture](https://www.clixite.be/en/expertise/enterprise-solution-architecture/)
+- [Programme management](https://www.clixite.be/en/expertise/programme-management/)
+
+## What is your x?
+
+One conversation is enough to name it. You leave with a first idea of the way forward, even if we do not end up working together.
+
+Or write directly to [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Or call
+
+- [Belgium +32 10 31 10 00](tel:+3210311000)
+- [Luxembourg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, Belgium. We meet in Wavre, at your premises or by video call.
+
+* * *
+
+Title: Procurement transformation and Source-to-Pay | Clixite
+Source: https://www.clixite.be/en/expertise/procurement-transformation/
+Language: English
+Updated: 2026-10-26
+Publisher: Clixite SRL, Wavre, Belgium (company number 0871.430.776)
+Summary: Source-to-Pay, Fractional or interim CPO, third-party risk, DORA: Clixite structures procurement for SMEs and regulated groups in Belgium and Luxembourg.
+
+# Procurement that carries weight when decisions are made.
+
+Procurement transformation, from need to payment: Source-to-Pay processes backed by the right tools, supplier risk under control, and procurement leadership available on a fractional or interim basis. For SMEs structuring their purchasing as well as for regulated groups.
+
+## What we take on.
+
+- **Source-to-Pay, from need to payment**
+From need to payment: sourcing, tenders, contracts, orders, goods receipt and invoices. Simple processes, supported by software when volumes justify it, with SAP Ariba or the tool that suits your size, and integrated with your ERP.
+- **Fractional procurement leadership**
+A Fractional CPO on hand at the pace you set: roadmap, leadership of strategic tenders, team upskilling. The practices of large corporates, scaled to your company.
+- **Interim procurement leadership**
+Stepping into the role when the position is vacant or being transformed. We stabilise, we decide, we prepare the ground for the permanent hire.
+- **Third-party risk and compliance**
+Mapping and monitoring of critical suppliers, the DORA register of information, NIS2 supply chain requirements, contractual clauses and exit plans.
+
+## Three options, one standard.
+
+Scope, duration and budget are agreed with you after a first conversation. Not sure which option to choose? [One conversation is enough to decide](https://www.clixite.be/en/expertise/procurement-transformation/#contact).
+
+- **Procurement assessment**
+Spend mapping, process maturity, supplier risk and quantified quick wins.
+[Request an assessment](https://www.clixite.be/en/expertise/procurement-transformation/#contact)
+- **Fractional CPO**
+Procurement leadership on hand, a roadmap kept on track and tenders under control.
+[Ask about a Fractional CPO](https://www.clixite.be/en/expertise/procurement-transformation/#contact)
+- **Interim procurement leadership**
+The role held and transformed while the position is vacant, then handed over.
+[Ask about an interim assignment](https://www.clixite.be/en/expertise/procurement-transformation/#contact)
+
+## Frequently asked questions.
+
+**What is a Fractional CPO?**
+A Fractional CPO is an experienced Chief Procurement Officer who works for your company on a shared, part-time basis, at the pace you set. You gain access to large-enterprise expertise without creating a full-time position, and you adjust the time commitment to the workload.
+
+**Is Source-to-Pay useful for an SME?**
+Yes, provided you deal with processes before tools. An SME mainly gains visibility over its spend, better negotiated terms and faster invoice processing. The tool comes afterwards, sized to your volumes.
+
+**How does the DORA Regulation affect procurement?**
+Since 17 January 2025, DORA has required financial entities in the European Union to keep a register of information on their ICT third-party service providers, assess their concentration risk and include specific clauses in their contracts. Procurement is on the front line for collecting this data and negotiating these clauses.
+
+**Does Clixite work in English as well as French and Dutch?**
+Yes. Assignments run in English, French or Dutch, depending on your teams and your suppliers, anywhere in Belgium and Luxembourg.
+
+## What is your x?
+
+One conversation is enough to name it. You leave with a first idea of the way forward, even if we do not end up working together.
+
+Or write directly to [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Or call
+
+- [Belgium +32 10 31 10 00](tel:+3210311000)
+- [Luxembourg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, Belgium. We meet in Wavre, at your premises or by video call.
+
+* * *
+
+Title: Consulting and engineering: five expertise areas | Clixite
+Source: https://www.clixite.be/en/expertise/
+Language: English
+Updated: 2026-10-26
+Publisher: Clixite SRL, Wavre, Belgium (company number 0871.430.776)
+Summary: Forward Deployed Engineering, GEO, enterprise and solution architecture, programme management, digitalisation: how Clixite works inside your organisation.
+
+# Five expertise areas, one standard: what we deliver has to run.
+
+We step in where a strategy has to become a working system, in SMEs and regulated groups alike, in Belgium and Luxembourg.
+
+1. ## [Forward Deployed Engineering](https://www.clixite.be/en/forward-deployed-engineering/)
+We join your teams to design and build the integration, automation or AI agent you need and take it into production, using your tools and following your security rules. We leave when your teams run the solution on their own.
+
+  - A prototype proven on your real data
+  - A solution in production, monitored and documented
+  - A complete handover: code, access, documentation, trained teams
+Systems integration, process automation, AI agents, go-live, handover
+[Forward Deployed Engineering in detail](https://www.clixite.be/en/forward-deployed-engineering/)
+2. ## [GEO: visibility in AI assistants](https://www.clixite.be/en/generative-engine-optimization/)
+When your clients ask ChatGPT, Claude, Perplexity, Gemini or Copilot who can help them, your company needs to be part of the answer. We make your offering understandable, verifiable and citable by answer engines as well as by Google.
+
+  - An audit of your visibility in AI assistants, question by question
+  - Consistent pages, structured data and entity details that engines understand
+  - An aligned off-site presence and citation tracking
+GEO, SEO, structured data, Wikidata, Search Console, Bing Webmaster Tools
+[GEO in detail](https://www.clixite.be/en/generative-engine-optimization/)
+3. ## [Enterprise and solution architecture](https://www.clixite.be/en/expertise/enterprise-solution-architecture/)
+Know what you have, decide where you are going and choose the solutions that take you there, without piling up tools.
+
+  - Mapping of applications, data and flows
+  - Target architecture and roadmap, as costed options
+  - Solution selection and external architecture reviews
+IT landscape mapping, target architecture, integration, cloud
+[Architecture in detail](https://www.clixite.be/en/expertise/enterprise-solution-architecture/)
+4. ## [Programme management](https://www.clixite.be/en/expertise/programme-management/)
+Multi-team programmes scoped and kept on track: clear governance, risks tracked, committees that decide, users on board from day one.
+
+  - Plan, budget and risks back under control
+  - Governance and committees that make decisions
+  - Change management you can measure
+PMP, PRINCE2, SAFe, Scrum, ADKAR
+[Programme management in detail](https://www.clixite.be/en/expertise/programme-management/)
+5. ## [Digitalisation](https://www.clixite.be/en/expertise/digitalisation/)
+Paper processes, double data entry and scattered files become connected tools that work for your teams.
+
+  - Processes mapped and simplified before any tool is added
+  - Automated forms, workflows and approvals
+  - Data connected across your tools, dashboards that get used
+Process automation, CRM and ERP, data, applied AI
+[Digitalisation in detail](https://www.clixite.be/en/expertise/digitalisation/)
+
+## Where our expertise areas apply.
+
+The same methods, on the topics that matter most in regulated enterprises and SMEs alike.
+
+- **Procurement and Source-to-Pay**
+Fractional CPO, interim management, third-party risk
+From need to payment: processes backed by the right tools, supplier risk under control, procurement leadership on a fractional or interim basis.
+[Procurement transformation](https://www.clixite.be/en/expertise/procurement-transformation/)
+- **Risk and compliance**
+DORA, NIS2, GDPR, AI Act
+Obligations translated into processes, owners and evidence, in what you build as well as in what you buy.
+[FDE in regulated environments](https://www.clixite.be/en/forward-deployed-engineering/#regulated-environments)
+- **AI in production**
+Agents, automations, integrations
+From a prototype that looks convincing in a demo to an AI agent that runs on your systems, under human oversight.
+[Forward Deployed Engineering](https://www.clixite.be/en/forward-deployed-engineering/)
+- **Digital products and SaaS**
+Architecture, integrations, launch
+The architecture, integrations and go-live of a digital product, until your team can develop it further on its own.
+[Solution architecture](https://www.clixite.be/en/expertise/enterprise-solution-architecture/)
+
+## Working together.
+
+Scope, duration and budget are agreed with you after a first conversation. In Belgium and Luxembourg, in English, French or Dutch.
+
+| Format                  | What you get                                                                 | When to choose it                                                         |
+| ----------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Consulting assignment   | A clear role inside your teams, directly or through your preferred supplier. | When you need expertise in place for the longer term.                     |
+| Fixed-scope delivery    | A scope, a deliverable and a budget agreed before we start.                  | When the goal is clear: a target architecture, an integration, a go-live. |
+| Programme reinforcement | A critical phase seen through with your team, building alongside it.         | To recover a programme, go live or organise the handover.                 |
+
+**Confidentiality**
+A non-disclosure agreement signed before we talk, if you wish.
+
+**Continuity**
+Documentation as we go and a handover planned from day one.
+
+**Ownership**
+Your access, your code and your documentation stay with you.
+
+## What is your x?
+
+One conversation is enough to name it. You leave with a first idea of the way forward, even if we do not end up working together.
+
+Or write directly to [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Or call
+
+- [Belgium +32 10 31 10 00](tel:+3210311000)
+- [Luxembourg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, Belgium. We meet in Wavre, at your premises or by video call.
+
+* * *
+
+Title: About Clixite: consulting and engineering since 2005
+Source: https://www.clixite.be/en/about/
+Language: English
+Updated: 2026-10-26
+Publisher: Clixite SRL, Wavre, Belgium (company number 0871.430.776)
+Summary: Clixite SRL, founded in 2005 in Wavre: Forward Deployed Engineering, GEO, architecture, programme management and digitalisation, in Belgium and Luxembourg.
+
+# Consulting and engineering since 2005.
+
+Clixite is a Belgian consulting and engineering company based in Wavre. It offers five expertise areas, from target to production, and a dedicated procurement transformation offer, for growing SMEs and regulated groups alike.
+
+Its rule fits in one sentence: “We solve your x.” The problem that holds things up, the one no one has named yet.
+
+## Who replies to you.
+
+Nicolas Simon founded Clixite. He reads the messages sent from this site and replies to them, in English, French or Dutch.
+
+Nicolas Simon
+
+Enterprise & Solution Architect, Forward Deployed Engineer
+
+[Nicolas Simon on LinkedIn](https://www.linkedin.com/in/nicolassim/)
+
+**Certifications**
+PMP, PRINCE2, AgilePM, SAFe, Scrum, ITIL v3, ADKAR
+
+**Working languages**
+English, French, Dutch
+
+## The company at a glance.
+
+**Legal name**
+Clixite SRL, private limited company under Belgian law
+
+**Founded**
+2005
+
+**Registered office**
+Avenue Reine Astrid 53, 1300 Wavre (Walloon Brabant, Belgium)
+
+**Company and VAT number**
+BE 0871.430.776
+
+**Area served**
+Belgium and Luxembourg
+
+**Working languages**
+English, French, Dutch
+
+**Telephone**
+Belgium +32 10 31 10 00; Luxembourg +352 20 42 02 02
+
+**Email**
+nicolas@clixite.be
+
+**Nicolas Simon’s certifications**
+PMP, PRINCE2, AgilePM, SAFe, Scrum, ITIL v3, ADKAR
+
+## Five expertise areas.
+
+- [Forward Deployed Engineering](https://www.clixite.be/en/forward-deployed-engineering/) Systems integration, process automation, AI agents, go-live, handover
+- [GEO: visibility in AI assistants](https://www.clixite.be/en/generative-engine-optimization/) GEO, SEO, structured data, Wikidata, Search Console, Bing Webmaster Tools
+- [Enterprise and solution architecture](https://www.clixite.be/en/expertise/enterprise-solution-architecture/) IT landscape mapping, target architecture, integration, cloud
+- [Programme management](https://www.clixite.be/en/expertise/programme-management/) PMP, PRINCE2, SAFe, Scrum, ADKAR
+- [Digitalisation](https://www.clixite.be/en/expertise/digitalisation/) Process automation, CRM and ERP, data, applied AI
+
+## Very different environments.
+
+Telecoms, banking, insurance, pharmaceuticals, construction, aviation, distribution, leisure, growing SMEs: on assignment, as consultants or in-house. The projects themselves stay confidential.
+
+[Where we have worked](https://www.clixite.be/en/#references)
+
+Clixite’s visual identity is published at [charte.clixite.be](https://charte.clixite.be/).
+
+## What is your x?
+
+One conversation is enough to name it. You leave with a first idea of the way forward, even if we do not end up working together.
+
+Or write directly to [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Or call
+
+- [Belgium +32 10 31 10 00](tel:+3210311000)
+- [Luxembourg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, Belgium. We meet in Wavre, at your premises or by video call.
+
+* * *
+
+Title: Contact us: Wavre, Belgium and Luxembourg | Clixite
+Source: https://www.clixite.be/en/contact/
+Language: English
+Updated: 2026-10-26
+Publisher: Clixite SRL, Wavre, Belgium (company number 0871.430.776)
+Summary: A first 45-minute conversation, with no commitment. Write to nicolas@clixite.be or call +32 10 31 10 00. We reply personally, from Wavre in Belgium.
+
+# What is your x?
+
+One conversation is enough to name it. You leave with a first idea of the way forward, even if we do not end up working together.
+
+## Our details.
+
+**Belgium**
+[+32 10 31 10 00](tel:+3210311000)
+
+**Luxembourg**
+[+352 20 42 02 02](tel:+35220420202)
+
+**Email**
+[nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+**Address**
+Clixite SRL
+Avenue Reine Astrid 53
+1300 Wavre, Belgium
+
+**Meetings**
+In Wavre, at your premises or by video call, in English, French or Dutch.
+
+Company and VAT number BE 0871.430.776.
+
+## What happens next.
+
+Three steps, with no commitment.
+
+1. **You write.**
+Two sentences about your challenge, or a call. An address and a number are enough, there is no form.
+2. **We reply personally.**
+Nicolas Simon reads your message and replies to it himself.
+3. **A first 45-minute conversation.**
+With no commitment, in Wavre, at your premises or by video call, in English, French or Dutch.
+
+A non-disclosure agreement can be signed before we talk if you wish.
+
+* * *
+
+Title: Legal notice and privacy for www.clixite.be | Clixite
+Source: https://www.clixite.be/en/legal-notice/
+Language: English
+Updated: 2026-10-26
+Publisher: Clixite SRL, Wavre, Belgium (company number 0871.430.776)
+Summary: Legal notice for www.clixite.be: website publisher, hosting, intellectual property, photo credits and the protection of your personal data by Clixite SRL.
+
+# Legal notice and privacy.
+
+## Publisher
+
+Clixite SRL, private limited company. Registered office: Avenue Reine Astrid 53, 1300 Wavre, Belgium. Company and VAT number: BE 0871.430.776, RLE Walloon Brabant. Person responsible for publication: Nicolas Simon. Contact: [nicolas@clixite.be](mailto:nicolas@clixite.be), [+32 10 31 10 00](tel:+3210311000) (Belgium) or [+352 20 42 02 02](tel:+35220420202) (Luxembourg).
+
+## Hosting
+
+The site is served by a virtual private server administered by Clixite and rented from Hostinger International Ltd, in a data centre located in the European Union.
+
+## Intellectual property
+
+Clixite’s texts, logo and illustrations are protected. Reproducing them requires written consent. The logos of the organisations mentioned belong to their respective owners.
+
+## Photo credits
+
+The photographs come from Unsplash, under the [Unsplash licence](https://unsplash.com/license), and have been cropped and colour-graded to Clixite’s palette. They illustrate our services and show neither our clients nor our projects.
+
+- [A hand drawing a plan with a ruler on a large sheet of paper](https://unsplash.com/photos/-FPFq%5Ftrr2Y), Daniel McCullough
+- [An office floor lit up in the evening, seen from outside: a team at work behind a large window](https://unsplash.com/photos/v6JKMaqAwZE), Vitaly Gariev
+- [Three engineers leaning over a laptop amid a test rig in a workshop](https://unsplash.com/photos/bIltCMXIwRE), ThisisEngineering
+- [A long aisle of shelves loaded with files and binders](https://unsplash.com/photos/eR96tng0pyk), Zoshua Colah
+- [An empty meeting room, a long table facing a wall of glass](https://unsplash.com/photos/0sT9YhNgSEs), Benjamin Child
+- [Two railway tracks crossing in an X, seen from above](https://unsplash.com/photos/AO3otVvlMU8), Zane Lee
+- [Rows of server racks in a data centre](https://unsplash.com/photos/fImCPTZ026U), Tony Marinescu
+- [A container terminal seen from the air: rows of containers and gantry cranes](https://unsplash.com/photos/kyCNGGKCvyw), CHUTTERSNAP
+- [Yellow optical fibres connected one by one to a patch panel](https://unsplash.com/photos/yhJVLxcquEY), Albert Stoynov
+
+## Your personal data
+
+This site sets no cookies, uses no analytics tools and loads no external resources: the fonts are hosted on our own server. If you pause the home page video, it stores that single setting in your browser: the choice stays on your device and is never sent to us.
+
+The server keeps technical logs (IP address, date, page requested) for a limited period, for the security of the service (legitimate interest).
+
+If you write to us, we use your name, your email address and the content of your message to reply to you and, if you ask, to prepare a proposal (pre-contractual steps taken at your request). This data is neither sold nor passed on. Data controller: Clixite SRL.
+
+You can request access to your data, its rectification or erasure, the restriction of its processing, or object to that processing, by writing to [nicolas@clixite.be](mailto:nicolas@clixite.be). You can also lodge a complaint with the Data Protection Authority, Rue de la Presse 35, 1000 Brussels ([dataprotectionauthority.be](https://www.dataprotectionauthority.be/)).
+
+## What is your x?
+
+One conversation is enough to name it. You leave with a first idea of the way forward, even if we do not end up working together.
+
+Or write directly to [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Or call
+
+- [Belgium +32 10 31 10 00](tel:+3210311000)
+- [Luxembourg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, Belgium. We meet in Wavre, at your premises or by video call.

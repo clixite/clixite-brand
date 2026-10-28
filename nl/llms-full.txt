@@ -1,0 +1,1033 @@
+# Clixite: volledige inhoud van www.clixite.be (Nederlands)
+
+> Alle Nederlandstalige pagina's van www.clixite.be, in Markdown, in de aanbevolen leesvolgorde. Elke pagina begint met haar canonieke adres: citeer dat adres. Het overzicht staat in https://www.clixite.be/nl/llms.txt.
+
+* * *
+
+Titel: Clixite: consultancy en engineering in Waver sinds 2005
+Bron: https://www.clixite.be/nl/
+Taal: Nederlands (België)
+Bijgewerkt: 2026-10-26
+Uitgever: Clixite SRL, Waver, België (ondernemingsnummer 0871.430.776)
+Samenvatting: Consultancy en engineering in Waver sinds 2005. Clixite ontwerpt, bouwt en brengt de systemen van Belgische en Luxemburgse bedrijven in productie.
+
+# Wij bouwen uw oplossing in uw teams, tot in productie.
+
+Consultancy en engineering sinds 2005\. We ontwerpen, bouwen en brengen uw systemen in productie, in uw teams, in België en Luxemburg.
+
+## Waar we gewerkt hebben.
+
+Telecom, bankwezen, verzekeringen, farmaceutische industrie, bouw, luchtvaart, distributie, vrijetijdssector, kmo’s: zeer verschillende omgevingen, in opdracht, als consultant of in vaste dienst. De projecten zelf blijven vertrouwelijk.
+
+- Proximus
+- Orange
+- KBC
+- ING
+- Groupe P&V
+- Boehringer Ingelheim
+- AstraZeneca
+- UCB
+- Eiffage
+- Twin Square
+- The Depot
+- Pairi Daiza
+- Tero
+- Design Plus
+
+## Forward Deployed Engineering.
+
+Clixite gaat aan de slag in uw teams om uw integraties, automatiseringen en AI-agents te ontwerpen, te bouwen en in productie te brengen, en draagt de oplossing daarna aan u over. In België en Luxemburg, in het Nederlands, Frans of Engels.
+
+- **In uw teams, niet ernaast.**
+Ter plaatse of op afstand, in uw tools en in uw tempo. Beslissingen vallen waar het werk gebeurt.
+- **In productie, niet in PowerPoint.**
+De opdracht wordt afgemeten aan wat draait: een integratie, een geautomatiseerd proces, een AI-agent die op maandagochtend gebruikt wordt.
+- **Onder uw controle, daarna bij u.**
+Uw omgevingen, uw beveiligingsregels, persoonsgebonden toegangsrechten. Aan het einde blijven de code, de documentatie en de knowhow bij u.
+
+## GEO: het antwoord zijn dat AI-assistenten geven.
+
+Uw klanten zoeken niet meer alleen op Google. Ze vragen ChatGPT, Claude, Perplexity, Gemini of Copilot wie hen kan helpen. Wij werken eraan dat de assistenten u vinden en u correct beschrijven.
+
+1. **Meten**
+De vragen die uw klanten stellen, getest op de belangrijkste assistenten: wie wordt vermeld, en met welke informatie.
+2. **Structureren**
+Een coherente entiteit, pagina’s die antwoorden geven en gestructureerde data die klopt: uw site wordt citeerbaar.
+3. **Publiceren en opvolgen**
+Bedrijfsfiches, profielen, open databanken, vermeldingen bij derden, en daarna regelmatige tests: de assistenten toetsen hun bronnen aan elkaar voor ze een bedrijf vermelden.
+
+## Vijf expertises, één maatstaf: een resultaat dat draait.
+
+Wij gaan aan de slag waar een strategie een werkend systeem moet worden, in een kmo net zo goed als in een gereguleerde groep.
+
+- **[Forward Deployed Engineering](https://www.clixite.be/nl/forward-deployed-engineering/)**
+Wij gaan aan de slag in uw teams om de integratie, de automatisering of de AI-agent die u nodig hebt te ontwerpen, te bouwen en in productie te brengen, met uw tools en volgens uw beveiligingsregels. Wij vertrekken wanneer uw teams de oplossing zelfstandig beheren.
+
+  - Een prototype dat zich bewezen heeft op uw echte data
+  - Een oplossing in productie, bewaakt en gedocumenteerd
+  - Een volledige overdracht: code, toegangsrechten, documentatie, opgeleide teams
+Integratie, automatisering, AI-agents, in productie brengen, overdracht
+- **[GEO: vindbaarheid in AI-assistenten](https://www.clixite.be/nl/geo-vindbaarheid-ai/)**
+Wanneer uw klanten ChatGPT, Claude, Perplexity, Gemini of Copilot vragen wie hen kan helpen, moet uw bedrijf in het antwoord staan. Wij maken uw aanbod begrijpelijk, verifieerbaar en citeerbaar voor antwoordmachines en voor Google.
+
+  - Een audit van uw zichtbaarheid in AI-assistenten, vraag per vraag
+  - Pagina’s, gestructureerde data en een entiteit die op elkaar aansluiten en die zoek- en antwoordmachines begrijpen
+  - Een afgestemde aanwezigheid buiten uw site en opvolging van de vermeldingen
+GEO, SEO, gestructureerde data, Wikidata, Search Console, Bing Webmaster Tools
+- **[Enterprise- en solution-architectuur](https://www.clixite.be/nl/expertises/enterprise-en-solution-architectuur/)**
+Weten wat u hebt, beslissen waar u naartoe gaat en de oplossingen kiezen die u daar brengen, zonder tools op te stapelen.
+
+  - Uw applicaties, data en stromen in kaart gebracht
+  - Doelarchitectuur en traject in becijferde opties
+  - Keuze van oplossingen en externe architectuurreviews
+IT-landschap in kaart, doelarchitectuur, integratie, cloud
+- **[Programmamanagement](https://www.clixite.be/nl/expertises/programmamanagement/)**
+Programma’s met meerdere teams, goed afgebakend en strak aangestuurd: een duidelijke governance, opgevolgde risico’s, stuurcomités die beslissen, gebruikers die vanaf dag één betrokken zijn.
+
+  - Planning, budget en risico’s opnieuw onder controle
+  - Governance en stuurcomités die knopen doorhakken
+  - Meetbaar verandermanagement
+PMP, PRINCE2, SAFe, Scrum, ADKAR
+- **[Digitalisering](https://www.clixite.be/nl/expertises/digitalisering/)**
+Papieren processen, dubbele invoer en verspreide bestanden worden gekoppelde tools die voor uw teams werken.
+
+  - Processen in kaart gebracht en vereenvoudigd, voordat ze digitaal ondersteund worden
+  - Formulieren, stromen en goedkeuringen geautomatiseerd
+  - Data gekoppeld tussen uw tools, dashboards die gebruikt worden
+Automatisering, CRM en ERP, data, toegepaste AI
+
+## Waar onze expertises van toepassing zijn.
+
+Dezelfde methodes, op de onderwerpen die het zwaarst wegen in gereguleerde ondernemingen en in kmo’s.
+
+- **Aankoop en Source-to-Pay**
+Fractional CPO, interim, risico’s van derden
+Van behoefte tot betaling: digitaal ondersteunde processen, beheerste leveranciersrisico’s, een aankoopdirectie in deeltijd of ad interim.
+[Aankooptransformatie](https://www.clixite.be/nl/expertises/aankooptransformatie/)
+- **Risico’s en compliance**
+DORA, NIS2, GDPR, AI Act
+Verplichtingen vertaald naar processen, verantwoordelijken en bewijsstukken, in wat u bouwt en in wat u aankoopt.
+[FDE in een gereguleerde omgeving](https://www.clixite.be/nl/forward-deployed-engineering/#gereguleerde-omgeving)
+- **AI in productie**
+Agents, automatiseringen, integraties
+Van het prototype dat overtuigt in een demo tot de AI-agent die op uw systemen draait, onder menselijk toezicht.
+[Forward Deployed Engineering](https://www.clixite.be/nl/forward-deployed-engineering/)
+- **Digitale producten en SaaS**
+Architectuur, integraties, lancering
+De architectuur, de integraties en het in productie brengen van een digitaal product, tot uw team het zelfstandig verder ontwikkelt.
+[Solution-architectuur](https://www.clixite.be/nl/expertises/enterprise-en-solution-architectuur/)
+
+## Van opmeting tot ingebruikname.
+
+Vier stappen, elk met een oplevering die u behoudt, ook als u daar stopt. U beslist over de volgende stap op basis van wat op tafel ligt.
+
+1. **Opmeten**
+Uw systemen, stromen, contracten en risico’s in kaart gebracht. We meten voor we tekenen.
+Oplevering: Diagnose
+2. **Ontwerpen**
+De doelarchitectuur en de weg ernaartoe, in becijferde opties. Wat we behouden, wat we vervangen, wat we stopzetten.
+Oplevering: Doelarchitectuur en roadmap
+3. **Bouwen**
+Integraties, data, automatiseringen en AI, opgeleverd in korte incrementen die uw teams in de praktijk testen.
+Oplevering: Incrementen in productie
+4. **In gebruik nemen**
+Uitrol, adoptie en overdracht. Wij vertrekken wanneer uw teams de oplossing zelfstandig draaiende houden.
+Oplevering: Oplossing in gebruik en gedocumenteerd
+
+## Wat controleerbaar is.
+
+De projecten blijven vertrouwelijk. Dit zijn de feiten die u kunt controleren, en de engagementen die we schriftelijk aangaan.
+
+**Opgericht in**
+2005, dus 20 jaar activiteit.
+
+**Zeven certificeringen van de oprichter**
+PMP, PRINCE2, AgilePM, SAFe, Scrum, ITIL v3, ADKAR.
+
+**Vermelde organisaties**
+Veertien organisaties waarvan het logo op deze pagina staat, in opdracht, als consultant of in vaste dienst.
+
+**Werktalen**
+Nederlands, Frans, Engels.
+
+**Werkgebied**
+België en Luxemburg.
+
+**Engagementen**
+Geheimhoudingsovereenkomst voor het gesprek als u dat wenst, doorlopende documentatie, en de code, de toegangsrechten en de documentatie blijven bij u.
+
+## Samenwerken.
+
+Scope, looptijd en budget leggen we samen vast na een eerste gesprek. In België en Luxemburg, in het Nederlands, Frans of Engels.
+
+| Formule                      | Wat u krijgt                                                                                       | Wanneer kiezen                                                                                |
+| ---------------------------- | -------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Consultancyopdracht          | Een duidelijke rol in uw teams, rechtstreeks of via een consultancybureau op uw leverancierslijst. | Wanneer u expertise nodig hebt die langere tijd aanwezig blijft.                              |
+| Oplevering tegen vaste prijs | Een scope, een oplevering en een budget, goedgekeurd voor we beginnen.                             | Wanneer het doel helder is: een doelarchitectuur, een integratie, een oplossing in productie. |
+| Programmaversterking         | Een kritieke fase die we samen met uw team in goede banen leiden, terwijl we meebouwen.            | Om een programma over te nemen, in productie te gaan of de overdracht te organiseren.         |
+
+**Vertrouwelijkheid**
+Als u dat wenst, ondertekenen we nog voor het gesprek een geheimhoudingsovereenkomst.
+
+**Continuïteit**
+Doorlopende documentatie en een overdracht die vanaf de start gepland is.
+
+**Eigendom**
+Uw toegangsrechten, uw code en uw documentatie blijven bij u.
+
+## Wat is uw x?
+
+Een eerste gesprek volstaat om hem te benoemen. U krijgt een eerste aanzet mee, ook als we daarna niet samenwerken.
+
+Of schrijf rechtstreeks naar [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Of bel
+
+- [België +32 10 31 10 00](tel:+3210311000)
+- [Luxemburg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, België. Afspraak in Waver, bij u of via videogesprek.
+
+* * *
+
+Titel: Forward Deployed Engineering in België en Luxemburg | Clixite
+Bron: https://www.clixite.be/nl/forward-deployed-engineering/
+Taal: Nederlands (België)
+Bijgewerkt: 2026-10-26
+Uitgever: Clixite SRL, Waver, België (ondernemingsnummer 0871.430.776)
+Samenvatting: Ingenieurs in uw teams ontwerpen uw integraties, automatiseringen en AI-agents, brengen ze in productie en dragen alles aan u over. In België en Luxemburg.
+
+# Forward Deployed Engineering: bouwen in uw teams, tot in productie.
+
+Forward Deployed Engineering (FDE) is een werkwijze waarbij ingenieurs in de teams van een klant een oplossing op diens systemen ontwerpen, bouwen en in productie brengen, en die daarna aan de klant overdragen. In België en Luxemburg past Clixite dit model toe op integraties, automatisering en AI, binnen het kader van DORA, NIS2, de GDPR en de AI Act.
+
+Bijgewerkt op 26 oktober 2026
+
+## Wat is Forward Deployed Engineering?
+
+Een Forward Deployed Engineer is een ingenieur die bij de klant werkt, zo dicht mogelijk bij de mensen die het systeem gebruiken. Hij begrijpt de business, ontwerpt, codeert, integreert en rolt uit, en draagt daarna over wat hij gebouwd heeft. De Engelse term wordt ook in het Nederlands en in het Frans gebruikt; soms spreekt men van een ingenieur die bij de klant wordt ingezet.
+
+Het is geen consultancy die ophoudt bij een aanbeveling, en ook geen regie die taken uitvoert: de Forward Deployed Engineer is verantwoordelijk voor een resultaat dat samen met u is vastgelegd, een oplossing die draait in uw omgeving.
+
+### Waar het model vandaan komt
+
+Het model werd geformaliseerd door Palantir, dat zijn productontwikkelaars onderscheidt van zijn ingenieurs die bij de klant worden ingezet, samengevat in één formule: één klant, veel capaciteiten. Sindsdien hebben AI-bedrijven het overgenomen om hun klanten van prototype naar productie te brengen; het profiel behoort intussen tot de meest gezochte in de sector.
+
+Bronnen: [Palantir, “Dev versus Delta”](https://blog.palantir.com/dev-versus-delta-demystifying-engineering-roles-at-palantir-ad44c2a6e87), [TechCrunch, 30 juli 2026](https://techcrunch.com/2026/07/30/forward-deployed-engineers-are-the-AI-industrys-latest-talent-obsession/).
+
+## Wanneer u een Forward Deployed Engineer inschakelt
+
+- Een AI-prototype werkt in een demo, maar is nooit in productie gegaan.
+- Uw systemen praten niet met elkaar: ERP, CRM, aankooptool en bedrijfsdata moeten betrouwbaar gekoppeld worden.
+- Een proces dat nog manueel verloopt, moet geautomatiseerd worden zonder te verstoren wat al draait.
+- Een programma heeft vertraging opgelopen en er zijn handen nodig, niet alleen stuurcomités.
+- Uw omgeving is gereguleerd en niets mag uw organisatie verlaten.
+- Uw team moet zijn vaardigheden versterken, tot het een eigen FDE-capaciteit kan opbouwen.
+
+## Onze werkwijze, in vier stappen
+
+Elke stap levert iets op dat u behoudt. U beslist over de volgende op basis van wat op tafel ligt.
+
+1. **Opstarten**
+Toegangsrechten, omgevingen, beveiligingsregels en aanspreekpunten: wij werken vanaf dag één in uw tools en met uw teams.
+Oplevering: Gevalideerd werkkader
+2. **Bouwen**
+Een prototype op uw echte data, getest met de toekomstige gebruikers en verbeterd in korte incrementen.
+Oplevering: Bewezen prototype
+3. **In productie brengen**
+Beveiliging, monitoring, documentatie en beheerprocedures: de oplossing gaat in productie volgens uw regels.
+Oplevering: Oplossing in productie
+4. **Overdragen**
+Code, toegangsrechten, documentatie en opleiding: wij vertrekken wanneer uw teams de oplossing zelfstandig beheren en verder ontwikkelen.
+Oplevering: Zelfstandige teams
+
+## FDE, consultancy of regie: wat is het verschil?
+
+|                              | Rol                                        | Wat u krijgt                                                | Einde van de opdracht                                                            |
+| ---------------------------- | ------------------------------------------ | ----------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| Forward Deployed Engineering | Bouwt en brengt in productie, in uw teams. | Een oplossing in productie, gedocumenteerd en overgedragen. | Wanneer uw teams ze zelfstandig beheren.                                         |
+| Klassieke consultancy        | Analyseert en adviseert.                   | Een rapport, een doelarchitectuur, een roadmap.             | Bij de oplevering.                                                               |
+| IT-dienstverlener of regie   | Voert de taken uit die u aanstuurt.        | Tijd, op basis van een inspanningsverbintenis.              | Op de einddatum van het contract; een overdracht is niet automatisch inbegrepen. |
+
+Het verschil zit in het mandaat, niet in het contract: een Forward Deployed Engineer kan zowel via een consultancyopdracht als tegen een vaste prijs ingezet worden.
+
+## Forward Deployed Engineering in een gereguleerde omgeving
+
+Banken, verzekeraars, essentiële entiteiten: DORA, NIS2, de GDPR en de AI Act gelden ook voor wat er gebouwd wordt. Het kader wordt vanaf de start vastgelegd.
+
+**Uw omgevingen**
+Niets wordt buiten uw perimeter gebouwd zonder schriftelijk akkoord.
+
+**Persoonsgebonden toegangsrechten**
+Traceerbaar, beperkt tot wat nodig is, ingetrokken aan het einde van de opdracht.
+
+**Uw gegevens blijven bij u**
+Over het gebruik van AI-tools beslissen we samen met u, tool per tool.
+
+**Auditklare documentatie**
+Architectuur, keuzes, risico’s, beheerprocedures.
+
+**AI onder menselijk toezicht**
+Supervisie, logging en documentatie, zoals de AI Act vereist voor de betrokken systemen.
+
+## Wat u behoudt
+
+De code, de toegangsrechten, de documentatie en opgeleide teams. En als u dat wenst, de opbouw van uw eigen interne FDE-team: rollen, methodes, werving.
+
+## Samenwerken.
+
+Scope, looptijd en budget leggen we samen vast na een eerste gesprek. In België en Luxemburg, in het Nederlands, Frans of Engels.
+
+| Formule                      | Wat u krijgt                                                                                       | Wanneer kiezen                                                                                |
+| ---------------------------- | -------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Consultancyopdracht          | Een duidelijke rol in uw teams, rechtstreeks of via een consultancybureau op uw leverancierslijst. | Wanneer u expertise nodig hebt die langere tijd aanwezig blijft.                              |
+| Oplevering tegen vaste prijs | Een scope, een oplevering en een budget, goedgekeurd voor we beginnen.                             | Wanneer het doel helder is: een doelarchitectuur, een integratie, een oplossing in productie. |
+| Programmaversterking         | Een kritieke fase die we samen met uw team in goede banen leiden, terwijl we meebouwen.            | Om een programma over te nemen, in productie te gaan of de overdracht te organiseren.         |
+
+**Vertrouwelijkheid**
+Als u dat wenst, ondertekenen we nog voor het gesprek een geheimhoudingsovereenkomst.
+
+**Continuïteit**
+Doorlopende documentatie en een overdracht die vanaf de start gepland is.
+
+**Eigendom**
+Uw toegangsrechten, uw code en uw documentatie blijven bij u.
+
+## Veelgestelde vragen over Forward Deployed Engineering.
+
+**Wat is een Forward Deployed Engineer?**
+Een Forward Deployed Engineer is een ingenieur die in de teams van een klant werkt en een behoefte omzet in een oplossing die in gebruik is. Hij begrijpt de business, ontwerpt, codeert, integreert, rolt uit en draagt daarna over. Het model werd geformaliseerd door Palantir.
+
+**Wat is het verschil met een consultant?**
+Een consultant adviseert, een Forward Deployed Engineer bouwt. Zijn opdracht eindigt wanneer uw teams de oplossing zelf beheren, niet bij de overhandiging van een rapport.
+
+**Is dit regie onder een andere naam?**
+Nee. In regie stuurt u een externe medewerker taak per taak aan. Een Forward Deployed Engineer is verantwoordelijk voor een resultaat dat samen met u is vastgelegd: een oplossing in productie, gedocumenteerd en overgedragen.
+
+**Moet het om een AI-project gaan?**
+Nee. Forward Deployed Engineering is ook geschikt om systemen te koppelen, een proces te automatiseren of een programma over te nemen. AI is slechts een van de meest voorkomende toepassingen.
+
+**Is dit verenigbaar met DORA, NIS2, de GDPR en de AI Act?**
+Ja, als het kader vanaf de start vastligt: uw omgevingen, uw beveiligingsregels, persoonsgebonden toegangsrechten en gegevens die bij u blijven.
+
+**Wat behoudt de onderneming na afloop?**
+De code, de toegangsrechten, de documentatie en teams die opgeleid zijn om de oplossing te beheren en verder te ontwikkelen.
+
+**Waar en in welke talen werkt u?**
+Clixite werkt in België en Luxemburg, in het Nederlands, Frans of Engels, ter plaatse of op afstand.
+
+## Onze andere expertises
+
+- [GEO: vindbaarheid in AI-assistenten](https://www.clixite.be/nl/geo-vindbaarheid-ai/)
+- [Enterprise- en solution-architectuur](https://www.clixite.be/nl/expertises/enterprise-en-solution-architectuur/)
+- [Programmamanagement](https://www.clixite.be/nl/expertises/programmamanagement/)
+- [Digitalisering](https://www.clixite.be/nl/expertises/digitalisering/)
+
+## Wat is uw x?
+
+Een eerste gesprek volstaat om hem te benoemen. U krijgt een eerste aanzet mee, ook als we daarna niet samenwerken.
+
+Of schrijf rechtstreeks naar [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Of bel
+
+- [België +32 10 31 10 00](tel:+3210311000)
+- [Luxemburg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, België. Afspraak in Waver, bij u of via videogesprek.
+
+* * *
+
+Titel: GEO: vindbaar in ChatGPT en andere AI-assistenten | Clixite
+Bron: https://www.clixite.be/nl/geo-vindbaarheid-ai/
+Taal: Nederlands (België)
+Bijgewerkt: 2026-10-26
+Uitgever: Clixite SRL, Waver, België (ondernemingsnummer 0871.430.776)
+Samenvatting: GEO maakt uw bedrijf begrijpelijk en citeerbaar voor ChatGPT, Claude, Perplexity en Google: audit, structurering en opvolging, in België en Luxemburg.
+
+# GEO: het antwoord zijn dat AI-assistenten geven.
+
+GEO (Generative Engine Optimization) is een werkwijze om een bedrijf begrijpelijk, verifieerbaar en citeerbaar te maken voor antwoordmachines: ChatGPT, Claude, Perplexity, Gemini, Copilot en de AI-overzichten van Google. Clixite meet uw zichtbaarheid, structureert uw inhoud en uw data, en verhelpt wat assistenten ervan weerhoudt u te vermelden, in België en Luxemburg.
+
+Bijgewerkt op 26 oktober 2026
+
+## GEO en SEO: wat is het verschil?
+
+SEO mikt op een positie in een lijst met links. GEO mikt op een plaats in het antwoord dat de assistent opstelt, met uw site als bron.
+
+De twee vullen elkaar aan. Antwoordmachines steunen grotendeels op pagina’s die al goed vindbaar zijn in zoekmachines, maar ze lezen anders: ze zoeken heldere definities, verifieerbare feiten en bronnen die elkaar bevestigen.
+
+Bron: [Aggarwal et al., “GEO: Generative Engine Optimization”, 2023](https://arxiv.org/abs/2311.09735).
+
+## Wat ervoor zorgt dat een assistent u vermeldt
+
+Wat we vandaag weten, en wat we voor elke klant meten.
+
+**Een eenduidige entiteit**
+Dezelfde naam, hetzelfde adres, dezelfde expertises overal: ondernemingsregister, website, LinkedIn, bedrijvengidsen, Wikidata.
+
+**Pagina’s die antwoorden**
+Een definitie in enkele zinnen, zichtbare veelgestelde vragen, eerlijke vergelijkingen, gedateerde pagina’s.
+
+**Gestructureerde data die klopt**
+Een schema.org-markup die precies beschrijft wat de pagina toont, en een site die leesbaar is voor de crawlers van de assistenten.
+
+**Vermeldingen buiten uw eigen site**
+Pers, vakgidsen, open databanken: de assistenten toetsen hun bronnen aan elkaar voor ze een bedrijf vermelden.
+
+## Onze aanpak, in vier stappen
+
+Elke stap levert iets op dat u behoudt.
+
+1. **Meten**
+De vragen die uw klanten stellen, getest op de belangrijkste assistenten: wie wordt vermeld, met welke informatie, en uit welke bron.
+Oplevering: Audit van uw AI-zichtbaarheid
+2. **Structureren**
+Entiteit, gestructureerde data, definitiepagina’s, veelgestelde vragen, regels voor crawlers: de site wordt leesbaar en citeerbaar.
+Oplevering: Site klaar voor antwoordmachines
+3. **Publiceren**
+Referentie-inhoud, bedrijfsfiches, professionele profielen, Wikidata: uw aanwezigheid buiten uw site wordt op één lijn gebracht.
+Oplevering: Afgestemde aanwezigheid bij derden
+4. **Opvolgen**
+Search Console, Bing Webmaster Tools en regelmatige tests van de assistenten: we meten de vermeldingen en sturen bij.
+Oplevering: Opvolgingsdashboard
+
+## Wat niemand kan garanderen
+
+Geen enkele dienstverlener kan een positie in Google of een vermelding door een assistent garanderen: de modellen veranderen, hun bronnen ook.
+
+Waar wij ons wel toe verbinden, is meetbaar werk: een site die crawlbaar is, geldige en coherente data, een afgestemde aanwezigheid en regelmatige tests om te zien wat beweegt. Deze site past dat zelf toe: een entiteit beschreven in gestructureerde data, definitiepagina’s, zichtbare veelgestelde vragen, een samenvatting voor de assistenten.
+
+## Voor wie
+
+- Kmo’s en vrije beroepen waarvan de klanten zich eerst zelf informeren voor ze bellen.
+- Groepen die willen dat de assistenten hun aanbod, hun merken en hun verplichtingen correct beschrijven.
+- Software- en dienstenbedrijven waarvan de naam moet opduiken wanneer iemand een assistent om een oplossing vraagt.
+- Elk bedrijf dat in meerdere talen actief is: de assistenten antwoorden in de taal van de vraag.
+
+## Veelgestelde vragen.
+
+**Wat is GEO?**
+Generative Engine Optimization (GEO) maakt een bedrijf begrijpelijk, verifieerbaar en citeerbaar voor antwoordmachines, zoals ChatGPT, Claude, Perplexity, Gemini, Copilot en de AI-overzichten van Google.
+
+**Is SEO nog nuttig?**
+Ja. Antwoordmachines steunen grotendeels op de index van de zoekmachines. Goede SEO blijft de basis; GEO voegt toe wat inhoud citeerbaar maakt.
+
+**Kan een vermelding door ChatGPT gegarandeerd worden?**
+Nee. Niemand kan een vermelding door ChatGPT garanderen: wees op uw hoede voor wie dat belooft. Wat wel kan: uw zichtbaarheid meten, verhelpen wat in uw nadeel speelt en de evolutie van de vermeldingen opvolgen.
+
+**Volstaat een llms.txt-bestand?**
+Nee. Een llms.txt-bestand helpt sommige tools om een site samen te vatten, maar de belangrijkste assistenten lezen het vandaag weinig. Wij zetten het op zonder er wonderen van te verwachten.
+
+**Moet u uw website herbouwen?**
+Zelden. De meeste GEO-correcties gaan over de inhoud, de gestructureerde data en de aanwezigheid buiten de site.
+
+**In welke talen werkt u?**
+Clixite werkt in het Nederlands, het Frans en het Engels. De assistenten antwoorden in de taal van de vraag: u moet in elke taal aanwezig zijn.
+
+## Onze andere expertises
+
+- [Forward Deployed Engineering](https://www.clixite.be/nl/forward-deployed-engineering/)
+- [Enterprise- en solution-architectuur](https://www.clixite.be/nl/expertises/enterprise-en-solution-architectuur/)
+- [Programmamanagement](https://www.clixite.be/nl/expertises/programmamanagement/)
+- [Digitalisering](https://www.clixite.be/nl/expertises/digitalisering/)
+
+## Wat is uw x?
+
+Een eerste gesprek volstaat om hem te benoemen. U krijgt een eerste aanzet mee, ook als we daarna niet samenwerken.
+
+Of schrijf rechtstreeks naar [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Of bel
+
+- [België +32 10 31 10 00](tel:+3210311000)
+- [Luxemburg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, België. Afspraak in Waver, bij u of via videogesprek.
+
+* * *
+
+Titel: Enterprise- en solution-architectuur in België | Clixite
+Bron: https://www.clixite.be/nl/expertises/enterprise-en-solution-architectuur/
+Taal: Nederlands (België)
+Bijgewerkt: 2026-10-26
+Uitgever: Clixite SRL, Waver, België (ondernemingsnummer 0871.430.776)
+Samenvatting: Uw informatiesysteem in kaart, een doelarchitectuur, een traject in opties en de keuze van oplossingen, tot in productie. In België en Luxemburg.
+
+# Enterprise- en solution-architectuur: beslissen waar uw informatiesysteem naartoe gaat.
+
+Enterprise-architectuur verbindt de strategie met het informatiesysteem: wat u hebt, wat u nastreeft en de weg daartussen. Solution-architectuur kiest en ontwerpt de tools die u daar brengen. Clixite doet beide, van het in kaart brengen tot de ingebruikname, voor kmo’s en voor gereguleerde groepen, in België en Luxemburg.
+
+Bijgewerkt op 26 oktober 2026
+
+## Wanneer u ons inschakelt
+
+- Uw applicaties hebben zich opgestapeld en niemand heeft nog het overzicht.
+- Er staat een grote keuze voor de deur: ERP, CRM, aankooptool, cloud, dataplatform.
+- Een fusie, een splitsing of een reorganisatie schudt de kaarten opnieuw.
+- Een toezichthouder of een auditor vraagt een helder overzicht van uw systemen en uw kritieke leveranciers.
+- Een AI-project moet zijn plaats vinden in het bestaande landschap.
+
+## Wat u krijgt
+
+**Een kaart van uw IT-landschap**
+Applicaties, data, stromen, contracten en kritieke leveranciers, op een kaart die uw teams kunnen lezen.
+
+**Een doelarchitectuur**
+Principes, bouwstenen, integraties en beveiliging: waar u naartoe gaat, en waarom.
+
+**Een traject in opties**
+Wat we behouden, wat we vervangen, wat we stopzetten; elke optie met haar kosten, risico’s en afhankelijkheden.
+
+**Externe architectuurreviews**
+Een externe, onderbouwde blik op een oplossingskeuze of een architectuurdossier, voor de beslissing duur uitvalt.
+
+## Van doelarchitectuur tot productie
+
+Een doelarchitectuur heeft pas waarde als ze gebouwd wordt. Zodra ze gevalideerd is, kunnen wij ze met uw teams realiseren, via Forward Deployed Engineering, en het programma leiden dat erbij hoort.
+
+[Forward Deployed Engineering](https://www.clixite.be/nl/forward-deployed-engineering/)
+
+## Veelgestelde vragen.
+
+**Wat is het verschil tussen enterprise-architectuur en solution-architectuur?**
+Enterprise-architectuur beslist over het geheel: business, data, applicaties, technologie, en het traject tussen vandaag en de doelarchitectuur. Solution-architectuur ontwerpt een concrete oplossing binnen dat kader, tot en met de integraties en de beveiliging.
+
+**Heeft een kmo enterprise-architectuur nodig?**
+Ja, op haar eigen schaal. Een duidelijke kaart van uw tools en uw stromen voorkomt overbodige aankopen en bereidt de groei voor. Voor een kmo blijft het werk beperkt tot enkele korte opleveringen.
+
+**Volgt u een methodologisch kader?**
+Wij gebruiken de begrippen uit erkende kaders wanneer ze nuttig zijn, zonder zwaar formalisme op te leggen: wat wij aan architectuur opleveren, moet door uw teams gelezen en gebruikt worden.
+
+**Kunt u de doelarchitectuur ook bouwen?**
+Ja, via Forward Deployed Engineering: wij gaan aan de slag in uw teams om in productie te brengen wat beslist is, en dragen het daarna over.
+
+## Onze andere expertises
+
+- [Forward Deployed Engineering](https://www.clixite.be/nl/forward-deployed-engineering/)
+- [GEO: vindbaarheid in AI-assistenten](https://www.clixite.be/nl/geo-vindbaarheid-ai/)
+- [Programmamanagement](https://www.clixite.be/nl/expertises/programmamanagement/)
+- [Digitalisering](https://www.clixite.be/nl/expertises/digitalisering/)
+
+## Wat is uw x?
+
+Een eerste gesprek volstaat om hem te benoemen. U krijgt een eerste aanzet mee, ook als we daarna niet samenwerken.
+
+Of schrijf rechtstreeks naar [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Of bel
+
+- [België +32 10 31 10 00](tel:+3210311000)
+- [Luxemburg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, België. Afspraak in Waver, bij u of via videogesprek.
+
+* * *
+
+Titel: Programmamanagement en verandermanagement | Clixite
+Bron: https://www.clixite.be/nl/expertises/programmamanagement/
+Taal: Nederlands (België)
+Bijgewerkt: 2026-10-26
+Uitgever: Clixite SRL, Waver, België (ondernemingsnummer 0871.430.776)
+Samenvatting: Governance, planning, budget, risico's en adoptie: uw programma's met meerdere teams strak geleid tot de ingebruikname, in België en Luxemburg.
+
+# Programmamanagement: programma’s met meerdere teams, strak geleid tot de ingebruikname.
+
+Programmamanagement coördineert meerdere projecten die eenzelfde doel dienen: governance, planning, budget, risico’s en verandermanagement. Clixite zet uw transformatieprogramma’s op of neemt ze over, in België en Luxemburg, met erkende referentiekaders (PMP, PRINCE2, SAFe, Scrum, ADKAR) en één regel: beslissingen worden genomen op basis van feiten.
+
+Bijgewerkt op 26 oktober 2026
+
+## Wanneer u ons inschakelt
+
+- Een programma loopt vertraging op of het budget ontspoort.
+- Meerdere teams en meerdere leveranciers moeten in hetzelfde tempo vooruitgaan.
+- De stuurcomités vergaderen, maar beslissen niet.
+- Een kritieke overgang naar productie nadert.
+- De gebruikers omarmen niet wat opgeleverd werd.
+
+## Wat u krijgt
+
+**Een diagnose bij overname**
+Waar het programma echt staat: scope, planning, budget, risico’s en afhankelijkheden.
+
+**Een governance die beslist**
+Stuurcomités, rollen en duidelijke beslisregels, dashboards die de besluitvorming ondersteunen.
+
+**Een plan dat standhoudt**
+Mijlpalen, afhankelijkheden en risico’s die op de voet gevolgd worden, met elk team en elke leverancier.
+
+**Meetbare verandering**
+Opleiding, communicatie en adoptie, opgevolgd met indicatoren die bij de start zijn vastgelegd.
+
+## Veelgestelde vragen.
+
+**Kunt u een lopend programma overnemen?**
+Ja, dat komt vaak voor: een diagnose, een herstelplan en duidelijke keuzes, daarna aansturing dicht bij de teams.
+
+**Iteratieve methodes of V-model?**
+Allebei, afhankelijk van de aard van het programma en uw randvoorwaarden: SAFe en Scrum voor product en software, PRINCE2 of PMP voor programma’s met een zware governance, vaak een bewuste combinatie.
+
+**Werkt u samen met onze leveranciers en integratoren?**
+Ja. Wij coördineren de interne teams en de leveranciers, met duidelijke afspraken voor elk van hen.
+
+**Hoe meet u de adoptie?**
+Met indicatoren die bij de start zijn vastgelegd: werkelijk gebruik, supportaanvragen, kwaliteit van de ingevoerde gegevens, feedback van de gebruikers.
+
+## Onze andere expertises
+
+- [Forward Deployed Engineering](https://www.clixite.be/nl/forward-deployed-engineering/)
+- [GEO: vindbaarheid in AI-assistenten](https://www.clixite.be/nl/geo-vindbaarheid-ai/)
+- [Enterprise- en solution-architectuur](https://www.clixite.be/nl/expertises/enterprise-en-solution-architectuur/)
+- [Digitalisering](https://www.clixite.be/nl/expertises/digitalisering/)
+
+## Wat is uw x?
+
+Een eerste gesprek volstaat om hem te benoemen. U krijgt een eerste aanzet mee, ook als we daarna niet samenwerken.
+
+Of schrijf rechtstreeks naar [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Of bel
+
+- [België +32 10 31 10 00](tel:+3210311000)
+- [Luxemburg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, België. Afspraak in Waver, bij u of via videogesprek.
+
+* * *
+
+Titel: Digitalisering van processen en procesautomatisering | Clixite
+Bron: https://www.clixite.be/nl/expertises/digitalisering/
+Taal: Nederlands (België)
+Bijgewerkt: 2026-10-26
+Uitgever: Clixite SRL, Waver, België (ondernemingsnummer 0871.430.776)
+Samenvatting: Eerst vereenvoudigen, dan digitaliseren: geautomatiseerde stromen, gekoppelde data en toegepaste AI, van kmo tot grote groep, in België en Luxemburg.
+
+# Digitalisering van processen: van papier en dubbele invoer naar gekoppelde tools.
+
+Digitalisering van processen vervangt papier, verspreide bestanden en dubbele invoer door digitale werkstromen en gekoppelde data. Clixite brengt uw processen in kaart en vereenvoudigt ze voor ze geautomatiseerd worden, en neemt ze daarna samen met uw teams in productie, van kmo’s tot grote groepen, in België en Luxemburg.
+
+Bijgewerkt op 26 oktober 2026
+
+## Wanneer u ons inschakelt
+
+- Een proces draait nog op papier, in Excel of via e-mail.
+- Dezelfde gegevens worden meermaals ingevoerd, in verschillende tools.
+- Goedkeuringen raken zoek tussen mailboxen.
+- De dashboards bestaan, maar niemand gebruikt ze.
+- U wilt AI gebruiken, maar weet niet waar u moet beginnen.
+
+## Wat u krijgt
+
+**Vereenvoudigde processen**
+In kaart gebracht, ontdaan van overbodige stappen, met duidelijke regels, voordat ze digitaal ondersteund worden.
+
+**Geautomatiseerde stromen**
+Formulieren, goedkeuringen, meldingen en integraties met uw CRM en uw ERP.
+
+**Gekoppelde data**
+Eén keer invoeren, correcte referentiedata en dashboards die gebruikt worden.
+
+**Toegepaste AI**
+Waar ze tijd bespaart, onder menselijk toezicht en conform de GDPR.
+
+## Veelgestelde vragen.
+
+**Waar begint u het best?**
+Bij het proces dat het lastigst is en het vaakst terugkomt. We vereenvoudigen het voor we het digitaal ondersteunen: een warrig proces automatiseren versnelt alleen de warboel.
+
+**Moet u van tools veranderen?**
+Niet altijd. We benutten eerst wat u al hebt; een nieuwe tool is alleen verantwoord als hij beter werkt tegen redelijke kosten.
+
+**Welke plaats krijgt AI?**
+Documenten lezen, aanvragen sorteren, antwoorden voorbereiden: daar bewijst AI goede diensten, onder menselijk toezicht en conform de GDPR.
+
+**Kunnen uw teams de werkstromen daarna zelf aanpassen?**
+Ja. Documentatie en opleiding maken deel uit van elke opdracht, zodat uw teams zelfstandig blijven.
+
+## Onze andere expertises
+
+- [Forward Deployed Engineering](https://www.clixite.be/nl/forward-deployed-engineering/)
+- [GEO: vindbaarheid in AI-assistenten](https://www.clixite.be/nl/geo-vindbaarheid-ai/)
+- [Enterprise- en solution-architectuur](https://www.clixite.be/nl/expertises/enterprise-en-solution-architectuur/)
+- [Programmamanagement](https://www.clixite.be/nl/expertises/programmamanagement/)
+
+## Wat is uw x?
+
+Een eerste gesprek volstaat om hem te benoemen. U krijgt een eerste aanzet mee, ook als we daarna niet samenwerken.
+
+Of schrijf rechtstreeks naar [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Of bel
+
+- [België +32 10 31 10 00](tel:+3210311000)
+- [Luxemburg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, België. Afspraak in Waver, bij u of via videogesprek.
+
+* * *
+
+Titel: Aankooptransformatie en Source-to-Pay in België | Clixite
+Bron: https://www.clixite.be/nl/expertises/aankooptransformatie/
+Taal: Nederlands (België)
+Bijgewerkt: 2026-10-26
+Uitgever: Clixite SRL, Waver, België (ondernemingsnummer 0871.430.776)
+Samenvatting: Source-to-Pay, Fractional CPO, interim, risico's van derden en DORA: Clixite structureert uw aankopen, van kmo tot gereguleerde groep. België en Luxemburg.
+
+# Een aankoopfunctie die meeweegt in de beslissingen.
+
+Aankooptransformatie, van behoefte tot betaling: digitaal ondersteunde Source-to-Pay-processen, beheerste leveranciersrisico’s, een aankoopdirectie in deeltijd of ad interim. Voor kmo’s die hun aankopen structureren en voor gereguleerde groepen.
+
+## Wat wij op ons nemen.
+
+- **Source-to-Pay, van behoefte tot betaling**
+Van behoefte tot betaling: sourcing, offerteaanvragen, contracten, bestellingen, ontvangst en facturen. Eenvoudige processen, digitaal ondersteund zodra het volume dat rechtvaardigt, met SAP Ariba of de tool die bij uw omvang past, en geïntegreerd in uw ERP.
+- **Aankoopdirectie in deeltijd**
+Een Fractional CPO die aanwezig is in het tempo dat u bepaalt: roadmap, aansturing van strategische offerteaanvragen, competentieopbouw van het team. De praktijken van grote ondernemingen, afgestemd op de omvang van uw bedrijf.
+- **Aankoopdirectie ad interim**
+De functie ingevuld wanneer de positie vacant is of een transformatie doormaakt. We stabiliseren, we beslissen, we bereiden de komst van de vaste aankoopdirecteur voor.
+- **Risico’s van derden en compliance**
+In kaart brengen en opvolgen van kritieke leveranciers, DORA-register van informatie, NIS2-vereisten voor de toeleveringsketen, contractclausules en exitplannen.
+
+## Drie formules, even hoge eisen.
+
+Scope, looptijd en budget leggen we samen vast na een eerste gesprek. Twijfelt u tussen de formules? [Een eerste gesprek volstaat om te kiezen](https://www.clixite.be/nl/expertises/aankooptransformatie/#contact).
+
+- **Aankoopdiagnose**
+Uw uitgaven in kaart, de volwassenheid van uw processen, leveranciersrisico’s en becijferde quick wins.
+[De diagnose aanvragen](https://www.clixite.be/nl/expertises/aankooptransformatie/#contact)
+- **Fractional CPO**
+Een aankoopdirectie die aanwezig is, een roadmap die gevolgd wordt, offerteaanvragen die aangestuurd worden.
+[Een Fractional CPO bespreken](https://www.clixite.be/nl/expertises/aankooptransformatie/#contact)
+- **Interimmanagement**
+De functie ingevuld en getransformeerd zolang de positie vacant is, en daarna overgedragen.
+[Een interimopdracht bespreken](https://www.clixite.be/nl/expertises/aankooptransformatie/#contact)
+
+## Veelgestelde vragen.
+
+**Wat is een Fractional CPO?**
+Een Fractional CPO is een ervaren aankoopdirecteur die in deeltijd voor uw bedrijf werkt, in het tempo dat u bepaalt. U krijgt toegang tot de expertise van een grote groep zonder een voltijdse functie te creëren, en u past de aanwezigheid aan de werklast aan.
+
+**Is Source-to-Pay nuttig voor een kmo?**
+Ja, op voorwaarde dat u met de processen begint en pas daarna met de tools. Een kmo krijgt vooral meer inzicht in haar uitgaven, betere onderhandelde voorwaarden en een snellere verwerking van facturen. De tool volgt later, afgestemd op uw volumes.
+
+**Wat betekent de DORA-verordening voor de aankoopfunctie?**
+Sinds 17 januari 2025 verplicht DORA de financiële entiteiten in de Europese Unie om een register van informatie bij te houden over hun aanbieders van ICT-diensten, hun concentratierisico’s te beoordelen en specifieke clausules in de contracten op te nemen. De aankoopfunctie staat vooraan om die gegevens te verzamelen en over die clausules te onderhandelen.
+
+**Werkt Clixite ook in het Nederlands en het Engels?**
+Ja. Clixite werkt in het Nederlands, Frans of Engels, afhankelijk van uw teams en uw leveranciers, overal in België en Luxemburg.
+
+## Wat is uw x?
+
+Een eerste gesprek volstaat om hem te benoemen. U krijgt een eerste aanzet mee, ook als we daarna niet samenwerken.
+
+Of schrijf rechtstreeks naar [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Of bel
+
+- [België +32 10 31 10 00](tel:+3210311000)
+- [Luxemburg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, België. Afspraak in Waver, bij u of via videogesprek.
+
+* * *
+
+Titel: Onze vijf expertises in consultancy en engineering | Clixite
+Bron: https://www.clixite.be/nl/expertises/
+Taal: Nederlands (België)
+Bijgewerkt: 2026-10-26
+Uitgever: Clixite SRL, Waver, België (ondernemingsnummer 0871.430.776)
+Samenvatting: Forward Deployed Engineering, GEO, enterprise- en solution-architectuur, programmamanagement, digitalisering: zo werkt Clixite bij u, in België.
+
+# Vijf expertises, één maatstaf: een resultaat dat draait.
+
+Wij gaan aan de slag waar een strategie een werkend systeem moet worden, in een kmo net zo goed als in een gereguleerde groep, in België en Luxemburg.
+
+1. ## [Forward Deployed Engineering](https://www.clixite.be/nl/forward-deployed-engineering/)
+Wij gaan aan de slag in uw teams om de integratie, de automatisering of de AI-agent die u nodig hebt te ontwerpen, te bouwen en in productie te brengen, met uw tools en volgens uw beveiligingsregels. Wij vertrekken wanneer uw teams de oplossing zelfstandig beheren.
+
+  - Een prototype dat zich bewezen heeft op uw echte data
+  - Een oplossing in productie, bewaakt en gedocumenteerd
+  - Een volledige overdracht: code, toegangsrechten, documentatie, opgeleide teams
+Integratie, automatisering, AI-agents, in productie brengen, overdracht
+[Forward Deployed Engineering in detail](https://www.clixite.be/nl/forward-deployed-engineering/)
+2. ## [GEO: vindbaarheid in AI-assistenten](https://www.clixite.be/nl/geo-vindbaarheid-ai/)
+Wanneer uw klanten ChatGPT, Claude, Perplexity, Gemini of Copilot vragen wie hen kan helpen, moet uw bedrijf in het antwoord staan. Wij maken uw aanbod begrijpelijk, verifieerbaar en citeerbaar voor antwoordmachines en voor Google.
+
+  - Een audit van uw zichtbaarheid in AI-assistenten, vraag per vraag
+  - Pagina’s, gestructureerde data en een entiteit die op elkaar aansluiten en die zoek- en antwoordmachines begrijpen
+  - Een afgestemde aanwezigheid buiten uw site en opvolging van de vermeldingen
+GEO, SEO, gestructureerde data, Wikidata, Search Console, Bing Webmaster Tools
+[GEO in detail](https://www.clixite.be/nl/geo-vindbaarheid-ai/)
+3. ## [Enterprise- en solution-architectuur](https://www.clixite.be/nl/expertises/enterprise-en-solution-architectuur/)
+Weten wat u hebt, beslissen waar u naartoe gaat en de oplossingen kiezen die u daar brengen, zonder tools op te stapelen.
+
+  - Uw applicaties, data en stromen in kaart gebracht
+  - Doelarchitectuur en traject in becijferde opties
+  - Keuze van oplossingen en externe architectuurreviews
+IT-landschap in kaart, doelarchitectuur, integratie, cloud
+[Architectuur in detail](https://www.clixite.be/nl/expertises/enterprise-en-solution-architectuur/)
+4. ## [Programmamanagement](https://www.clixite.be/nl/expertises/programmamanagement/)
+Programma’s met meerdere teams, goed afgebakend en strak aangestuurd: een duidelijke governance, opgevolgde risico’s, stuurcomités die beslissen, gebruikers die vanaf dag één betrokken zijn.
+
+  - Planning, budget en risico’s opnieuw onder controle
+  - Governance en stuurcomités die knopen doorhakken
+  - Meetbaar verandermanagement
+PMP, PRINCE2, SAFe, Scrum, ADKAR
+[Programmamanagement in detail](https://www.clixite.be/nl/expertises/programmamanagement/)
+5. ## [Digitalisering](https://www.clixite.be/nl/expertises/digitalisering/)
+Papieren processen, dubbele invoer en verspreide bestanden worden gekoppelde tools die voor uw teams werken.
+
+  - Processen in kaart gebracht en vereenvoudigd, voordat ze digitaal ondersteund worden
+  - Formulieren, stromen en goedkeuringen geautomatiseerd
+  - Data gekoppeld tussen uw tools, dashboards die gebruikt worden
+Automatisering, CRM en ERP, data, toegepaste AI
+[Digitalisering in detail](https://www.clixite.be/nl/expertises/digitalisering/)
+
+## Waar onze expertises van toepassing zijn.
+
+Dezelfde methodes, op de onderwerpen die het zwaarst wegen in gereguleerde ondernemingen en in kmo’s.
+
+- **Aankoop en Source-to-Pay**
+Fractional CPO, interim, risico’s van derden
+Van behoefte tot betaling: digitaal ondersteunde processen, beheerste leveranciersrisico’s, een aankoopdirectie in deeltijd of ad interim.
+[Aankooptransformatie](https://www.clixite.be/nl/expertises/aankooptransformatie/)
+- **Risico’s en compliance**
+DORA, NIS2, GDPR, AI Act
+Verplichtingen vertaald naar processen, verantwoordelijken en bewijsstukken, in wat u bouwt en in wat u aankoopt.
+[FDE in een gereguleerde omgeving](https://www.clixite.be/nl/forward-deployed-engineering/#gereguleerde-omgeving)
+- **AI in productie**
+Agents, automatiseringen, integraties
+Van het prototype dat overtuigt in een demo tot de AI-agent die op uw systemen draait, onder menselijk toezicht.
+[Forward Deployed Engineering](https://www.clixite.be/nl/forward-deployed-engineering/)
+- **Digitale producten en SaaS**
+Architectuur, integraties, lancering
+De architectuur, de integraties en het in productie brengen van een digitaal product, tot uw team het zelfstandig verder ontwikkelt.
+[Solution-architectuur](https://www.clixite.be/nl/expertises/enterprise-en-solution-architectuur/)
+
+## Samenwerken.
+
+Scope, looptijd en budget leggen we samen vast na een eerste gesprek. In België en Luxemburg, in het Nederlands, Frans of Engels.
+
+| Formule                      | Wat u krijgt                                                                                       | Wanneer kiezen                                                                                |
+| ---------------------------- | -------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Consultancyopdracht          | Een duidelijke rol in uw teams, rechtstreeks of via een consultancybureau op uw leverancierslijst. | Wanneer u expertise nodig hebt die langere tijd aanwezig blijft.                              |
+| Oplevering tegen vaste prijs | Een scope, een oplevering en een budget, goedgekeurd voor we beginnen.                             | Wanneer het doel helder is: een doelarchitectuur, een integratie, een oplossing in productie. |
+| Programmaversterking         | Een kritieke fase die we samen met uw team in goede banen leiden, terwijl we meebouwen.            | Om een programma over te nemen, in productie te gaan of de overdracht te organiseren.         |
+
+**Vertrouwelijkheid**
+Als u dat wenst, ondertekenen we nog voor het gesprek een geheimhoudingsovereenkomst.
+
+**Continuïteit**
+Doorlopende documentatie en een overdracht die vanaf de start gepland is.
+
+**Eigendom**
+Uw toegangsrechten, uw code en uw documentatie blijven bij u.
+
+## Wat is uw x?
+
+Een eerste gesprek volstaat om hem te benoemen. U krijgt een eerste aanzet mee, ook als we daarna niet samenwerken.
+
+Of schrijf rechtstreeks naar [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Of bel
+
+- [België +32 10 31 10 00](tel:+3210311000)
+- [Luxemburg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, België. Afspraak in Waver, bij u of via videogesprek.
+
+* * *
+
+Titel: Over Clixite, consultancy en engineering sinds 2005
+Bron: https://www.clixite.be/nl/over-clixite/
+Taal: Nederlands (België)
+Bijgewerkt: 2026-10-26
+Uitgever: Clixite SRL, Waver, België (ondernemingsnummer 0871.430.776)
+Samenvatting: Clixite SRL, opgericht in 2005 in Waver: Forward Deployed Engineering, GEO, architectuur, programmamanagement en digitalisering, in België en Luxemburg.
+
+# Consultancy en engineering, sinds 2005.
+
+Clixite is een Belgisch consultancy- en engineeringbedrijf, gevestigd in Waver. Het bedrijf bundelt vijf expertises, van doelarchitectuur tot productie, en een aanbod voor aankooptransformatie, voor groeiende kmo’s en voor gereguleerde groepen.
+
+De regel van Clixite past in één zin: “Wij lossen uw x op.” Het probleem waarop alles vastloopt en dat nog niemand bij naam heeft genoemd.
+
+## Wie u antwoordt.
+
+Nicolas Simon is de oprichter van Clixite. Hij leest de berichten die via deze site binnenkomen en beantwoordt ze, in het Nederlands, Frans of Engels.
+
+Nicolas Simon
+
+Enterprise & Solution Architect, Forward Deployed Engineer
+
+[LinkedIn-profiel van Nicolas Simon](https://www.linkedin.com/in/nicolassim/)
+
+**Certificeringen**
+PMP, PRINCE2, AgilePM, SAFe, Scrum, ITIL v3, ADKAR
+
+**Werktalen**
+Nederlands, Frans, Engels
+
+## Het bedrijf in het kort.
+
+**Officiële naam**
+Clixite SRL, besloten vennootschap naar Belgisch recht
+
+**Opgericht in**
+2005
+
+**Zetel**
+Avenue Reine Astrid 53, 1300 Wavre (Waals-Brabant, België)
+
+**Ondernemings- en btw-nummer**
+BE 0871.430.776
+
+**Werkgebied**
+België en Luxemburg
+
+**Werktalen**
+Nederlands, Frans, Engels
+
+**Telefoonnummers**
+België +32 10 31 10 00; Luxemburg +352 20 42 02 02
+
+**E-mail**
+nicolas@clixite.be
+
+**Certificeringen van Nicolas Simon**
+PMP, PRINCE2, AgilePM, SAFe, Scrum, ITIL v3, ADKAR
+
+## Vijf expertises.
+
+- [Forward Deployed Engineering](https://www.clixite.be/nl/forward-deployed-engineering/) Integratie, automatisering, AI-agents, in productie brengen, overdracht
+- [GEO: vindbaarheid in AI-assistenten](https://www.clixite.be/nl/geo-vindbaarheid-ai/) GEO, SEO, gestructureerde data, Wikidata, Search Console, Bing Webmaster Tools
+- [Enterprise- en solution-architectuur](https://www.clixite.be/nl/expertises/enterprise-en-solution-architectuur/) IT-landschap in kaart, doelarchitectuur, integratie, cloud
+- [Programmamanagement](https://www.clixite.be/nl/expertises/programmamanagement/) PMP, PRINCE2, SAFe, Scrum, ADKAR
+- [Digitalisering](https://www.clixite.be/nl/expertises/digitalisering/) Automatisering, CRM en ERP, data, toegepaste AI
+
+## Zeer verschillende omgevingen.
+
+Telecom, bankwezen, verzekeringen, farmaceutische industrie, bouw, luchtvaart, distributie, vrijetijdssector, groeiende kmo’s: in opdracht, als consultant of in vaste dienst. De projecten zelf blijven vertrouwelijk.
+
+[Waar we gewerkt hebben](https://www.clixite.be/nl/#referenties)
+
+De visuele identiteit van Clixite staat op [charte.clixite.be](https://charte.clixite.be/).
+
+## Wat is uw x?
+
+Een eerste gesprek volstaat om hem te benoemen. U krijgt een eerste aanzet mee, ook als we daarna niet samenwerken.
+
+Of schrijf rechtstreeks naar [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Of bel
+
+- [België +32 10 31 10 00](tel:+3210311000)
+- [Luxemburg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, België. Afspraak in Waver, bij u of via videogesprek.
+
+* * *
+
+Titel: Contact en afspraak: Waver, België en Luxemburg | Clixite
+Bron: https://www.clixite.be/nl/contact/
+Taal: Nederlands (België)
+Bijgewerkt: 2026-10-26
+Uitgever: Clixite SRL, Waver, België (ondernemingsnummer 0871.430.776)
+Samenvatting: Een eerste gesprek van 45 minuten, zonder verplichting. Schrijf naar nicolas@clixite.be of bel +32 10 31 10 00. Waver, België en Luxemburg, in uw taal.
+
+# Wat is uw x?
+
+Een eerste gesprek volstaat om hem te benoemen. U krijgt een eerste aanzet mee, ook als we daarna niet samenwerken.
+
+## Onze contactgegevens.
+
+**België**
+[+32 10 31 10 00](tel:+3210311000)
+
+**Luxemburg**
+[+352 20 42 02 02](tel:+35220420202)
+
+**E-mail**
+[nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+**Adres**
+Clixite SRL
+Avenue Reine Astrid 53
+1300 Wavre, België
+
+**Afspraak**
+In Waver, bij u of via videogesprek, in het Nederlands, Frans of Engels.
+
+KBO- en btw-nummer BE 0871.430.776.
+
+## Wat er daarna gebeurt.
+
+Drie stappen, zonder verplichting.
+
+1. **U schrijft.**
+Twee zinnen over uw uitdaging, of een telefoontje. Een adres en een nummer volstaan, er is geen formulier.
+2. **Wij antwoorden persoonlijk.**
+Nicolas Simon leest uw bericht en beantwoordt het zelf.
+3. **Een eerste gesprek van 45 minuten.**
+Zonder verplichting, in Waver, bij u of via videogesprek, in het Nederlands, Frans of Engels.
+
+Als u dat wenst, ondertekenen we voor het gesprek een geheimhoudingsovereenkomst.
+
+* * *
+
+Titel: Juridische informatie en privacy op www.clixite.be | Clixite
+Bron: https://www.clixite.be/nl/juridische-informatie/
+Taal: Nederlands (België)
+Bijgewerkt: 2026-10-26
+Uitgever: Clixite SRL, Waver, België (ondernemingsnummer 0871.430.776)
+Samenvatting: Uitgever, hosting, intellectuele eigendom, foto's en bescherming van uw persoonsgegevens op www.clixite.be, de website van Clixite SRL in Waver, België.
+
+# Juridische informatie en privacy.
+
+## Uitgever
+
+Clixite SRL, besloten vennootschap. Zetel: Avenue Reine Astrid 53, 1300 Wavre, België. Ondernemings- en btw-nummer: BE 0871.430.776, RPR Waals-Brabant. Verantwoordelijke uitgever: Nicolas Simon. Contact: [nicolas@clixite.be](mailto:nicolas@clixite.be), [+32 10 31 10 00](tel:+3210311000) (België) of [+352 20 42 02 02](tel:+35220420202) (Luxemburg).
+
+## Hosting
+
+De site draait op een virtuele privéserver die Clixite beheert en huurt bij Hostinger International Ltd, in een datacenter in de Europese Unie.
+
+## Intellectuele eigendom
+
+De teksten, het logo en de illustraties van Clixite zijn beschermd. Voor reproductie is schriftelijke toestemming nodig. De logo’s van de vermelde organisaties behoren toe aan hun respectieve eigenaars.
+
+## Fotoverantwoording
+
+De foto’s komen van Unsplash, onder de [Unsplash-licentie](https://unsplash.com/license), en werden bijgesneden en afgestemd op de kleuren van Clixite. Ze illustreren onze expertises en tonen noch onze klanten, noch onze projecten.
+
+- [Een hand tekent met een liniaal een plan op een groot vel papier](https://unsplash.com/photos/-FPFq%5Ftrr2Y), Daniel McCullough
+- [Een verlichte kantoorverdieping ’s avonds, van buitenaf gezien: een team aan het werk achter de grote glaswand](https://unsplash.com/photos/v6JKMaqAwZE), Vitaly Gariev
+- [Drie ingenieurs gebogen over een laptop, midden in een testopstelling in een werkplaats](https://unsplash.com/photos/bIltCMXIwRE), ThisisEngineering
+- [Een lange gang tussen rekken vol dossiers en ingebonden mappen](https://unsplash.com/photos/eR96tng0pyk), Zoshua Colah
+- [Een lege vergaderzaal, met een lange tafel voor een glazen wand](https://unsplash.com/photos/0sT9YhNgSEs), Benjamin Child
+- [Twee spoorlijnen die elkaar in een X kruisen, van bovenaf gezien](https://unsplash.com/photos/AO3otVvlMU8), Zane Lee
+- [Rijen serverkasten in een datacenter](https://unsplash.com/photos/fImCPTZ026U), Tony Marinescu
+- [Een containerterminal in een haven, vanuit de lucht: containers in lange rijen en portaalkranen](https://unsplash.com/photos/kyCNGGKCvyw), CHUTTERSNAP
+- [Gele glasvezelkabels, één voor één aangesloten op een patchpaneel](https://unsplash.com/photos/yhJVLxcquEY), Albert Stoynov
+
+## Uw persoonsgegevens
+
+Deze site plaatst geen cookies, gebruikt geen tools voor bezoekersstatistieken en laadt geen externe bestanden: de lettertypes staan op onze eigen server. De site bewaart slechts één instelling in uw browser, als u de film op de homepage pauzeert: die keuze blijft op uw apparaat en wordt nooit naar ons doorgestuurd.
+
+De server bewaart technische logbestanden (IP-adres, datum, opgevraagde pagina) gedurende een beperkte periode, voor de beveiliging van de dienst (gerechtvaardigd belang).
+
+Als u ons schrijft, gebruiken wij uw naam, uw e-mailadres en de inhoud van uw bericht om u te antwoorden en, als u dat vraagt, om een voorstel voor te bereiden (precontractuele maatregelen op uw verzoek). Die gegevens worden niet verkocht of doorgegeven. Verwerkingsverantwoordelijke: Clixite SRL.
+
+U kunt vragen om inzage in uw gegevens, om rectificatie, om wissing of om beperking van de verwerking, of bezwaar maken tegen de verwerking, door te schrijven naar [nicolas@clixite.be](mailto:nicolas@clixite.be). U kunt ook een klacht indienen bij de Gegevensbeschermingsautoriteit, Drukpersstraat 35, 1000 Brussel ([gegevensbeschermingsautoriteit.be](https://www.gegevensbeschermingsautoriteit.be/)).
+
+## Wat is uw x?
+
+Een eerste gesprek volstaat om hem te benoemen. U krijgt een eerste aanzet mee, ook als we daarna niet samenwerken.
+
+Of schrijf rechtstreeks naar [nicolas@clixite.be](mailto:nicolas@clixite.be)
+
+Of bel
+
+- [België +32 10 31 10 00](tel:+3210311000)
+- [Luxemburg +352 20 42 02 02](tel:+35220420202)
+
+Clixite SRL, Avenue Reine Astrid 53, 1300 Wavre, België. Afspraak in Waver, bij u of via videogesprek.
